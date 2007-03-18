@@ -1,0 +1,3 @@
+<!ENTITY warning.title "Varovanie pre stránky obsahujúce rámce">
+<!ENTITY warningText.label "Pokiaľ stránka obsahuje rámce, uistite sa, že je označená požadovaná stránka (jednoducho na ňu kliknite)">
+<!ENTITY warningDisableDialog.label "Túto správu už nezobrazovať">

@@ -1,0 +1,49 @@
+<!ENTITY settings.title "Настройки Viewsourcewith">
+<!ENTITY destFolder.caption "Папка для временных файлов">
+<!ENTITY editorList.caption "Список программ">
+<!ENTITY configPath.label "Файл конфигурации">
+<!ENTITY defaultEditor.tree.label "По умолчанию">
+<!ENTITY description.tree.label "Название">
+<!ENTITY show.tree.label "Включен">
+<!ENTITY new.button.label "Новый">
+<!ENTITY edit.button.label "Правка">
+<!ENTITY delete.button.label "Удалить">
+<!ENTITY writtenBy.label "Расширение создано">
+<!ENTITY site.label "Davide Ficano">
+<!ENTITY viewSource.home.tooltip "Посетить домашнюю страницу ViewSourceWith">
+<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+<!ENTITY save.method.caption "Предпочитаемый метод сохранения">
+<!ENTITY save.method.normal.label "Обычный">
+<!ENTITY save.method.dom.label "Документ DOM">
+<!ENTITY save.method.advice.label "Удерживайте SHIFT для сохранения с использованием другого метода">
+<!ENTITY main.label "Основные">
+<!ENTITY advanced.label "Дополнительно">
+<!ENTITY repl.editor.label "Использовать вместо оригинального пункта меню просмотра исходного кода">
+<!ENTITY repl.editor.open.focused.label "Открывать фрейм находящийся в фокусе">
+<!ENTITY repl.editor.advice.label "Настройки будут применены после перезапуска программы">
+<!ENTITY repl.image.viewer.item "(Нет)">
+<!ENTITY repl.image.viewer.label "Использовать вместо встроенного просмотра рисунков">
+<!ENTITY useProfilePath.label "Использовать путь к профилю (прочитайте подсказку)">
+<!ENTITY useProfilePath.tooltip "Для сменных носителей определяется точка монтирования">
+<!ENTITY image.onlink.caption "При связи ссылки с изображением">
+<!ENTITY image.onlink.image.label "Просмотр изображения">
+<!ENTITY image.onlink.link.label "Просмотр ссылки">
+<!ENTITY temp.tab.label "Временные файлы">
+<!ENTITY temp.clearAtExit.label "Удалять файлы после закрытия программы">
+<!ENTITY temp.cleanNow.label "Удалить">
+<!ENTITY view.tab.label "Вид">
+<!ENTITY view.menu.label "Меню">
+<!ENTITY view.showIcons.label "Показывать значки в меню">
+<!ENTITY urlmapper.tab.label "Фильтры">
+<!ENTITY urlmapper.caption "Список фильтров страниц на сервере">
+<!ENTITY urlmapper.enabled.tree.label "Включен">
+<!ENTITY urlmapper.name.tree.label "Название">
+<!ENTITY urlmapper.advice.label "Открывает исходники страниц &quot;на сервере&quot;">
+<!ENTITY view.showResourcesMenu.label "Показывать меню CSS/JS">
+<!ENTITY view.quickFrameShowMenu.label "Показывать меню быстрого доступа к фреймам">
+<!ENTITY picktitle.destfolder "Выберите папку">
+<!ENTITY picktitle.configPath "Выберите файл конфигурации">
+<!ENTITY temp.useOSPath.label "Использовать папку операционной системы">
+<!ENTITY warning.delete.item "Удалить &quot;&#37;1&quot;?">
+<!ENTITY jsconsole.label "Консоль Javascript">
+<!ENTITY repl.jsconsole.viewer.label "Открывать исходники в консоли Javascript">

@@ -1,0 +1,49 @@
+<!ENTITY settings.title "ViewSourceWith - Opciones">
+<!ENTITY destFolder.caption "Carpeta temporal">
+<!ENTITY editorList.caption "Editores">
+<!ENTITY configPath.label "Archivo de configuración">
+<!ENTITY defaultEditor.tree.label "Por defecto">
+<!ENTITY description.tree.label "Nombre">
+<!ENTITY show.tree.label "Habilitado">
+<!ENTITY new.button.label "Nuevo">
+<!ENTITY edit.button.label "Editar">
+<!ENTITY delete.button.label "Eliminar">
+<!ENTITY writtenBy.label "Creado por">
+<!ENTITY site.label "Davide Ficano">
+<!ENTITY viewSource.home.tooltip "Ver la página oficial">
+<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+<!ENTITY save.method.caption "Método por defecto">
+<!ENTITY save.method.normal.label "Normal">
+<!ENTITY save.method.dom.label "Modelo de objetos DOM">
+<!ENTITY save.method.advice.label "Mantener pulsada la tecla Mayús para usar otro método">
+<!ENTITY main.label "Principal">
+<!ENTITY advanced.label "Avanzadas">
+<!ENTITY repl.editor.label "Usar en lugar del elemento de menú nativo">
+<!ENTITY repl.editor.open.focused.label "Abrir la ventana con el foco">
+<!ENTITY repl.editor.advice.label "Los cambios tienen efecto al reiniciar">
+<!ENTITY repl.image.viewer.item "(Ninguno)">
+<!ENTITY repl.image.viewer.label "Usar en lugar del visor de imágenes nativo">
+<!ENTITY useProfilePath.label "Usar ruta del perfil">
+<!ENTITY useProfilePath.tooltip "En unidades extraíbles reflejar el punto de montaje">
+<!ENTITY image.onlink.caption "Cuando el elemento sea una imagen con un enlace">
+<!ENTITY image.onlink.image.label "Ver imagen">
+<!ENTITY image.onlink.link.label "Ver enlace">
+<!ENTITY temp.tab.label "Archivos temporales">
+<!ENTITY temp.clearAtExit.label "Borrar archivos al cerrar">
+<!ENTITY temp.cleanNow.label "Borrar">
+<!ENTITY view.tab.label "Ver">
+<!ENTITY view.menu.label "Menú">
+<!ENTITY view.showIcons.label "Ver iconos en el menú">
+<!ENTITY urlmapper.tab.label "Correspondencias">
+<!ENTITY urlmapper.caption "Lista de páginas en el servidor">
+<!ENTITY urlmapper.enabled.tree.label "Habilitado">
+<!ENTITY urlmapper.name.tree.label "Nombre">
+<!ENTITY urlmapper.advice.label "Abrir código fuente en el &apos;lado del servidor&apos;">
+<!ENTITY view.showResourcesMenu.label "Mostrar menú CSS/JS">
+<!ENTITY view.quickFrameShowMenu.label "Mostrar menú &apos;acceso rápido a marcos&apos;">
+<!ENTITY picktitle.destfolder "Seleccionar carpeta">
+<!ENTITY picktitle.configPath "Seleccionar archivo de configuración">
+<!ENTITY temp.useOSPath.label "Usar la carpeta del sistema operativo">
+<!ENTITY warning.delete.item "¿Borrar &quot;&#37;1&quot;?">
+<!ENTITY jsconsole.label "Consola Javascript">
+<!ENTITY repl.jsconsole.viewer.label "Usar para abrir archivos fuente en la consola Javascript">

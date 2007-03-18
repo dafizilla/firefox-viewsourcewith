@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+
+  <Description about="urn:mozilla:install-manifest">
+    <em:id>@UUID@</em:id>
+    <em:name>@EXT_TITLE_NAME@</em:name>
+    <em:version>@VERSION@</em:version>
+    <em:description>View page source with external application</em:description>
+    <em:creator>Davide Ficano</em:creator>
+
+    <em:contributor>Jean-bernard "Goofy" (French translation)</em:contributor>
+    <em:contributor>Carlos from Proyecto Nave (Spanish translation)</em:contributor>
+    <em:contributor>Jarol (Spanish translation)</em:contributor>
+    <em:contributor>Pawel Kata (Polish translation)</em:contributor>
+    <em:contributor>Kurusu Mitsuaki (Japanese translation)</em:contributor>
+    <em:contributor>Johannes Dollinger (MacOSX code support)</em:contributor>
+    <em:contributor>Kai-Chieh Ku (Chinese translation)</em:contributor>
+    <em:contributor>Fernando Pereira Silveira (Brazilian translation)</em:contributor>
+    <em:contributor>Oliver Roth "ReinekeFux" (German translation)</em:contributor>
+    <em:contributor>Alexey Gubanov "Ragnaar" (Russian translation)</em:contributor>
+    <em:contributor>Asterxx and NegnuD (Dutch translation)</em:contributor>
+    <em:contributor>R. Nicol&#225;s L&#243;pez "MorZilla" (Spanish-Argentina translation)</em:contributor>
+    <em:contributor>Ales Petrovicky (Czech translation)</em:contributor>
+    <em:contributor>Fiag (Chinese simplified translation)</em:contributor>
+    <em:contributor>Roccobot (Graphics)</em:contributor>
+    <em:contributor>Batuhan &#199;etin (Turkish translation)</em:contributor>
+    <em:contributor>rony (Slovak translation)</em:contributor>
+    <em:contributor>Pedram Veisi (Persian translation)</em:contributor>
+
+    <em:homepageURL>http://dafizilla.sourceforge.net/viewsourcewith</em:homepageURL>
+
+    <!-- Front End Integration Hooks (used by Extension Manager)-->
+    <em:optionsURL>chrome://@EXT_NAME@/content/settings/settings.xul</em:optionsURL>
+    <em:iconURL>chrome://@EXT_NAME@/content/img/appicon.png</em:iconURL>
+
+    <em:updateURL>http://localhost/dafizilla/viewsourcewith/update.php?item_id=%ITEM_ID%&amp;item_version=%ITEM_VERSION%&amp;app_id=%APP_ID%&amp;app_version=%APP_VERSION%</em:updateURL>
+
+    <em:file>
+      <Description about="urn:mozilla:extension:file:plainfiles">
+        <em:package>content/@EXT_NAME@/</em:package>
+        <em:locale>locale/en-US/@EXT_NAME@/</em:locale>
+        <em:locale>locale/it-IT/@EXT_NAME@/</em:locale>
+        <em:locale>locale/fr-FR/@EXT_NAME@/</em:locale>
+        <em:locale>locale/es-ES/@EXT_NAME@/</em:locale>
+        <em:locale>locale/pl-PL/@EXT_NAME@/</em:locale>
+        <em:locale>locale/ja-JP/@EXT_NAME@/</em:locale>
+        <em:locale>locale/zh-TW/@EXT_NAME@/</em:locale>
+        <em:locale>locale/pt-BR/@EXT_NAME@/</em:locale>
+        <em:locale>locale/de-DE/@EXT_NAME@/</em:locale>
+        <em:locale>locale/ru-RU/@EXT_NAME@/</em:locale>
+        <em:locale>locale/nl-NL/@EXT_NAME@/</em:locale>
+        <em:locale>locale/es-AR/@EXT_NAME@/</em:locale>
+        <em:locale>locale/cs-CZ/@EXT_NAME@/</em:locale>
+        <em:locale>locale/zh-CN/@EXT_NAME@/</em:locale>
+        <em:locale>locale/tr-TR/@EXT_NAME@/</em:locale>
+        <em:locale>locale/sk-SK/@EXT_NAME@/</em:locale>
+        <em:locale>locale/az-AZ/@EXT_NAME@/</em:locale>
+        <em:locale>locale/da-DK/@EXT_NAME@/</em:locale>
+        <em:locale>locale/fa-IR/@EXT_NAME@/</em:locale>
+        <em:locale>locale/hr-HR/@EXT_NAME@/</em:locale>
+        <em:locale>locale/af-ZA/@EXT_NAME@/</em:locale>
+        <em:skin>skin/classic/@EXT_NAME@/</em:skin>
+      </Description>
+    </em:file>
+
+    <!-- FireFox -->
+    <em:targetApplication>
+      <Description>
+        <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+        <em:minVersion>1.0</em:minVersion>
+        <em:maxVersion>3.0</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+
+   <!-- Mozilla -->
+   <em:targetApplication>
+      <Description>
+        <em:id>{86c18b42-e466-45a9-ae7a-9b95ba6f5640}</em:id>
+        <em:minVersion>1.7</em:minVersion>
+        <em:maxVersion>1.8</em:maxVersion>
+      </Description>
+   </em:targetApplication>
+
+   <!-- Thunderbird -->
+   <em:targetApplication>
+      <Description>
+         <em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
+         <em:minVersion>0.5</em:minVersion>
+         <em:maxVersion>2.0.0.*</em:maxVersion>
+      </Description>
+   </em:targetApplication>
+
+   <!-- NVU -->
+   <em:targetApplication>
+      <Description>
+         <em:id>{136c295a-4a5a-41cf-bf24-5cee526720d5}</em:id>
+         <em:minVersion>1.0</em:minVersion>
+         <em:maxVersion>1.0</em:maxVersion>
+      </Description>
+   </em:targetApplication>
+
+    <!-- Netscape -->
+    <em:targetApplication>
+      <Description>
+         <em:id>{3db10fab-e461-4c80-8b97-957ad5f8ea47}</em:id>
+         <em:minVersion>8.0</em:minVersion>
+         <em:maxVersion>8.1.2</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+
+    <!-- Flock -->
+    <em:targetApplication>
+      <Description>
+        <em:id>{a463f10c-3994-11da-9945-000d60ca027b}</em:id>
+        <em:minVersion>0.4</em:minVersion>
+        <em:maxVersion>0.8</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+
+  </Description>
+</RDF>

@@ -1,0 +1,8 @@
+<!ENTITY cmd.viewsource.label "View Source With">
+<!ENTITY cmd.viewsource.frame.label "View Frame Source With">
+<!ENTITY cmd.viewsource-viewMenu.label "Source With">
+<!ENTITY cmd.viewsource-attachMenu.label "Open With">
+<!ENTITY viewsource-viewMenu.accesskey "w">
+<!ENTITY viewsourcewith.commandkey "U">
+<!ENTITY viewsourcewithButton.label "Source">
+<!ENTITY viewsourcewithTooltip "View Source">

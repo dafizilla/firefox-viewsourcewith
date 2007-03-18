@@ -1,0 +1,14 @@
+<!ENTITY dialog.editor.title "Choose editor">
+<!ENTITY editorPath.label "Editor path">
+<!ENTITY description.label "Description">
+<!ENTITY shortcut.caption "Shortcut key">
+<!ENTITY shortcut.default.accel "Shift + Ctrl + ">
+<!ENTITY shortcut.remove "Remove">
+<!ENTITY shortcut.maybe.invalid "Some shortcut should not work">
+<!ENTITY invalid.path.chars "Invalid path, ensure it doesn&apos;t contain invalid characters">
+<!ENTITY picktitle.editor "Select editor">
+<!ENTITY parameters.label "Parameters">
+<!ENTITY token.filenames "Filename(s)">
+<!ENTITY token.line.number "Line number">
+<!ENTITY token.column.number "Column number">
+<!ENTITY token.help "Help...">

@@ -1,0 +1,14 @@
+<!ENTITY dialog.editor.title "Zvolit editor">
+<!ENTITY editorPath.label "Cesta k editoru">
+<!ENTITY description.label "Popis">
+<!ENTITY shortcut.caption "Klávesová zkratka">
+<!ENTITY shortcut.default.accel "Shift + Ctrl +">
+<!ENTITY shortcut.remove "Odstranit">
+<!ENTITY shortcut.maybe.invalid "Některé klávesové zkratky nemusí fungovat">
+<!ENTITY invalid.path.chars "Neplatná cesta, ujistěte se, že neobsahuje nepovolené znaky">
+<!ENTITY picktitle.editor "Zvolit editor">
+<!ENTITY parameters.label "Parametry">
+<!ENTITY token.filenames "Jména(a) souboru(ů)">
+<!ENTITY token.line.number "Číslo řádku">
+<!ENTITY token.column.number "Číslo sloupce">
+<!ENTITY token.help "Nápověda...">

@@ -1,0 +1,235 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://viewsourcewith/locale/viewsourcewith.dtd" >
+<?xml-stylesheet href="chrome://viewsourcewith/skin/viewsourcewith.css" type="text/css"?>
+
+<overlay id="viewsourcewithOverlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/common.js" />
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/commonres.js" />
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/keyData.js" />
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/urlMapperData.js"/>
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/prefs.js" />
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/linkInfo.js" />
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/editorHooker.js" />
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/tempCleaner.js" />
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/inputText.js" />
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/viewsourcewithOverlay.js" />
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/browserHelper.js" />
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/pagesHandler.js" />
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/urldownloader.js" />
+
+    <!-- Command set Firefox-->
+    <commandset id="mainCommandSet">
+        <commandset id="viewSourceWithCommands" />
+    </commandset>
+
+    <!-- Command set Thunderbird-->
+    <commandset id="mailCommands">
+        <commandset id="viewSourceWithCommands" />
+    </commandset>
+
+    <!-- Command set Mozilla-->
+    <commandset id="commands">
+        <commandset id="viewSourceWithCommands" />
+    </commandset>
+
+    <!-- Command set NVU-->
+    <commandset id="tasksCommands">
+        <commandset id="viewSourceWithCommands" />
+    </commandset>
+
+    <!-- Command set Console-->
+    <commandset id="consoleCommands">
+        <commandset id="viewSourceWithCommands" />
+    </commandset>
+
+    <commandset id="viewSourceWithCommands">
+        <command id="cmd_runDefaultEditor" oncommand="gViewSourceWithMain.runEditor(event, gViewSourceWithMain.prefs.editorDefaultIndex, gViewSourceWithMain.prefs.openFocusWin);" />
+        <command id="cmd_vswEnabledEditor" />
+        <command id="cmd_vswAttachment" />
+    </commandset>
+
+    <!-- Context Menu Firefox, Mozilla -->
+    <popup id="contentAreaContextMenu">
+        <menu id="vswMenuQuickFrame" />
+        <menu id="viewsourcewithMenu" />
+    </popup>
+
+    <!-- Context Menu Thunderbird -->
+    <popup id="messagePaneContext">
+        <menu id="vswMenuQuickFrame" />
+        <menu id="viewsourcewithMenu" />
+    </popup>
+
+    <!-- Context Menu NVU -->
+    <popup id="editorContentContext">
+        <menu id="vswMenuQuickFrame" />
+        <menu id="viewsourcewithMenu" />
+    </popup>
+
+    <!-- Common menu vswMenuQuickFrame -->
+    <menu id="vswMenuQuickFrame"
+          label="&cmd.viewsource.frame.label;"
+          insertafter="context-viewinfo">
+        <menupopup id="vswMenuPopupQuickFrame"
+                   onpopupshowing="if (event.target == this) { gViewSourceWithMain.initCtxMenuQuickFrame(event); }" />
+    </menu>
+
+    <!-- Common menu viewsourcewithMenu -->
+    <menu id="viewsourcewithMenu"
+          label="&cmd.viewsource.label;"
+          framelabel="&cmd.viewsource.frame.label;"
+          accesskey="&viewsource-viewMenu.accesskey;"
+          class="menu-iconic"
+          insertafter="context-viewinfo">
+        <menupopup id="viewsourcewithMenuPopup"
+                   onpopupshowing="if (event.target == this) { gViewSourceWithMain.initCtxMenu(event); }" />
+    </menu>
+
+    <!-- View Menu Firefox -->
+    <menupopup id="menu_viewPopup">
+        <menu id="viewsourcewith-viewMenu" insertbefore="documentDirection-separator" />
+    </menupopup>
+
+    <!-- View Menu Mozilla, Thunderbird, NVU -->
+    <menupopup id="menu_View_Popup">
+        <menu id="viewsourcewith-viewMenu" insertafter="charsetMenu"/>
+    </menupopup>
+
+    <popup id="ConsoleContext">
+        <menu id="vswConsole"
+              label="&cmd.viewsource.label;"
+              accesskey="&viewsource-viewMenu.accesskey;"
+              observes="cmd_copy">
+            <menupopup id="viewsourcewithMenuPopup"
+                       onpopupshowing="if (event.target == this) { gViewSourceWithMain.initCtxConsoleMenu(event); }" />
+        </menu>
+    </popup>
+
+    <!--
+        To handle correctly insertafter is necessary to overlay msgHdrViewOverlay.xul
+        But overlaying msgHdrViewOverlay.xul we must remove the messenger.xul overlay
+        that includes msgHdrViewOverlay.xul making insertafter not reachable
+    -->
+    <popup id="attachmentListContext">
+        <menu id="viewsourcewith-attachmentMenu"
+              label="&cmd.viewsource-attachMenu.label;"
+              observes="cmd_vswAttachment"
+              accesskey="&viewsource-viewMenu.accesskey;"
+              insertafter="context-openAttachment">
+            <menupopup id="viewsourcewith-attachmentMenuPopup"
+                       onpopupshowing="if (event.target == this) { gViewSourceWithMain.initViewMenu(event); }" />
+        </menu>
+    </popup>
+
+    <menu id="viewsourcewith-viewMenu"
+          label="&cmd.viewsource-viewMenu.label;"
+          observes="cmd_vswEnabledEditor"
+          accesskey="&viewsource-viewMenu.accesskey;">
+        <menupopup id="viewsourcewith-viewMenuPopup"
+                   onpopupshowing="if (event.target == this) { gViewSourceWithMain.initViewMenu(event); }" />
+    </menu>
+
+    <!-- Shortcuts Element Firefox -->
+    <keyset id="mainKeyset">
+        <key id="key_viewsourcewith" />
+    </keyset>
+
+    <!-- Shortcuts Element Thunderbird -->
+    <keyset id="mailKeys">
+        <key id="key_viewsourcewith" />
+    </keyset>
+
+    <!-- Shortcuts Element Mozilla -->
+    <keyset id="navKeys">
+        <key id="key_viewsourcewith" />
+    </keyset>
+
+    <!-- Shortcuts Element NVU -->
+    <keyset id="editorKeys">
+        <key id="key_viewsourcewith" />
+    </keyset>
+
+    <!-- Shortcuts Console -->
+    <keyset id="consoleKeys">
+        <key id="key_viewsourcewith" />
+    </keyset>
+
+    <!-- Shortcuts Console SeaMonkey -->
+    <keyset id="tasksKeys">
+        <key id="key_viewsourcewith" />
+    </keyset>
+
+    <!-- Common key key_viewsourcewith -->
+    <key id="key_viewsourcewith"
+         key="&viewsourcewith.commandkey;"
+         command="cmd_runDefaultEditor"
+         modifiers="accel,shift"/>
+
+    <!-- Firefox Toolbar Element -->
+    <toolbarpalette id="BrowserToolbarPalette">
+        <toolbarbutton id="viewsourcewith-button" />
+    </toolbarpalette>
+
+    <!-- Thunderbird Toolbar Element -->
+    <toolbarpalette id="MailToolbarPalette">
+        <toolbarbutton id="viewsourcewith-button" />
+    </toolbarpalette>
+
+    <!-- NVU Toolbar Element -->
+    <toolbarpalette id="NvuToolbarPalette">
+        <toolbarbutton id="viewsourcewith-button" usenvustyle="true"/>
+    </toolbarpalette>
+
+    <!-- Mozilla/SeaMonkey Navigator Toolbar Element -->
+    <!--
+        http://lxr.mozilla.org/mozilla/source/xpfe/browser/resources/content/navigator.js
+        The listener checks children of browser.toolbars.showbutton.XXXX
+        The updateButton function hides button with name XXXX-button
+    -->
+    <hbox id="nav-bar-buttons">
+        <toolbarbutton id="viewsourcewith-button" />
+    </hbox>
+
+    <!-- Mozilla/SeaMonkey Mail Toolbar Element
+        On Mail toolbar the button ids are xxx-button
+        instead on navigation toolbar are button-xxx
+    -->
+    <hbox id="toolbar_button_box">
+        <toolbarbutton
+            id="button-viewsourcewith"
+            class="toolbarbutton-1"
+            type="menu-button"
+            tooltiptext="&viewsourcewithTooltip;"
+            label="&viewsourcewithButton.label;"
+            oncommand="gViewSourceWithMain.runEditor(event, gViewSourceWithMain.prefs.editorDefaultIndex);"
+            observes="cmd_vswEnabledEditor"
+            key="key_viewsourcewith"
+            disabled="true"
+            insertafter="button-stop">
+            <menupopup id="viewsourcewith-toolbarMenuPopup"
+                       onpopupshowing="return gViewSourceWithMain.initViewMenu(event);"
+                       oncommand="event.stopPropagation();" />
+        </toolbarbutton>
+    </hbox>
+
+    <!-- Common toolbarbutton viewsourcewith-button -->
+    <!-- preventBubble is deprecated versus stopPropagation in Gecko 1.9 -->
+    <toolbarbutton
+        id="viewsourcewith-button"
+        class="toolbarbutton-1"
+        type="menu-button"
+        tooltiptext="&viewsourcewithTooltip;"
+        label="&viewsourcewithButton.label;"
+        oncommand="gViewSourceWithMain.runEditor(event, gViewSourceWithMain.prefs.editorDefaultIndex);"
+        observes="cmd_vswEnabledEditor"
+        key="key_viewsourcewith">
+        <menupopup id="viewsourcewith-toolbarMenuPopup"
+                   onpopupshowing="return gViewSourceWithMain.initViewMenu(event);"
+                   oncommand="event.stopPropagation();" />
+    </toolbarbutton>
+
+</overlay>
+

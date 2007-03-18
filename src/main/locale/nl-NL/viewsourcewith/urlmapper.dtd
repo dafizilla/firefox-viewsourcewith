@@ -1,0 +1,7 @@
+<!ENTITY dialog.urlmapper.title "Serverpagina&apos;s opslaan">
+<!ENTITY urlMapperName.caption "Naam van de map">
+<!ENTITY domainfilter.caption "Mapfilter">
+<!ENTITY localpath.caption "Map die serverpagina&apos;s bevat">
+<!ENTITY jsCode.caption "Javascript code">
+<!ENTITY jsCode.insert.tooltiptext "Voeg vooraf ingestelde code in">
+<!ENTITY urlmapper.picktitle.directory "Selecteer map">

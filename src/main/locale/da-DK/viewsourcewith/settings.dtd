@@ -1,0 +1,49 @@
+<!ENTITY settings.title "ViewSourceWith indstillinger">
+<!ENTITY destFolder.caption "Midlertidige filer-mappe">
+<!ENTITY editorList.caption "Editorliste">
+<!ENTITY configPath.label "Konfigurationsfil">
+<!ENTITY defaultEditor.tree.label "Standard">
+<!ENTITY description.tree.label "Navn">
+<!ENTITY show.tree.label "Slået til">
+<!ENTITY new.button.label "Ny">
+<!ENTITY edit.button.label "Rediger">
+<!ENTITY delete.button.label "Slet">
+<!ENTITY writtenBy.label "Skrevet af">
+<!ENTITY site.label "Davide Ficano">
+<!ENTITY viewSource.home.tooltip "Gå til ViewSourceWith">
+<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+<!ENTITY save.method.caption "Prædefineret gem-metode">
+<!ENTITY save.method.normal.label "Normal">
+<!ENTITY save.method.dom.label "DOM-dokument">
+<!ENTITY save.method.advice.label "Hold SHIFT-tasten nede for at bruge den anden metode">
+<!ENTITY main.label "Hoved">
+<!ENTITY advanced.label "Avanceret">
+<!ENTITY repl.editor.label "Brug i stedet for indbygget meddelelse/side kildekode menupunkt">
+<!ENTITY repl.editor.open.focused.label "Åbn fokuseret vindue i framesæt">
+<!ENTITY repl.editor.advice.label "Indstillinger virker først efter genstart">
+<!ENTITY repl.image.viewer.item "(Ingen)">
+<!ENTITY repl.image.viewer.label "Brug i stedet for indbygget billedfremviser">
+<!ENTITY useProfilePath.label "Brug profilsti (læs tooltippet)">
+<!ENTITY useProfilePath.tooltip "På flytbare diske reflekteres enheden ud fra forbindelsespunkt">
+<!ENTITY image.onlink.caption "I tilfælde af link med billede">
+<!ENTITY image.onlink.image.label "Vis billede">
+<!ENTITY image.onlink.link.label "Vis link">
+<!ENTITY temp.tab.label "Midlertidige filer">
+<!ENTITY temp.clearAtExit.label "Fjern filer når applikationen lukkes">
+<!ENTITY temp.cleanNow.label "Fjern">
+<!ENTITY view.tab.label "Vis">
+<!ENTITY view.menu.label "Menu">
+<!ENTITY view.showIcons.label "Vis ikoner på meny">
+<!ENTITY urlmapper.tab.label "Mappings">
+<!ENTITY urlmapper.caption "Serversider mapping-liste">
+<!ENTITY urlmapper.enabled.tree.label "Slået til">
+<!ENTITY urlmapper.name.tree.label "Navn">
+<!ENTITY urlmapper.advice.label "Åbn side kildekoder på &apos;serverside&apos;">
+<!ENTITY view.showResourcesMenu.label "Vis CSS/JS-menu">
+<!ENTITY view.quickFrameShowMenu.label "Vis &apos;quick access frames&apos;-menu">
+<!ENTITY picktitle.destfolder "Vælg mappe">
+<!ENTITY picktitle.configPath "Vælg konfigurationsfil">
+<!ENTITY temp.useOSPath.label "Brug operativsystemfolder">
+<!ENTITY warning.delete.item "Slet &quot;&#37;1&quot;?">
+<!ENTITY jsconsole.label "Javascript-konsol">
+<!ENTITY repl.jsconsole.viewer.label "Bruges til at åbne kildefiler ind i Javascript-konsollen">

@@ -1,0 +1,11 @@
+<!ENTITY title "posebni parametri">
+<!ENTITY description "Možete koristiti neke posebne parametre koji će biti zamijeniti prilikom pokretanja uređivača.">
+<!ENTITY parameter "Parametar">
+<!ENTITY replaced.with "Zamijenjen s">
+<!ENTITY file.names.descr "Imenima datoteka">
+<!ENTITY line.number.descr "Brojem reda">
+<!ENTITY column.number.descr "Brojem stupca">
+<!ENTITY meaningful.js "Ovaj parametar je smislen u Javascript konzoli, inače je njegova vrijednost 1.">
+<!ENTITY line.column.usage "Broj reda i stupca moraju biti korišteni zajedno s komandno-linijskom skretnicom pozicije pokazivača određenog uređivača.">
+<!ENTITY see "Pogledajte">
+<!ENTITY more.details "za više detalja.">

@@ -1,0 +1,8 @@
+<!ENTITY cmd.viewsource.label "Quelltext anzeigen mit...">
+<!ENTITY cmd.viewsource.frame.label "Frame-Quelltext anzeigen mit...">
+<!ENTITY cmd.viewsource-viewMenu.label "Quelltext anzeigen mit...">
+<!ENTITY cmd.viewsource-attachMenu.label "Öffnen mit...">
+<!ENTITY viewsource-viewMenu.accesskey "Q">
+<!ENTITY viewsourcewith.commandkey "U">
+<!ENTITY viewsourcewithButton.label "Quelltext">
+<!ENTITY viewsourcewithTooltip "Quelltext anzeigen">

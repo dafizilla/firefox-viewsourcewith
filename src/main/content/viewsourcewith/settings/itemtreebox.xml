@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<!DOCTYPE dialog SYSTEM "chrome://viewsourcewith/locale/settings.dtd" >
+<bindings xmlns="http://www.mozilla.org/xbl"
+          xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+          xmlns:xbl="http://www.mozilla.org/xbl">
+  <binding id="itemtreebox">
+
+    <content>
+        <xul:hbox flex="1">
+        <xul:tree anonid="itemtreebox-tree"
+                flex="1"
+                hidecolumnpicker="true"
+                seltype="single"
+                xbl:inherits="onselect,seltype">
+            <!-- If xul:treecols is missing from XBL the hidecolumnpicker doesn't work -->
+            <xul:treecols>
+                <children />
+            </xul:treecols>
+            <!-- If xul:treechildren is missing from XBL the tree.view doesn't work. -->
+            <xul:treechildren ondblclick="onDblClickTreeChild(event);"/>
+        </xul:tree>
+        <xul:vbox>
+            <xul:button
+                    anonid="newButton"
+                    class="itemtreebox-new"
+                    label="&new.button.label;"
+                    xbl:inherits="oncommand=onnew,class=newbuttonclass,label=newbuttonlabel"/>
+            <xul:button
+                    anonid="editButton"
+                    class="itemtreebox-edit"
+                    label="&edit.button.label;"
+                    xbl:inherits="oncommand=onedit,class=editbuttonclass,label=editbuttonlabel"/>
+            <xul:button
+                    anonid="deleteButton"
+                    class="itemtreebox-delete"
+                    label="&delete.button.label;"
+                    xbl:inherits="oncommand=ondelete,class=deletebuttonclass,label=deletebuttonlabel"/>
+            <xul:hbox xbl:inherits="hidden=movebuttonshidden">
+            <xul:button
+                    anonid="moveUpButton"
+                    class="itemtreebox-up"
+                    xbl:inherits="class=upbuttonclass,label=upbuttonlabel"
+                    oncommand="_moveSelectedItem(true);"/>
+            <xul:spacer flex="1"/>
+            <xul:button
+                    anonid="moveDownButton"
+                    class="itemtreebox-down"
+                    xbl:inherits="class=downbuttonclass,label=downbuttonlabel"
+                    oncommand="_moveSelectedItem(false);"/>
+            </xul:hbox>
+        </xul:vbox>
+        </xul:hbox>
+    </content>
+
+    <implementation>
+
+      <field name="tree" readonly="true">
+          document.getAnonymousElementByAttribute(this, "anonid", "itemtreebox-tree");
+      </field>
+
+      <property name="view">
+        <getter>
+            return this.mView;
+        </getter>
+        <setter>
+            this.tree.treeBoxObject.view = val;
+            this.mView = val;
+        </setter>
+      </property>
+
+      <method name="onDblClickTreeChild">
+        <parameter name="event"/>
+        <body><![CDATA[
+            if (event.button == 0) {
+                var editButton = document.getAnonymousElementByAttribute(this, "anonid", "editButton");
+                editButton.doCommand();
+            }
+        ]]></body>
+      </method>
+
+      <method name="_moveSelectedItem">
+        <parameter name="moveUp"/>
+        <body><![CDATA[
+            var view = this.mView;
+            var fromIdx = view.selection.currentIndex;
+            var offset;
+
+            if (moveUp) {
+                if (fromIdx <= 0) {
+                    return;
+                }
+                offset = -1;
+            } else {
+                if (fromIdx >= view.rowCount - 1) {
+                    return;
+                }
+                offset = +1;
+            }
+
+            var toIdx = fromIdx + offset;
+
+            // swap function must be defined if view
+            view.swap(fromIdx, toIdx);
+            view.invalidate();
+            view.selection.select(toIdx);
+            view.treebox.ensureRowIsVisible(toIdx);
+            view.treebox.focused = true;
+        ]]></body>
+      </method>
+
+    </implementation>
+
+    <handlers>
+      <handler event="select" phase="capturing">
+        <![CDATA[
+            var view = this.mView;
+            var selIdx = view.selection.currentIndex;
+
+            if (!view.selection.isSelected(selIdx)) {
+                selIdx = -1;
+            }
+
+            var upButton = document.getAnonymousElementByAttribute(this, "anonid", "moveUpButton");
+            var downButton = document.getAnonymousElementByAttribute(this, "anonid", "moveDownButton");
+            var newButton = document.getAnonymousElementByAttribute(this, "anonid", "newButton");
+            var editButton = document.getAnonymousElementByAttribute(this, "anonid", "editButton");
+            var deleteButton = document.getAnonymousElementByAttribute(this, "anonid", "deleteButton");
+
+            upButton.disabled = selIdx <= 0;
+            downButton.disabled = selIdx < 0 || selIdx >= view.rowCount - 1;
+            deleteButton.disabled = selIdx < 0;
+            editButton.disabled = selIdx < 0;
+        ]]>
+      </handler>
+
+      <handler event="keypress" keycode="VK_INSERT"
+        action='document.getAnonymousElementByAttribute(this, "anonid", "newButton").doCommand();'/>
+
+      <handler event="keypress" keycode="VK_F2"
+        action='document.getAnonymousElementByAttribute(this, "anonid", "editButton").doCommand();'/>
+
+      <handler event="keypress" keycode="VK_DELETE"
+        action='document.getAnonymousElementByAttribute(this, "anonid", "deleteButton").doCommand();'/>
+    </handlers>
+  </binding>
+</bindings>

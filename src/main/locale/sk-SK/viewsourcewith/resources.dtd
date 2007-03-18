@@ -1,0 +1,10 @@
+<!ENTITY resources.title "Otvoriť predpisy štýlov a skripty">
+<!ENTITY all.tab.label "Všetky zdroje">
+<!ENTITY css.tab.label "Predpisy štýlov">
+<!ENTITY js.tab.label "Skripty">
+<!ENTITY showallframes.label "Zobraziť zdrojové kódy všetkých rámcov">
+<!ENTITY editors.label "Použiť editor">
+<!ENTITY button.label.accept "Zobraziť">
+<!ENTITY button.label.cancel "Zrušiť">
+<!ENTITY resourcename.tree.label "Názov">
+<!ENTITY resourcepath.tree.label "URL">

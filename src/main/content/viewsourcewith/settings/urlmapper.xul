@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://viewsourcewith/skin/settings.css" type="text/css"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://viewsourcewith/locale/urlmapper.dtd" >
+
+<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        id="viewsourcewithUrlMapper"
+        onload="return gViewSourceUrlMapper.onLoad();"
+        ondialogaccept="return gViewSourceUrlMapper.onAccept();"
+        buttons="accept,cancel"
+        title="&dialog.urlmapper.title;">
+
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/common.js"/>
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/prefs.js"/>
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/settings/urlmapper.js"/>
+
+    <groupbox orient="horizontal">
+        <caption label="&urlMapperName.caption;"/>
+            <textbox flex="1" id="name"/>
+    </groupbox>
+
+    <groupbox orient="horizontal">
+        <caption label="&domainfilter.caption;"/>
+        <textbox flex="1" id="domainFilter"/>
+    </groupbox>
+
+    <groupbox orient="horizontal">
+        <caption label="&localpath.caption;"/>
+        <hbox flex="1" >
+            <filepicker id="localpath"
+                flex="1"
+                mode="getFolder"
+                pickTitle="&urlmapper.picktitle.directory;"
+                filters="apps" />
+        </hbox>
+    </groupbox>
+
+    <groupbox orient="horizontal" flex="1">
+        <caption label="&jsCode.caption;"/>
+        <hbox flex="1">
+            <textbox flex="1" class="js" id="jsCode" multiline="true"/>
+            <vbox>
+                <button class="js"
+                        id="jsInsertButton"
+                        tooltiptext="&jsCode.insert.tooltiptext;"
+                        oncommand="return gViewSourceUrlMapper.onJsInsert();"/>
+            </vbox>
+        </hbox>
+    </groupbox>
+</dialog>

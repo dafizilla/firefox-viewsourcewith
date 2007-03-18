@@ -1,0 +1,7 @@
+<!ENTITY dialog.urlmapper.title "การเชื่อมโยงหน้าบนเซิร์ฟเวอร์">
+<!ENTITY urlMapperName.caption "ชื่อการเชื่อมโยง">
+<!ENTITY domainfilter.caption "รายการเชื่อมโยง (regex)">
+<!ENTITY localpath.caption "โฟลเดอร์ที่เก็บหน้าบนเซิร์ฟเวอร์">
+<!ENTITY jsCode.caption "โค้ดจาวาสคริปต์">
+<!ENTITY jsCode.insert.tooltiptext "แทรกโค้ดไว้ล่วงหน้า">
+<!ENTITY urlmapper.picktitle.directory "เลือกโฟลเดอร์">

@@ -1,0 +1,219 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://viewsourcewith/skin/settings.css" type="text/css"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://viewsourcewith/locale/settings.dtd" >
+
+<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        id="viewsourcewithSettingsDialog"
+        minwidth="400"
+        onload="return gViewSourceSettings.onLoad();"
+        ondialogaccept="return gViewSourceSettings.onAccept();"
+        buttons="accept,cancel"
+        title="&settings.title;"
+        windowtype="vsw:settings"
+        persist="width height screenX screenY">
+
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/common.js"/>
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/keyData.js" />
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/urlMapperData.js"/>
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/prefs.js"/>
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/editorHooker.js"/>
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/settings/treeView.js"/>
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/settings/treeViewUrlMapper.js"/>
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/tempCleaner.js"/>
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/settings/settings.js"/>
+
+  <tabbox id="vswTabBox" flex="1">
+    <tabs onselect="gViewSourceSettings.onSelectTab(this.selectedIndex);">
+      <tab label="&main.label;"/>
+      <tab label="&temp.tab.label;"/>
+      <tab label="&view.tab.label;"/>
+      <tab label="&advanced.label;"/>
+      <tab label="&urlmapper.tab.label;"/>
+    </tabs>
+    <tabpanels flex="1">
+      <tabpanel orient="vertical" flex="1">
+        <groupbox orient="horizontal" align="center">
+            <caption label="&configPath.label;"/>
+                <vbox flex="1">
+                    <checkbox id="useProfilePath"
+                                label="&useProfilePath.label;"
+                                tooltiptext="&useProfilePath.tooltip;"
+                                />
+                    <filepicker id="configPath"
+                        flex="1"
+                        mode="open"
+                        onfilechoosen="return gViewSourceSettings.onPickConfigPath(isOk, filePath);"
+                        pickTitle="&picktitle.configPath;"
+                        filters="all xml"
+                        filterIndex="1"/>
+                </vbox>
+        </groupbox>
+
+        <groupbox orient="horizontal" flex="1">
+            <caption label="&editorList.caption;"/>
+                <itemtreebox
+                    id="vswTreeEditor"
+                    flex="1"
+                    deleteitemmsg="&warning.delete.item;"
+
+                    onnew="return gViewSourceSettings.newEditor(event);"
+                    onedit="return gViewSourceSettings.editEditor(event);"
+                    ondelete="return gViewSourceSettings.deleteEditor(event);">
+                        <treecol id="defaultEditor" label="&defaultEditor.tree.label;" cycler="true" persist="width"/>
+                        <splitter class="tree-splitter"/>
+                        <treecol id="descr" label="&description.tree.label;" flex="1" persist="width"/>
+                        <splitter class="tree-splitter"/>
+                        <treecol id="show" label="&show.tree.label;" cycler="true" persist="width"/>
+                </itemtreebox>
+        </groupbox>
+      </tabpanel>
+
+      <tabpanel orient="vertical" flex="1">
+
+        <groupbox orient="horizontal">
+            <caption label="&destFolder.caption;"/>
+            <vbox flex="1">
+                <vbox flex="1">
+                    <checkbox id="tempUseOSPath"
+                                label="&temp.useOSPath.label;"
+                                />
+                    <filepicker id="destFolder"
+                        flex="1"
+                        mode="getFolder"
+                        pickTitle="&picktitle.destfolder;" />
+                </vbox>
+                <separator class="groove"/>
+                <vbox>
+                    <hbox align="center">
+                        <checkbox id="tempClearAtExit"
+                                label="&temp.clearAtExit.label;"
+                                checked="false"/>
+                        <spacer flex="1"/>
+                        <button label="&temp.cleanNow.label;"
+                                oncommand="ViewSourceWithTempCleaner.getTempCleaner().clean(); return true;"/>
+                    </hbox>
+                </vbox>
+            </vbox>
+        </groupbox>
+
+      </tabpanel>
+
+      <tabpanel id="view" orient="vertical">
+
+        <groupbox orient="horizontal" align="center">
+            <caption label="&view.menu.label;"/>
+            <vbox flex="1">
+              <checkbox id="viewShowMenuIcon"
+                        label="&view.showIcons.label;"
+                        checked="true"/>
+              <checkbox id="viewShowResourcesMenu"
+                        label="&view.showResourcesMenu.label;"
+                        checked="true"/>
+              <checkbox id="viewQuickFrameShowMenu"
+                        label="&view.quickFrameShowMenu.label;"
+                        checked="false"/>
+            </vbox>
+        </groupbox>
+
+        <groupbox orient="horizontal" align="center">
+            <caption label="&image.onlink.caption;"/>
+            <vbox flex="1">
+               <radiogroup id="openImageOnLink">
+                <radio id="image" label="&image.onlink.image.label;" />
+                <radio id="link" selected="true" label="&image.onlink.link.label;" />
+               </radiogroup>
+            </vbox>
+        </groupbox>
+      </tabpanel>
+
+      <tabpanel id="advanced" orient="vertical" style="overflow: auto;">
+
+        <groupbox orient="horizontal" align="center">
+            <caption label="&save.method.caption;"/>
+            <vbox flex="1">
+                <menulist id="saveMethod">
+                    <menupopup>
+                        <menuitem label="&save.method.normal.label;" selected="true" value="normal"/>
+                        <menuitem label="&save.method.dom.label;" value="dom"/>
+                    </menupopup>
+                </menulist>
+              <label class="advice" value="&save.method.advice.label;"/>
+            </vbox>
+        </groupbox>
+
+        <groupbox orient="horizontal" align="center">
+            <caption>
+              <checkbox id="replaceNativeEditor"
+                        label="&repl.editor.label;"
+                        checked="true"/>
+            </caption>
+            <vbox flex="1">
+              <checkbox id="openFocusWindow"
+                        label="&repl.editor.open.focused.label;"
+                        checked="true"/>
+              <label id="restartNecessary" class="advice" value="&repl.editor.advice.label;"/>
+            </vbox>
+        </groupbox>
+
+        <groupbox id="imageGroupBox" orient="horizontal" align="center" hidden="true">
+            <caption label="&repl.image.viewer.label;"/>
+            <vbox flex="1">
+                <menulist id="imageViewList">
+                    <menupopup id="imageViewListPopup" oncommand="gViewSourceSettings.updateImageView(event);">
+                        <menuitem id="chooseViewer" label="&repl.image.viewer.item;" selected="true" value="-1"/>
+                    </menupopup>
+                </menulist>
+              <label class="advice" value="&repl.editor.advice.label;"/>
+            </vbox>
+        </groupbox>
+
+        <groupbox id="jsConsoleGroupBox" orient="horizontal" align="center">
+            <caption label="&jsconsole.label;"/>
+              <checkbox id="replaceJSConsole"
+                        label="&repl.jsconsole.viewer.label;"
+                        checked="true"/>
+        </groupbox>
+
+      </tabpanel>
+
+      <tabpanel id="urlmapper" orient="vertical" flex="1">
+        <groupbox orient="horizontal" flex="1">
+            <caption label="&urlmapper.caption;"/>
+            <vbox flex="1">
+            <label class="advice" value="&urlmapper.advice.label;"/>
+                <itemtreebox
+                    id="urlMapperTree"
+                    flex="1"
+                    deleteitemmsg="&warning.delete.item;"
+
+                    onnew="return gViewSourceSettings.newUrlMapper(event);"
+                    onedit="return gViewSourceSettings.editUrlMapper(event);"
+                    ondelete="return gViewSourceSettings.deleteUrlMapper(event);">
+                        <treecol id="name" label="&urlmapper.name.tree.label;" flex="1" persist="width"/>
+                        <splitter class="tree-splitter"/>
+                        <treecol id="enabled" label="&urlmapper.enabled.tree.label;" cycler="true" persist="width"/>
+                </itemtreebox>
+            </vbox>
+        </groupbox>
+      </tabpanel>
+
+
+    </tabpanels>
+  </tabbox>
+  <separator class="groove"/>
+
+  <vbox>
+    <hbox align="right" pack="center" flex="1">
+      <label value="&writtenBy.label;"/>
+      <label value="&site.label;"
+             id="viewSourceLink"
+             tooltiptext="&viewSource.home.tooltip;"
+             class="link"
+             url="&viewSource.url;"
+             onclick="ViewSourceWithCommon.openUrl(this.getAttribute('url'));"/>
+    </hbox>
+  </vbox>
+</dialog>

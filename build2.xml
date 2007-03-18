@@ -1,0 +1,124 @@
+<!DOCTYPE project [
+<!ENTITY % sharedDTD SYSTEM "shared-properties.dtd">
+%sharedDTD;
+]>
+
+<project name="viewsourcewith" default="umo">
+    <property name="ext.name"           value="&extension.name;"/>
+    <property name="version"           value="&extension.version;"/>
+    
+    <property name="dist.dir"           value="dist"/>
+    <property name="bin.dist.dir"       value="${dist.dir}/bin"/>
+    <property name="src.dist.dir"       value="${dist.dir}/src"/>
+    <property name="tmp.dir"            value="tmp"/>
+
+    <property name="src.dir"            value="src"/>
+    <property name="src.main.dir"       value="${src.dir}/main"/>
+    <property name="src.install.dir"    value="${src.dir}/install"/>
+    <property name="src.update.dir"     value="${src.dir}/update"/>
+    <property name="jar.name"           value="${ext.name}.jar"/>
+    <property name="dist.name"          value="${ext.name}-${version}"/>
+
+    <!-- Properties used by "create install files" target -->
+    <property name="generate.updateurl" value="true" />
+    <property name="extension.filename" value="" />
+    <property name="debug.extension.filename" value="plainfiles" />
+
+    <target name="internal-bin-dist" depends="make-install" >
+        <mkdir dir="${bin.dist.dir}" />
+
+        <zip destfile="${bin.dist.dir}/${dist.name}.xpi">
+            <zipfileset dir="${tmp.dir}/${ext.name}/main" prefix="chrome"/>
+            <zipfileset dir="${tmp.dir}/${ext.name}/install"/>
+        </zip>
+    </target>
+
+    <target name="bin-dist" description="Build distribution XPI">
+        <delete dir="${tmp.dir}/${ext.name}"/>
+
+        <antcall target="jar" />
+
+        <antcall target="internal-bin-dist">
+            <param name="bin.dist.dir" value="${bin.dist.dir}"/>
+            <param name="generate.updateurl" value="${generate.updateurl}"/>
+        </antcall>
+    </target>
+
+    <target name="umo" depends="bin-dist" description="Build distribution XPI for UMO (leave updateURL blank) and dafizilla">
+        <delete dir="${tmp.dir}/${ext.name}"/>
+
+        <antcall target="jar" />
+
+        <antcall target="internal-bin-dist">
+            <param name="bin.dist.dir" value="${bin.dist.dir}/umo"/>
+            <param name="generate.updateurl" value="false"/>
+        </antcall>
+    </target>
+
+    <target name="bin-dist-debug" description="Build debug XPI">
+        <delete dir="${tmp.dir}/${ext.name}"/>
+
+        <copy todir="${tmp.dir}/${ext.name}/main/plainfiles">
+            <fileset dir="${src.main.dir}"/>
+        </copy>
+
+        <antcall target="internal-bin-dist">
+            <param name="dist.name" value="${dist.name}-debug"/>
+            <param name="jar.name" value="plainfiles"/>
+            <param name="extension.filename" value="${debug.extension.filename}"/>
+        </antcall>
+    </target>
+
+    <target name="src-dist">
+        <delete dir="${src.dist.dir}"/>
+        <mkdir dir="${src.dist.dir}"/>
+
+        <copy todir="${src.dist.dir}/${dist.name}">
+            <fileset dir=".">
+                <include name="build.xml"/>
+                <include name="src/**"/>
+            </fileset>
+        </copy>
+
+        <tar longfile="gnu" tarfile="${dist.dir}/${dist.name}-src.tar" basedir="${src.dist.dir}"/>
+        <gzip zipfile="${dist.dir}/${dist.name}-src.tar.gz"
+              src="${dist.dir}/${dist.name}-src.tar"/>
+
+        <delete file="${dist.dir}/${dist.name}-src.tar"/>
+    </target>
+
+    <target name="jar">
+        <mkdir dir="${tmp.dir}/${ext.name}/main"/>
+        <zip destfile="${tmp.dir}/${ext.name}/main/${jar.name}" basedir="${src.main.dir}" compress="false"/>
+    </target>
+    
+    <target name="clean" description="Clean dist and tmp" >
+        <delete dir="${dist.dir}"/>
+        <delete dir="${tmp.dir}"/>
+    </target>
+
+    <target name="rebuild" depends="clean,bin-dist" description="Clean and build dist"/>
+
+    <target name="make-install" description="Create install files">
+        <xslt in="xsl/extension.xml"
+              out="${tmp.dir}/${ext.name}/install/install.js"
+              style="xsl/install_js.xsl">
+            <param name="generate-updateurl" expression="${generate.updateurl}"/>
+            <param name="extension-filename" expression="${extension.filename}"/>
+       </xslt>
+
+        <xslt in="xsl/extension.xml"
+              out="${tmp.dir}/${ext.name}/install/install.rdf"
+              style="xsl/install_rdf.xsl">
+            <param name="generate-updateurl" expression="${generate.updateurl}"/>
+            <param name="extension-filename" expression="${extension.filename}"/>
+       </xslt>
+
+        <xslt in="xsl/extension.xml"
+              out="${tmp.dir}/${ext.name}/install/chrome.manifest"
+              style="xsl/chrome_manifest.xsl">
+            <param name="generate-updateurl" expression="${generate.updateurl}"/>
+            <param name="extension-filename" expression="${extension.filename}"/>
+       </xslt>
+    </target>
+</project>

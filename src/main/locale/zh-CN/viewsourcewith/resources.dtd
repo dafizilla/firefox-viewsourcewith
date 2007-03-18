@@ -1,0 +1,10 @@
+<!ENTITY resources.title "打开样式表和脚本">
+<!ENTITY all.tab.label "所有资源">
+<!ENTITY css.tab.label "样式表">
+<!ENTITY js.tab.label "脚本">
+<!ENTITY showallframes.label "查看所有帧的资源">
+<!ENTITY editors.label "使用的编辑器">
+<!ENTITY button.label.accept "查看">
+<!ENTITY button.label.cancel "关闭">
+<!ENTITY resourcename.tree.label "名称">
+<!ENTITY resourcepath.tree.label "URL">

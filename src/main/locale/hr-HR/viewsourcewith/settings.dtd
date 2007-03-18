@@ -1,0 +1,49 @@
+<!ENTITY settings.title "ViewSourceWith postavke">
+<!ENTITY destFolder.caption "Mapa privremenih datoteka">
+<!ENTITY editorList.caption "Popis uređivača">
+<!ENTITY configPath.label "Konfiguracijska datoteka">
+<!ENTITY defaultEditor.tree.label "Zadani">
+<!ENTITY description.tree.label "Ime">
+<!ENTITY show.tree.label "Omogućen">
+<!ENTITY new.button.label "Novi">
+<!ENTITY edit.button.label "Uredi">
+<!ENTITY delete.button.label "Obriši">
+<!ENTITY writtenBy.label "Napisao">
+<!ENTITY site.label "Davide Ficano">
+<!ENTITY viewSource.home.tooltip "Idite na ViewSourceWith">
+<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+<!ENTITY save.method.caption "Predefinirana metoda spremanja">
+<!ENTITY save.method.normal.label "Normalna">
+<!ENTITY save.method.dom.label "DOM dokument">
+<!ENTITY save.method.advice.label "Držite pritisnutu tipku SHIFT da biste koristili drugu metodu">
+<!ENTITY main.label "Glavno">
+<!ENTITY advanced.label "Napredno">
+<!ENTITY repl.editor.label "Koristi u slučaju zadane izvorne stavke izbornika poruka/stranica ">
+<!ENTITY repl.editor.open.focused.label "Otvori fokusirani prozor u skupu okvira">
+<!ENTITY repl.editor.advice.label "Postavke će se primijenjivati nakon ponovnog pokretanja">
+<!ENTITY repl.image.viewer.item "(Ništa)">
+<!ENTITY repl.image.viewer.label "Koristi umjesto zadanog preglednika slika">
+<!ENTITY useProfilePath.label "Koristi putanju profila (pročitajte alatnu oznaku)">
+<!ENTITY useProfilePath.tooltip "Na jedinicama koje se mogu ukloniti odražava točku umetanja uređaja">
+<!ENTITY image.onlink.caption "U slučaju poveznice sa slikom">
+<!ENTITY image.onlink.image.label "Pogledaj sliku">
+<!ENTITY image.onlink.link.label "Pogledaj poveznicu">
+<!ENTITY temp.tab.label "Privremene datoteke">
+<!ENTITY temp.clearAtExit.label "Ukloni datoteke nakon što se program zatvori">
+<!ENTITY temp.cleanNow.label "Ukloni">
+<!ENTITY view.tab.label "Pogled">
+<!ENTITY view.menu.label "Izbornik">
+<!ENTITY view.showIcons.label "Prikaži ikone na izborniku">
+<!ENTITY urlmapper.tab.label "Mapiranje">
+<!ENTITY urlmapper.caption "Popis mapiranja stranica poslužitelja">
+<!ENTITY urlmapper.enabled.tree.label "Omogućeno">
+<!ENTITY urlmapper.name.tree.label "Ime">
+<!ENTITY urlmapper.advice.label "Otvori izvorne kodove stranice na &apos;strani poslužitelja&apos;">
+<!ENTITY view.showResourcesMenu.label "Prikaži CSS/JS izbornik">
+<!ENTITY view.quickFrameShowMenu.label "Prikaži izbornik &apos;brzi pristup okvirima&apos;">
+<!ENTITY picktitle.destfolder "Odaberite mapu">
+<!ENTITY picktitle.configPath "Odaberite konfiguracijsku datoteku">
+<!ENTITY temp.useOSPath.label "Koristi mapu operativnog sustava">
+<!ENTITY warning.delete.item "Brisati &quot;&#37;1&quot;?">
+<!ENTITY jsconsole.label "Javascript konzola">
+<!ENTITY repl.jsconsole.viewer.label "Koristi za otvaranje izvornog koda datoteka u Javascript konzoli">

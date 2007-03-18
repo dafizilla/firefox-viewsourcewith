@@ -1,0 +1,49 @@
+<!ENTITY settings.title "ViewSourceWith 设置">
+<!ENTITY destFolder.caption "临时文件夹">
+<!ENTITY editorList.caption "编辑器列表">
+<!ENTITY configPath.label "配置文件">
+<!ENTITY defaultEditor.tree.label "默认">
+<!ENTITY description.tree.label "名称">
+<!ENTITY show.tree.label "启用">
+<!ENTITY new.button.label "添加">
+<!ENTITY edit.button.label "编辑">
+<!ENTITY delete.button.label "删除">
+<!ENTITY writtenBy.label "作者:">
+<!ENTITY site.label "Davide Ficano">
+<!ENTITY viewSource.home.tooltip "转到ViewSourceWith主页">
+<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+<!ENTITY save.method.caption "预定义的保存方式">
+<!ENTITY save.method.normal.label "正常">
+<!ENTITY save.method.dom.label "DOM 文档">
+<!ENTITY save.method.advice.label "按住SHIFT键以使用其他方式">
+<!ENTITY main.label "一般">
+<!ENTITY advanced.label "高级">
+<!ENTITY repl.editor.label "替代内建的信息/页面源代码菜单项">
+<!ENTITY repl.editor.open.focused.label "打开帧框架中有焦点的窗口">
+<!ENTITY repl.editor.advice.label "设定将在重新启动后生效">
+<!ENTITY repl.image.viewer.item "(无)">
+<!ENTITY repl.image.viewer.label "替代内建的图像查看器">
+<!ENTITY useProfilePath.label "使用配置文件路径(请读工具提示)">
+<!ENTITY useProfilePath.tooltip "让您可将配置文件放到移动存储器中">
+<!ENTITY image.onlink.caption "查看带链接的图片时">
+<!ENTITY image.onlink.image.label "查看图片">
+<!ENTITY image.onlink.link.label "查看链接">
+<!ENTITY temp.tab.label "临时文件">
+<!ENTITY temp.clearAtExit.label "当程序退出时删除临时文件">
+<!ENTITY temp.cleanNow.label "清空">
+<!ENTITY view.tab.label "显示">
+<!ENTITY view.menu.label "菜单">
+<!ENTITY view.showIcons.label "显示菜单图标">
+<!ENTITY urlmapper.tab.label "映射">
+<!ENTITY urlmapper.caption "服务器页面映射列表">
+<!ENTITY urlmapper.enabled.tree.label "已启用">
+<!ENTITY urlmapper.name.tree.label "名称">
+<!ENTITY urlmapper.advice.label "打开&apos;服务器端&apos;页面源代码">
+<!ENTITY view.showResourcesMenu.label "显示 CSS/JS 菜单">
+<!ENTITY view.quickFrameShowMenu.label "显示 &apos;快速访问帧&apos; 菜单">
+<!ENTITY picktitle.destfolder "选择目录">
+<!ENTITY picktitle.configPath "选择配置文件">
+<!ENTITY temp.useOSPath.label "使用操作系统文件夹">
+<!ENTITY warning.delete.item "删除 &quot;&#37;1&quot;?">
+<!ENTITY jsconsole.label "Javascript 控制台">
+<!ENTITY repl.jsconsole.viewer.label "在 Javascript console 中使用开源文件">

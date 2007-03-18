@@ -1,0 +1,8 @@
+<!ENTITY cmd.viewsource.label "ソースをプログラムで開く">
+<!ENTITY cmd.viewsource.frame.label "フレームのソースをプログラムで開く">
+<!ENTITY cmd.viewsource-viewMenu.label "ソースをプログラムで開く(W)">
+<!ENTITY cmd.viewsource-attachMenu.label "プログラムで開く">
+<!ENTITY viewsource-viewMenu.accesskey "w">
+<!ENTITY viewsourcewith.commandkey "U">
+<!ENTITY viewsourcewithButton.label "ソース">
+<!ENTITY viewsourcewithTooltip "ページのソースを指定されたプログラムで開きます">

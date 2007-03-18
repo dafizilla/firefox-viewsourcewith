@@ -1,0 +1,49 @@
+<!ENTITY settings.title "ViewSourceWith - Einstellungen">
+<!ENTITY destFolder.caption "Ordner für temporäre Dateien">
+<!ENTITY editorList.caption "Liste der Editoren">
+<!ENTITY configPath.label "Konfigurationsdatei">
+<!ENTITY defaultEditor.tree.label "Standard">
+<!ENTITY description.tree.label "Name">
+<!ENTITY show.tree.label "Aktiviert">
+<!ENTITY new.button.label "Neu">
+<!ENTITY edit.button.label "Bearbeiten">
+<!ENTITY delete.button.label "Löschen">
+<!ENTITY writtenBy.label "Erstellt von">
+<!ENTITY site.label "Davide Ficano">
+<!ENTITY viewSource.home.tooltip "Homepage von ViewSourceWith besuchen">
+<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+<!ENTITY save.method.caption "Vordefinierte Speichermethode">
+<!ENTITY save.method.normal.label "Normal">
+<!ENTITY save.method.dom.label "DOM-Dokument">
+<!ENTITY save.method.advice.label "Zum Wechseln der Speichermethode Umschalttaste gedrückt halten">
+<!ENTITY main.label "Allgemein">
+<!ENTITY advanced.label "Erweitert">
+<!ENTITY repl.editor.label "Programmeigene Quelltextanzeige ruft gewählten Standardeditor auf">
+<!ENTITY repl.editor.open.focused.label "Quelltext des ausgewählten Frames anzeigen">
+<!ENTITY repl.editor.advice.label "Einstellungen werden erst nach einem Programmneustart wirksam">
+<!ENTITY repl.image.viewer.item "Nichts">
+<!ENTITY repl.image.viewer.label "Anstelle der programmeigenen Grafikanzeige benutzen">
+<!ENTITY useProfilePath.label "Profilpfad benutzen (Tooltip beachten)">
+<!ENTITY useProfilePath.tooltip "Gibt auf Wechsellaufwerken den Mount-Punkt wieder">
+<!ENTITY image.onlink.caption "Im Fall von Grafik-Links">
+<!ENTITY image.onlink.image.label "Grafik anzeigen">
+<!ENTITY image.onlink.link.label "Link-Ziel anzeigen">
+<!ENTITY temp.tab.label "Temporäre Dateien">
+<!ENTITY temp.clearAtExit.label "Temporäre Dateien beim Beenden des Programms löschen">
+<!ENTITY temp.cleanNow.label "Löschen">
+<!ENTITY view.tab.label "Anzeige">
+<!ENTITY view.menu.label "Kontextmenü">
+<!ENTITY view.showIcons.label "Symbole im Kontextmenü anzeigen">
+<!ENTITY urlmapper.tab.label "Mappings">
+<!ENTITY urlmapper.caption "Mapping-Liste der Server-Seiten">
+<!ENTITY urlmapper.enabled.tree.label "Aktiviert">
+<!ENTITY urlmapper.name.tree.label "Name">
+<!ENTITY urlmapper.advice.label "&apos;Serverseitigen&apos; Seiten-Code öffnen">
+<!ENTITY view.showResourcesMenu.label "CSS/JS-Menüeintrag anzeigen">
+<!ENTITY view.quickFrameShowMenu.label "Menüeintrag für Frame-Schnellzugriff anzeigen">
+<!ENTITY picktitle.destfolder "Ordner auswählen">
+<!ENTITY picktitle.configPath "Konfigurationsdatei auswählen">
+<!ENTITY temp.useOSPath.label "Systemordner des Betriebssystems verwenden">
+<!ENTITY warning.delete.item "&quot;&#37;1&quot; löschen?">
+<!ENTITY jsconsole.label "JavaScript-Konsole">
+<!ENTITY repl.jsconsole.viewer.label "Quelltext-Dateien in der JavaScript-Konsole öffnen">

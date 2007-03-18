@@ -1,0 +1,7 @@
+<!ENTITY dialog.urlmapper.title "Mapovanie stránok servera">
+<!ENTITY urlMapperName.caption "Mapovanie názvu">
+<!ENTITY domainfilter.caption "Mapovanie filtra (regulárny výraz)">
+<!ENTITY localpath.caption "Priečinok obsahujúci stránky servera">
+<!ENTITY jsCode.caption "Javascript">
+<!ENTITY jsCode.insert.tooltiptext "Zadajte preddefinovaný kód">
+<!ENTITY urlmapper.picktitle.directory "Vybrať priečinok">

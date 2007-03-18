@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<overlay id="viewsourcewithPrefs"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <script type="application/x-javascript">
+    <![CDATA[
+        // This is necessary otherwise the button prefs isn't saved on dialog accept
+        // Add the checkboxes IDs
+        if (this._elementIDs) {
+            _elementIDs.push("viewsourcewithButton");
+        }
+
+        // The mail prefs vbox hasn't id so we can't simply overlay.
+        // We find a child and append the checkbox to its id-less parent
+        var junkMailButton = document.getElementById("junkMailButton");
+
+        if (junkMailButton) {
+            var cb = document.createElement("checkbox");
+            cb.setAttribute("id", "viewsourcewithButton");
+            cb.setAttribute("label", "ViewSourceWith");
+            cb.setAttribute("prefstring", "mail.toolbars.showbutton.viewsourcewith");
+
+            var vbox = junkMailButton.parentNode;
+            vbox.appendChild(cb);
+        }
+    ]]>
+    </script>
+
+  <groupbox id="prefShowButtonsBox1">
+     <vbox>
+        <checkbox id="viewsourcewithButton"
+                label="ViewSourceWith"
+                prefstring="browser.toolbars.showbutton.viewsourcewith"/>
+    </vbox>
+   </groupbox>
+
+</overlay>

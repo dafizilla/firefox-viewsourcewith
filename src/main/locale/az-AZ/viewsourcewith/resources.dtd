@@ -1,0 +1,10 @@
+<!ENTITY resources.title "Üslub tərtibatı və alqoritmləri aç">
+<!ENTITY all.tab.label "Bütün mənbələr">
+<!ENTITY css.tab.label "Üslub tərtibatları">
+<!ENTITY js.tab.label "Alqoritmlər">
+<!ENTITY showallframes.label "Bütün çərçivə mənbələrini göstər">
+<!ENTITY editors.label "İşlədiləcək düzəliş proqramı">
+<!ENTITY button.label.accept "Baxış">
+<!ENTITY button.label.cancel "Bağla">
+<!ENTITY resourcename.tree.label "Ad">
+<!ENTITY resourcepath.tree.label "URL">

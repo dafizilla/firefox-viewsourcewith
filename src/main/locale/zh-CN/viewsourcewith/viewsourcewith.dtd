@@ -1,0 +1,8 @@
+<!ENTITY cmd.viewsource.label "查看源代码">
+<!ENTITY cmd.viewsource.frame.label "查看帧源代码">
+<!ENTITY cmd.viewsource-viewMenu.label "查看源代码">
+<!ENTITY cmd.viewsource-attachMenu.label "打开方式">
+<!ENTITY viewsource-viewMenu.accesskey "W">
+<!ENTITY viewsourcewith.commandkey "U">
+<!ENTITY viewsourcewithButton.label "源代码">
+<!ENTITY viewsourcewithTooltip "查看源代码">

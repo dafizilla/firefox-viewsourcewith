@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<!--
+<?xml-stylesheet href="chrome://viewsourcewith/skin/resources.css" type="text/css"?>
+-->
+
+<!DOCTYPE dialog SYSTEM "chrome://viewsourcewith/locale/resources.dtd" >
+
+<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        id="viewsourcewithResourcesDialog"
+        minwidth="400"
+        minheight="300"
+        onload="return gVSWResources.onLoad();"
+        ondialogaccept="return gVSWResources.onAccept();"
+        buttons="accept,cancel"
+        buttonlabelaccept="&button.label.accept;"
+        buttonlabelcancel="&button.label.cancel;"
+        title="&resources.title;"
+        persist="width height screenX screenY">
+
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/common.js"/>
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/commonres.js" />
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/prefs.js"/>
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/tempCleaner.js" />
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/settings/resources.js"/>
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/browserHelper.js" />
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/pagesHandler.js" />
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/urldownloader.js" />
+
+    <groupbox orient="horizontal" align="center">
+        <caption label="&editors.label;"/>
+            <menulist id="editors" flex="1">
+                <menupopup/>
+            </menulist>
+    </groupbox>
+  <tabbox id="resourceTabBox" flex="1">
+    <tabs>
+      <tab id="tab-all" label="&all.tab.label;"/>
+      <tab id="tab-css" label="&css.tab.label;"/>
+      <tab id="tab-js" label="&js.tab.label;"/>
+    </tabs>
+    <tabpanels flex="1">
+      <tabpanel orient="vertical" flex="1">
+        <tree id="all-resources" flex="1" hidecolumnpicker="true" onkeypress="gVSWResources.onTreeKeyPress(event);">
+          <treecols>
+            <treecol id="resource-name" label="&resourcename.tree.label;" flex="1" persist="width"
+                     onclick="gVSWResources.allResourcesTreeView.sort('name');"
+                     sortDirection="ascending" sortActive="true"/>
+            <splitter class="tree-splitter"/>
+            <treecol id="resource-path" label="&resourcepath.tree.label;" flex="1" persist="width"
+                     onclick="gVSWResources.allResourcesTreeView.sort('path');"/>
+          </treecols>
+          <treechildren ondblclick="gVSWResources.onDblClick(event);"/>
+        </tree>
+      </tabpanel>
+
+      <tabpanel orient="vertical" flex="1">
+        <tree id="css-resources" flex="1" hidecolumnpicker="true" onkeypress="gVSWResources.onTreeKeyPress(event);">
+          <treecols>
+            <treecol id="resource-name" label="&resourcename.tree.label;" flex="1" persist="width"
+                     onclick="gVSWResources.cssResourcesTreeView.sort('name');"
+                     sortDirection="ascending" sortActive="true"/>
+            <splitter class="tree-splitter"/>
+            <treecol id="resource-path" label="&resourcepath.tree.label;" flex="1" persist="width"
+                     onclick="gVSWResources.cssResourcesTreeView.sort('path');"/>
+          </treecols>
+          <treechildren ondblclick="gVSWResources.onDblClick(event);"/>
+        </tree>
+      </tabpanel>
+
+      <tabpanel orient="vertical" flex="1">
+        <tree id="js-resources" flex="1" hidecolumnpicker="true" onkeypress="gVSWResources.onTreeKeyPress(event);">
+          <treecols>
+            <treecol id="resource-name" label="&resourcename.tree.label;" flex="1" persist="width"
+                     onclick="gVSWResources.jsResourcesTreeView.sort('name');"
+                     sortDirection="ascending" sortActive="true"/>
+            <splitter class="tree-splitter"/>
+            <treecol id="resource-path" label="&resourcepath.tree.label;" flex="1" persist="width"
+                     onclick="gVSWResources.jsResourcesTreeView.sort('path');"/>
+          </treecols>
+          <treechildren ondblclick="gVSWResources.onDblClick(event);"/>
+        </tree>
+      </tabpanel>
+    </tabpanels>
+  </tabbox>
+    <hbox>
+        <checkbox id="showAllFrames"
+                  label="&showallframes.label;"
+                  hidden="true"/>
+    </hbox>
+</dialog>

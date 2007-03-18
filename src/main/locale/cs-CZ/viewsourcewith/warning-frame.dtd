@@ -1,0 +1,3 @@
+<!ENTITY warning.title "Varovat u stánek s rámy">
+<!ENTITY warningText.label "Pokud stránka obsahuje rámy, aktivovat požadovaný rám (jednoduše klepnout na rám)">
+<!ENTITY warningDisableDialog.label "Příště již tuto zprávu nezobrazovat">

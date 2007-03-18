@@ -1,0 +1,7 @@
+<!ENTITY dialog.urlmapper.title "Server pages mapping">
+<!ENTITY urlMapperName.caption "Mapping name">
+<!ENTITY domainfilter.caption "Mapping filter (regular expression)">
+<!ENTITY localpath.caption "Directory containing server pages">
+<!ENTITY jsCode.caption "Javascript code">
+<!ENTITY jsCode.insert.tooltiptext "Insert predefined code">
+<!ENTITY urlmapper.picktitle.directory "Select folder">

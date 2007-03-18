@@ -1,0 +1,10 @@
+<!ENTITY resources.title "Открытие таблиц стилей и скриптов">
+<!ENTITY all.tab.label "Все файлы этого типа">
+<!ENTITY css.tab.label "Таблицы стилей">
+<!ENTITY js.tab.label "Скрипты">
+<!ENTITY showallframes.label "Показывать файлы из всех фреймов">
+<!ENTITY editors.label "Редактировать в">
+<!ENTITY button.label.accept "Просмотреть">
+<!ENTITY button.label.cancel "Закрыть">
+<!ENTITY resourcename.tree.label "Название">
+<!ENTITY resourcepath.tree.label "Адрес">

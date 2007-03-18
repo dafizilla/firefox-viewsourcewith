@@ -1,0 +1,11 @@
+<!ENTITY title "xüsusi parametrlər">
+<!ENTITY description "Düzəliş proqramı açılarkən tətbiq ediləcək bə'zi xüsusi parametrlər.">
+<!ENTITY parameter "Parametr">
+<!ENTITY replaced.with "Bununla dəyişmiş">
+<!ENTITY file.names.descr "Sənəd adları">
+<!ENTITY line.number.descr "Sətir №">
+<!ENTITY column.number.descr "Sütun №">
+<!ENTITY meaningful.js "Bu parametr Javascript əmr sətrində çox mə'nalıdır, əks halda dəyəri 1-dir.">
+<!ENTITY line.column.usage "Sətir və sütun №-ləri xüsusi tuşqan mövqeyindən əmr sətrinə keçidlə birgə istifadə edilməlidir.">
+<!ENTITY see "Əlavə açıqlamalar üçün">
+<!ENTITY more.details "baxa bilərsiniz.">

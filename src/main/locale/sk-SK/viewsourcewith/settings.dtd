@@ -1,0 +1,49 @@
+<!ENTITY settings.title "Nastavenia Viewsourcewith">
+<!ENTITY destFolder.caption "Priečinok dočasných súborov">
+<!ENTITY editorList.caption "Zoznam editorov">
+<!ENTITY configPath.label "Konfiguračný súbor">
+<!ENTITY defaultEditor.tree.label "Predvolený">
+<!ENTITY description.tree.label "Názov">
+<!ENTITY show.tree.label "Aktívny">
+<!ENTITY new.button.label "Nový">
+<!ENTITY edit.button.label "Upraviť">
+<!ENTITY delete.button.label "Vymazať">
+<!ENTITY writtenBy.label "Autor:">
+<!ENTITY site.label "Davide Ficano">
+<!ENTITY viewSource.home.tooltip "Zobrazí domovskú stránku ViewSourceWith">
+<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+<!ENTITY save.method.caption "Prednastavená metóda ukladania">
+<!ENTITY save.method.normal.label "Normálna">
+<!ENTITY save.method.dom.label "DOM dokument">
+<!ENTITY save.method.advice.label "Ak chcete použiť inú metódu, stlačte kláves Shift">
+<!ENTITY main.label "Hlavné">
+<!ENTITY advanced.label "Rozšírené">
+<!ENTITY repl.editor.label "Použite namiesto natívnej položky pre zdrojový kód správ/stránok">
+<!ENTITY repl.editor.open.focused.label "Otvoriť označené okno vo framesete">
+<!ENTITY repl.editor.advice.label "Nastavenia sa použijú až po reštarte prehliadača">
+<!ENTITY repl.image.viewer.item "(žiadny)">
+<!ENTITY repl.image.viewer.label "Použite namiesto natívneho zobrazovača obrázkov">
+<!ENTITY useProfilePath.label "Použiť cestu k profilu (čítajte tooltipy)">
+<!ENTITY useProfilePath.tooltip "Na vymeniteľných médiách reflektujte na mount point unit">
+<!ENTITY image.onlink.caption "V prípade odkazu s obrázkom">
+<!ENTITY image.onlink.image.label "Zobraziť obrázok">
+<!ENTITY image.onlink.link.label "Zobraziť odkaz">
+<!ENTITY temp.tab.label "Dočasné súbory">
+<!ENTITY temp.clearAtExit.label "Vymazať súbory pri ukončení aplikácie">
+<!ENTITY temp.cleanNow.label "Odstrániť">
+<!ENTITY view.tab.label "Zobraziť">
+<!ENTITY view.menu.label "Ponuka">
+<!ENTITY view.showIcons.label "Zobraziť ikony v ponuke">
+<!ENTITY urlmapper.tab.label "Mapovanie">
+<!ENTITY urlmapper.caption "Zoznam mapovaní stránok servera">
+<!ENTITY urlmapper.enabled.tree.label "Zapnuté">
+<!ENTITY urlmapper.name.tree.label "Názov">
+<!ENTITY urlmapper.advice.label "Otvoriť zdrojový kód stránky na strane servera">
+<!ENTITY view.showResourcesMenu.label "Zobraziť ponuku CSS/JS">
+<!ENTITY view.quickFrameShowMenu.label "Zobraziť ponuku rýchleho prístupu k rámcom">
+<!ENTITY picktitle.destfolder "Vyberte priečinok">
+<!ENTITY picktitle.configPath "Vyberte konfiguračný súbor">
+<!ENTITY temp.useOSPath.label "Použiť priečinok operačného systému">
+<!ENTITY warning.delete.item "Vymazať &quot;&#37;1&quot;?">
+<!ENTITY jsconsole.label "Konzola Javascriptu">
+<!ENTITY repl.jsconsole.viewer.label "Použite na otvorenie zdrojových súborov v konzoli Javascriptu">

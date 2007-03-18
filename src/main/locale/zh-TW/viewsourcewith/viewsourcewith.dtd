@@ -1,0 +1,8 @@
+<!ENTITY cmd.viewsource.label "檢視原始檔…">
+<!ENTITY cmd.viewsource.frame.label "檢視頁框原始檔…">
+<!ENTITY cmd.viewsource-viewMenu.label "檢視原始檔…">
+<!ENTITY cmd.viewsource-attachMenu.label "以...開啟">
+<!ENTITY viewsource-viewMenu.accesskey "W">
+<!ENTITY viewsourcewith.commandkey "U">
+<!ENTITY viewsourcewithButton.label "原始檔">
+<!ENTITY viewsourcewithTooltip "檢視原始檔">

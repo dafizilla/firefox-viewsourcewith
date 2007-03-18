@@ -1,0 +1,7 @@
+<!ENTITY dialog.urlmapper.title "Mappatura pagine server">
+<!ENTITY urlMapperName.caption "Nome mappatura">
+<!ENTITY domainfilter.caption "Filtro mappatura (espressione regolare)">
+<!ENTITY localpath.caption "Directory contenente pagine server">
+<!ENTITY jsCode.caption "Codice javascript">
+<!ENTITY jsCode.insert.tooltiptext "Inserisce il codice predefinito">
+<!ENTITY urlmapper.picktitle.directory "Selezionare la cartella">

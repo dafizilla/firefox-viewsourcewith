@@ -1,0 +1,10 @@
+<!ENTITY resources.title "Otwieranie arkuszy stylów i skryptów">
+<!ENTITY all.tab.label "Wszystkie zasoby">
+<!ENTITY css.tab.label "Arkusze stylów">
+<!ENTITY js.tab.label "Skrypty">
+<!ENTITY showallframes.label "Wyświetl wszystkie źródła ramek">
+<!ENTITY editors.label "Używany edytor">
+<!ENTITY button.label.accept "Otwórz">
+<!ENTITY button.label.cancel "Zamknij">
+<!ENTITY resourcename.tree.label "Nazwa pliku">
+<!ENTITY resourcepath.tree.label "Adres URL">

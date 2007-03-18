@@ -1,0 +1,49 @@
+<!ENTITY settings.title "ViewSourceWith settings">
+<!ENTITY destFolder.caption "Temporary files folder">
+<!ENTITY editorList.caption "Editor list">
+<!ENTITY configPath.label "Config file">
+<!ENTITY defaultEditor.tree.label "Default">
+<!ENTITY description.tree.label "Name">
+<!ENTITY show.tree.label "Enabled">
+<!ENTITY new.button.label "New">
+<!ENTITY edit.button.label "Edit">
+<!ENTITY delete.button.label "Delete">
+<!ENTITY writtenBy.label "Written by">
+<!ENTITY site.label "Davide Ficano">
+<!ENTITY viewSource.home.tooltip "Go to ViewSourceWith">
+<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+<!ENTITY save.method.caption "Predefined save method">
+<!ENTITY save.method.normal.label "Normal">
+<!ENTITY save.method.dom.label "DOM document">
+<!ENTITY save.method.advice.label "Hold down SHIFT key to use the other method">
+<!ENTITY main.label "Main">
+<!ENTITY advanced.label "Advanced">
+<!ENTITY repl.editor.label "Use in place of native message/page source menu item">
+<!ENTITY repl.editor.open.focused.label "Open focused window on frameset">
+<!ENTITY repl.editor.advice.label "Settings take effect after restart">
+<!ENTITY repl.image.viewer.item "(None)">
+<!ENTITY repl.image.viewer.label "Use in place of native image viewer">
+<!ENTITY useProfilePath.label "Use profile path (read tooltip)">
+<!ENTITY useProfilePath.tooltip "On removable drives reflects mount point unit">
+<!ENTITY image.onlink.caption "In case of link with image">
+<!ENTITY image.onlink.image.label "View image">
+<!ENTITY image.onlink.link.label "View link">
+<!ENTITY temp.tab.label "Temporary files">
+<!ENTITY temp.clearAtExit.label "Remove files when application quits">
+<!ENTITY temp.cleanNow.label "Remove">
+<!ENTITY view.tab.label "View">
+<!ENTITY view.menu.label "Menu">
+<!ENTITY view.showIcons.label "Show icons on menu">
+<!ENTITY urlmapper.tab.label "Mappings">
+<!ENTITY urlmapper.caption "Server pages mapping list">
+<!ENTITY urlmapper.enabled.tree.label "Enabled">
+<!ENTITY urlmapper.name.tree.label "Name">
+<!ENTITY urlmapper.advice.label "Open page sources on &apos;server-side&apos;">
+<!ENTITY view.showResourcesMenu.label "Show CSS/JS menu">
+<!ENTITY view.quickFrameShowMenu.label "Show &apos;quick access frames&apos; menu">
+<!ENTITY picktitle.destfolder "Select folder">
+<!ENTITY picktitle.configPath "Select config file">
+<!ENTITY temp.useOSPath.label "Use operating system folder">
+<!ENTITY warning.delete.item "Delete &quot;&#37;1&quot;?">
+<!ENTITY jsconsole.label "Javascript console">
+<!ENTITY repl.jsconsole.viewer.label "Use to open source files into Javascript console">

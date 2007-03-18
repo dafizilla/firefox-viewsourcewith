@@ -1,0 +1,11 @@
+<!ENTITY title "特別な変数">
+<!ENTITY description "特別な変数をエディタの起動時に使用できます。">
+<!ENTITY parameter "変数">
+<!ENTITY replaced.with "以下の物に置き換えられます">
+<!ENTITY file.names.descr "ファイルの名前">
+<!ENTITY line.number.descr "行番号">
+<!ENTITY column.number.descr "列番号">
+<!ENTITY meaningful.js "この変数は Javascript コンソールでも意味を持っています、そうでない時の値は 1 です。">
+<!ENTITY line.column.usage "行番号と列番号は、エディタのカーソル位置に関するコマンドラインと共に使用する必要があります。">
+<!ENTITY see "詳細な情報については">
+<!ENTITY more.details "をご覧下さい。">

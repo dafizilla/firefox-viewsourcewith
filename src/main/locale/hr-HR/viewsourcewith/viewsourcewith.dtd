@@ -1,0 +1,8 @@
+<!ENTITY cmd.viewsource.label "Pogledajte izvorni kod s">
+<!ENTITY cmd.viewsource.frame.label "Pogledajte izvorni kod okvira s">
+<!ENTITY cmd.viewsource-viewMenu.label "Izvorni kod s">
+<!ENTITY cmd.viewsource-attachMenu.label "Otvorite s">
+<!ENTITY viewsource-viewMenu.accesskey "s">
+<!ENTITY viewsourcewith.commandkey "v">
+<!ENTITY viewsourcewithButton.label "Izvorni kod">
+<!ENTITY viewsourcewithTooltip "Pogledajte izvorni kod">

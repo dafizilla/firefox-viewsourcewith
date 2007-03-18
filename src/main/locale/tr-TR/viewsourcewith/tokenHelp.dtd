@@ -1,0 +1,11 @@
+<!ENTITY title "özel karakterler">
+<!ENTITY description "Düzenleyici başlarken değişebilecek özel parametreler kullanabilirsiniz.">
+<!ENTITY parameter "Parametre">
+<!ENTITY replaced.with "Bununla değiştirildi">
+<!ENTITY file.names.descr "Dosya isimleri">
+<!ENTITY line.number.descr "Satır numarası">
+<!ENTITY column.number.descr "Sütün numarası">
+<!ENTITY meaningful.js "Bu değişken Javascript konsolu için bir önem taşır, aksi halde bu değeri 1 olarak alabilirsiniz.">
+<!ENTITY line.column.usage "Satır ve sütün numaraları için farklı özel bir düzenleyici imleci ile değiştirilmesi gerekir.">
+<!ENTITY see "Detaylar için">
+<!ENTITY more.details "bölümüne bakınız.">

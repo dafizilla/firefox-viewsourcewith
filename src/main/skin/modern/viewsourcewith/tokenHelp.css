@@ -1,0 +1,43 @@
+body, td, th, input {
+  font-family: verdana, sans-serif;
+  font-size: small;
+}
+
+body {
+	margin: 2ex;
+	max-width: 120ex;
+}
+
+h1 { font-size: 160%; font-weight: normal; }
+
+h1 {
+  margin: 1em 0 0.2em 0;
+  border-bottom: 1px solid #ccc;
+  font-family: arial, verdana, sans-serif;
+}
+
+table {
+  background-color: #eeeeee;    /* really light grey */
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+td {
+	border: 1px solid #999999;    /* grey */
+	vertical-align: top;
+}
+
+th {
+	background-color: #99ccff;    /* light aqua */
+	font-weight: bold;
+}
+
+sup {
+  font-size: 70%;
+}
+
+:link { color: #039; }
+:link:hover,
+:visited:hover {
+  color: -moz-activehyperlinktext;
+}

@@ -1,0 +1,14 @@
+<!ENTITY dialog.editor.title "Choisir l&apos;éditeur">
+<!ENTITY editorPath.label "Chemin de l&apos;éditeur">
+<!ENTITY description.label "Description">
+<!ENTITY shortcut.caption "Raccourci clavier">
+<!ENTITY shortcut.default.accel "Maj + Ctrl +">
+<!ENTITY shortcut.remove "Supprimer">
+<!ENTITY shortcut.maybe.invalid "Il se peut que certains raccourcis clavier ne fonctionnent pas">
+<!ENTITY invalid.path.chars "Chemin (ou emplacement) invalide, veuillez vérifier qu&apos;il ne contient pas de caractères invalides.">
+<!ENTITY picktitle.editor "Sélectionner un éditeur">
+<!ENTITY parameters.label "Paramètres">
+<!ENTITY token.filenames "Nom(s) de fichier(s)">
+<!ENTITY token.line.number "Numéro de ligne">
+<!ENTITY token.column.number "Numéro de colonne">
+<!ENTITY token.help "Aide">

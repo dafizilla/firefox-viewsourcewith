@@ -1,0 +1,14 @@
+<!ENTITY dialog.editor.title "Düzenleyici seçin">
+<!ENTITY editorPath.label "Düzenleyici yolu">
+<!ENTITY description.label "Açıklama">
+<!ENTITY shortcut.caption "Kısayol tuşu">
+<!ENTITY shortcut.default.accel "Shift + Ctrl +">
+<!ENTITY shortcut.remove "Kaldır">
+<!ENTITY shortcut.maybe.invalid "Bazı kısayollar çalışmayabilir">
+<!ENTITY invalid.path.chars "Geçersiz yol, yol isminin geçersiz karakterler içermediğinden emin olun">
+<!ENTITY picktitle.editor "Düzenleyici seçin">
+<!ENTITY parameters.label "Parameters">
+<!ENTITY token.filenames "Dosya ismi">
+<!ENTITY token.line.number "Satır numarası">
+<!ENTITY token.column.number "Sütün numarası">
+<!ENTITY token.help "Yardım...">

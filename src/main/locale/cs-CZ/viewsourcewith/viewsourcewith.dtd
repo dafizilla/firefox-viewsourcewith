@@ -1,0 +1,8 @@
+<!ENTITY cmd.viewsource.label "Zobrazit zdrojový kód pomocí">
+<!ENTITY cmd.viewsource.frame.label "Zobrazit rám zdrojového kódu pomocí">
+<!ENTITY cmd.viewsource-viewMenu.label "Zdrojový kód pomocí">
+<!ENTITY cmd.viewsource-attachMenu.label "Otevřít pomocí">
+<!ENTITY viewsource-viewMenu.accesskey "k">
+<!ENTITY viewsourcewith.commandkey "U">
+<!ENTITY viewsourcewithButton.label "Zdrojový kód">
+<!ENTITY viewsourcewithTooltip "Zobrazit zdrojový kód">

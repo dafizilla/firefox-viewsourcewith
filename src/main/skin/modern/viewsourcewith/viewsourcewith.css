@@ -1,0 +1,30 @@
+#viewsourcewith-button,
+#button-viewsourcewith {
+  list-style-image: url("chrome://viewsourcewith/content/img/ff/tb24-off.png");
+}
+
+#viewsourcewith-button[disabled],
+#button-viewsourcewith[disabled]  {
+  list-style-image: url("chrome://viewsourcewith/content/img/ff/tb24.png");
+  -moz-opacity: 0.5;
+}
+
+#viewsourcewith-button:hover,
+#button-viewsourcewith:hover {
+  list-style-image: url("chrome://viewsourcewith/content/img/ff/tb24.png");
+}
+
+/*
+toolbar[iconsize="small"] #viewsourcewith-button {
+  list-style-image: url("chrome://viewsourcewith/content/img/ff/tb16-off.png");
+}
+
+toolbar[iconsize="small"] #viewsourcewith-button[disabled] {
+  list-style-image: url("chrome://viewsourcewith/content/img/ff/tb16.png");
+  -moz-opacity: 0.5;
+}
+
+toolbar[iconsize="small"] #viewsourcewith-button:hover {
+  list-style-image: url("chrome://viewsourcewith/content/img/ff/tb16.png");
+}
+*/

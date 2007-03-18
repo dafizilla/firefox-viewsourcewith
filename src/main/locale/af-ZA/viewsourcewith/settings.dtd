@@ -1,0 +1,49 @@
+<!ENTITY settings.title "ViewSourceWith-opstelling">
+<!ENTITY destFolder.caption "Vouer vir tydelike lêers">
+<!ENTITY editorList.caption "Redigeerderlys">
+<!ENTITY configPath.label "Instellingslêer">
+<!ENTITY defaultEditor.tree.label "Verstek">
+<!ENTITY description.tree.label "Naam">
+<!ENTITY show.tree.label "Geaktiveer">
+<!ENTITY new.button.label "Nuwe">
+<!ENTITY edit.button.label "Redigeer">
+<!ENTITY delete.button.label "Skrap">
+<!ENTITY writtenBy.label "Geskryf deur">
+<!ENTITY site.label "Davide Ficano">
+<!ENTITY viewSource.home.tooltip "Gaan na ViewSourceWith">
+<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+<!ENTITY save.method.caption "Voorafgedefinieerde stoormetode">
+<!ENTITY save.method.normal.label "Gewoon">
+<!ENTITY save.method.dom.label "DOM-dokument">
+<!ENTITY save.method.advice.label "Hou SHIFT in om die ander metode te gebruik">
+<!ENTITY main.label "Hoof">
+<!ENTITY advanced.label "Gevorderd">
+<!ENTITY repl.editor.label "Gebruik in die plek van gewone boodskap/bladsybron-kieslysitem">
+<!ENTITY repl.editor.open.focused.label "Open venster vóór op raamstel">
+<!ENTITY repl.editor.advice.label "Opstelling word ná herbegin geaktiveer">
+<!ENTITY repl.image.viewer.item "(Geen)">
+<!ENTITY repl.image.viewer.label "Gebruik in die plek van gewone prentbekyker">
+<!ENTITY useProfilePath.label "Gebruik profielpad (lees nutswenk)">
+<!ENTITY useProfilePath.tooltip "Op uithaalaandrywers, weerspieël monteerpunteenheid">
+<!ENTITY image.onlink.caption "In geval van skakel met prent">
+<!ENTITY image.onlink.image.label "Bekyk prent">
+<!ENTITY image.onlink.link.label "Bekyk skakel">
+<!ENTITY temp.tab.label "Tydelike lêers">
+<!ENTITY temp.clearAtExit.label "Verwyder lêers wanneer toepassing afsluit">
+<!ENTITY temp.cleanNow.label "Verwyder">
+<!ENTITY view.tab.label "Bekyk">
+<!ENTITY view.menu.label "Kieslys">
+<!ENTITY view.showIcons.label "Wys ikone op kieslys">
+<!ENTITY urlmapper.tab.label "Padkaartings">
+<!ENTITY urlmapper.caption "Bedienerbladsy-padkaartinglys">
+<!ENTITY urlmapper.enabled.tree.label "Geaktiveer">
+<!ENTITY urlmapper.name.tree.label "Naam">
+<!ENTITY urlmapper.advice.label "Open bladsybronne aan &apos;bedienerkant&apos;">
+<!ENTITY view.showResourcesMenu.label "Wys CSS/JS-kieslys">
+<!ENTITY view.quickFrameShowMenu.label "Wys &apos;kitstoegangrame&apos;-kieslys">
+<!ENTITY picktitle.destfolder "Kies vouer">
+<!ENTITY picktitle.configPath "Kies instellingslêer">
+<!ENTITY temp.useOSPath.label "Gebruik bedryfstelselvouer">
+<!ENTITY warning.delete.item "Skrap &quot;&#37;1&quot;?">
+<!ENTITY jsconsole.label "JavaScript-konsole">
+<!ENTITY repl.jsconsole.viewer.label "Gebruik om bronlêers in JavaScript-konsole te open">

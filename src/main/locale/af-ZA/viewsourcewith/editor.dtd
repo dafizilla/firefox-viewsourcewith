@@ -1,0 +1,14 @@
+<!ENTITY dialog.editor.title "Kies redigeerder">
+<!ENTITY editorPath.label "Redigeerderpad">
+<!ENTITY description.label "Beskrywing">
+<!ENTITY shortcut.caption "Snelsleutel">
+<!ENTITY shortcut.default.accel "Shift + Ctrl + ">
+<!ENTITY shortcut.remove "Verwyder">
+<!ENTITY shortcut.maybe.invalid "Sekere snelsleutels werk dalk nie">
+<!ENTITY invalid.path.chars "Ongeldige pad, maak seker dit bevat nie ongeldige karakters nie">
+<!ENTITY picktitle.editor "Merk redigeerder">
+<!ENTITY parameters.label "Parameters">
+<!ENTITY token.filenames "Lêernaam/me">
+<!ENTITY token.line.number "Reëlnommer">
+<!ENTITY token.column.number "Kolomnommer">
+<!ENTITY token.help "Hulp...">

@@ -1,0 +1,14 @@
+<!ENTITY dialog.editor.title "انتخاب ویرایشگر">
+<!ENTITY editorPath.label "مسیر ویرایشگر">
+<!ENTITY description.label "توضیح">
+<!ENTITY shortcut.caption "کلید میانبر">
+<!ENTITY shortcut.default.accel "Shift + Ctrl +">
+<!ENTITY shortcut.remove "حذف">
+<!ENTITY shortcut.maybe.invalid ".ممکن است بعضی از میانبرها کار نکنند">
+<!ENTITY invalid.path.chars ".مسیر نادرست است.مطمئن شوید که در آدرس کاراکترهای غیر مجاز وجود ندارد">
+<!ENTITY picktitle.editor "انتخاب ادیتور">
+<!ENTITY parameters.label "پارامترها">
+<!ENTITY token.filenames "(نام فایل (ها">
+<!ENTITY token.line.number "شماره خط">
+<!ENTITY token.column.number "شماره ستون">
+<!ENTITY token.help "...راهنما">

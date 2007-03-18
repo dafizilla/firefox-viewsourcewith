@@ -1,0 +1,7 @@
+<!ENTITY dialog.urlmapper.title "Sunucu sayfalarının tasarımı">
+<!ENTITY urlMapperName.caption "Tasarım ismi">
+<!ENTITY domainfilter.caption "Tasarım süzgeci (düzenli ifade)">
+<!ENTITY localpath.caption "Sunucu sayfalarını içeren dizin">
+<!ENTITY jsCode.caption "Javascript kodu">
+<!ENTITY jsCode.insert.tooltiptext "Öntanımlı kodu yerleştir">
+<!ENTITY urlmapper.picktitle.directory "Klasör seç">

@@ -1,0 +1,3 @@
+<!ENTITY warning.title "警告：網頁包含框架">
+<!ENTITY warningText.label "當一個網頁包含框架時，請將焦點設給你想要撿視原始檔的框架(用滑鼠在上面點一下)。">
+<!ENTITY warningDisableDialog.label "不再顯示這個提示">

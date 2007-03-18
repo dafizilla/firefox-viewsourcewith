@@ -1,0 +1,11 @@
+<!ENTITY title "parâmetros especiais">
+<!ENTITY description "Você pode usar alguns parâmetros especiais que serão substituídos ao carregar o editor.">
+<!ENTITY parameter "Parâmetro">
+<!ENTITY replaced.with "Substituir por">
+<!ENTITY file.names.descr "Nomes de arquivo">
+<!ENTITY line.number.descr "Número da linha">
+<!ENTITY column.number.descr "Número da coluna">
+<!ENTITY meaningful.js "Este parâmetro só terá significado no console de erros; caso contrário, seu valor será 1.">
+<!ENTITY line.column.usage "Números de linha e coluna devem ser usados juntos com os parâmetros de execução de posicionamento de cursor específicos do seu editor.">
+<!ENTITY see "Leia">
+<!ENTITY more.details "para mais detalhes.">

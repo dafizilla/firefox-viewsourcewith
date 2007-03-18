@@ -1,0 +1,8 @@
+<!ENTITY cmd.viewsource.label "Apri sorgente con">
+<!ENTITY cmd.viewsource.frame.label "Apri sorgente riquadro con">
+<!ENTITY cmd.viewsource-viewMenu.label "Sorgente con">
+<!ENTITY cmd.viewsource-attachMenu.label "Apri con">
+<!ENTITY viewsource-viewMenu.accesskey "g">
+<!ENTITY viewsourcewith.commandkey "U">
+<!ENTITY viewsourcewithButton.label "Sorgente">
+<!ENTITY viewsourcewithTooltip "Visualizza sorgente">

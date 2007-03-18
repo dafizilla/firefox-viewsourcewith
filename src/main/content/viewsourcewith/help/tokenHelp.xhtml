@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.1//EN' 'http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd'
+[
+<!ENTITY % settingsDTD SYSTEM "chrome://viewsourcewith/locale/settings.dtd" >
+%settingsDTD;
+<!ENTITY % brandDTD SYSTEM "chrome://viewsourcewith/locale/brand.dtd" >
+%brandDTD;
+<!ENTITY % vswDTD SYSTEM "chrome://viewsourcewith/locale/tokenHelp.dtd" >
+%vswDTD;
+]>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>&vsw.brandname; &title;</title>
+	<link rel="stylesheet" type="text/css" href="chrome://viewsourcewith/skin/tokenHelp.css" />
+  </head>
+<body>
+<h1>&vsw.brandname; &title;</h1>
+<p>&description;</p>
+<table width="100%" border="0">
+<tr>
+<td width="15%">&parameter;</td><td>&replaced.with;</td>
+</tr>
+<tr>
+<td>$f</td><td>&file.names.descr;</td>
+</tr>
+<tr>
+<td>$l</td><td>&line.number.descr;<sup>*</sup></td>
+</tr>
+<tr>
+<td>$c</td><td>&column.number.descr;<sup>*</sup></td>
+</tr>
+<tr>
+<td colspan="2">
+<sup>*</sup>&meaningful.js;<br/>
+&line.column.usage;<br/>
+&see; <a href="&viewSource.url;">dafizilla</a> &more.details;</td>
+</tr>
+</table>
+</body>
+</html>

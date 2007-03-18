@@ -1,0 +1,11 @@
+<!ENTITY title "spesiale parameters">
+<!ENTITY description "Jy kan van sekere spesiale parameters gebruik wat vervang sal word wanneer die redigeerder laai.">
+<!ENTITY parameter "Parameter">
+<!ENTITY replaced.with "Vervang met">
+<!ENTITY file.names.descr "Lêername">
+<!ENTITY line.number.descr "Reëlnommer">
+<!ENTITY column.number.descr "Kolomnommer">
+<!ENTITY meaningful.js "Hierdie parameter is nuttig in JavaScript-konsole, andersins is sy waarde 1.">
+<!ENTITY line.column.usage "Reël- en kolomnommer moet saam met die bevelreëlskakeling van die spesifieke redigeerder se porposisie gebruik word.">
+<!ENTITY see "Kyk">
+<!ENTITY more.details "vir details.">

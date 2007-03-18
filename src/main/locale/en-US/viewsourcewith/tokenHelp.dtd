@@ -1,0 +1,11 @@
+<!ENTITY title "special parameters">
+<!ENTITY description "You can use some special parameters that will be replaced at editor launch time.">
+<!ENTITY parameter "Parameter">
+<!ENTITY replaced.with "Replaced with">
+<!ENTITY file.names.descr "File names">
+<!ENTITY line.number.descr "Line number">
+<!ENTITY column.number.descr "Column number">
+<!ENTITY meaningful.js "This parameter is meaningful in Javascript console, otherwise its value is 1.">
+<!ENTITY line.column.usage "Line and Column number must be used together with specific editor cursor position command-line switch.">
+<!ENTITY see "See">
+<!ENTITY more.details "for more details.">

@@ -1,0 +1,89 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+.itemtreebox-up {
+  min-width: 0px;
+  list-style-image: url("chrome://viewsourcewith/content/img/up.png");
+}               
+
+.itemtreebox-up[disabled="true"] {
+  list-style-image: url("chrome://viewsourcewith/content/img/up-dis.png");
+}
+
+.itemtreebox-down {
+  min-width: 0px;
+  list-style-image: url("chrome://viewsourcewith/content/img/down.png");
+}
+
+.itemtreebox-down[disabled="true"] {
+  list-style-image: url("chrome://viewsourcewith/content/img/down-dis.png");
+}
+
+.itemtreebox-new {
+  min-width: 0px;
+  list-style-image: url("chrome://viewsourcewith/content/img/new.png");
+}
+
+.itemtreebox-edit {
+  min-width: 0px;
+  list-style-image: url("chrome://viewsourcewith/content/img/edit.png");
+}
+
+.itemtreebox-edit[disabled="true"] {
+  min-width: 0px;
+  list-style-image: url("chrome://viewsourcewith/content/img/edit.png");
+  -moz-opacity: 0.5;
+}
+
+.itemtreebox-delete {
+  min-width: 0px;
+  list-style-image: url("chrome://viewsourcewith/content/img/delete.png");
+}
+
+.itemtreebox-delete[disabled="true"] {
+  min-width: 0px;
+  list-style-image: url("chrome://viewsourcewith/content/img/delete.png");
+  -moz-opacity: 0.5;
+}
+
+.filepicker-browse {
+  min-width: 0px;
+  list-style-image: url("chrome://viewsourcewith/content/img/browse.png");
+}
+
+.filepicker-browse[disabled="true"] {
+  min-width: 0px;
+  list-style-image: url("chrome://viewsourcewith/content/img/browse.png");
+  -moz-opacity: 0.5;
+}
+
+.link {
+  color: #0000FF;
+  text-decoration: underline !important;
+  cursor: pointer;
+}
+
+/*  color FFFF40 */
+.advice {
+  color: #FFFFFF;
+  background-color: #B25252;
+  border: 1px solid;
+  border-color: #000000;
+}
+
+.js {
+  min-width: 0px;
+  list-style-image: url("chrome://viewsourcewith/content/img/js.png");
+}
+
+textbox.js {
+    font-family : courier;
+}
+
+itemtreebox {
+    -moz-binding: url('chrome://viewsourcewith/content/settings/itemtreebox.xml#itemtreebox')
+}
+
+filepicker {
+    -moz-binding: url('chrome://viewsourcewith/content/settings/filepicker.xml#filepicker')
+}
+

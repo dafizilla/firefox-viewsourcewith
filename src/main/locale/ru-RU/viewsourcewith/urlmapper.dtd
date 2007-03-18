@@ -1,0 +1,7 @@
+<!ENTITY dialog.urlmapper.title "Фильтр страниц на сервере">
+<!ENTITY urlMapperName.caption "Название фильтра">
+<!ENTITY domainfilter.caption "Фильтр (регулярное выражение)">
+<!ENTITY localpath.caption "Каталог для скачанных страниц">
+<!ENTITY jsCode.caption "Код Javascript">
+<!ENTITY jsCode.insert.tooltiptext "Вставить стандартный код">
+<!ENTITY urlmapper.picktitle.directory "Выбрать папку">

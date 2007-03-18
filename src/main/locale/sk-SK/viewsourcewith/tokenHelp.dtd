@@ -1,0 +1,11 @@
+<!ENTITY title "špeciálne parametre">
+<!ENTITY description "Môžete použiť niekoľko špeciálnych parametrov, ktoré budú použité pri spustení editora">
+<!ENTITY parameter "Parameter">
+<!ENTITY replaced.with "Použiť s">
+<!ENTITY file.names.descr "Názvy súborov">
+<!ENTITY line.number.descr "Číslo riadka">
+<!ENTITY column.number.descr "Číslo stĺpca">
+<!ENTITY meaningful.js "Tento parameter má zmysel v konzole Javascriptu, inak je jeho hodnota 1.">
+<!ENTITY line.column.usage "Číslo riadka a stĺpca musí byť použité pre špecifikovanie pozície kurzora v editore parametrom na príkazovom riadku.">
+<!ENTITY see "Pozrite">
+<!ENTITY more.details "pre viac podrobností">

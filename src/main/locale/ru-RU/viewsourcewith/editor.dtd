@@ -1,0 +1,14 @@
+<!ENTITY dialog.editor.title "Выбор редактора">
+<!ENTITY editorPath.label "Путь">
+<!ENTITY description.label "Описание">
+<!ENTITY shortcut.caption "Клавиатурные сокращения">
+<!ENTITY shortcut.default.accel "Shift + Ctrl +">
+<!ENTITY shortcut.remove "Удалить">
+<!ENTITY shortcut.maybe.invalid "Некоторые сокращения могут не работать">
+<!ENTITY invalid.path.chars "Неправильный путь. Убедитесь, что он не содержит неправильных символов">
+<!ENTITY picktitle.editor "Выберите редактор">
+<!ENTITY parameters.label "Параметры">
+<!ENTITY token.filenames "Имя файла(ов)">
+<!ENTITY token.line.number "Номер строки">
+<!ENTITY token.column.number "Номер столбца">
+<!ENTITY token.help "Справка...">

@@ -1,0 +1,3 @@
+<!ENTITY warning.title "Uwaga na strony zawierające ramki">
+<!ENTITY warningText.label "Jeśli strona zawiera ramki należy upewnić się, czy wybrano tę właściwą (wystarczy kliknąć w ramce)">
+<!ENTITY warningDisableDialog.label "Nie wyświetlaj ponownie tej informacji">

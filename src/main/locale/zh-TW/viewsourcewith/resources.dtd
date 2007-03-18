@@ -1,0 +1,10 @@
+<!ENTITY resources.title "開啟style sheets和script文件">
+<!ENTITY all.tab.label "所有文件">
+<!ENTITY css.tab.label "Style Sheets">
+<!ENTITY js.tab.label "Scripts">
+<!ENTITY showallframes.label "顯示所有頁框的文件">
+<!ENTITY editors.label "使用編輯器">
+<!ENTITY button.label.accept "開啟">
+<!ENTITY button.label.cancel "關閉">
+<!ENTITY resourcename.tree.label "名稱">
+<!ENTITY resourcepath.tree.label "網址">

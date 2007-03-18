@@ -1,0 +1,14 @@
+<!ENTITY dialog.editor.title "เลือก Editor">
+<!ENTITY editorPath.label "Path">
+<!ENTITY description.label "ชื่อ">
+<!ENTITY shortcut.caption "คีย์ลัด">
+<!ENTITY shortcut.default.accel "Ctrl + Shift +">
+<!ENTITY shortcut.remove "ลบคีย์ลัด">
+<!ENTITY shortcut.maybe.invalid "บางคีย์ลัดอาจใช้ไม่ได้">
+<!ENTITY invalid.path.chars "Path ไม่ถูกต้อง กรุณาตรวจสอบให้แน่ใจว่าไม่มีอักขระที่ไม่อนุญาตอยู่">
+<!ENTITY picktitle.editor "เลือก Editor">
+<!ENTITY parameters.label "Parameters">
+<!ENTITY token.filenames "ชื่อไฟล์">
+<!ENTITY token.line.number "เลขบรรทัด">
+<!ENTITY token.column.number "เลขคอลัมน์">
+<!ENTITY token.help "คำแนะนำ...">

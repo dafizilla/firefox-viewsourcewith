@@ -1,0 +1,14 @@
+<!ENTITY dialog.editor.title "Vælg editor">
+<!ENTITY editorPath.label "Editor sti">
+<!ENTITY description.label "Beskrivelse">
+<!ENTITY shortcut.caption "Genvejstast">
+<!ENTITY shortcut.default.accel "Shift + Ctrl +">
+<!ENTITY shortcut.remove "Fjern">
+<!ENTITY shortcut.maybe.invalid "Nogle genveje skulle ikke virke">
+<!ENTITY invalid.path.chars "Ugyldig sti, sikr dig at den ikke indeholder ugyldige tegn">
+<!ENTITY picktitle.editor "Vælg editor">
+<!ENTITY parameters.label "Parametre">
+<!ENTITY token.filenames "Filnavn(e)">
+<!ENTITY token.line.number "Linienummer">
+<!ENTITY token.column.number "Kolonnenummer">
+<!ENTITY token.help "Hjælp...">

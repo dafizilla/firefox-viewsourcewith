@@ -1,0 +1,10 @@
+<!ENTITY resources.title "CSS- und JavaScript-Dateien öffnen">
+<!ENTITY all.tab.label "Alle Quellen">
+<!ENTITY css.tab.label "Stylesheets">
+<!ENTITY js.tab.label "Skripte">
+<!ENTITY showallframes.label "Quellen für alle Frames anzeigen">
+<!ENTITY editors.label "Mit folgendem Editor öffnen:">
+<!ENTITY button.label.accept "Anzeigen">
+<!ENTITY button.label.cancel "Schließen">
+<!ENTITY resourcename.tree.label "Name">
+<!ENTITY resourcepath.tree.label "URL">

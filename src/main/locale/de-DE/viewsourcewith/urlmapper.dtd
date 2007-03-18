@@ -1,0 +1,7 @@
+<!ENTITY dialog.urlmapper.title "Mapping für Server-Seiten">
+<!ENTITY urlMapperName.caption "Mapping-Name">
+<!ENTITY domainfilter.caption "Mapping-Filter (Regulärer Ausdruck)">
+<!ENTITY localpath.caption "Ordner für Server-Seiten">
+<!ENTITY jsCode.caption "JavaScript-Code">
+<!ENTITY jsCode.insert.tooltiptext "Vordefinierten Code einfügen">
+<!ENTITY urlmapper.picktitle.directory "Ordner auswählen">

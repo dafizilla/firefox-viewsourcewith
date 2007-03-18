@@ -1,0 +1,11 @@
+<!ENTITY title ": Spezielle Parameter">
+<!ENTITY description "Sie können einige spezielle Parameter verwenden, die beim Start des Editors entsprechend ersetzt werden.">
+<!ENTITY parameter "Parameter">
+<!ENTITY replaced.with "wird ersetzt durch">
+<!ENTITY file.names.descr "Dateinamen">
+<!ENTITY line.number.descr "Zeilennummer">
+<!ENTITY column.number.descr "Spaltennummer">
+<!ENTITY meaningful.js "Diese Parameter sind nur in der JavaScript-Konsole von Bedeutung, ansonsten ist der Wert 1.">
+<!ENTITY line.column.usage "Die Parameter für Zeilen- und Spaltennummern müssen zusammen mit dem für den jeweiligen Editor spezifischen Command-Line Switch zur Cursor-Positionierung benutzt werden (Beispiel: c:\notepad++\notepad++.exe $f -n$l).">
+<!ENTITY see "Besuchen Sie die Homepage (engl.) von ViewsSourceWith,">
+<!ENTITY more.details ", um weitere Informationen zu erhalten.">

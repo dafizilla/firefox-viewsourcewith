@@ -1,0 +1,14 @@
+<!ENTITY dialog.editor.title "Editor auswählen">
+<!ENTITY editorPath.label "Programmpfad:">
+<!ENTITY description.label "Beschreibung:">
+<!ENTITY shortcut.caption "Tastaturkürzel:">
+<!ENTITY shortcut.default.accel "Umschalt+Strg+">
+<!ENTITY shortcut.remove "Entfernen">
+<!ENTITY shortcut.maybe.invalid "Einige Tastaturkürzel können eventuell nicht funktionieren">
+<!ENTITY invalid.path.chars "Ungültige Pfadangabe. Bitte stellen Sie sicher, dass sie keine ungültigen Zeichen enthält.">
+<!ENTITY picktitle.editor "Editor auswählen">
+<!ENTITY parameters.label "Parameter:">
+<!ENTITY token.filenames "Dateiname(n)">
+<!ENTITY token.line.number "Zeilennummer">
+<!ENTITY token.column.number "Spaltennummer">
+<!ENTITY token.help "Hilfe...">

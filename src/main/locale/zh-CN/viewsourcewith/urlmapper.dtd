@@ -1,0 +1,7 @@
+<!ENTITY dialog.urlmapper.title "服务器页面映射">
+<!ENTITY urlMapperName.caption "映射名">
+<!ENTITY domainfilter.caption "映射过滤器(正则表达式)">
+<!ENTITY localpath.caption "包含服务器页面的目录">
+<!ENTITY jsCode.caption "Javascript 代码">
+<!ENTITY jsCode.insert.tooltiptext "插入预定义代码">
+<!ENTITY urlmapper.picktitle.directory "选择目录">

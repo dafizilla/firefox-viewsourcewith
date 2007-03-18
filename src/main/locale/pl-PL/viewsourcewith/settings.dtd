@@ -1,0 +1,49 @@
+<!ENTITY settings.title "ViewSourceWith - ustawienia">
+<!ENTITY destFolder.caption "Folder plików tymczasowych">
+<!ENTITY editorList.caption "Lista edytorów">
+<!ENTITY configPath.label "Plik konfiguracji">
+<!ENTITY defaultEditor.tree.label "Domyślny">
+<!ENTITY description.tree.label "Nazwa">
+<!ENTITY show.tree.label "Dostępny">
+<!ENTITY new.button.label "Dodaj">
+<!ENTITY edit.button.label "Edytuj">
+<!ENTITY delete.button.label "Usuń">
+<!ENTITY writtenBy.label "Autor:">
+<!ENTITY site.label "Davide Ficano">
+<!ENTITY viewSource.home.tooltip "Odwiedź stronę rozszerzenia">
+<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+<!ENTITY save.method.caption "Predefiniowana metoda zapisu">
+<!ENTITY save.method.normal.label "Normalna">
+<!ENTITY save.method.dom.label "Dokument DOM">
+<!ENTITY save.method.advice.label "Aby skorzystać z innej metody przytrzymaj klawisz [Shift]">
+<!ENTITY main.label "Ogólne">
+<!ENTITY advanced.label "Zaawansowane">
+<!ENTITY repl.editor.label "Wyświetl w menu kontekstowym &quot;Edytor wewnętrzny&quot;">
+<!ENTITY repl.editor.open.focused.label "Aktywne okno otwórz jako zbiór ramek">
+<!ENTITY repl.editor.advice.label "Wymaga ponownego uruchomienia">
+<!ENTITY repl.image.viewer.item "(Brak)">
+<!ENTITY repl.image.viewer.label "Grafiki otwieraj w:">
+<!ENTITY useProfilePath.label "Użyj ścieżki do profilu   (podpowiedź)">
+<!ENTITY useProfilePath.tooltip "Uwzględnij punkt montowania na dyskach wymiennych">
+<!ENTITY image.onlink.caption "W przypadku odnośnika z obrazkiem">
+<!ENTITY image.onlink.image.label "Wyświetl obrazek">
+<!ENTITY image.onlink.link.label "Wyświetl odnośnik">
+<!ENTITY temp.tab.label "Pliki tymczasowe">
+<!ENTITY temp.clearAtExit.label "Usuń pliki po zamknięciu edytora">
+<!ENTITY temp.cleanNow.label "Usuń">
+<!ENTITY view.tab.label "Wyświetlanie">
+<!ENTITY view.menu.label "Wyświetl w menu kontekstowym elementy:">
+<!ENTITY view.showIcons.label "Ikony">
+<!ENTITY urlmapper.tab.label "Mapowanie">
+<!ENTITY urlmapper.caption "Lista stron mapowanych po stronie serwera">
+<!ENTITY urlmapper.enabled.tree.label "Włączony">
+<!ENTITY urlmapper.name.tree.label "Nazwa">
+<!ENTITY urlmapper.advice.label "Otwórz źródła stron &quot;po stronie serwera&quot;">
+<!ENTITY view.showResourcesMenu.label "&quot;CSS/JS&quot;">
+<!ENTITY view.quickFrameShowMenu.label "&quot;Szybki dostęp do ramek&quot;">
+<!ENTITY picktitle.destfolder "Wybierz folder">
+<!ENTITY picktitle.configPath "Wybierz plik konfiguracyjny">
+<!ENTITY temp.useOSPath.label "Użyj folderu systemowego">
+<!ENTITY warning.delete.item "Czy napewno chcesz usunąć &quot;&#37;1&quot;?">
+<!ENTITY jsconsole.label "Konsola błędów">
+<!ENTITY repl.jsconsole.viewer.label "Użyj konsoli błędów do otwierania zródeł plików">

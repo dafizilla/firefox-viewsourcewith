@@ -1,0 +1,49 @@
+<!ENTITY settings.title "Options de ViewSourceWith">
+<!ENTITY destFolder.caption "Dossier de destination des fichiers temporaires">
+<!ENTITY editorList.caption "Liste des éditeurs">
+<!ENTITY configPath.label "Fichier de configuration">
+<!ENTITY defaultEditor.tree.label "Par défaut">
+<!ENTITY description.tree.label "Nom">
+<!ENTITY show.tree.label "Activé">
+<!ENTITY new.button.label "Nouveau">
+<!ENTITY edit.button.label "Modifier">
+<!ENTITY delete.button.label "Supprimer">
+<!ENTITY writtenBy.label "Écrite par">
+<!ENTITY site.label "Davide Ficano">
+<!ENTITY viewSource.home.tooltip "Lancer ViewSourceWith">
+<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+<!ENTITY save.method.caption "Méthode de sauvegarde prédéfinie">
+<!ENTITY save.method.normal.label "Normale">
+<!ENTITY save.method.dom.label "Document DOM">
+<!ENTITY save.method.advice.label "Pour utiliser l&apos;autre méthode maintenez appuyée la touche SHIFT">
+<!ENTITY main.label "Générales">
+<!ENTITY advanced.label "Avancées">
+<!ENTITY repl.editor.label "Utiliser l&apos;éditeur de viewsourcewith en cliquant sur &apos;Code source de la page (FF) / du message (TB)&apos;">
+<!ENTITY repl.editor.open.focused.label "Ouvrir la fenêtre sélectionnnée s&apos;il existe un jeu de cadres">
+<!ENTITY repl.editor.advice.label "Les paramètres ne prendront effet qu&apos;au redémarrage">
+<!ENTITY repl.image.viewer.item "(Aucun)">
+<!ENTITY repl.image.viewer.label "Utiliser à la place de la visionneuse d&apos;images d&apos;origine">
+<!ENTITY useProfilePath.label "Utiliser le chemin du profil (lisez l&apos;infobulle)">
+<!ENTITY useProfilePath.tooltip "Avec les unités de stockage amovibles utiliser la lettre attribuée à l&apos;unité">
+<!ENTITY image.onlink.caption "Quand l&apos;élément à visualiser est un lien vers une image">
+<!ENTITY image.onlink.image.label "Voir l&apos;image">
+<!ENTITY image.onlink.link.label "Voir le lien">
+<!ENTITY temp.tab.label "Fichiers temporaires">
+<!ENTITY temp.clearAtExit.label "Supprimer les fichiers à la fermeture de l&apos;application">
+<!ENTITY temp.cleanNow.label "Supprimer">
+<!ENTITY view.tab.label "Voir">
+<!ENTITY view.menu.label "Menu">
+<!ENTITY view.showIcons.label "Montrer les icônes dans le menu">
+<!ENTITY urlmapper.tab.label "Mappages">
+<!ENTITY urlmapper.caption "Liste de mappage des pages sur le serveur">
+<!ENTITY urlmapper.enabled.tree.label "Activé">
+<!ENTITY urlmapper.name.tree.label "Nom">
+<!ENTITY urlmapper.advice.label "Ouvrir la source de la page &apos;côté serveur&apos;">
+<!ENTITY view.showResourcesMenu.label "Afficher le menu CSS/JS">
+<!ENTITY view.quickFrameShowMenu.label "Afficher le menu &apos;accès rapide aux cadres&apos;">
+<!ENTITY picktitle.destfolder "Sélectionner un dossier">
+<!ENTITY picktitle.configPath "Sélectionner un fichier de configuration">
+<!ENTITY temp.useOSPath.label "Utiliser le dossier du système d&apos;exploitation">
+<!ENTITY warning.delete.item "Supprimer &apos;&#37;1&apos; ?">
+<!ENTITY jsconsole.label "Console JavaScript">
+<!ENTITY repl.jsconsole.viewer.label "Utiliser pour ouvrir les fichiers sources dans la console JavaScript">

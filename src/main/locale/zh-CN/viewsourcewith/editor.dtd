@@ -1,0 +1,14 @@
+<!ENTITY dialog.editor.title "选择编辑器">
+<!ENTITY editorPath.label "编辑器路径">
+<!ENTITY description.label "描述">
+<!ENTITY shortcut.caption "快捷键">
+<!ENTITY shortcut.default.accel "Shift + Ctrl +">
+<!ENTITY shortcut.remove "移除">
+<!ENTITY shortcut.maybe.invalid "有些快捷键可能没有效果">
+<!ENTITY invalid.path.chars "非法路径，请确认它不包含非法字符">
+<!ENTITY picktitle.editor "选择编辑器">
+<!ENTITY parameters.label "参数">
+<!ENTITY token.filenames "文件名">
+<!ENTITY token.line.number "行数">
+<!ENTITY token.column.number "列数">
+<!ENTITY token.help "帮助...">

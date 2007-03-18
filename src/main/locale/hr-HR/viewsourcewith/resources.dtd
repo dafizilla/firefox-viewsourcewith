@@ -1,0 +1,10 @@
+<!ENTITY resources.title "Otvori style sheet-ove i skripte">
+<!ENTITY all.tab.label "Sve izvore">
+<!ENTITY css.tab.label "Style Sheet-ove">
+<!ENTITY js.tab.label "Skripte">
+<!ENTITY showallframes.label "Prikaži sve izvore okvira">
+<!ENTITY editors.label "Uređivač koji će se koristiti">
+<!ENTITY button.label.accept "Pogledaj">
+<!ENTITY button.label.cancel "Zatvori">
+<!ENTITY resourcename.tree.label "Ime">
+<!ENTITY resourcepath.tree.label "Web adresa">

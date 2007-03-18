@@ -1,0 +1,7 @@
+<!ENTITY dialog.urlmapper.title "路徑對應">
+<!ENTITY urlMapperName.caption "名稱">
+<!ENTITY domainfilter.caption "遠端路徑(正規表示法)">
+<!ENTITY localpath.caption "本地端路徑(包含原始檔的資料夾)">
+<!ENTITY jsCode.caption "Javascript程式碼">
+<!ENTITY jsCode.insert.tooltiptext "插入預先定義的程式碼">
+<!ENTITY urlmapper.picktitle.directory "選取資料夾">

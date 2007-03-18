@@ -1,0 +1,8 @@
+<!ENTITY cmd.viewsource.label "ดูซอร์สโค้ด">
+<!ENTITY cmd.viewsource.frame.label "ดูซอร์สโค้ดของเฟรม">
+<!ENTITY cmd.viewsource-viewMenu.label "ดูซอร์สโค้ด">
+<!ENTITY cmd.viewsource-attachMenu.label "เปิดด้วย">
+<!ENTITY viewsource-viewMenu.accesskey "w">
+<!ENTITY viewsourcewith.commandkey "U">
+<!ENTITY viewsourcewithButton.label "ซอร์สโค้ด">
+<!ENTITY viewsourcewithTooltip "ดูซอร์สโค้ด">

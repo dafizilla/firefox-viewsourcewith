@@ -1,0 +1,49 @@
+<!ENTITY settings.title "ViewSourceWith 選項">
+<!ENTITY destFolder.caption "暫存資料夾">
+<!ENTITY editorList.caption "編輯器清單">
+<!ENTITY configPath.label "設定檔">
+<!ENTITY defaultEditor.tree.label "預設">
+<!ENTITY description.tree.label "名稱">
+<!ENTITY show.tree.label "啟用">
+<!ENTITY new.button.label "新增">
+<!ENTITY edit.button.label "編輯">
+<!ENTITY delete.button.label "刪除">
+<!ENTITY writtenBy.label "套件作者為">
+<!ENTITY site.label "Davide Ficano">
+<!ENTITY viewSource.home.tooltip "前往 ViewSourceWith 首頁">
+<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+<!ENTITY save.method.caption "預設的存檔方式">
+<!ENTITY save.method.normal.label "正常的方式">
+<!ENTITY save.method.dom.label "DOM 文件">
+<!ENTITY save.method.advice.label "按住SHIFT鍵以使用另一種方式">
+<!ENTITY main.label "一般">
+<!ENTITY advanced.label "進階">
+<!ENTITY repl.editor.label "取代內建的檢視原始檔選單">
+<!ENTITY repl.editor.open.focused.label "開啟焦點框架頁的原始檔">
+<!ENTITY repl.editor.advice.label "設定將會在重新啟動後生效">
+<!ENTITY repl.image.viewer.item "(空)">
+<!ENTITY repl.image.viewer.label "取代內建的圖片瀏覽器">
+<!ENTITY useProfilePath.label "使用使用者設定檔路徑">
+<!ENTITY useProfilePath.tooltip "使你可以將使用者設定檔存放在可攜式儲存媒介">
+<!ENTITY image.onlink.caption "當你試圖檢視的是個連向圖片的鏈結時">
+<!ENTITY image.onlink.image.label "檢視圖片">
+<!ENTITY image.onlink.link.label "檢視鏈結">
+<!ENTITY temp.tab.label "暫存檔">
+<!ENTITY temp.clearAtExit.label "當應用程式結束時刪除暫存檔">
+<!ENTITY temp.cleanNow.label "清空">
+<!ENTITY view.tab.label "顯示">
+<!ENTITY view.menu.label "選單">
+<!ENTITY view.showIcons.label "顯示選單圖示">
+<!ENTITY urlmapper.tab.label "路徑對應">
+<!ENTITY urlmapper.caption "伺服器與本地端路徑對應清單">
+<!ENTITY urlmapper.enabled.tree.label "啟用">
+<!ENTITY urlmapper.name.tree.label "名稱">
+<!ENTITY urlmapper.advice.label "開啟伺服器端的原始檔">
+<!ENTITY view.showResourcesMenu.label "顯示 CSS/JS 選單">
+<!ENTITY view.quickFrameShowMenu.label "顯示「檢視頁框原始檔」選單">
+<!ENTITY picktitle.destfolder "選取資料夾">
+<!ENTITY picktitle.configPath "選取設定檔">
+<!ENTITY temp.useOSPath.label "使用作業系統的暫存檔案夾">
+<!ENTITY warning.delete.item "刪除 &quot;&#37;1&quot;？">
+<!ENTITY jsconsole.label "Javascript主控台">
+<!ENTITY repl.jsconsole.viewer.label "在Javascript主控台開啟原始碼">

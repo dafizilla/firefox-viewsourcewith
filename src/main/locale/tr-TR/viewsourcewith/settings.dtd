@@ -1,0 +1,49 @@
+<!ENTITY settings.title "Viewsourcewith ayarları">
+<!ENTITY destFolder.caption "Geçici dosyalar klasörü">
+<!ENTITY editorList.caption "Düzenleyici listesi">
+<!ENTITY configPath.label "Yapılandırma dosyası">
+<!ENTITY defaultEditor.tree.label "Varsayılan">
+<!ENTITY description.tree.label "İsim">
+<!ENTITY show.tree.label "Etkin">
+<!ENTITY new.button.label "Yeni">
+<!ENTITY edit.button.label "Ekle">
+<!ENTITY delete.button.label "Sil">
+<!ENTITY writtenBy.label "Hazırlayan">
+<!ENTITY site.label "Davide Ficano">
+<!ENTITY viewSource.home.tooltip "ViewSourceWith&apos;e git">
+<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+<!ENTITY save.method.caption "Önceden tanımlanmış kayıt yöntemi">
+<!ENTITY save.method.normal.label "Normal">
+<!ENTITY save.method.dom.label "DOM belgesi">
+<!ENTITY save.method.advice.label "Diğer yöntemi kullanmak için SHIFT tuşunu basılı tutun">
+<!ENTITY main.label "Temel">
+<!ENTITY advanced.label "Gelişmiş">
+<!ENTITY repl.editor.label "Yerel ileti/kaynak kodu menüsü aracı yerine kullan">
+<!ENTITY repl.editor.open.focused.label "Odaklanan pencereyi yeni pencere takımında aç">
+<!ENTITY repl.editor.advice.label "Ayarlar yeniden başlatılınca etkin olur">
+<!ENTITY repl.image.viewer.item "(Hiçbiri)">
+<!ENTITY repl.image.viewer.label "Yerel resim görüntüleyici yerine kullan">
+<!ENTITY useProfilePath.label "Kimlik yolu kullan (Araç ipucunu okuyun)">
+<!ENTITY useProfilePath.tooltip "Kaldırılabilir sürücülerde kurulu nokta birimini yansıtır">
+<!ENTITY image.onlink.caption "Resmin üzerinden bağlantı varsa">
+<!ENTITY image.onlink.image.label "Resmi görüntüle">
+<!ENTITY image.onlink.link.label "Bağlantıyı görüntüle">
+<!ENTITY temp.tab.label "Geçici dosyalar">
+<!ENTITY temp.clearAtExit.label "Uygulamadan çıkınca dosyaları kaldır">
+<!ENTITY temp.cleanNow.label "Kaldır">
+<!ENTITY view.tab.label "Görünüm">
+<!ENTITY view.menu.label "Menü">
+<!ENTITY view.showIcons.label "Simgeleri menüde göster">
+<!ENTITY urlmapper.tab.label "Tasarımlar">
+<!ENTITY urlmapper.caption "Sunucu sayfaları tasarım dizelgesi">
+<!ENTITY urlmapper.enabled.tree.label "Etkin">
+<!ENTITY urlmapper.name.tree.label "İsim">
+<!ENTITY urlmapper.advice.label "Kaynak kodunu &quot;sunucu taraflı&quot; aç">
+<!ENTITY view.showResourcesMenu.label "CSS/JS menüsünü göster">
+<!ENTITY view.quickFrameShowMenu.label "&apos;Çerçevelere hızlı erişim&apos; menüsünü göster">
+<!ENTITY picktitle.destfolder "Klasör seçin">
+<!ENTITY picktitle.configPath "Yapılandırma dosyası seçin">
+<!ENTITY temp.useOSPath.label "Use operating system folder">
+<!ENTITY warning.delete.item "Delete &quot;&#37;1&quot;?">
+<!ENTITY jsconsole.label "Javascript konsolu">
+<!ENTITY repl.jsconsole.viewer.label "Kaynak dosyalarını açmak için Javascript konsolunu kullan">

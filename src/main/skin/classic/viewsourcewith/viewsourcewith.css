@@ -1,0 +1,44 @@
+#viewsourcewith-button,
+#button-viewsourcewith {
+  list-style-image: url("chrome://viewsourcewith/content/img/ff/tb24-off.png");
+  -moz-image-region: rect(7px 32px 32px 7px);
+}
+
+#viewsourcewith-button[disabled],
+#button-viewsourcewith[disabled] {
+  list-style-image: url("chrome://viewsourcewith/content/img/ff/tb24.png");
+  -moz-image-region: rect(7px 32px 32px 7px);
+  -moz-opacity: 0.5;
+}
+
+#viewsourcewith-button:hover,
+#button-viewsourcewith:hover {
+  list-style-image: url("chrome://viewsourcewith/content/img/ff/tb24.png");
+  -moz-image-region: rect(7px 32px 32px 7px);
+}
+
+toolbar[iconsize="small"] #viewsourcewith-button {
+  list-style-image: url("chrome://viewsourcewith/content/img/ff/tb16-off.png");
+  -moz-image-region: rect(0px 16px 16px 0px);
+}
+
+toolbar[iconsize="small"] #viewsourcewith-button[disabled] {
+  list-style-image: url("chrome://viewsourcewith/content/img/ff/tb16.png");
+  -moz-opacity: 0.5;
+  -moz-image-region: rect(0px 16px 16px 0px);
+}
+
+toolbar[iconsize="small"] #viewsourcewith-button:hover {
+  list-style-image: url("chrome://viewsourcewith/content/img/ff/tb16.png");
+}
+
+toolbar[iconsize="small"] #viewsourcewith-button[usenvustyle] {
+  list-style-image: url("chrome://viewsourcewith/content/img/nv/tb24.png");
+}
+
+#viewsourcewith-button[usenvustyle],
+#palette-box #viewsourcewith-button[usenvustyle] {
+  list-style-image: url("chrome://viewsourcewith/content/img/nv/tb32.png");
+  /* This is necessary to see only the first image in "Customize toolbar" dialog */
+  -moz-image-region: rect(0px 32px 32px 0);
+}

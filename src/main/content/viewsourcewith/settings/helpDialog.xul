@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://viewsourcewith/skin/settings.css" type="text/css"?>
+
+<!DOCTYPE dialog
+[
+<!ENTITY % brandDTD SYSTEM "chrome://viewsourcewith/locale/brand.dtd" >
+%brandDTD;
+<!ENTITY % vswDTD SYSTEM "chrome://viewsourcewith/locale/tokenHelp.dtd" >
+%vswDTD;
+]>
+
+<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        id="helpDialog"
+        minwidth="420"
+        minheight="370"
+        buttons="accept"
+        title="&vsw.brandname; &title;"
+        persist="width height screenX screenY">
+        
+    <script>
+        window.addEventListener("load", onLoad, false);
+        
+        function onLoad() {
+            document.getElementById("helpIFrame")
+                .setAttribute("src", window.arguments[0]);
+        }
+    </script>
+    <iframe id="helpIFrame" flex="1" src="" />
+</dialog>

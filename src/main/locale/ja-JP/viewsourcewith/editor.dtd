@@ -1,0 +1,14 @@
+<!ENTITY dialog.editor.title "プログラムの選択">
+<!ENTITY editorPath.label "プログラムへのパス">
+<!ENTITY description.label "概要">
+<!ENTITY shortcut.caption "ショートカットキー">
+<!ENTITY shortcut.default.accel "Ctrl + Shift +">
+<!ENTITY shortcut.remove "削除">
+<!ENTITY shortcut.maybe.invalid "割り当てたキーが動作しない場合があります">
+<!ENTITY invalid.path.chars "無効なパスです。パスに使用できない文字が含まれている可能性があります。">
+<!ENTITY picktitle.editor "プログラムの選択">
+<!ENTITY parameters.label "変数">
+<!ENTITY token.filenames "ファイルの名前">
+<!ENTITY token.line.number "行番号">
+<!ENTITY token.column.number "列番号">
+<!ENTITY token.help "ヘルプ...">

@@ -1,0 +1,10 @@
+<!ENTITY resources.title "Open stylvelle en skripte">
+<!ENTITY all.tab.label "Alle hulpbronne">
+<!ENTITY css.tab.label "Stylvelle">
+<!ENTITY js.tab.label "Skripte">
+<!ENTITY showallframes.label "Wys alle raamhulpbronne">
+<!ENTITY editors.label "Redigeerder om te gebruik">
+<!ENTITY button.label.accept "Bekyk">
+<!ENTITY button.label.cancel "Sluit">
+<!ENTITY resourcename.tree.label "Naam">
+<!ENTITY resourcepath.tree.label "URL">

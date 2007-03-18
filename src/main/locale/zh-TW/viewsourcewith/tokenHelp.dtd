@@ -1,0 +1,11 @@
+<!ENTITY title "變數">
+<!ENTITY description "您可以使用一些變數來開啟您的編輯器">
+<!ENTITY parameter "變數名稱">
+<!ENTITY replaced.with "變數值">
+<!ENTITY file.names.descr "檔名">
+<!ENTITY line.number.descr "列數">
+<!ENTITY column.number.descr "行數">
+<!ENTITY meaningful.js "這個參數只有在Javascript主控台有效，其他情形下這個變數的值是1。">
+<!ENTITY line.column.usage "透過列數或行數來當作編輯器當做指令行參數，可使得編輯器將游標移到指定的位置。">
+<!ENTITY see "參考">
+<!ENTITY more.details "取得更多資訊。">

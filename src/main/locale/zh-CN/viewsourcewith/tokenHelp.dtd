@@ -1,0 +1,11 @@
+<!ENTITY title "特殊参数">
+<!ENTITY description "您可以使用一些特殊参数，这些参数在编辑器开始时被替代。">
+<!ENTITY parameter "参数">
+<!ENTITY replaced.with "替换成">
+<!ENTITY file.names.descr "文件名">
+<!ENTITY line.number.descr "行数">
+<!ENTITY column.number.descr "列数">
+<!ENTITY meaningful.js "该参数在 Javascript 控制台中意义丰富，否则其值为1.">
+<!ENTITY line.column.usage "行数和列数必须在特殊编辑器光标位置命令行开关中一起使用。">
+<!ENTITY see "查看">
+<!ENTITY more.details "详细信息。">

@@ -1,0 +1,10 @@
+<!ENTITY resources.title "Open style sheets and scripts">
+<!ENTITY all.tab.label "All resources">
+<!ENTITY css.tab.label "Style Sheets">
+<!ENTITY js.tab.label "Scripts">
+<!ENTITY showallframes.label "Show all frames resources">
+<!ENTITY editors.label "Editor to use">
+<!ENTITY button.label.accept "View">
+<!ENTITY button.label.cancel "Close">
+<!ENTITY resourcename.tree.label "Name">
+<!ENTITY resourcepath.tree.label "URL">

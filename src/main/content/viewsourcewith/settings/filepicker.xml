@@ -1,0 +1,223 @@
+<?xml version="1.0"?>
+
+<bindings xmlns="http://www.mozilla.org/xbl"
+          xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+          xmlns:xbl="http://www.mozilla.org/xbl">
+  <binding id="filepicker">
+
+    <content>
+        <xul:hbox xbl:inherits="flex">
+            <xul:textbox flex="1" anonid="textbox" xbl:inherits="id" />
+            <xul:button
+                    class="filepicker-browse"
+                    anonid="pickbutton"
+                    oncommand="onPickFile();"
+                    xbl:inherits="class=buttonclass,label=buttonlabel"
+                    />
+        </xul:hbox>
+    </content>
+
+    <implementation>
+      <constructor><![CDATA[
+        // From multipanel.xml
+        this.mFileChoosen = this.hasAttribute("onfilechoosen")
+                ? new Function("isOk", "filePath", this.getAttribute("onfilechoosen")) : null;
+        this.mPickTitle = this.getAttribute("pickTitle");
+        this.mMode = this.getAttribute("mode");
+        this.mFilters = this.getAttribute("filters");
+        this.mUserFilters = this.getAttribute("userfilters");
+        this.mFilterIndex = this.getAttribute("filterIndex");
+
+        this.disabled = this.getAttribute("disabled");
+
+        const nsIFilePicker = Components.interfaces.nsIFilePicker;
+        this.filterList = new Object();
+        this.filterList["all"] = nsIFilePicker.filterAll;
+        this.filterList["html"] = nsIFilePicker.filterHTML;
+        this.filterList["text"] = nsIFilePicker.filterText;
+        this.filterList["images"] = nsIFilePicker.filterImages;
+        this.filterList["xml"] = nsIFilePicker.filterXML;
+        this.filterList["xul"] = nsIFilePicker.filterXUL;
+        this.filterList["apps"] = nsIFilePicker.filterApps;
+
+        this.modeList = new Object();
+        this.modeList["open"] = nsIFilePicker.modeOpen;
+        this.modeList["save"] = nsIFilePicker.modeSave;
+        this.modeList["getfolder"] = nsIFilePicker.modeGetFolder;
+        this.modeList["openmultiple"] = nsIFilePicker.modeOpenMultiple;
+      ]]></constructor>
+
+      <field name="mTextbox">
+        document.getAnonymousElementByAttribute(this, "anonid", "textbox")
+      </field>
+
+      <field name="mButton">
+        document.getAnonymousElementByAttribute(this, "anonid", "pickbutton")
+      </field>
+
+      <property name="textbox" onget="return this.mTextbox;" readonly="true" />
+
+      <property name="onfilechoosen" onget="return this.mFileChoosen;">
+        <setter><![CDATA[
+            this.setAttribute("onfilechoosen", val);
+            this.mFileChoosen = val;
+            this.mFileChoosen = val != ""
+                    ? new Function("isOk", "filePath", val) : null;
+        ]]></setter>
+      </property>
+
+      <property name="pickTitle" onget="return this.mPickTitle;">
+        <setter><![CDATA[
+            this.setAttribute("pickTitle", val);
+            this.mPickTitle = val;
+        ]]></setter>
+      </property>
+
+      <property name="mode" onget="return this.mMode;">
+        <setter><![CDATA[
+            this.setAttribute("mode", val);
+            this.mMode = val;
+        ]]></setter>
+      </property>
+
+      <property name="filters" onget="return this.mFilters;">
+        <setter><![CDATA[
+            this.setAttribute("filters", val);
+            this.mFilters = val;
+        ]]></setter>
+      </property>
+
+      <!-- Must have the format
+           userfilters="[Images|*.gif; *.jpg][Documents|*.doc; *.txt]"
+      -->
+      <property name="userfilters" onget="return this.mUserFilters;">
+        <setter><![CDATA[
+            this.setAttribute("userfilters", val);
+            this.mUserFilters = val;
+        ]]></setter>
+      </property>
+
+      <property name="value" onget="return this.mTextbox.value;">
+        <setter><![CDATA[
+            this.mTextbox.setAttribute("value", val);
+            this.mTextbox.value = val;
+        ]]></setter>
+      </property>
+
+      <property name="disabled" onget="return this.mTextbox.readonly;">
+        <setter><![CDATA[
+            this.setAttribute("disabled", val);
+            this.mTextbox.readonly = val;
+            this.mButton.disabled = val;
+        ]]></setter>
+      </property>
+
+      <property name="filterIndex" onget="return this.mFilterIndex;">
+        <setter><![CDATA[
+            this.setAttribute("filterIndex", val);
+            this.mFilterIndex = val;
+        ]]></setter>
+      </property>
+
+      <method name="onPickFile">
+        <body><![CDATA[
+        const nsIFilePicker = Components.interfaces.nsIFilePicker;
+
+        try {
+            var fp = this.makeFilePicker(window,
+                                         this.pickTitle,
+                                         this.parseMode(),
+                                         this.mTextbox.value);
+            fp.filterIndex = parseInt(this.mFilterIndex);
+            fp.appendFilters(this.parseFilters());
+            this.appendUserFilters(fp);
+
+            var res = fp.show();
+            var isOk = (res == nsIFilePicker.returnOK || res == nsIFilePicker.returnReplace);
+            if (this.mFileChoosen) {
+                isOk = this.mFileChoosen(isOk, isOk ? fp.file.path : "");
+            }
+            if (isOk && fp.file) {
+                this.mTextbox.value = fp.file.path;
+            }
+        } catch (err) {
+            alert("onPickFile: " + err);
+        }
+        ]]></body>
+      </method>
+
+      <method name="parseMode">
+        <body><![CDATA[
+            var mode = this.modeList[this.mMode.toLowerCase()];
+
+            return mode ? mode : this.modeList["open"];
+        ]]></body>
+      </method>
+
+      <method name="parseFilters">
+        <body><![CDATA[
+            var filters = 0;
+
+            if (this.mFilters != "") {
+                var re = /[;, ]/
+                var arr = this.mFilters.toLowerCase().split(re);
+
+                for (var i = 0; i < arr.length; i++) {
+                    var f = this.filterList[arr[i]];
+                    if (f) {
+                        filters |= f;
+                    }
+                }
+            }
+
+            return filters;
+        ]]></body>
+      </method>
+
+      <method name="appendUserFilters">
+        <parameter name="fp"/>
+        <body><![CDATA[
+            var re = /\[(.*?)\]/
+            var reSubTokens = /\|/
+            var arr = this.mUserFilters.split(re);
+
+            for (var i = 0; i < arr.length; i++) {
+                var arrSubTokens = arr[i].split(reSubTokens);
+                if (arrSubTokens.length == 2) {
+                    fp.appendFilter(arrSubTokens[0], arrSubTokens[1]);
+                }
+            }
+        ]]></body>
+      </method>
+
+      <method name="makeFilePicker">
+        <parameter name="win"/>
+        <parameter name="title"/>
+        <parameter name="mode"/>
+        <parameter name="path"/>
+        <body><![CDATA[
+            var fp = Components.classes["@mozilla.org/filepicker;1"]
+                        .createInstance(Components.interfaces.nsIFilePicker);
+            fp.init(win, title, mode);
+
+            try {
+                var currDir = Components.classes["@mozilla.org/file/local;1"]
+                           .createInstance(Components.interfaces.nsILocalFile);
+                currDir.initWithPath(path);
+                if (currDir.isFile()) {
+                    currDir = currDir.parent;
+                }
+                if (currDir.isDirectory()) {
+                    fp.displayDirectory = currDir;
+                }
+            } catch (err) {
+                // simply don't set displayDirectory
+            }
+
+            return fp;
+        ]]></body>
+      </method>
+    </implementation>
+
+  </binding>
+</bindings>

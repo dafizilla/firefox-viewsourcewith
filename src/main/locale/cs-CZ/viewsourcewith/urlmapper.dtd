@@ -1,0 +1,7 @@
+<!ENTITY dialog.urlmapper.title "Mapování stránek na serveru">
+<!ENTITY urlMapperName.caption "Název mapování">
+<!ENTITY domainfilter.caption "Filtr mapování (regulární výraz)">
+<!ENTITY localpath.caption "Adresář obsahující stránky na serveru">
+<!ENTITY jsCode.caption "Javascriptový kód">
+<!ENTITY jsCode.insert.tooltiptext "Vložit předdefinovaný kód">
+<!ENTITY urlmapper.picktitle.directory "Zvolit složku">

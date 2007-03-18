@@ -1,0 +1,7 @@
+<!ENTITY dialog.urlmapper.title "Bedienerbladsy-padkaarting">
+<!ENTITY urlMapperName.caption "Padkaartingnaam">
+<!ENTITY domainfilter.caption "Padkaartingfilter (reguliere uitdrukking)">
+<!ENTITY localpath.caption "Gids wat bedienerbladsye bevat">
+<!ENTITY jsCode.caption "JavaScript-kode">
+<!ENTITY jsCode.insert.tooltiptext "Voeg voorafgedefinieerde kode in">
+<!ENTITY urlmapper.picktitle.directory "Kies vouer">

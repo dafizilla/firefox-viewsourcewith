@@ -1,0 +1,8 @@
+<!ENTITY cmd.viewsource.label "Voir la source avec">
+<!ENTITY cmd.viewsource.frame.label "Voir la source du cadre avec">
+<!ENTITY cmd.viewsource-viewMenu.label "Source avec">
+<!ENTITY cmd.viewsource-attachMenu.label "Ouvrir avec">
+<!ENTITY viewsource-viewMenu.accesskey "v">
+<!ENTITY viewsourcewith.commandkey "s">
+<!ENTITY viewsourcewithButton.label "Source">
+<!ENTITY viewsourcewithTooltip "Voir le code source">

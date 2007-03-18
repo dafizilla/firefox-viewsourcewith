@@ -1,0 +1,11 @@
+<!ENTITY title "parametri speciali">
+<!ENTITY description "Si possono usare alcuni parametri speciali che saranno sostituiti all&apos;avvio dell&apos;editor.">
+<!ENTITY parameter "Parametri">
+<!ENTITY replaced.with "Sostituisci con">
+<!ENTITY file.names.descr "Nome/i di file">
+<!ENTITY line.number.descr "Numero di linea">
+<!ENTITY column.number.descr "Numero di colonna">
+<!ENTITY meaningful.js "Questo parametro e&apos; significativo nella console degli errori, altrimenti value 1.">
+<!ENTITY line.column.usage "Numero di linea e colonna devono essere usati insieme allo specifico switch di linea di comando dell&apos;editor.">
+<!ENTITY see "Consulta">
+<!ENTITY more.details "per maggiori dettagli.">

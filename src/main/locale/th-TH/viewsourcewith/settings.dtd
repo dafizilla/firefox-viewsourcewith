@@ -1,0 +1,49 @@
+<!ENTITY settings.title "ตั้งค่า ViewSourceWith">
+<!ENTITY destFolder.caption "โฟลเดอร์สำหรับไฟล์ชั่วคราว">
+<!ENTITY editorList.caption "รายชื่อ Editor">
+<!ENTITY configPath.label "ไฟล์ตั้งค่า">
+<!ENTITY defaultEditor.tree.label "Default">
+<!ENTITY description.tree.label "Name">
+<!ENTITY show.tree.label "Enabled">
+<!ENTITY new.button.label "เพิ่ม">
+<!ENTITY edit.button.label "แก้ไข">
+<!ENTITY delete.button.label "ลบ">
+<!ENTITY writtenBy.label "พัฒนาโดย">
+<!ENTITY site.label "Davide Ficano">
+<!ENTITY viewSource.home.tooltip "ไปยังเว็บ ViewSourceWith">
+<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+<!ENTITY save.method.caption "วิธีบันทึก">
+<!ENTITY save.method.normal.label "ปกติ">
+<!ENTITY save.method.dom.label "เอกสาร DOM">
+<!ENTITY save.method.advice.label "กด Shift ค้างไว้เพื่อใช้วิธีอื่น">
+<!ENTITY main.label "ทั่วไป">
+<!ENTITY advanced.label "ขั้นสูง">
+<!ENTITY repl.editor.label "ใช้สำหรับหัวข้อเมนู Message/Page source ดั้งเดิม">
+<!ENTITY repl.editor.open.focused.label "เปิดหน้าต่างที่โฟกัสไว้บนเฟรมเซ็ท">
+<!ENTITY repl.editor.advice.label "การตั้งค่าจะมีผลหลังการเปิดโปรแกรมครั้งหน้า">
+<!ENTITY repl.image.viewer.item "(ไม่มี)">
+<!ENTITY repl.image.viewer.label "ใช้สำหรับโปรแกรมดูภาพดั้งเดิม">
+<!ENTITY useProfilePath.label "ใช้ Profile Path">
+<!ENTITY useProfilePath.tooltip "มีผลถึงตำแหน่งบนไดรฟ์ที่ถอดเปลี่ยนได้">
+<!ENTITY image.onlink.caption "ในกรณลิงค์ที่เป็นภาพ">
+<!ENTITY image.onlink.image.label "ดูภาพ">
+<!ENTITY image.onlink.link.label "ดูลิงค์">
+<!ENTITY temp.tab.label "ไฟล์ชั่วคราว">
+<!ENTITY temp.clearAtExit.label "ลบไฟล์เมื่อออกจากโปรแกรม">
+<!ENTITY temp.cleanNow.label "ลบ">
+<!ENTITY view.tab.label "แสดงผล">
+<!ENTITY view.menu.label "เมนู">
+<!ENTITY view.showIcons.label "แสดงไอคอนบนเมนู">
+<!ENTITY urlmapper.tab.label "Mappings">
+<!ENTITY urlmapper.caption "รายการ Mapping">
+<!ENTITY urlmapper.enabled.tree.label "Enabled">
+<!ENTITY urlmapper.name.tree.label "Name">
+<!ENTITY urlmapper.advice.label "เปิดซอร์สของหน้าบน Server-Side">
+<!ENTITY view.showResourcesMenu.label "แสดงเมนู CSS/JS">
+<!ENTITY view.quickFrameShowMenu.label "แสดงเมนู Quick access frames">
+<!ENTITY picktitle.destfolder "เลือกโฟลเดอร์">
+<!ENTITY picktitle.configPath "เลือกไฟล์ตั้งค่า">
+<!ENTITY temp.useOSPath.label "ใช้โฟลเดอร์ของระบบปฏิบัติการ">
+<!ENTITY warning.delete.item "ลบ &quot;&#37;1&quot;?">
+<!ENTITY jsconsole.label "จาวาสคริปต์คอนโซล">
+<!ENTITY repl.jsconsole.viewer.label "เปิดไฟล์ซอร์สโค้ดในจาวาสคริปต์คอนโซล">

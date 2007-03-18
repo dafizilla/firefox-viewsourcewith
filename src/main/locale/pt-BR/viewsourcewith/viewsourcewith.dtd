@@ -1,0 +1,8 @@
+<!ENTITY cmd.viewsource.label "Exibir código-fonte com">
+<!ENTITY cmd.viewsource.frame.label "Exibir código-fonte do frame com">
+<!ENTITY cmd.viewsource-viewMenu.label "Código-fonte com">
+<!ENTITY cmd.viewsource-attachMenu.label "Abrir com">
+<!ENTITY viewsource-viewMenu.accesskey "C">
+<!ENTITY viewsourcewith.commandkey "C">
+<!ENTITY viewsourcewithButton.label "Código-fonte">
+<!ENTITY viewsourcewithTooltip "Exibir código-fonte">

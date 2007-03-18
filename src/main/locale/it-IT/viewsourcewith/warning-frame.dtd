@@ -1,0 +1,3 @@
+<!ENTITY warning.title "Avviso per pagine con riquadri">
+<!ENTITY warningText.label "Quando la pagina contiene dei riquadri, per visualizzare quello desiderato, assicurarsi di avere il focus su quello corretto (semplicemente cliccare sul riquadro)">
+<!ENTITY warningDisableDialog.label "Non mostrare questo messaggio in seguito">

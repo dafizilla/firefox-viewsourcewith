@@ -1,0 +1,8 @@
+<!ENTITY cmd.viewsource.label "Pokaż źródło strony w...">
+<!ENTITY cmd.viewsource.frame.label "Pokaż źródło ramki w..">
+<!ENTITY cmd.viewsource-viewMenu.label "Żródło w">
+<!ENTITY cmd.viewsource-attachMenu.label "Otwórz w">
+<!ENTITY viewsource-viewMenu.accesskey "N">
+<!ENTITY viewsourcewith.commandkey "U">
+<!ENTITY viewsourcewithButton.label "Źródło">
+<!ENTITY viewsourcewithTooltip "Pokaż źródło strony">

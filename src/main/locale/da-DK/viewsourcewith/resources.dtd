@@ -1,0 +1,10 @@
+<!ENTITY resources.title "Åbn stilark og scripts">
+<!ENTITY all.tab.label "Alle ressourcer">
+<!ENTITY css.tab.label "Stilark">
+<!ENTITY js.tab.label "Scripts">
+<!ENTITY showallframes.label "Vis alle ramme-ressourcer">
+<!ENTITY editors.label "Valg af editor">
+<!ENTITY button.label.accept "Vis">
+<!ENTITY button.label.cancel "Luk">
+<!ENTITY resourcename.tree.label "Navn">
+<!ENTITY resourcepath.tree.label "URL">

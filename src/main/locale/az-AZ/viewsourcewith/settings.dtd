@@ -1,0 +1,51 @@
+<!ENTITY settings.title "Birgə baxış nizamlamaları">
+<!ENTITY destFolder.caption "Müvəqqəti sənədlər üçün qovluq">
+<!ENTITY editorList.caption "Proqram siyahısı">
+<!ENTITY configPath.label "Tənzim sənədi">
+<!ENTITY defaultEditor.tree.label "İlkin">
+<!ENTITY description.tree.label "Ad">
+<!ENTITY show.tree.label "Aktiv">
+<!ENTITY new.button.label "Yeni">
+<!ENTITY edit.button.label "Düzəliş">
+<!ENTITY delete.button.label "Sil">
+<!ENTITY writtenBy.label "Müəllif">
+<!ENTITY site.label "Davide Ficano">
+<!ENTITY viewSource.home.tooltip "ViewSourceWith internet səhifəsi">
+<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+<!ENTITY save.method.caption "Üstünlük verilən qeyd şəkli">
+<!ENTITY save.method.normal.label "Adi">
+<!ENTITY save.method.dom.label "DOM sənədi">
+<!ENTITY save.method.advice.label "Başqa üsul işlətmək üçün SHIFT düyməsini basılı tutun">
+<!ENTITY main.label "Əsas">
+<!ENTITY advanced.label "Əlavə">
+<!ENTITY repl.editor.label "Tə'yin edilmiş mənbə koduna baxış menüsünün yerinə işlət">
+<!ENTITY repl.editor.open.focused.label "Seçilən çərçivəni aç">
+<!ENTITY repl.editor.advice.label "Proqram yenidən işə salındıqdan sonra nizamlamalar tətbiq ediləcək">
+<!ENTITY repl.image.viewer.item "(Yoxdur)">
+<!ENTITY repl.image.viewer.label "Tə'yin edilmiş təsvir göstərici yerinə işlət">
+<!ENTITY useProfilePath.label "Kimlik yolunu işlət (xatırlatmanı oxuyun)">
+<!ENTITY useProfilePath.tooltip "Dəyişdirilə bilən daşıyıcılar üçün quraşdırma nöqtəsi tə'yin edilir">
+<!ENTITY image.onlink.caption "Təsvirli körpü ilə əlaqədar">
+<!ENTITY image.onlink.image.label "Təsvirə baxış">
+<!ENTITY image.onlink.link.label "Körpüyə baxış">
+<!ENTITY temp.tab.label "Müvəqqəti sənədlər">
+<!ENTITY temp.clearAtExit.label "Proqram bağlandıqdan sonra sənədləri sil">
+<!ENTITY temp.cleanNow.label "Sil">
+<!ENTITY view.tab.label "Baxış">
+<!ENTITY view.menu.label "Menü">
+<!ENTITY view.showIcons.label "Menüdə timsalları göstər">
+<!ENTITY urlmapper.advice.label "Səhifə mənbəyini 'Xidmət mərkəzi-tərəfi'ndə aç">
+<!ENTITY urlmapper.caption "Xidmət mərkəzi səhifələri tərtibatı siyahısı">
+<!ENTITY urlmapper.enabled.tree.label "Aktiv">
+<!ENTITY urlmapper.name.tree.label "Ad">
+<!ENTITY urlmapper.tab.label "Tərtibatlar">
+
+<!ENTITY view.showResourcesMenu.label "CSS/JS menüsünü göstər">
+<!ENTITY view.quickFrameShowMenu.label "'Cəld müdaxilə çərçivələri' menüsünü göstər">
+<!ENTITY picktitle.destfolder "Qovluq seçin">
+<!ENTITY picktitle.configPath "Tənzim sənədi seçin">
+<!ENTITY temp.useOSPath.label "Əməliyyat sistem qovluğunu işlət">
+<!ENTITY warning.delete.item "&quot;&#37;1&quot; silinsinmi?">
+
+<!ENTITY jsconsole.label "Javascript əmr sətri">
+<!ENTITY repl.jsconsole.viewer.label "Sənəd mənbəyini Javascript əmr sətrində açmaq üçün istifadə edin">

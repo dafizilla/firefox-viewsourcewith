@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view-source-with version="1.1">
+    <default-item-index>1</default-item-index>
+    <show-frame-warning>false</show-frame-warning>
+    <save-method>normal</save-method>
+    <replace-native-editor>true</replace-native-editor>
+    <open-focus-win>true</open-focus-win>
+    <open-image-on-link>false</open-image-on-link>
+    <native-image-editor-index>-1</native-image-editor-index>
+    <show-resources-menu>true</show-resources-menu>
+    <show-quick-frame-menu>true</show-quick-frame-menu>
+
+    <view-icons>true</view-icons>
+
+
+    <destination-info>
+        <destination-folder><![CDATA[C:\trash\cached]]></destination-folder>
+        <destination-clear-at-exit>true</destination-clear-at-exit>
+        <destination-max-files-with-same-name>20</destination-max-files-with-same-name>
+    </destination-info>
+
+    <main-editor-group>
+        <editor-group-name>main</editor-group-name>
+        <editor-group-item>
+            <description><![CDATA[iexplore]]></description>
+            <enabled>false</enabled>
+            <full-path><![CDATA[C:\Programmi\Internet Explorer\iexplore.exe]]></full-path>
+        </editor-group-item>
+        <editor-group-item>
+            <description><![CDATA[notepad++]]></description>
+            <enabled>true</enabled>
+            <full-path><![CDATA[I:\Programmi2\Notepad++\notepad++.exe]]></full-path>
+        </editor-group-item>
+        <editor-group-item>
+            <description><![CDATA[uedit32]]></description>
+            <enabled>true</enabled>
+            <full-path><![CDATA[I:\Programmi2\UltraEdit\uedit32.exe]]></full-path>
+        </editor-group-item>
+        <editor-group-item>
+            <description><![CDATA[AcrobatReader]]></description>
+            <enabled>false</enabled>
+            <full-path><![CDATA[I:\Programmi2\Adobe\Acrobat 7.0\Reader\AcroRd32.exe]]></full-path>
+        </editor-group-item>
+        <editor-group-item>
+            <description><![CDATA[Psp]]></description>
+            <enabled>true</enabled>
+            <full-path><![CDATA[I:\Programmi2\Paint Shop Pro 5\Psp.exe]]></full-path>
+        </editor-group-item>
+        <editor-group-item>
+            <description><![CDATA[nvu]]></description>
+            <enabled>false</enabled>
+            <full-path><![CDATA[I:\Programmi2\Mozilla.org\nvu-1.0PR\nvu.exe]]></full-path>
+        </editor-group-item>
+        <editor-group-item>
+            <description><![CDATA[xnview]]></description>
+            <enabled>true</enabled>
+            <full-path><![CDATA[I:\Programmi2\XnView\xnview.exe]]></full-path>
+        </editor-group-item>
+        <editor-group-item>
+            <description><![CDATA[emacs]]></description>
+            <enabled>false</enabled>
+            <full-path><![CDATA[C:\trash\emacs.bat]]></full-path>
+        </editor-group-item>
+        <editor-group-item>
+            <description><![CDATA[xemacs]]></description>
+            <enabled>false</enabled>
+            <full-path><![CDATA[C:\Program Files\XEmacs\XEmacs-21.4.13\i586-pc-win32\xemacs.exe]]></full-path>
+        </editor-group-item>
+        <editor-group-item>
+            <description><![CDATA[mspaint]]></description>
+            <enabled>false</enabled>
+            <full-path><![CDATA[C:\WINDOWS\system32\mspaint.exe]]></full-path>
+        </editor-group-item>
+        <editor-group-item>
+            <description><![CDATA[XP Rundll]]></description>
+            <enabled>false</enabled>
+            <full-path><![CDATA[c:\trash\xp.bat]]></full-path>
+        </editor-group-item>
+        <editor-group-item>
+            <description><![CDATA[Foxit Reader]]></description>
+            <enabled>true</enabled>
+            <full-path><![CDATA[I:\Programmi2\foxitreader\Foxit Reader.exe]]></full-path>
+        </editor-group-item>
+    </main-editor-group>
+
+    <url-mappers>
+        <url-mapper>
+            <name><![CDATA[xampp]]></name>
+            <enabled>false</enabled>
+            <local-path><![CDATA[C:\Programmi\xampp\htdocs]]></local-path>
+            <domain-filter><![CDATA[https://www.iwbank.it/*]]></domain-filter>
+            <js-code><![CDATA[// You receive the object data containing the following elements
+// data.uri         the URI data 
+//                  see nsIURL at http://www.xulplanet.com/references/xpcomref/comps/c_networkstandardurl1.html
+// data.localPath   the localPath defined in urlMapper dialog (should be empty or null)
+// data.domainFilter the domainFilter defined in urlMapper dialog
+// data.pageSourcePath the path to page source retrieved by browser
+var localPath = data.localPath;
+var uri = data.uri.spec;
+var dirSep = top.window.navigator.platform.indexOf("Win") < 0 ? "/" : "\\";
+// Contains the file name(s) to open
+var arFiles = new Array();
+
+var re = new RegExp(data.domainFilter, "g");
+var fileName = re.exec(uri);
+// Try to append extra paths
+if (fileName) {
+    fileName = uri.substring(re.lastIndex);
+    // remove the text following query (?), ref (#), param (;)
+    fileName = fileName.replace(/[#?;].*$/, "");
+    // Under Windows adjust path separators
+    if (dirSep == "\\") {
+        fileName = fileName.replace(/\//g, dirSep);
+    }
+} else {
+    fileName = data.uri.fileName;
+}
+// You can open more than one file simply returning
+// their full pathnames in array shown below
+// By default only two files are returned having the same name to requested one
+// Suppose your localPath points to ~/vsw/htdocs/vsw
+// The browser points to:
+// http://dafizilla.sourceforge.net/viewsourcewith/faq.php
+// The file name in URL is faq.php so the local file is:
+// ~/vsw/htdocs/vsw/faq.php
+
+// comment line below if you don't want to open the temporary file
+arFiles.push(data.pageSourcePath);
+arFiles.push(localPath + dirSep + fileName);
+
+alert(localPath + dirSep + fileName);
+
+return arFiles;
+]]></js-code>
+        </url-mapper>
+        <url-mapper>
+            <name><![CDATA[localhost]]></name>
+            <enabled>false</enabled>
+            <local-path><![CDATA[I:\Devel\0DaFiPrj\SrcXML-VBS\sourceforge.site]]></local-path>
+            <domain-filter><![CDATA[http://localhost/*]]></domain-filter>
+            <js-code><![CDATA[]]></js-code>
+        </url-mapper>
+        <url-mapper>
+            <name><![CDATA[webbaker]]></name>
+            <enabled>false</enabled>
+            <local-path><![CDATA[I:\Devel\websitebaker-2.6.1\wb]]></local-path>
+            <domain-filter><![CDATA[http://localhost/baker]]></domain-filter>
+            <js-code><![CDATA[]]></js-code>
+        </url-mapper>
+        <url-mapper>
+            <name><![CDATA[localhost_dafizilla]]></name>
+            <enabled>true</enabled>
+            <local-path><![CDATA[I:\Devel\0DaFiPrj\SrcXML-VBS\sourceforge.site\dafizilla]]></local-path>
+            <domain-filter><![CDATA[http://localhost/dafizilla/*]]></domain-filter>
+            <js-code><![CDATA[]]></js-code>
+        </url-mapper>
+        <url-mapper>
+            <name><![CDATA[all_sites]]></name>
+            <enabled>false</enabled>
+            <local-path><![CDATA[]]></local-path>
+            <domain-filter><![CDATA[.]]></domain-filter>
+            <js-code><![CDATA[var uri = data.uri.spec;
+var arFiles = new Array();
+
+arFiles.push(data.pageSourcePath);
+arFiles.push(uri);
+
+return arFiles;
+]]></js-code>
+        </url-mapper>
+    </url-mappers>
+
+</view-source-with>
+

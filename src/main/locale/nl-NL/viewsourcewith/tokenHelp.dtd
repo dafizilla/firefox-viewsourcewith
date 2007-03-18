@@ -1,0 +1,11 @@
+<!ENTITY title "Speciale parameters">
+<!ENTITY description "U kunt sommige speciale parameters gebruiken die bij herstart van de editor  vervangen worden zullen">
+<!ENTITY parameter "parameter">
+<!ENTITY replaced.with "Vervangen door">
+<!ENTITY file.names.descr "Bestandsnamen">
+<!ENTITY line.number.descr "Regelnummer">
+<!ENTITY column.number.descr "Kolomnummer">
+<!ENTITY meaningful.js "Deze parameter is belangrijk in de Javascriptcosole, anders is de waarde 1">
+<!ENTITY line.column.usage "Regel- en kolomnummers moeten beiden gebruikt worden om de cusor naar de juiste opdrachtregel te verwijzen">
+<!ENTITY see "Laten zien">
+<!ENTITY more.details "voor meer details">

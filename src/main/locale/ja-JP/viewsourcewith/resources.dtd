@@ -1,0 +1,10 @@
+<!ENTITY resources.title "外部スタイルシートと外部スクリプトを開く">
+<!ENTITY all.tab.label "両方表示">
+<!ENTITY css.tab.label "スタイルシート">
+<!ENTITY js.tab.label "スクリプト">
+<!ENTITY showallframes.label "すべてのフレームのファイルを表示">
+<!ENTITY editors.label "使用するプログラム">
+<!ENTITY button.label.accept "表示">
+<!ENTITY button.label.cancel "閉じる">
+<!ENTITY resourcename.tree.label "ファイル名">
+<!ENTITY resourcepath.tree.label "URL">

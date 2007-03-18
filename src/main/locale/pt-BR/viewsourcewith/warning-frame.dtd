@@ -1,0 +1,3 @@
+<!ENTITY warning.title "Páginas com frames">
+<!ENTITY warningText.label "Quando uma página contiver frames, você deve selecionar o frame desejado clicando sobre ele">
+<!ENTITY warningDisableDialog.label "Não exibir essa mensagem novamente">

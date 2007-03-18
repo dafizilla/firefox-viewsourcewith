@@ -1,0 +1,14 @@
+<!ENTITY dialog.editor.title "Elegir editor">
+<!ENTITY editorPath.label "Ruta">
+<!ENTITY description.label "Descripción">
+<!ENTITY shortcut.caption "Combinación de teclas">
+<!ENTITY shortcut.default.accel "Mayús + Ctrl +">
+<!ENTITY shortcut.remove "Borrar">
+<!ENTITY shortcut.maybe.invalid "Alguna combinación puede no funcionar">
+<!ENTITY invalid.path.chars "Ruta incorrecta, compruebe que no contiene caracteres no válidos">
+<!ENTITY picktitle.editor "Seleccionar editor">
+<!ENTITY parameters.label "Parámetros">
+<!ENTITY token.filenames "Nombre de archivo(s)">
+<!ENTITY token.line.number "Número de línea">
+<!ENTITY token.column.number "Número de columna">
+<!ENTITY token.help "Ayuda ...">

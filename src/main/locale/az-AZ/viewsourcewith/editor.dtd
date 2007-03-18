@@ -1,0 +1,14 @@
+<!ENTITY dialog.editor.title "Düzəliş aparma proqramı seçmə">
+<!ENTITY editorPath.label "Yol">
+<!ENTITY description.label "Şərh">
+<!ENTITY shortcut.caption "Qısayollar">
+<!ENTITY shortcut.default.accel "Shift + Ctrl + ">
+<!ENTITY shortcut.remove "Sil">
+<!ENTITY shortcut.maybe.invalid "Bə'zi qısaltmalar işləməyə bilər">
+<!ENTITY invalid.path.chars "Yol xətalıdır, xətalı simvollar yazılmadığına əmin olun">
+<!ENTITY picktitle.editor "Düzəliş aparma proqramı seçin">
+<!ENTITY parameters.label "Parametrlər">
+<!ENTITY token.filenames "Sənəd ad(lar)ı">
+<!ENTITY token.line.number "Sətir №">
+<!ENTITY token.column.number "Sütun №">
+<!ENTITY token.help "Kömək...">

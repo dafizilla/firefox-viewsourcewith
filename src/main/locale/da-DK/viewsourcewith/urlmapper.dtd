@@ -1,0 +1,7 @@
+<!ENTITY dialog.urlmapper.title "Serversiders mapping">
+<!ENTITY urlMapperName.caption "Mappingnavn">
+<!ENTITY domainfilter.caption "Mapping-filter (regulært udtryk)">
+<!ENTITY localpath.caption "Mappe der indeholder serversider">
+<!ENTITY jsCode.caption "Javascript-kode">
+<!ENTITY jsCode.insert.tooltiptext "Indsæt prædefineret kode">
+<!ENTITY urlmapper.picktitle.directory "Vælg mappe">

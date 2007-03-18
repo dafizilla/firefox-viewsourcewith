@@ -1,0 +1,7 @@
+<!ENTITY dialog.urlmapper.title "Mapiranje stranica poslužitelja">
+<!ENTITY urlMapperName.caption "Ime mapiranja">
+<!ENTITY domainfilter.caption "Filter mapiranja (regularni izraz)">
+<!ENTITY localpath.caption "Direktorij koji sadrži stranice poslužitelja">
+<!ENTITY jsCode.caption "Javascript kod">
+<!ENTITY jsCode.insert.tooltiptext "Umetni predefinirani kod">
+<!ENTITY urlmapper.picktitle.directory "Odaberite mapu">

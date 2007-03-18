@@ -1,0 +1,8 @@
+<!ENTITY cmd.viewsource.label "Просмотр исходного кода в">
+<!ENTITY cmd.viewsource.frame.label "Просмотр исходного кода фрейма в">
+<!ENTITY cmd.viewsource-viewMenu.label "Исходный код страницы в">
+<!ENTITY cmd.viewsource-attachMenu.label "Открыть в">
+<!ENTITY viewsource-viewMenu.accesskey "И">
+<!ENTITY viewsourcewith.commandkey "U">
+<!ENTITY viewsourcewithButton.label "Исходный код">
+<!ENTITY viewsourcewithTooltip "Просмотр исходного кода">

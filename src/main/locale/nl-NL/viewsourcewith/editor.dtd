@@ -1,0 +1,14 @@
+<!ENTITY dialog.editor.title "Kies tekstverwerkingsprogramma">
+<!ENTITY editorPath.label "Editor pad">
+<!ENTITY description.label "Beschrijving">
+<!ENTITY shortcut.caption "sneltoets">
+<!ENTITY shortcut.default.accel "Shift + Ctrl +">
+<!ENTITY shortcut.remove "Verwijderen">
+<!ENTITY shortcut.maybe.invalid "sneltoets kan mogelijk niet werken">
+<!ENTITY invalid.path.chars "Ongeldig pad, verzeker u ervan dat het geen ongeldige karakters bevat">
+<!ENTITY picktitle.editor "Selecteer een tekstverwerkingsprogramma">
+<!ENTITY parameters.label "Parameters">
+<!ENTITY token.filenames "Bestandsnaam">
+<!ENTITY token.line.number "Regelnummer">
+<!ENTITY token.column.number "Kolomnummer">
+<!ENTITY token.help "Help...">

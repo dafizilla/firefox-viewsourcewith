@@ -1,0 +1,49 @@
+<!ENTITY settings.title "ViewSourceWith の設定">
+<!ENTITY destFolder.caption "一時保存先フォルダ">
+<!ENTITY editorList.caption "プログラムの一覧">
+<!ENTITY configPath.label "設定ファイル">
+<!ENTITY defaultEditor.tree.label "初期設定">
+<!ENTITY description.tree.label "名前">
+<!ENTITY show.tree.label "有効">
+<!ENTITY new.button.label "追加">
+<!ENTITY edit.button.label "編集">
+<!ENTITY delete.button.label "削除">
+<!ENTITY writtenBy.label "作成者:">
+<!ENTITY site.label "Davide Ficano">
+<!ENTITY viewSource.home.tooltip "ViewSourceWith のホームページを表示">
+<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+<!ENTITY save.method.caption "一時ファイルの既定の保存方法">
+<!ENTITY save.method.normal.label "標準">
+<!ENTITY save.method.dom.label "DOM ドキュメント">
+<!ENTITY save.method.advice.label "SHIFT キーを押したままなら、設定とは逆の方法を使用します。">
+<!ENTITY main.label "一般">
+<!ENTITY advanced.label "詳細">
+<!ENTITY repl.editor.label "元々ある『ページのソースを開く』等をVSWでフックする">
+<!ENTITY repl.editor.open.focused.label "フレームページではフォーカスのあるフレームを処理する">
+<!ENTITY repl.editor.advice.label "設定は再起動後に反映されます">
+<!ENTITY repl.image.viewer.item "(なし)">
+<!ENTITY repl.image.viewer.label "元々ある『画像を表示』をVSWでフックし、以下のアプリを使用する">
+<!ENTITY useProfilePath.label "プロファイルフォルダを使用 (ツールチップをご覧ください)">
+<!ENTITY useProfilePath.tooltip "リムーバブルドライブではユニットのマウントポイントを反映します">
+<!ENTITY image.onlink.caption "画像にリンクが使われている時">
+<!ENTITY image.onlink.image.label "画像を表示">
+<!ENTITY image.onlink.link.label "リンク先を表示">
+<!ENTITY temp.tab.label "一時ファイル">
+<!ENTITY temp.clearAtExit.label "アプリケーションの終了時に削除">
+<!ENTITY temp.cleanNow.label "削除">
+<!ENTITY view.tab.label "表示">
+<!ENTITY view.menu.label "メニュー">
+<!ENTITY view.showIcons.label "コンテキストメニューにアイコンを表示する">
+<!ENTITY urlmapper.tab.label "マッピング">
+<!ENTITY urlmapper.caption "マッピングリスト">
+<!ENTITY urlmapper.enabled.tree.label "有効">
+<!ENTITY urlmapper.name.tree.label "名前">
+<!ENTITY urlmapper.advice.label "サーバ側のソースを開く際に、マッピングリストに基づいてローカルのソースも表示します。">
+<!ENTITY view.showResourcesMenu.label "『CSS/JS』を表示 (VSWメニューに外部CSS/JSを閲覧するための項目が表示されます)">
+<!ENTITY view.quickFrameShowMenu.label "フレーム用VSWメニューへすばやくアクセス (コンテキストメニューのカレントにサブメニューが追加されます)">
+<!ENTITY picktitle.destfolder "フォルダを選択">
+<!ENTITY picktitle.configPath "設定ファイルを選択">
+<!ENTITY temp.useOSPath.label "OS のシステムフォルダを使用">
+<!ENTITY warning.delete.item "&quot;&#37;1&quot; を削除しますか?">
+<!ENTITY jsconsole.label "Javascript コンソール">
+<!ENTITY repl.jsconsole.viewer.label "ソースファイルを Javascript コンソールで開く">

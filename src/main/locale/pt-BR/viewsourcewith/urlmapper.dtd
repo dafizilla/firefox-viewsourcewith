@@ -1,0 +1,7 @@
+<!ENTITY dialog.urlmapper.title "Mapeamento de arquivos do servidor">
+<!ENTITY urlMapperName.caption "Nome do mapeamento">
+<!ENTITY domainfilter.caption "Filtro de mapeamento (expressão regular)">
+<!ENTITY localpath.caption "Diretório contendo arquivos do servidor">
+<!ENTITY jsCode.caption "Código JavaScript">
+<!ENTITY jsCode.insert.tooltiptext "Inserir código pré-definido">
+<!ENTITY urlmapper.picktitle.directory "Selecionar pasta">

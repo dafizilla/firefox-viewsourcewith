@@ -1,0 +1,3 @@
+<!ENTITY warning.title "Gövde içeren sayfalar için uyarı">
+<!ENTITY warningText.label "Sayfa gövde içeriyorsa, istenen gövde kısmına odaklamayı kesinleştir (basitçe gövdeye tıkla)">
+<!ENTITY warningDisableDialog.label "Bu iletiyi bir daha gösterme">

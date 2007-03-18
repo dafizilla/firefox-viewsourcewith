@@ -1,0 +1,10 @@
+<!ENTITY resources.title "ها و اسکریپت ها style sheet باز کردن">
+<!ENTITY all.tab.label "تمام منابع">
+<!ENTITY css.tab.label "ها Style Sheet">
+<!ENTITY js.tab.label "اسکریپت ها">
+<!ENTITY showallframes.label "نمایش منابع تمام فریم ها">
+<!ENTITY editors.label "ویرایشگر مورد استفاده">
+<!ENTITY button.label.accept "نمایش">
+<!ENTITY button.label.cancel "بستن">
+<!ENTITY resourcename.tree.label "نام">
+<!ENTITY resourcepath.tree.label "URL">

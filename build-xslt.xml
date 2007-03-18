@@ -1,0 +1,59 @@
+<project name="xx" default="make-install" basedir="." >
+    <!-- Install file properties -->
+    <property name="generate.updateurl" value="true" />
+    <property name="extension.filename" value="" />
+    <property name="debug.extension.filename" value="plainfiles" />
+
+    <target name="make-installxxx" description="Create install files">
+        <fileset dir="xsl" />
+        <xslt in="xsl/extension.xml"
+              destdir="tmp/xsl"
+              extension=""
+              includes="xsl"
+              force="true"
+              style="xsl">
+            <param name="generate-updateurl" expression="${generate.updateurl}"/>
+            <param name="extension-filename" expression="${extension.filename}"/>
+       </xslt>
+    </target>
+
+    <target name="make-install" description="Create install files">
+        <xslt in="xsl/extension.xml"
+              out="tmp/xsl/install.js"
+              force="true"
+              style="xsl/install.js.xsl">
+            <param name="generate-updateurl" expression="${generate.updateurl}"/>
+            <param name="extension-filename" expression="${extension.filename}"/>
+       </xslt>
+
+        <xslt in="xsl/extension.xml"
+              out="tmp/xsl/install.rdf"
+              force="true"
+              includes="xsl"
+              style="xsl/install.rdf.xsl">
+            <param name="generate-updateurl" expression="${generate.updateurl}"/>
+            <param name="extension-filename" expression="${extension.filename}"/>
+       </xslt>
+
+        <xslt in="xsl/extension.xml"
+              out="tmp/xsl/chrome.manifest"
+              force="true"
+              includes="xsl"
+              style="xsl/chrome.manifest.xsl">
+            <param name="generate-updateurl" expression="${generate.updateurl}"/>
+            <param name="extension-filename" expression="${extension.filename}"/>
+       </xslt>
+    </target>
+    
+    <target name="make-debug-install">
+        <antcall target="make-install">
+            <param name="extension.filename" value="${debug.extension.filename}"/>
+        </antcall>
+    </target>
+    
+    <target name="make-umo-install">
+        <antcall target="make-install">
+            <param name="generate.updateurl" value="false"/>
+        </antcall>
+    </target>
+</project>

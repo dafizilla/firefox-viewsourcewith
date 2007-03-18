@@ -1,0 +1,11 @@
+<!ENTITY title "Parametry specjalne">
+<!ENTITY description "Można użyć specjalnych parametrów, które zostaną zamienione podczas uruchamiania edytora">
+<!ENTITY parameter "Parametr">
+<!ENTITY replaced.with "Zamieniany na">
+<!ENTITY file.names.descr "Nazwy plików">
+<!ENTITY line.number.descr "Numer wiersza">
+<!ENTITY column.number.descr "Numer kolumny">
+<!ENTITY meaningful.js "Ten parametr w konsoli błędów ma duże znaczenie. Zazwyczaj jego wartość przybiera 1.">
+<!ENTITY line.column.usage "Numer wiersza i kolumny musi być użyty łącznie z właściwym dla danego edytora przełącznikiem pozycji kursora w linii poleceń.">
+<!ENTITY see "Zobacz">
+<!ENTITY more.details "więcej szczegółów">

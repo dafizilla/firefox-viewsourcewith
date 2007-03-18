@@ -1,0 +1,49 @@
+<!ENTITY settings.title "Viewsourcewith Instellingen">
+<!ENTITY destFolder.caption "Tijdelijke bestanden">
+<!ENTITY editorList.caption "lijst bewerkingsprogramma&apos;s">
+<!ENTITY configPath.label "Configuratiebestand">
+<!ENTITY defaultEditor.tree.label "Standaard">
+<!ENTITY description.tree.label "Naam">
+<!ENTITY show.tree.label "Ingeschakeld">
+<!ENTITY new.button.label "Nieuw">
+<!ENTITY edit.button.label "Bewerk">
+<!ENTITY delete.button.label "verwijder">
+<!ENTITY writtenBy.label "Geschreven door">
+<!ENTITY site.label "Davide Ficano">
+<!ENTITY viewSource.home.tooltip "Ga naar ViewSourceWith">
+<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+<!ENTITY save.method.caption "Vooraf aangegeven methode om op te slaan">
+<!ENTITY save.method.normal.label "Normaal">
+<!ENTITY save.method.dom.label "DOM document">
+<!ENTITY save.method.advice.label "Houdt de SHIFT-toets ingedrukt om een andere methode te kiezen">
+<!ENTITY main.label "Algemeen">
+<!ENTITY advanced.label "Geavanceerd">
+<!ENTITY repl.editor.label "Gebruik het in plaats van het oorspronkelijk bericht/onderdeel menu van de bronpagina">
+<!ENTITY repl.editor.open.focused.label "Open geslecteerd frame in venster">
+<!ENTITY repl.editor.advice.label "Instellingen worden na herstart actief">
+<!ENTITY repl.image.viewer.item "viewer">
+<!ENTITY repl.image.viewer.label "Gebruik dit in plaats van de gebruikelijke viewer">
+<!ENTITY useProfilePath.label "Locatie (lees tooltip)">
+<!ENTITY useProfilePath.tooltip "Geeft op verwijderbare drives het mount-punt weer">
+<!ENTITY image.onlink.caption "Bij een link met een afbeelding">
+<!ENTITY image.onlink.image.label "Bekijk afbeelding">
+<!ENTITY image.onlink.link.label "Bekijk link">
+<!ENTITY temp.tab.label "Tijdelijke bestanden">
+<!ENTITY temp.clearAtExit.label "Verwijder bestanden bij afsluiten applicatie">
+<!ENTITY temp.cleanNow.label "Verwijder">
+<!ENTITY view.tab.label "Bekijk">
+<!ENTITY view.menu.label "Menu">
+<!ENTITY view.showIcons.label "Toon icoontjes in menu">
+<!ENTITY urlmapper.tab.label "Afbeeldingen">
+<!ENTITY urlmapper.caption "De server roept afbeeldingenlijst op">
+<!ENTITY urlmapper.enabled.tree.label "Ingeschakeld">
+<!ENTITY urlmapper.name.tree.label "Naam">
+<!ENTITY urlmapper.advice.label "Open paginabron aan de &apos;server-zijde&apos;">
+<!ENTITY view.showResourcesMenu.label "Show CSS/JS menu">
+<!ENTITY view.quickFrameShowMenu.label "Show &apos;quick access frames&apos; menu">
+<!ENTITY picktitle.destfolder "Selecteer een map">
+<!ENTITY picktitle.configPath "Selecteer een config bestand">
+<!ENTITY temp.useOSPath.label "Gebruik de map van het besturingssysteem">
+<!ENTITY warning.delete.item "Verwijder &quot;&#37;1&quot;?">
+<!ENTITY jsconsole.label "Javascriptconsole">
+<!ENTITY repl.jsconsole.viewer.label "Gebruiken om bronbestanden te openen in Javascriptconsole">

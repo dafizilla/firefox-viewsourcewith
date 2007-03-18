@@ -1,0 +1,14 @@
+<!ENTITY dialog.editor.title "選擇編輯器">
+<!ENTITY editorPath.label "編輯器路徑">
+<!ENTITY description.label "描述">
+<!ENTITY shortcut.caption "快捷鍵">
+<!ENTITY shortcut.default.accel "Shift + Ctrl +">
+<!ENTITY shortcut.remove "移除">
+<!ENTITY shortcut.maybe.invalid "有一些快捷鍵可能無法正常運作">
+<!ENTITY invalid.path.chars "無效的位址，請確定你輸入的位址中沒有包含無效的字元。">
+<!ENTITY picktitle.editor "選擇編輯器">
+<!ENTITY parameters.label "參數">
+<!ENTITY token.filenames "檔名">
+<!ENTITY token.line.number "列">
+<!ENTITY token.column.number "行">
+<!ENTITY token.help "說明">

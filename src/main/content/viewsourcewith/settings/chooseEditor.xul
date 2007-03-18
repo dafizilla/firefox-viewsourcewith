@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://viewsourcewith/skin/settings.css" type="text/css"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://viewsourcewith/locale/editor.dtd"
+[
+<!ENTITY % settingsDTD SYSTEM "chrome://viewsourcewith/locale/settings.dtd" >
+%settingsDTD;
+]>
+
+<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        id="viewsourcewithChooseEditor"
+        onload="return gViewSourceChooseEditor.onLoad();"
+        ondialogaccept="return gViewSourceChooseEditor.onAccept();"
+        buttons="accept,cancel"
+        persist="width height screenX screenY"
+        title="&dialog.editor.title;">
+
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/common.js"/>
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/keyData.js"/>
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/prefs.js"/>
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/settings/chooseEditor.js"/>
+
+    <grid>
+        <columns>
+            <column/>
+            <column flex="1"/>
+        </columns>
+
+        <rows>
+            <row align="center">
+                <label control="editorpath" value="&editorPath.label;" />
+                <hbox>
+                    <filepicker id="editorpath"
+                        errinvalidpathchars="&invalid.path.chars;"
+                        flex="1"
+                        mode="open"
+                        pickTitle="&picktitle.editor;"
+                        filters="apps" />
+                </hbox>
+            </row>
+            <row align="center">
+                <label control="description" value="&description.label;" />
+                <textbox flex="1" id="description" maxlength="50"/>
+            </row>
+            <row id="row-cmdargs" align="center">
+                <label flex="1" control="cmdargs" value="&parameters.label;" />
+                <hbox>
+                <textbox flex="1" id="cmdargs"/>
+                <toolbarbutton id="button-token" type="menu">
+                    <menupopup id="tokensPopup">
+                        <menuitem label="&token.filenames;"
+                                  oncommand="document.getElementById('cmdargs').value += ' $f'"/>
+                        <menuitem label="&token.line.number;"
+                                  oncommand="document.getElementById('cmdargs').value += ' $l'"/>
+                        <menuitem label="&token.column.number;"
+                                  oncommand="document.getElementById('cmdargs').value += ' $c'"/>
+                        <menuseparator/>
+                        <menuitem label="&token.help;"
+                                  oncommand="gViewSourceChooseEditor.openHelp()"/>
+                    </menupopup>
+                </toolbarbutton>
+                </hbox>
+            </row>
+        </rows>
+    </grid>
+    <groupbox orient="horizontal" align="center">
+        <caption label="&shortcut.caption;"/>
+            <vbox>
+                <hbox align="center">
+                    <label value="&shortcut.default.accel;" />
+                    <textbox flex="1" id="key" onkeypress="gViewSourceChooseEditor.handleKey(event);" />
+                    <button id="clear-key" label="&shortcut.remove;" oncommand="return gViewSourceChooseEditor.clearKey(event);" />
+                </hbox>
+                    <label class="advice" value="&shortcut.maybe.invalid;" />
+            </vbox>
+    </groupbox>
+    <vbox id="macAlert" hidden="true">
+        <hbox align="right" pack="center" flex="1">
+          <label value="MacOSX users please visit VSW FAQ page"
+                 id="faqLink"
+                 tooltiptext="&viewSource.home.tooltip;"
+                 class="link"
+                 url="&viewSource.url;"
+                 onclick="ViewSourceWithCommon.openUrl(this.getAttribute('url'));"/>
+        </hbox>
+    </vbox>
+</dialog>

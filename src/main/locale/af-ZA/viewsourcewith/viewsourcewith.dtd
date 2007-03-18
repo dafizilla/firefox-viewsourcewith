@@ -1,0 +1,8 @@
+<!ENTITY cmd.viewsource.label "Bekyk bron met">
+<!ENTITY cmd.viewsource.frame.label "Bekyk raambron met">
+<!ENTITY cmd.viewsource-viewMenu.label "Bron met">
+<!ENTITY cmd.viewsource-attachMenu.label "Open met">
+<!ENTITY viewsource-viewMenu.accesskey "m">
+<!ENTITY viewsourcewith.commandkey "U">
+<!ENTITY viewsourcewithButton.label "Bron">
+<!ENTITY viewsourcewithTooltip "Bekyk bron">

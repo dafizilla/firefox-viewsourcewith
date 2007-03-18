@@ -1,0 +1,14 @@
+<!ENTITY dialog.editor.title "Novo editor">
+<!ENTITY editorPath.label "Caminho do Editor">
+<!ENTITY description.label "Descrição">
+<!ENTITY shortcut.caption "Atalho do teclado">
+<!ENTITY shortcut.default.accel "Shift + Ctrl +">
+<!ENTITY shortcut.remove "Remover">
+<!ENTITY shortcut.maybe.invalid "Alguns atalhos podem não funcionar">
+<!ENTITY invalid.path.chars "Pasta inválida; certifique-se de que ela não contém caracteres inválidos">
+<!ENTITY picktitle.editor "Selecione o editor">
+<!ENTITY parameters.label "Parâmetros">
+<!ENTITY token.filenames "Nome(s) de arquivos">
+<!ENTITY token.line.number "Número da linha">
+<!ENTITY token.column.number "Número da coluna">
+<!ENTITY token.help "Ajuda...">

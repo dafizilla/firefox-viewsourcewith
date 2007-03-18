@@ -1,0 +1,8 @@
+<!ENTITY cmd.viewsource.label "نمایش سورس با">
+<!ENTITY cmd.viewsource.frame.label "نمایش سورس فریم با">
+<!ENTITY cmd.viewsource-viewMenu.label "سورس با">
+<!ENTITY cmd.viewsource-attachMenu.label "باز کردن با">
+<!ENTITY viewsource-viewMenu.accesskey "w">
+<!ENTITY viewsourcewith.commandkey "U">
+<!ENTITY viewsourcewithButton.label "سورس">
+<!ENTITY viewsourcewithTooltip "نمایش سورس">

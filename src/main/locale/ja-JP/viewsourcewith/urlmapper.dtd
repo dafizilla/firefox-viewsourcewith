@@ -1,0 +1,7 @@
+<!ENTITY dialog.urlmapper.title "マッピング">
+<!ENTITY urlMapperName.caption "マッピング名">
+<!ENTITY domainfilter.caption "マッピング フィルタ (正規表現)">
+<!ENTITY localpath.caption "サーバページに対応するローカルディレクトリ">
+<!ENTITY jsCode.caption "JavaScript コード">
+<!ENTITY jsCode.insert.tooltiptext "定義済みの JavaScript コードの挿入">
+<!ENTITY urlmapper.picktitle.directory "フォルダの選択">

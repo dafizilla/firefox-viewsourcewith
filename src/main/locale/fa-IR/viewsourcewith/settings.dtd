@@ -1,0 +1,49 @@
+<!ENTITY settings.title "ViewSourceWith تنظیمات">
+<!ENTITY destFolder.caption "پوشه فایل های موقت">
+<!ENTITY editorList.caption "لیست ویرایشگر">
+<!ENTITY configPath.label "فایل تنظیمات">
+<!ENTITY defaultEditor.tree.label "پیشفرض">
+<!ENTITY description.tree.label "نام">
+<!ENTITY show.tree.label "فعال">
+<!ENTITY new.button.label "جدید">
+<!ENTITY edit.button.label "ویرایش">
+<!ENTITY delete.button.label "حذف">
+<!ENTITY writtenBy.label "Davide Ficano">
+<!ENTITY site.label "نویسنده">
+<!ENTITY viewSource.home.tooltip "ViewSourceWith بازدید از سایت">
+<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+<!ENTITY save.method.caption "متد از پیش تعریف شده">
+<!ENTITY save.method.normal.label "معمولی">
+<!ENTITY save.method.dom.label "DOM document">
+<!ENTITY save.method.advice.label ".را پایین نگه دارید SHIFT برای استفاده از متدهای دیگر کلید">
+<!ENTITY main.label "اصلی">
+<!ENTITY advanced.label "پیشرفته">
+<!ENTITY repl.editor.label "استفاده به جای گزینه های نمایش سورس در منو">
+<!ENTITY repl.editor.open.focused.label "باز کردن پنجره متمرکز در بخش فریم">
+<!ENTITY repl.editor.advice.label ".تنظیمات پس از راه اندازی مجدد اعمال می شوند">
+<!ENTITY repl.image.viewer.item "هیچ">
+<!ENTITY repl.image.viewer.label "استفاده از نمایش دهنده تصویر محلی">
+<!ENTITY useProfilePath.label "استفاده از آدرس پروفایل">
+<!ENTITY useProfilePath.tooltip "نمایش واحد نصب در درایوهای افزودنی">
+<!ENTITY image.onlink.caption "حالت وجود یک لینک با تصویر">
+<!ENTITY image.onlink.image.label "نمایش تصویر">
+<!ENTITY image.onlink.link.label "نمایش لینک">
+<!ENTITY temp.tab.label "فایل های موقت">
+<!ENTITY temp.clearAtExit.label "پاک کردن فایل ها هنگام خروج از برنامه">
+<!ENTITY temp.cleanNow.label "پاک کردن">
+<!ENTITY view.tab.label "نمایش">
+<!ENTITY view.menu.label "منو">
+<!ENTITY view.showIcons.label "نمایش آیکون ها در منو">
+<!ENTITY urlmapper.tab.label "نگاشت">
+<!ENTITY urlmapper.caption "لیست صفحات نگاشت شده سرور">
+<!ENTITY urlmapper.enabled.tree.label "فعال">
+<!ENTITY urlmapper.name.tree.label "نام">
+<!ENTITY urlmapper.advice.label "&apos;باز کردن سورس &apos;از طرف سرور">
+<!ENTITY view.showResourcesMenu.label "CSS/JS نمایش منوی">
+<!ENTITY view.quickFrameShowMenu.label "&apos;نمایش منوی &apos;دسترسی سریع به فریم">
+<!ENTITY picktitle.destfolder "انتخاب پوشه">
+<!ENTITY picktitle.configPath "انتخاب فایل تنظیمات">
+<!ENTITY temp.useOSPath.label "استفاده از پوشه سیستم عامل">
+<!ENTITY warning.delete.item "&quot;&#37;1&quot; پاک کردن">
+<!ENTITY jsconsole.label "کنسول جاوا اسکریپت">
+<!ENTITY repl.jsconsole.viewer.label "برای باز کردن سورس در کنسول جاوا اسکریپت">

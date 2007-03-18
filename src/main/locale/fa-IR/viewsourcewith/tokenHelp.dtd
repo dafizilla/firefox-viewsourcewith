@@ -1,0 +1,11 @@
+<!ENTITY title "پارامترهای ویژه">
+<!ENTITY description ".شما می توانید تعدادی پارامتر ویژه برای جایگزینی هنگام اجرا شدن ادیتور تعیین کنید">
+<!ENTITY parameter "پارامتر">
+<!ENTITY replaced.with "جایگزینی با">
+<!ENTITY file.names.descr "نام فایل">
+<!ENTITY line.number.descr "شماره خط">
+<!ENTITY column.number.descr "شماره ستون">
+<!ENTITY meaningful.js ".این پارامتر در کنسول جاوا اسکریپت معنا پیدا می کند.در غیر این صورت مقدارش 1 است">
+<!ENTITY line.column.usage ".خط و ستون باید همزمان و همراه با نشانگر ادیتور مخصوص به کار روند">
+<!ENTITY see "را ببینید">
+<!ENTITY more.details "برای جزئیات بیشتر">

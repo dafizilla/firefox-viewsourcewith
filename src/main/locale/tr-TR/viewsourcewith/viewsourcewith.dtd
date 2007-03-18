@@ -1,0 +1,8 @@
+<!ENTITY cmd.viewsource.label "Kaynak kodunu birlikte görüntüle">
+<!ENTITY cmd.viewsource.frame.label "Gövde kodunu birlikte görüntüle">
+<!ENTITY cmd.viewsource-viewMenu.label "Kaynak kodu">
+<!ENTITY cmd.viewsource-attachMenu.label "Birlikte aç">
+<!ENTITY viewsource-viewMenu.accesskey "a">
+<!ENTITY viewsourcewith.commandkey "K">
+<!ENTITY viewsourcewithButton.label "Kaynak">
+<!ENTITY viewsourcewithTooltip "Kaynak kodu görüntüle">

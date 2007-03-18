@@ -1,0 +1,3 @@
+<!ENTITY warning.title "Warning for pages containing frames">
+<!ENTITY warningText.label "When the page contains frames, ensure to set the focus on desired frame (simply click on frame)">
+<!ENTITY warningDisableDialog.label "Don&apos;t show this message again">

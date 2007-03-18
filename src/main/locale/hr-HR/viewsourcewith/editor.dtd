@@ -1,0 +1,14 @@
+<!ENTITY dialog.editor.title "Izaberite uređivač">
+<!ENTITY editorPath.label "Putanja uređivača">
+<!ENTITY description.label "Opis">
+<!ENTITY shortcut.caption "Tipkovnička kratica">
+<!ENTITY shortcut.default.accel "Shift + Ctrl + ">
+<!ENTITY shortcut.remove "Ukloni">
+<!ENTITY shortcut.maybe.invalid "Neke tipkovničke kratice ne bi trebale raditi">
+<!ENTITY invalid.path.chars "Neispravna putanja, provjerite da ne sadrži neispravne znakove">
+<!ENTITY picktitle.editor "Odaberite uređivač">
+<!ENTITY parameters.label "Parametri">
+<!ENTITY token.filenames "Ime(na) datoteke">
+<!ENTITY token.line.number "Broj reda">
+<!ENTITY token.column.number "Broj stupca">
+<!ENTITY token.help "Pomoć...">
