@@ -1,20 +1,20 @@
 #viewsourcewith-button,
 #button-viewsourcewith {
   list-style-image: url("chrome://viewsourcewith/content/img/ff/tb24-off.png");
-  -moz-image-region: rect(7px 32px 32px 7px);
+  -moz-image-region: rect(7px 31px 31px 7px);
 }
 
 #viewsourcewith-button[disabled],
 #button-viewsourcewith[disabled] {
   list-style-image: url("chrome://viewsourcewith/content/img/ff/tb24.png");
-  -moz-image-region: rect(7px 32px 32px 7px);
+  -moz-image-region: rect(7px 31px 31px 7px);
   -moz-opacity: 0.5;
 }
 
 #viewsourcewith-button:hover,
 #button-viewsourcewith:hover {
   list-style-image: url("chrome://viewsourcewith/content/img/ff/tb24.png");
-  -moz-image-region: rect(7px 32px 32px 7px);
+  -moz-image-region: rect(7px 31px 31px 7px);
 }
 
 toolbar[iconsize="small"] #viewsourcewith-button {

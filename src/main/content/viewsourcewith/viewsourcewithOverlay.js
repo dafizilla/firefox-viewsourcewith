@@ -730,7 +730,9 @@ var gViewSourceWithMain = {
                 var url = mailSession.ConvertMsgURIToMsgURL(messages[i], msgWindow);
                 var subject = messenger.messageServiceFromURI(url)
                              .messageURIToMsgHdr(messages[i]).mime2DecodedSubject;
-                var fileName = subject + "msg" + i + ".txt";
+                // 20-Apr-07 If subject contains Japanese characters many editors
+                // are unable to open the file so subject is no more added to file name
+                var fileName = /*subject + */"msg" + i + ".txt";
                 var filePath = ViewSourceWithCommon.initFileToRun(
                                     unescape(fileName),
                                     thiz.prefs.destFolder,

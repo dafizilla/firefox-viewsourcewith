@@ -16,12 +16,13 @@ var ViewSourceWithInputText = {
             var editor = ViewSourceWithCommon.getEditorForWindow(target);
 
             if (editor) {
-                // how can I find window starting from editor
+                // how can I find window starting from editor?
                 thiz.handleEditor(target, editor, editorData);
                 return;
             }
             var generateNewFileName = true;
-            var filePath = thiz.makeFileFromInputText(target);
+            var filePath = thiz.makeFileFromInputText(
+                        target.getAttribute(thiz.ATTR_EDIT_FILE_PATH));
 
             target.addEventListener("input", thiz.onInput, true);
             if (filePath && filePath.exists()) {
@@ -61,7 +62,7 @@ var ViewSourceWithInputText = {
             var bodyTag = editor.rootElement;
 
             var generateNewFileName = true;
-            var filePath = thiz.makeFileFromInputText1(
+            var filePath = thiz.makeFileFromInputText(
                 thiz.getEditorAttribute(editor, bodyTag, thiz.ATTR_EDIT_FILE_PATH));
 
             if (filePath && filePath.exists()) {
@@ -150,7 +151,8 @@ var ViewSourceWithInputText = {
 
     fillInputText : function(target) {
         var thiz = ViewSourceWithInputText;
-        var filePath = thiz.makeFileFromInputText(target);
+        var filePath = thiz.makeFileFromInputText(
+            target.getAttribute(thiz.ATTR_EDIT_FILE_PATH));
 
         try {
             if (filePath && filePath.exists()) {
@@ -192,7 +194,7 @@ var ViewSourceWithInputText = {
         var thiz = ViewSourceWithInputText;
         var editor = handler.editor;
         var editFilePath = thiz.getEditorAttribute(editor, editor.rootElement, thiz.ATTR_EDIT_FILE_PATH);
-        var filePath = thiz.makeFileFromInputText1(editFilePath);
+        var filePath = thiz.makeFileFromInputText(editFilePath);
 
 
             if (filePath && filePath.exists()) {
@@ -232,22 +234,7 @@ var ViewSourceWithInputText = {
         return editor.getAttributeValue(tag, attrName, str) ? str.value : null;
     },
 
-    makeFileFromInputText : function(target) {
-        var thiz = ViewSourceWithInputText;
-        var filePath = null;
-
-        try {
-            var fileName = target.getAttribute(thiz.ATTR_EDIT_FILE_PATH);
-
-            if (fileName && fileName != "") {
-                filePath = ViewSourceWithCommon.makeLocalFile(fileName);
-            }
-        } catch (err) {
-        }
-        return filePath;
-    },
-
-    makeFileFromInputText1 : function(fileName) {
+    makeFileFromInputText : function(fileName) {
         var thiz = ViewSourceWithInputText;
         var filePath = null;
 
