@@ -64,6 +64,13 @@
         </zip>
     </target>
 
+    <target name="zip-tmp">
+        <zip destfile="${bin.dist.dir}/${dist.name}-debug.xpi">
+            <zipfileset dir="${tmp.dir}/${ext.name}/chrome"  prefix="chrome"/>
+            <zipfileset dir="${tmp.dir}/${ext.name}/install"/>
+        </zip>
+    </target>
+
     <target name="apply-replacement">
         <copy todir="${tmp.dir}/${ext.name}/install" overwrite="true">
             <fileset dir="${src.install.dir}"/>
