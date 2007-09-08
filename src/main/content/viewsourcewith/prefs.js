@@ -9,6 +9,7 @@
  * Date     : 30-Apr-05 Added support profile directory for removable drives
  * Date     : 26-Jun-05 Refactored to remove ViewSourceWithCachedPrefs
  * Date     : 04-Aug-06 ViewSourceEditorData handles runEditor
+ * Date     : 27-Jul-07 Fixed problem with hiddenDOMWindow
  */
 
 const VSW_PREF_CONFIG_PATH = "dafi.viewsource.configPath";
@@ -70,17 +71,26 @@ ViewSourceEditorData.prototype = {
                      currToken : "",
                      isQuoted : false
                    }
-                   
+
         while (ViewSourceEditorData.getToken(data)) {
             allArgs = this._parseToken(paths, line, col, allArgs, data);
         }
 
-        ViewSourceWithCommon.runProgram(this.path, allArgs);
+        var editorFile = ViewSourceWithCommon.makeLocalFile(this.path);
+        if (editorFile.exists() && editorFile.isFile()) {
+            ViewSourceWithCommon.runProgram(editorFile, allArgs);
+        } else {
+            var msg = ViewSourceWithCommon.getFormattedMessage(
+                        "err.file.not.found", [this.description]);
+            Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
+                    .getService(Components.interfaces.nsIPromptService)
+                    .alert(null, "ViewSourceWith", msg);
+        }
     },
-    
+
     _parseToken : function(paths, line, col, allArgs, data) {
         var str = "";
-        
+
         for (var i = 0; i < data.currToken.length; i++) {
             if (data.currToken[i] == '\\') {
                 str += data.currToken[++i];
@@ -204,16 +214,15 @@ ViewSourceWithPrefs.getTempDir = function() {
 ViewSourceWithPrefs.getInstance = function() {
     var app = Components.classes["@mozilla.org/appshell/appShellService;1"]
               .getService(Components.interfaces.nsIAppShellService);
-    var prefs = app.hiddenDOMWindow.viewSourceWithPrefs;
+    var prefs = undefined;
+
+    if ("viewSourceWithFactory" in app.hiddenDOMWindow) {
+        prefs = app.hiddenDOMWindow.viewSourceWithFactory.getPrefsInstance();
+    }
 
     if (prefs == undefined) {
-        prefs = new ViewSourceWithPrefs();
-        try {
-            prefs.readPrefs(null);
-        } catch (err) {
-            ViewSourceWithCommon.log("VSW: Error while opening config file: " + err);
-        }
-        app.hiddenDOMWindow.viewSourceWithPrefs = prefs;
+        viewSourceWithFactory.loadSubScripts(app);
+        prefs = app.hiddenDOMWindow.viewSourceWithFactory.getPrefsInstance();
     }
 
     return prefs;
@@ -449,7 +458,6 @@ ViewSourceWithPrefs.prototype = {
     },
 
     readPrefs : function(configPath) {
-        var t1 = new Date().getTime();
         if (configPath == undefined || configPath == null) {
             configPath = this.getSafeConfigPath();
         } else {
@@ -489,7 +497,6 @@ ViewSourceWithPrefs.prototype = {
         } else {
             throw this.getTagValue(doc, "parsererror");
         }
-        var t2 = new Date().getTime();
     },
 
     getVersion : function(doc) {
@@ -685,7 +692,7 @@ ViewSourceWithPrefs.prototype = {
 
             var app = Components.classes["@mozilla.org/appshell/appShellService;1"]
                       .getService(Components.interfaces.nsIAppShellService);
-            app.hiddenDOMWindow.viewSourceWithPrefs = undefined;
+            app.hiddenDOMWindow.viewSourceWithFactory.prefs = null;
         } catch (err) {
             alert("ViewSourceWithPrefs.savePrefs " + err);
         }

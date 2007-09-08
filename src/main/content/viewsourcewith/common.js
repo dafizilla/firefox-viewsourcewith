@@ -275,6 +275,10 @@ ViewSourceWithCommon.saveTextFile = function(fileName, fileContent) {
     os.close();
 }
 
+ViewSourceWithCommon.debug = function(message) {
+    ViewSourceWithCommon.log(message);
+}
+
 ViewSourceWithCommon.log = function(message) {
     Components.classes["@mozilla.org/consoleservice;1"]
         .getService(Components.interfaces.nsIConsoleService)
@@ -333,6 +337,27 @@ ViewSourceWithCommon.getDocumentFileName = function(doc) {
     } else {
         fileName = uri.fileName;
     }
+
+    // nsIProcess is unable to handle unicode arguments so we "normalize" them
+    // See https://bugzilla.mozilla.org/show_bug.cgi?id=229379
+    // Another reason to normalize filename is due to the fact many editors
+    // are unable to open paths with unicode characters (Notepad++ v3.2)
+    try {
+        var textToSubURI = Components.classes["@mozilla.org/intl/texttosuburi;1"]
+                            .getService(Components.interfaces.nsITextToSubURI);
+        var tempFileName = textToSubURI.unEscapeURIForUI("UTF-8", fileName);
+        var normalizedFileName = "";
+        for (var i = 0; i < tempFileName.length; i++) {
+            var charCode = tempFileName.charCodeAt(i);
+            if (charCode <= 127) {
+                normalizedFileName += tempFileName[i];
+            }
+        }
+        fileName = normalizedFileName;
+    } catch (err) {
+        ViewSourceWithCommon.log("Invalid uriForUI " + err);
+    }
+
     // Handle cases like
     // http://host.com/path/?noFileName=before_question_mark_no_name
     if (fileName == "") {
@@ -358,7 +383,7 @@ ViewSourceWithCommon.getDocumentFileName = function(doc) {
     if (uri.host != "" && uri.spec.substr(0, 6) != "about:") {
         host = uri.host + "_";
     }
-    return ViewSourceWithCommon.getPortableFileName(unescape(host + fileName));
+    return ViewSourceWithCommon.getPortableFileName(/*unescape*/(host + fileName));
 }
 
 /**

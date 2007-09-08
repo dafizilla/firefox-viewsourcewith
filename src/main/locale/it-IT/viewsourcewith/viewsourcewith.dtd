@@ -6,3 +6,4 @@
 <!ENTITY viewsourcewith.commandkey "U">
 <!ENTITY viewsourcewithButton.label "Sorgente">
 <!ENTITY viewsourcewithTooltip "Visualizza sorgente">
+<!ENTITY cmd.edittext.label "Modifica testo">

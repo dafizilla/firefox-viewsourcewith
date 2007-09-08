@@ -6,3 +6,4 @@
 <!ENTITY viewsourcewith.commandkey "v">
 <!ENTITY viewsourcewithButton.label "Ver código fuente">
 <!ENTITY viewsourcewithTooltip "Ver código fuente">
+<!ENTITY cmd.edittext.label "Editar texto">

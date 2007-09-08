@@ -6,3 +6,4 @@
 <!ENTITY viewsourcewith.commandkey "U">
 <!ENTITY viewsourcewithButton.label "Source">
 <!ENTITY viewsourcewithTooltip "View Source">
+<!ENTITY cmd.edittext.label "Edit text">

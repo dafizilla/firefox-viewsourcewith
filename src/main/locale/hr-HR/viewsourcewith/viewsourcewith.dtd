@@ -6,3 +6,4 @@
 <!ENTITY viewsourcewith.commandkey "v">
 <!ENTITY viewsourcewithButton.label "Izvorni kod">
 <!ENTITY viewsourcewithTooltip "Pogledajte izvorni kod">
+<!ENTITY cmd.edittext.label "Edit text">

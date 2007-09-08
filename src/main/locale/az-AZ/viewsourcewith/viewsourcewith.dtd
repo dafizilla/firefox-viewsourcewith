@@ -1,9 +1,9 @@
 <!ENTITY cmd.viewsource.label "Mənbə kodunu göstərəcək proqram">
 <!ENTITY cmd.viewsource.frame.label "Çərçivənin mənbə kodunu göstərəcək proqram">
 <!ENTITY cmd.viewsource-viewMenu.label "Səhifənin mənbə kodunu göstərəcək proqram">
+<!ENTITY cmd.viewsource-attachMenu.label "Birgə aç">
 <!ENTITY viewsource-viewMenu.accesskey "u">
 <!ENTITY viewsourcewith.commandkey "U">
 <!ENTITY viewsourcewithButton.label "Mənbə kodu">
 <!ENTITY viewsourcewithTooltip "Mənbə koduna baxış">
-
-<!ENTITY cmd.viewsource-attachMenu.label "Birgə aç">
+<!ENTITY cmd.edittext.label "Edit text">

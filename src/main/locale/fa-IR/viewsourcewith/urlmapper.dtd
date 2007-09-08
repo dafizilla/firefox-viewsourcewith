@@ -2,6 +2,6 @@
 <!ENTITY urlMapperName.caption "نام نگاشت">
 <!ENTITY domainfilter.caption "فیلتر نگاشت">
 <!ENTITY localpath.caption "دایرکتوری شامل صفحات سرور">
-<!ENTITY jsCode.caption "Javascript کد">
+<!ENTITY jsCode.caption "کد Javascript">
 <!ENTITY jsCode.insert.tooltiptext "وارد کردن کد از پیش تعریف شده">
 <!ENTITY urlmapper.picktitle.directory "انتخاب پوشه">

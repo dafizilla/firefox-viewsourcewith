@@ -6,3 +6,4 @@
 <!ENTITY viewsourcewith.commandkey "U">
 <!ENTITY viewsourcewithButton.label "ซอร์สโค้ด">
 <!ENTITY viewsourcewithTooltip "ดูซอร์สโค้ด">
+<!ENTITY cmd.edittext.label "แก้ไขข้อความ">

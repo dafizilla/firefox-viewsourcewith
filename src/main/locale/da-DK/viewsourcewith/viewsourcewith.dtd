@@ -6,3 +6,4 @@
 <!ENTITY viewsourcewith.commandkey "U">
 <!ENTITY viewsourcewithButton.label "Kilde">
 <!ENTITY viewsourcewithTooltip "Vis kildekode">
+<!ENTITY cmd.edittext.label "Edit text">

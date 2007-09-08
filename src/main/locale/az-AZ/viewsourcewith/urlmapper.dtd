@@ -3,5 +3,5 @@
 <!ENTITY domainfilter.caption "Tərtibat süzgəci (nizamlı ifadə)">
 <!ENTITY localpath.caption "Xidmət mərkəzi səhifələri qovluğu">
 <!ENTITY jsCode.caption "Javascript kodu">
-<!ENTITY jsCode.insert.tooltiptext "İlkin tə'yin kodu yerləşdir">
+<!ENTITY jsCode.insert.tooltiptext "İlkin tə&apos;yin kodu yerləşdir">
 <!ENTITY urlmapper.picktitle.directory "Qovluq seçin">

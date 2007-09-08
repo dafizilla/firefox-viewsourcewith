@@ -1,9 +1,9 @@
-<!ENTITY resources.title "เปิดสไตล์ชีทและสคริปต์">
+<!ENTITY resources.title "เปิด Style sheets และ Scripts">
 <!ENTITY all.tab.label "ทั้งหมด">
-<!ENTITY css.tab.label "สไตล์ชีท">
-<!ENTITY js.tab.label "สคริปต์">
+<!ENTITY css.tab.label "Style Sheets">
+<!ENTITY js.tab.label "Scripts">
 <!ENTITY showallframes.label "แสดงทุกเฟรม">
-<!ENTITY editors.label "Editor ที่ใช้">
+<!ENTITY editors.label "เครื่องมือแก้ไขที่ใช้">
 <!ENTITY button.label.accept "ดู">
 <!ENTITY button.label.cancel "ปิด">
 <!ENTITY resourcename.tree.label "ชื่อ">

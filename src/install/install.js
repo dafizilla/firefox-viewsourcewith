@@ -26,7 +26,7 @@ var locales             = new Array("en-US", "it-IT", "fr-FR", "es-ES",
                                     "de-DE", "ru-RU", "nl-NL", "es-AR",
                                     "cs-CZ", "zh-CN", "tr-TR", "sk-SK",
                                     "az-AZ", "da-DK", "fa-IR", "hr-HR",
-                                    "af-ZA", "th-TH");
+                                    "af-ZA", "th-TH", "hu-HU");
 var skins               = new Array( "classic", "modern");
 var prefs               = new Array( "vsw.js" );
 var components          = new Array(  );

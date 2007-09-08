@@ -28,6 +28,11 @@
     <em:contributor>Batuhan &#199;etin (Turkish translation)</em:contributor>
     <em:contributor>rony (Slovak translation)</em:contributor>
     <em:contributor>Pedram Veisi (Persian translation)</em:contributor>
+    <em:translator>Krcko (Croatian translation)</em:translator>
+    <em:translator>Samuel Murray aka leuce (Afrikaans translation)</em:translator>
+    <em:translator>lancaster (Thailand translation)</em:translator>
+    <em:contributor>efdur (New Graphics)</em:contributor>
+    <em:translator>Mikes Kaszm&#225;n Istv&#225;n (Hungarian translation)</em:translator>
 
     <em:homepageURL>http://dafizilla.sourceforge.net/viewsourcewith</em:homepageURL>
 
@@ -35,7 +40,7 @@
     <em:optionsURL>chrome://@EXT_NAME@/content/settings/settings.xul</em:optionsURL>
     <em:iconURL>chrome://@EXT_NAME@/content/img/appicon.png</em:iconURL>
 
-    <em:updateURL>http://localhost/dafizilla/viewsourcewith/update.php?item_id=%ITEM_ID%&amp;item_version=%ITEM_VERSION%&amp;app_id=%APP_ID%&amp;app_version=%APP_VERSION%</em:updateURL>
+    @UPDATE_URL@
 
     <em:file>
       <Description about="urn:mozilla:extension:file:plainfiles">
@@ -61,6 +66,8 @@
         <em:locale>locale/fa-IR/@EXT_NAME@/</em:locale>
         <em:locale>locale/hr-HR/@EXT_NAME@/</em:locale>
         <em:locale>locale/af-ZA/@EXT_NAME@/</em:locale>
+        <em:locale>locale/th-TH/@EXT_NAME@/</em:locale>
+        <em:locale>locale/hu-HU/@EXT_NAME@/</em:locale>
         <em:skin>skin/classic/@EXT_NAME@/</em:skin>
       </Description>
     </em:file>
@@ -115,7 +122,7 @@
       <Description>
         <em:id>{a463f10c-3994-11da-9945-000d60ca027b}</em:id>
         <em:minVersion>0.4</em:minVersion>
-        <em:maxVersion>0.8</em:maxVersion>
+        <em:maxVersion>1.0</em:maxVersion>
       </Description>
     </em:targetApplication>
 

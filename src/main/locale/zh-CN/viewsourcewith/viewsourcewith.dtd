@@ -6,3 +6,4 @@
 <!ENTITY viewsourcewith.commandkey "U">
 <!ENTITY viewsourcewithButton.label "源代码">
 <!ENTITY viewsourcewithTooltip "查看源代码">
+<!ENTITY cmd.edittext.label "编辑文本">

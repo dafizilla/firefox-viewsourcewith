@@ -6,3 +6,4 @@
 <!ENTITY viewsourcewith.commandkey "z">
 <!ENTITY viewsourcewithButton.label "Zdrojový kód">
 <!ENTITY viewsourcewithTooltip "Zobraziť zdrojový kód">
+<!ENTITY cmd.edittext.label "Edit text">
