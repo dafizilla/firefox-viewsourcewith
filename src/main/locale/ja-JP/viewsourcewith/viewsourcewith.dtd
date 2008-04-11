@@ -5,5 +5,3 @@
 <!ENTITY viewsource-viewMenu.accesskey "w">
 <!ENTITY viewsourcewith.commandkey "U">
 <!ENTITY viewsourcewithButton.label "ソース">
-<!ENTITY viewsourcewithTooltip "ページのソースを指定されたプログラムで開きます">
-<!ENTITY cmd.edittext.label "テキストを編集">

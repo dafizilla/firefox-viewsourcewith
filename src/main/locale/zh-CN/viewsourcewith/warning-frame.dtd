@@ -1,3 +1,0 @@
-<!ENTITY warning.title "警告：页面包含帧">
-<!ENTITY warningText.label "当页面包含帧，请确认焦点在想要查看的帧上(用鼠标点击一下)。">
-<!ENTITY warningDisableDialog.label "不再提示此信息">

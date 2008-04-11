@@ -53,6 +53,7 @@ var gViewSourceSettings = {
                 thiz.prefs.showQuickFrame = thiz.oViewQuickFrameShowMenu.checked;
 
                 thiz.prefs.replaceJSConsole = thiz.oReplaceJSConsole.checked;
+                thiz.prefs.allowEditText = thiz.oAllowEditText.checked;
 
                 thiz.prefs.savePrefs();
                 ViewSourceWithCommon.getObserverService()
@@ -135,6 +136,7 @@ var gViewSourceSettings = {
         thiz.oViewQuickFrameShowMenu = document.getElementById("viewQuickFrameShowMenu");
 
         thiz.oReplaceJSConsole = document.getElementById("replaceJSConsole");
+        thiz.oAllowEditText = document.getElementById("allowEditText");
 
         thiz.initValues(true);
     },
@@ -247,6 +249,7 @@ var gViewSourceSettings = {
         thiz.oViewQuickFrameShowMenu.checked = thiz.prefs.showQuickFrame;
 
         thiz.oReplaceJSConsole.checked = thiz.prefs.replaceJSConsole;
+        thiz.oAllowEditText.checked =  thiz.prefs.allowEditText;
     },
 
     disableConfigPath : function(event) {

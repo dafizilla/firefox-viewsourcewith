@@ -18,6 +18,7 @@
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/common.js"/>
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/keyData.js" />
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/urlMapperData.js"/>
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/globalObjectFactory.js"/>
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/prefs.js"/>
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/editorHooker.js"/>
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/settings/treeView.js"/>
@@ -40,7 +41,6 @@
                 <vbox flex="1">
                     <checkbox id="useProfilePath"
                                 label="&useProfilePath.label;"
-                                tooltiptext="&useProfilePath.tooltip;"
                                 />
                     <filepicker id="configPath"
                         flex="1"
@@ -130,6 +130,8 @@
       </tabpanel>
 
       <tabpanel id="advanced" orient="vertical" style="overflow: auto;">
+
+        <checkbox id="allowEditText" label="&advanced.allow.edit.text;" />
 
         <groupbox orient="horizontal" align="center">
             <caption label="&save.method.caption;"/>

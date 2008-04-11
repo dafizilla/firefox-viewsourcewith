@@ -8,11 +8,11 @@
 <!ENTITY new.button.label "Nuevo">
 <!ENTITY edit.button.label "Modificar">
 <!ENTITY delete.button.label "Eliminar">
-<!ENTITY writtenBy.label "Por">
+<!ENTITY writtenBy.label "Desarrollado por">
 <!ENTITY site.label "Davide Ficano">
 <!ENTITY viewSource.home.tooltip "Ir a ViewSourceWith">
 <!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
-<!ENTITY save.method.caption "Mé;todo predeterminado">
+<!ENTITY save.method.caption "Método predeterminado">
 <!ENTITY save.method.normal.label "Normal">
 <!ENTITY save.method.dom.label "Documento DOM">
 <!ENTITY save.method.advice.label "Mantener apretado SHIFT key para usar el otro método">
@@ -23,8 +23,7 @@
 <!ENTITY repl.editor.advice.label "Reiniciar el navegador para ver los ajustes">
 <!ENTITY repl.image.viewer.item "(Nada)">
 <!ENTITY repl.image.viewer.label "Usar en lugar del visor de imágenes nativo">
-<!ENTITY useProfilePath.label "Usar carpeta de perfil (leer tooltip)">
-<!ENTITY useProfilePath.tooltip "En unidades removibles refleja punto de montaje">
+<!ENTITY useProfilePath.label "Usar un directorio compatible con aplicaciones &apos;portables&apos;">
 <!ENTITY image.onlink.caption "En caso de imagen con link">
 <!ENTITY image.onlink.image.label "Ver imagen">
 <!ENTITY image.onlink.link.label "Ver link">
@@ -47,3 +46,4 @@
 <!ENTITY warning.delete.item "¿Eliminar &quot;&#37;1&quot;?">
 <!ENTITY jsconsole.label "Consola de errores">
 <!ENTITY repl.jsconsole.viewer.label "Usar para abrir código fuente en la consola de errores">
+<!ENTITY advanced.allow.edit.text "Permitir editar contenido de los cuadros de texto">

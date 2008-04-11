@@ -1,9 +1,7 @@
-<!ENTITY cmd.viewsource.label "Bekijk brontekst met">
-<!ENTITY cmd.viewsource.frame.label "Bekijk bronframe met">
-<!ENTITY cmd.viewsource-viewMenu.label "Brontekst met">
+<!ENTITY cmd.viewsource.label "Bron bekijken met">
+<!ENTITY cmd.viewsource.frame.label "Framebron bekijken met">
+<!ENTITY cmd.viewsource-viewMenu.label "Bron met">
 <!ENTITY cmd.viewsource-attachMenu.label "Openen met">
-<!ENTITY viewsource-viewMenu.accesskey "w">
+<!ENTITY viewsource-viewMenu.accesskey "k">
 <!ENTITY viewsourcewith.commandkey "U">
-<!ENTITY viewsourcewithButton.label "Brontekst">
-<!ENTITY viewsourcewithTooltip "Bekijk brontekst">
-<!ENTITY cmd.edittext.label "Edit text">
+<!ENTITY viewsourcewithButton.label "Bron">

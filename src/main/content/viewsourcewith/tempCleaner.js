@@ -10,20 +10,7 @@
 
 // static method
 ViewSourceWithTempCleaner.getTempCleaner = function() {
-    var app = Components.classes["@mozilla.org/appshell/appShellService;1"]
-              .getService(Components.interfaces.nsIAppShellService);
-    var cleaner = undefined;
-
-    if ("viewSourceWithFactory" in app.hiddenDOMWindow) {
-        cleaner = app.hiddenDOMWindow.viewSourceWithFactory.getTempCleaner();
-    }
-
-    if (cleaner == undefined) {
-        viewSourceWithFactory.loadSubScripts(app);
-        cleaner = app.hiddenDOMWindow.viewSourceWithFactory.getTempCleaner();
-    }
-
-    return cleaner;
+    return viewSourceWithFactory.getTempCleaner();
 }
 
 function ViewSourceWithTempCleaner() {
@@ -37,24 +24,21 @@ ViewSourceWithTempCleaner.prototype = {
     },
 
     set enabled(b) {
-        var hiddenDOMWindow = Components
-                    .classes["@mozilla.org/appshell/appShellService;1"]
-                    .getService(Components.interfaces.nsIAppShellService)
-                    .hiddenDOMWindow;
         if (b) {
             if (!this._enabled) { // add only if is not already enabled
-                // NVU doesn't receive close event so we use unload
-                hiddenDOMWindow.addEventListener("unload", this, false);
+                var obs = ViewSourceWithCommon.getObserverService();
+                obs.addObserver(this, "quit-application", false);
             }
         } else {
             if (this._enabled) { // remove only if is already enabled
-                hiddenDOMWindow.removeEventListener("unload", this, false);
+                var obs = ViewSourceWithCommon.getObserverService();
+                obs.removeObserver(this, "quit-application");
             }
         }
         this._enabled = b;
     },
 
-    handleEvent: function(event) {
+    observe : function(subject, topic, data) {
         this.clean();
     },
 

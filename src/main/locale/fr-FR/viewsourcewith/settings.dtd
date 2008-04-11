@@ -19,12 +19,11 @@
 <!ENTITY main.label "Générales">
 <!ENTITY advanced.label "Avancées">
 <!ENTITY repl.editor.label "Utiliser l&apos;éditeur de viewsourcewith en cliquant sur &apos;Code source de la page (FF) / du message (TB)&apos;">
-<!ENTITY repl.editor.open.focused.label "Ouvrir la fenêtre sélectionnnée s&apos;il existe un jeu de cadres">
+<!ENTITY repl.editor.open.focused.label "Ouvrir la fenêtre sélectionnée s&apos;il existe un jeu de cadres">
 <!ENTITY repl.editor.advice.label "Les paramètres ne prendront effet qu&apos;au redémarrage">
 <!ENTITY repl.image.viewer.item "(Aucun)">
 <!ENTITY repl.image.viewer.label "Utiliser à la place de la visionneuse d&apos;images d&apos;origine">
-<!ENTITY useProfilePath.label "Utiliser le chemin du profil (lisez l&apos;infobulle)">
-<!ENTITY useProfilePath.tooltip "Avec les unités de stockage amovibles utiliser la lettre attribuée à l&apos;unité">
+<!ENTITY useProfilePath.label "Utiliser un chemin compatible avec les applications &apos;portables&apos;">
 <!ENTITY image.onlink.caption "Quand l&apos;élément à visualiser est un lien vers une image">
 <!ENTITY image.onlink.image.label "Voir l&apos;image">
 <!ENTITY image.onlink.link.label "Voir le lien">
@@ -47,3 +46,4 @@
 <!ENTITY warning.delete.item "Supprimer &apos;&#37;1&apos; ?">
 <!ENTITY jsconsole.label "Console JavaScript">
 <!ENTITY repl.jsconsole.viewer.label "Utiliser pour ouvrir les fichiers sources dans la console JavaScript">
+<!ENTITY advanced.allow.edit.text "Autoriser l&apos;édition du contenu des zones de texte">

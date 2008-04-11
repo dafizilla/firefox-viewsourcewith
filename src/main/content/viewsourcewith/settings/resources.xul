@@ -21,6 +21,7 @@
 
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/common.js"/>
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/commonres.js" />
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/globalObjectFactory.js"/>
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/prefs.js"/>
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/tempCleaner.js" />
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/settings/resources.js"/>

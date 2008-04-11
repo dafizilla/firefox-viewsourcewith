@@ -1,0 +1,11 @@
+<!ENTITY title "speciális paraméterei">
+<!ENTITY description "Használhat speciális paramétereket, amelyek indításkor aktiválódnak.">
+<!ENTITY parameter "Paraméter:">
+<!ENTITY replaced.with "Helyettesíti az alábbit:">
+<!ENTITY file.names.descr "Fájlnév">
+<!ENTITY line.number.descr "Sorszám">
+<!ENTITY column.number.descr "Oszlopszám">
+<!ENTITY meaningful.js "Ennek a paraméternek a javascript konzolban van hatása, egyébként az értéke 1.">
+<!ENTITY line.column.usage "A parancssorban (szerkesztő) a kurzor helyének meghatározására a sorszámot és oszlopszámot kell használni.">
+<!ENTITY see "További információkért tekintse meg a">
+<!ENTITY more.details "weboldal leírását.">

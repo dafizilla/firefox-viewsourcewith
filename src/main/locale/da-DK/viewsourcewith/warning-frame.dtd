@@ -1,3 +1,0 @@
-<!ENTITY warning.title "Advarsel for sider der indeholder frames">
-<!ENTITY warningText.label "Når siden indeholder frames, sikr dig at fokus er på den ønskede frame (klik på eller indenfor rammen)">
-<!ENTITY warningDisableDialog.label "Vis ikke denne meddelelse igen">

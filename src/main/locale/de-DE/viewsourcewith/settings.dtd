@@ -22,9 +22,8 @@
 <!ENTITY repl.editor.open.focused.label "Quelltext des ausgewählten Frames anzeigen">
 <!ENTITY repl.editor.advice.label "Einstellungen werden erst nach einem Programmneustart wirksam">
 <!ENTITY repl.image.viewer.item "Nichts">
-<!ENTITY repl.image.viewer.label "Anstelle der programmeigenen Grafikanzeige benutzen">
-<!ENTITY useProfilePath.label "Profilpfad benutzen (Tooltip beachten)">
-<!ENTITY useProfilePath.tooltip "Gibt auf Wechsellaufwerken den Mount-Punkt wieder">
+<!ENTITY repl.image.viewer.label "Anstelle der programmeigenen Grafikanzeige verwenden">
+<!ENTITY useProfilePath.label "Einen mit &quot;portablen&quot; Anwendungen kompatibelen Pfad verwenden">
 <!ENTITY image.onlink.caption "Im Fall von Grafik-Links">
 <!ENTITY image.onlink.image.label "Grafik anzeigen">
 <!ENTITY image.onlink.link.label "Link-Ziel anzeigen">
@@ -38,7 +37,7 @@
 <!ENTITY urlmapper.caption "Mapping-Liste der Server-Seiten">
 <!ENTITY urlmapper.enabled.tree.label "Aktiviert">
 <!ENTITY urlmapper.name.tree.label "Name">
-<!ENTITY urlmapper.advice.label "&apos;Serverseitigen&apos; Seiten-Code öffnen">
+<!ENTITY urlmapper.advice.label "&quot;Serverseitigen&quot; Seiten-Code öffnen">
 <!ENTITY view.showResourcesMenu.label "CSS/JS-Menüeintrag anzeigen">
 <!ENTITY view.quickFrameShowMenu.label "Menüeintrag für Frame-Schnellzugriff anzeigen">
 <!ENTITY picktitle.destfolder "Ordner auswählen">
@@ -47,3 +46,4 @@
 <!ENTITY warning.delete.item "&quot;&#37;1&quot; löschen?">
 <!ENTITY jsconsole.label "JavaScript-Konsole">
 <!ENTITY repl.jsconsole.viewer.label "Quelltext-Dateien in der JavaScript-Konsole öffnen">
+<!ENTITY advanced.allow.edit.text "Bearbeiten des Inhalts von Texteingabefeldern mit VSW ermöglichen">

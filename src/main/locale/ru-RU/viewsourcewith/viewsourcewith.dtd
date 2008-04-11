@@ -5,5 +5,3 @@
 <!ENTITY viewsource-viewMenu.accesskey "И">
 <!ENTITY viewsourcewith.commandkey "U">
 <!ENTITY viewsourcewithButton.label "Исходный код">
-<!ENTITY viewsourcewithTooltip "Просмотр исходного кода">
-<!ENTITY cmd.edittext.label "Edit text">

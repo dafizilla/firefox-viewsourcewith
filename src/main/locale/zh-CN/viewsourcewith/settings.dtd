@@ -23,8 +23,7 @@
 <!ENTITY repl.editor.advice.label "设定将在重新启动后生效">
 <!ENTITY repl.image.viewer.item "(无)">
 <!ENTITY repl.image.viewer.label "替代内建的图像查看器">
-<!ENTITY useProfilePath.label "使用配置文件路径(请读工具提示)">
-<!ENTITY useProfilePath.tooltip "让您可将配置文件放到移动存储器中">
+<!ENTITY useProfilePath.label "对‘可移植’的程序使用路径兼容模式">
 <!ENTITY image.onlink.caption "查看带链接的图片时">
 <!ENTITY image.onlink.image.label "查看图片">
 <!ENTITY image.onlink.link.label "查看链接">
@@ -46,4 +45,5 @@
 <!ENTITY temp.useOSPath.label "使用操作系统文件夹">
 <!ENTITY warning.delete.item "删除 &quot;&#37;1&quot;?">
 <!ENTITY jsconsole.label "Javascript 控制台">
-<!ENTITY repl.jsconsole.viewer.label "在 Javascript console 中使用开源文件">
+<!ENTITY repl.jsconsole.viewer.label "在 Javascript 控制台中使用打开源文件">
+<!ENTITY advanced.allow.edit.text "允许文本框的内容编辑">

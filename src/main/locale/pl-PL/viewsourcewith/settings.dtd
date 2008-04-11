@@ -23,8 +23,7 @@
 <!ENTITY repl.editor.advice.label "Wymaga ponownego uruchomienia">
 <!ENTITY repl.image.viewer.item "(Brak)">
 <!ENTITY repl.image.viewer.label "Grafiki otwieraj w:">
-<!ENTITY useProfilePath.label "Użyj ścieżki do profilu   (podpowiedź)">
-<!ENTITY useProfilePath.tooltip "Uwzględnij punkt montowania na dyskach wymiennych">
+<!ENTITY useProfilePath.label "Use path compatible with &apos;portable&apos; applications">
 <!ENTITY image.onlink.caption "W przypadku odnośnika z obrazkiem">
 <!ENTITY image.onlink.image.label "Wyświetl obrazek">
 <!ENTITY image.onlink.link.label "Wyświetl odnośnik">
@@ -47,3 +46,4 @@
 <!ENTITY warning.delete.item "Czy napewno chcesz usunąć &quot;&#37;1&quot;?">
 <!ENTITY jsconsole.label "Konsola błędów">
 <!ENTITY repl.jsconsole.viewer.label "Użyj konsoli błędów do otwierania zródeł plików">
+<!ENTITY advanced.allow.edit.text "Pozwól edytować pola tekstowe">

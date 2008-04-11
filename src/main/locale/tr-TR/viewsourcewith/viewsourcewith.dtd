@@ -5,5 +5,3 @@
 <!ENTITY viewsource-viewMenu.accesskey "a">
 <!ENTITY viewsourcewith.commandkey "K">
 <!ENTITY viewsourcewithButton.label "Kaynak">
-<!ENTITY viewsourcewithTooltip "Kaynak kodu görüntüle">
-<!ENTITY cmd.edittext.label "Edit text">

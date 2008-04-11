@@ -23,8 +23,7 @@
 <!ENTITY repl.editor.advice.label "設定は再起動後に反映されます">
 <!ENTITY repl.image.viewer.item "(なし)">
 <!ENTITY repl.image.viewer.label "元々ある『画像を表示』をVSWでフックし、以下のアプリを使用する">
-<!ENTITY useProfilePath.label "プロファイルフォルダを使用 (ツールチップをご覧ください)">
-<!ENTITY useProfilePath.tooltip "リムーバブルドライブではユニットのマウントポイントを反映します">
+<!ENTITY useProfilePath.label "&apos;ポータブル&apos; アプリケーションとパスの互換性を保つ">
 <!ENTITY image.onlink.caption "画像にリンクが使われている時">
 <!ENTITY image.onlink.image.label "画像を表示">
 <!ENTITY image.onlink.link.label "リンク先を表示">
@@ -47,3 +46,4 @@
 <!ENTITY warning.delete.item "&quot;&#37;1&quot; を削除しますか?">
 <!ENTITY jsconsole.label "Javascript コンソール">
 <!ENTITY repl.jsconsole.viewer.label "ソースファイルを Javascript コンソールで開く">
+<!ENTITY advanced.allow.edit.text "テキストボックスの内容の編集を許可">

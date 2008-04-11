@@ -14,6 +14,7 @@
 
 const VSW_PREF_CONFIG_PATH = "dafi.viewsource.configPath";
 const VSW_PREF_USE_PROFILE_PATH = "dafi.viewsource.useProfilePath";
+const VSW_PREF_TOOLBAR_ICON_ADDED = "dafi.viewsource.toolbaricon.added";
 
 function ViewSourceEditorData(isVisible, description, path, showAlways) {
     this._isVisible = ViewSourceWithCommon.isTrue(isVisible);
@@ -50,85 +51,85 @@ ViewSourceEditorData.prototype = {
         } else {
             this._keyData = null;
         }
-    },
-
-    runEditor : function(paths, line, col) {
-        var cmdArgs = this.cmdArgs;
-        if (!cmdArgs || cmdArgs == "") {
-            cmdArgs = "$f";
-        }
-        var intLine = parseInt(line);
-        if (isNaN(intLine) || intLine < 1) {
-            line = "1";
-        }
-        var intCol = parseInt(col);
-        if (isNaN(intCol) || intCol < 1) {
-            col = "1";
-        }
-        var allArgs = new Array();
-        var data = { str : cmdArgs,
-                     currPos : 0,
-                     currToken : "",
-                     isQuoted : false
-                   }
-
-        while (ViewSourceEditorData.getToken(data)) {
-            allArgs = this._parseToken(paths, line, col, allArgs, data);
-        }
-
-        var editorFile = ViewSourceWithCommon.makeLocalFile(this.path);
-        if (editorFile.exists() && editorFile.isFile()) {
-            ViewSourceWithCommon.runProgram(editorFile, allArgs);
-        } else {
-            var msg = ViewSourceWithCommon.getFormattedMessage(
-                        "err.file.not.found", [this.description]);
-            Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
-                    .getService(Components.interfaces.nsIPromptService)
-                    .alert(null, "ViewSourceWith", msg);
-        }
-    },
-
-    _parseToken : function(paths, line, col, allArgs, data) {
-        var str = "";
-
-        for (var i = 0; i < data.currToken.length; i++) {
-            if (data.currToken[i] == '\\') {
-                str += data.currToken[++i];
-            } else if (data.currToken[i] == '$') {
-                switch (data.currToken[++i]) {
-                    case '$':
-                        str += '$';
-                        break;
-                    case 'f':
-                        if (data.isQuoted) {
-                            for (var j = 0; j < paths.length; j++) {
-                                str += paths[j];
-                                if (j != (paths.length - 1)) {
-                                    str += " ";
-                                }
-                            }
-                        } else {
-                            allArgs = allArgs.concat(paths);
-                        }
-                        break;
-                    case 'l':
-                        str += line;
-                        break;
-                    case 'c':
-                        str += col;
-                    default:
-                        str += data.currToken[i];
-                }
-            } else {
-                str += data.currToken[i];
-            }
-        }
-        if (str.length) {
-            allArgs.push(str);
-        }
-        return allArgs;
     }
 };
+
+ViewSourceEditorData.runEditor = function(editorData, paths, line, col) {
+    var cmdArgs = editorData.cmdArgs;
+    if (!cmdArgs || cmdArgs == "") {
+        cmdArgs = "$f";
+    }
+    var intLine = parseInt(line);
+    if (isNaN(intLine) || intLine < 1) {
+        line = "1";
+    }
+    var intCol = parseInt(col);
+    if (isNaN(intCol) || intCol < 1) {
+        col = "1";
+    }
+    var allArgs = new Array();
+    var data = { str : cmdArgs,
+                 currPos : 0,
+                 currToken : "",
+                 isQuoted : false
+               }
+
+    while (ViewSourceEditorData.getToken(data)) {
+        allArgs = ViewSourceEditorData._parseToken(paths, line, col, allArgs, data);
+    }
+
+    var editorFile = ViewSourceWithCommon.makeLocalFile(editorData.path);
+    if (editorFile.exists() && editorFile.isFile()) {
+        ViewSourceWithCommon.runProgram(editorFile, allArgs);
+    } else {
+        var msg = ViewSourceWithCommon.getFormattedMessage(
+                    "err.file.not.found", [editorData.description]);
+        Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
+                .getService(Components.interfaces.nsIPromptService)
+                .alert(null, "ViewSourceWith", msg);
+    }
+}
+
+ViewSourceEditorData._parseToken = function(paths, line, col, allArgs, data) {
+    var str = "";
+
+    for (var i = 0; i < data.currToken.length; i++) {
+        if (data.currToken[i] == '\\') {
+            str += data.currToken[++i];
+        } else if (data.currToken[i] == '$') {
+            switch (data.currToken[++i]) {
+                case '$':
+                    str += '$';
+                    break;
+                case 'f':
+                    if (data.isQuoted) {
+                        for (var j = 0; j < paths.length; j++) {
+                            str += paths[j];
+                            if (j != (paths.length - 1)) {
+                                str += " ";
+                            }
+                        }
+                    } else {
+                        allArgs = allArgs.concat(paths);
+                    }
+                    break;
+                case 'l':
+                    str += line;
+                    break;
+                case 'c':
+                    str += col;
+                default:
+                    str += data.currToken[i];
+            }
+        } else {
+            str += data.currToken[i];
+        }
+    }
+    if (str.length) {
+        allArgs.push(str);
+    }
+    return allArgs;
+}
 
 ViewSourceEditorData.getToken = function(data) {
     var s = data.str;
@@ -201,6 +202,7 @@ function ViewSourceWithPrefs() {
     this._showResourcesMenu = true;
     this._showQuickFrame = false;
     this._replaceJSConsole = true;
+    this._allowEditText = true;
 }
 
 ViewSourceWithPrefs.getTempDir = function() {
@@ -212,20 +214,7 @@ ViewSourceWithPrefs.getTempDir = function() {
 }
 
 ViewSourceWithPrefs.getInstance = function() {
-    var app = Components.classes["@mozilla.org/appshell/appShellService;1"]
-              .getService(Components.interfaces.nsIAppShellService);
-    var prefs = undefined;
-
-    if ("viewSourceWithFactory" in app.hiddenDOMWindow) {
-        prefs = app.hiddenDOMWindow.viewSourceWithFactory.getPrefsInstance();
-    }
-
-    if (prefs == undefined) {
-        viewSourceWithFactory.loadSubScripts(app);
-        prefs = app.hiddenDOMWindow.viewSourceWithFactory.getPrefsInstance();
-    }
-
-    return prefs;
+    return viewSourceWithFactory.getPrefsInstance();
 }
 
 ViewSourceWithPrefs.prototype = {
@@ -249,6 +238,7 @@ ViewSourceWithPrefs.prototype = {
         this._showResourcesMenu = prefs._showResourcesMenu;
         this._showQuickFrame = prefs._showQuickFrame;
         this._replaceJSConsole = prefs._replaceJSConsole;
+        this._allowEditText = prefs._allowEditText;
     },
 
     get destFolder() {
@@ -407,6 +397,22 @@ ViewSourceWithPrefs.prototype = {
         this._replaceJSConsole = newData;
     },
 
+    get allowEditText() {
+        return this._allowEditText;
+    },
+
+    set allowEditText(newData) {
+        this._allowEditText = newData;
+    },
+
+    get isToolbarIconAdded() {
+        return this.getBool(VSW_PREF_TOOLBAR_ICON_ADDED, false);
+    },
+
+    set toolbarIconAdded(newValue) {
+        return this.setBool(VSW_PREF_TOOLBAR_ICON_ADDED, newValue);
+    },
+
     getString : function(prefName, defValue) {
         var prefValue;
         try {
@@ -493,7 +499,7 @@ ViewSourceWithPrefs.prototype = {
 
             this._showQuickFrame = this.getBoolean(doc, "show-quick-frame-menu", false);
             this._replaceJSConsole = this.getBoolean(doc, "replace-jsconsole-editor", true);
-
+            this._allowEditText = this.getBoolean(doc, "allow-edit-text", true);
         } else {
             throw this.getTagValue(doc, "parsererror");
         }
@@ -622,6 +628,7 @@ ViewSourceWithPrefs.prototype = {
         str += '    <open-image-on-link>'     + this._openImageOnLink + '</open-image-on-link>\n';
         str += '    <native-image-editor-index>'     + this._nativeImageEditorIndex + '</native-image-editor-index>\n';
         str += '    <replace-jsconsole-editor>'     + this._replaceJSConsole + '</replace-jsconsole-editor>\n';
+        str += '    <allow-edit-text>'     + this._allowEditText + '</allow-edit-text>\n';
 
         str += '    <show-resources-menu>'     + this._showResourcesMenu + '</show-resources-menu>\n';
         str += '    <show-quick-frame-menu>'     + this._showQuickFrame + '</show-quick-frame-menu>\n';
@@ -652,7 +659,7 @@ ViewSourceWithPrefs.prototype = {
             str += '            <enabled>' + enabled + '</enabled>\n';
             str += '            <full-path><![CDATA[' + curr.path + ']]></full-path>\n';
             if (curr.keyData) {
-                str += '            ' + curr.keyData.toXml() + '\n';
+                str += '            ' + KeyData.toXml(curr.keyData) + '\n';
             }
             str += '            <cmd-args><![CDATA[' + curr.cmdArgs + ']]></cmd-args>\n';
 
@@ -690,9 +697,7 @@ ViewSourceWithPrefs.prototype = {
             this.setString(VSW_PREF_CONFIG_PATH, this._configPath);
             this.setBool(VSW_PREF_USE_PROFILE_PATH, this._useProfilePath);
 
-            var app = Components.classes["@mozilla.org/appshell/appShellService;1"]
-                      .getService(Components.interfaces.nsIAppShellService);
-            app.hiddenDOMWindow.viewSourceWithFactory.prefs = null;
+            viewSourceWithFactory.resetPrefsInstance();
         } catch (err) {
             alert("ViewSourceWithPrefs.savePrefs " + err);
         }

@@ -1,26 +1,74 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 <xsl:output method="text" omit-xml-declaration="yes"/>
-<xsl:param name="generate-updateurl"/>
-<xsl:param name="extension-filename"/>
+<xsl:param name="use-exploded-chrome"/>
 <xsl:include href="common-install.xsl"/>
 <xsl:template match="extension">// This code is heavily inspired by Chris Pederick (useragentswitcher) install.js
-var contentFlag         = CONTENT | PROFILE_CHROME;
+// Contributors: Philip Chee, deathburger
+//
+// Philip Chee: Added installation of prefs, components, and locales.
+// deathburger: Refactored to move all changable items to the top of the file.
+
+// Editable Items Begin
 var displayName         = "<xsl:value-of select="title-name"/>";
-var error               = null;
-var folder              = getFolder("Current User", "chrome");
-var localeFlag          = LOCALE | PROFILE_CHROME;
-var name                = "<xsl:value-of select="@name"/>";
-var jarName             = name + ".jar";
-var existsInApplication = File.exists(getFolder(getFolder("chrome"), jarName));
-var existsInProfile     = File.exists(getFolder(folder, jarName));
-var skinFlag            = SKIN | PROFILE_CHROME;
 var version             = "<xsl:value-of select="version"/>";
+var name                = "<xsl:value-of select="@name"/>";
+
+// The following three sets of variables tell this installer script how your
+// extension directory structure looks.
+// If your jar file contains content/packagename use the second packageDir
+// variable. Same rule applies for skinDir and localeDir. I set them up
+// independent of each other just in case an extension layout is wacky.
+<xsl:choose>
+<xsl:when test="chrome-extension-directory = '/'">
+var packageDir          = "/"
+var skinDir             = "/"
+var localeDir           = "/"
+</xsl:when>
+<xsl:otherwise>
+var packageDir          = "/" + name + "/"
+var skinDir             = "/" + name + "/"
+var localeDir           = "/" + name + "/"
+</xsl:otherwise>
+</xsl:choose>
 
 var locales             = new Array(<xsl:apply-templates select="//locales/locale" mode="install.js"/>);
-var skins               = new Array("classic");
+var skins               = new Array( <xsl:apply-templates select="//skins/skin" mode="install.js"/>);
+var prefs               = new Array( <xsl:apply-templates select="//prefs/pref" mode="install.js"/> );
+var components          = new Array(  );
+var searchPlugins       = new Array(  );
 
-// If the extension exists in the application folder or it doesn't exist in the profile folder and the user doesn't want it installed to the profile folder
-if(existsInApplication || (!existsInProfile &amp;&amp; !confirm("Do you want to install the " + displayName + " extension into your profile folder?\n(Cancel will install into the application folder)")))
+// Mozilla Suite/Seamonkey stores all pref files in a single directory
+// under the application directory.  If the name of the preference file(s)
+// is/are not unique enough, you may override other extension preferences.
+// set this to true if you need to prevent this.
+var disambiguatePrefs   = true;
+
+// Editable Items End
+
+var jarName             = name + ".jar";
+var jarFolder           = "content" + packageDir
+var error               = null;
+
+var folder              = getFolder("Profile", "chrome");
+var prefFolder          = getFolder(getFolder("Program", "defaults"), "pref");
+var compFolder          = getFolder("Components");
+var searchFolder        = getFolder("Plugins");
+
+var existsInApplication = File.exists(getFolder(getFolder("chrome"), jarName));
+var existsInProfile     = File.exists(getFolder(folder, jarName));
+
+var contentFlag         = CONTENT | PROFILE_CHROME;
+var localeFlag          = LOCALE | PROFILE_CHROME;
+var skinFlag            = SKIN | PROFILE_CHROME;
+
+// If the extension exists in the application folder or it doesn't exist
+// in the profile folder and the user doesn't want it installed to the
+// profile folder
+if(existsInApplication ||
+    (!existsInProfile &amp;&amp;
+      !confirm( "Do you want to install the " + displayName +
+                " extension into your profile folder?\n" +
+                "(Cancel will install into the application folder)")))
 {
     contentFlag = CONTENT | DELAYED_CHROME;
     folder      = getFolder("chrome");
@@ -37,19 +85,39 @@ if(error == SUCCESS)
 {
     folder = getFolder(folder, jarName);
 
-    registerChrome(contentFlag, folder, "content/" + name + "/");
+    registerChrome(contentFlag, folder, jarFolder);
     for (var i = 0; i &lt; locales.length; i++) {
-        registerChrome(localeFlag, folder, "locale/" + locales[i] + "/" + name + "/");
+        registerChrome(localeFlag, folder, "locale/" + locales[i] + localeDir);
     }
 
     for (var i = 0; i &lt; skins.length; i++) {
-        registerChrome(skinFlag, folder, "skin/" + skins[i] + "/" + name + "/");
+        registerChrome(skinFlag, folder, "skin/" + skins[i] + skinDir);
+    }
+
+    for (var i = 0; i &lt; prefs.length; i++) {
+        if (!disambiguatePrefs) {
+            addFile(name + " Defaults", version, "defaults/preferences/" + prefs[i],
+                prefFolder, prefs[i], true);
+        } else {
+            addFile(name + " Defaults", version, "defaults/preferences/" + prefs[i],
+                prefFolder, name + "-" + prefs[i], true);
+        }
+    }
+
+    for (var i = 0; i &lt; components.length; i++) {
+        addFile(name + " Components", version, "components/" + components[i],
+            compFolder, components[i], true);
+    }
+
+    for (var i = 0; i &lt; searchPlugins.length; i++) {
+        addFile(name + " searchPlugins", version, "searchplugins/" + searchPlugins[i],
+            searchFolder, searchPlugins[i], true);
     }
 
     error = performInstall();
 
     // If the install failed
-    if(error != SUCCESS &amp;&amp; error != 999 &amp;&amp; error != -239)
+    if(error != SUCCESS &amp;&amp; error != REBOOT_NEEDED)
     {
         displayError(error);
     	cancelInstall(error);
@@ -69,17 +137,27 @@ else
 function displayError(error)
 {
     // If the error code was -215
-    if(error == -215)
+    if(error == READ_ONLY)
     {
-        alert("The installation of the " + displayName + " extension failed.\nOne of the files being overwritten is read-only.");
+        alert("The installation of " + displayName +
+            " failed.\nOne of the files being overwritten is read-only.");
     }
-    else if(error == -235)
+    // If the error code was -235
+    else if(error == INSUFFICIENT_DISK_SPACE)
     {
-        alert("The installation of the " + displayName + " extension failed.\nThere is insufficient disk space.");
+        alert("The installation of " + displayName +
+            " failed.\nThere is insufficient disk space.");
+    }
+    // If the error code was -239
+    else if(error == CHROME_REGISTRY_ERROR)
+    {
+        alert("The installation of " + displayName +
+            " failed.\nChrome registration failed.");
     }
     else
     {
-        alert("The installation of the " + displayName + " extension failed.\nThe error code is: " + error);
+        alert("The installation of " + displayName +
+            " failed.\nThe error code is: " + error);
     }
 }
 </xsl:template>

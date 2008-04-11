@@ -2,7 +2,7 @@
 <!ENTITY destFolder.caption "پوشه فایل های موقت">
 <!ENTITY editorList.caption "لیست ویرایشگر">
 <!ENTITY configPath.label "فایل تنظیمات">
-<!ENTITY defaultEditor.tree.label "پیشفرض">
+<!ENTITY defaultEditor.tree.label "پیش فرض">
 <!ENTITY description.tree.label "نام">
 <!ENTITY show.tree.label "فعال">
 <!ENTITY new.button.label "جدید">
@@ -23,8 +23,7 @@
 <!ENTITY repl.editor.advice.label ".تنظیمات پس از راه اندازی مجدد اعمال می شوند">
 <!ENTITY repl.image.viewer.item "هیچ">
 <!ENTITY repl.image.viewer.label "استفاده از نمایش دهنده تصویر محلی">
-<!ENTITY useProfilePath.label "استفاده از آدرس پروفایل">
-<!ENTITY useProfilePath.tooltip "نمایش واحد نصب در درایوهای افزودنی">
+<!ENTITY useProfilePath.label "استفاده از مسیر سازگار با برنامه های قابل حمل">
 <!ENTITY image.onlink.caption "حالت وجود یک لینک با تصویر">
 <!ENTITY image.onlink.image.label "نمایش تصویر">
 <!ENTITY image.onlink.link.label "نمایش لینک">
@@ -47,3 +46,4 @@
 <!ENTITY warning.delete.item "&quot;&#37;1&quot; پاک کردن">
 <!ENTITY jsconsole.label "کنسول جاوا اسکریپت">
 <!ENTITY repl.jsconsole.viewer.label "برای باز کردن سورس در کنسول جاوا اسکریپت">
+<!ENTITY advanced.allow.edit.text "اجازه دادن برای ویرایش محتوای جعبه های متنی">

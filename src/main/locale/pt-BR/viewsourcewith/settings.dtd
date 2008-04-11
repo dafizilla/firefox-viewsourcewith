@@ -23,8 +23,7 @@
 <!ENTITY repl.editor.advice.label "As alterações só terão efeito após o reinício">
 <!ENTITY repl.image.viewer.item "(Nenhum)">
 <!ENTITY repl.image.viewer.label "Usar o seguinte vizualizador como padrão no item &quot;Exibir imagem&quot; do menu de contexto">
-<!ENTITY useProfilePath.label "Usar a pasta do perfil (leia o aviso &quot;tooltip&quot;)">
-<!ENTITY useProfilePath.tooltip "Em drives removíveis a pasta será a pasta de montagem da unidade">
+<!ENTITY useProfilePath.label "Usar pasta compatível com aplicativos portáteis (versões portable)">
 <!ENTITY image.onlink.caption "Quando o elemento a ser exibido for um link para uma imagem">
 <!ENTITY image.onlink.image.label "Visualizar a imagem">
 <!ENTITY image.onlink.link.label "Visualizar o link">
@@ -47,3 +46,4 @@
 <!ENTITY warning.delete.item "Remover &quot;&#37;1&quot;?">
 <!ENTITY jsconsole.label "Console de erros">
 <!ENTITY repl.jsconsole.viewer.label "Use para abrir arquivos do console de erros">
+<!ENTITY advanced.allow.edit.text "Permitir edição do conteúdo de caixas de texto">

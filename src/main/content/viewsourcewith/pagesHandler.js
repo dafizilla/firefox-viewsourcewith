@@ -49,7 +49,7 @@ VswServerPagesHandler.prototype = {
     _findUrlMapperData : function (urlToSave, urlMapperData) {
         for (var i = 0; i < urlMapperData.length; i++) {
             if (urlMapperData[i].enabled
-                && urlMapperData[i].matchFilter(urlToSave)) {
+                && ViewSourceUrlMapperData.matchFilter(urlMapperData[i], urlToSave)) {
                 return urlMapperData[i];
             }
         }
@@ -74,7 +74,7 @@ VswServerPagesHandler.prototype = {
 
     _openServerPages : function(editorData, fileArr) {
         try {
-            editorData.runEditor(fileArr);
+            ViewSourceEditorData.runEditor(editorData, fileArr);
         } catch (err) {
             ViewSourceWithCommon.log(
                 "VSW: openServerPages Unable to run program\n" + err);
@@ -93,7 +93,7 @@ VswServerPagesHandler.prototype = {
             }
         }
         if (editorData) {
-            editorData.runEditor(args, line, column);
+            ViewSourceEditorData.runEditor(editorData, args, line, column);
         }
     }
 }

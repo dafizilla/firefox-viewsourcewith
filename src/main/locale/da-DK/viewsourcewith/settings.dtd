@@ -23,8 +23,7 @@
 <!ENTITY repl.editor.advice.label "Indstillinger virker først efter genstart">
 <!ENTITY repl.image.viewer.item "(Ingen)">
 <!ENTITY repl.image.viewer.label "Brug i stedet for indbygget billedfremviser">
-<!ENTITY useProfilePath.label "Brug profilsti (læs tooltippet)">
-<!ENTITY useProfilePath.tooltip "På flytbare diske reflekteres enheden ud fra forbindelsespunkt">
+<!ENTITY useProfilePath.label "Use path compatible with &apos;portable&apos; applications">
 <!ENTITY image.onlink.caption "I tilfælde af link med billede">
 <!ENTITY image.onlink.image.label "Vis billede">
 <!ENTITY image.onlink.link.label "Vis link">
@@ -33,7 +32,7 @@
 <!ENTITY temp.cleanNow.label "Fjern">
 <!ENTITY view.tab.label "Vis">
 <!ENTITY view.menu.label "Menu">
-<!ENTITY view.showIcons.label "Vis ikoner på meny">
+<!ENTITY view.showIcons.label "Vis ikoner på menu">
 <!ENTITY urlmapper.tab.label "Mappings">
 <!ENTITY urlmapper.caption "Serversider mapping-liste">
 <!ENTITY urlmapper.enabled.tree.label "Slået til">
@@ -47,3 +46,4 @@
 <!ENTITY warning.delete.item "Slet &quot;&#37;1&quot;?">
 <!ENTITY jsconsole.label "Javascript-konsol">
 <!ENTITY repl.jsconsole.viewer.label "Bruges til at åbne kildefiler ind i Javascript-konsollen">
+<!ENTITY advanced.allow.edit.text "Allow content edit of text boxes">

@@ -23,8 +23,7 @@
 <!ENTITY repl.editor.advice.label "การตั้งค่าจะมีผลหลังการเปิดโปรแกรมครั้งหน้า">
 <!ENTITY repl.image.viewer.item "(ไม่มี)">
 <!ENTITY repl.image.viewer.label "ใช้สำหรับโปรแกรมดูภาพดั้งเดิม">
-<!ENTITY useProfilePath.label "ใช้ Profile path (อ่าน Tooltip)">
-<!ENTITY useProfilePath.tooltip "เหมาะสำหรับการใช้งานบน Removable drives">
+<!ENTITY useProfilePath.label "ใช้ Path ที่เข้ากันได้กับโปรแกรมแบบ Portable">
 <!ENTITY image.onlink.caption "ในกรณลิงค์ที่เป็นภาพ">
 <!ENTITY image.onlink.image.label "ดูภาพ">
 <!ENTITY image.onlink.link.label "ดูลิงค์">
@@ -47,3 +46,4 @@
 <!ENTITY warning.delete.item "ลบ &quot;&#37;1&quot;?">
 <!ENTITY jsconsole.label "Javascript console">
 <!ENTITY repl.jsconsole.viewer.label "ใช้สำหรับเปิดซอร์สโค้ดเข้าไปใน Javascript console">
+<!ENTITY advanced.allow.edit.text "อนุญาตให้แก้ไขเนื้อหากล่องข้อความ">

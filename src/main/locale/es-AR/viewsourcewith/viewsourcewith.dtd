@@ -5,5 +5,3 @@
 <!ENTITY viewsource-viewMenu.accesskey "v">
 <!ENTITY viewsourcewith.commandkey "f">
 <!ENTITY viewsourcewithButton.label "Fuente">
-<!ENTITY viewsourcewithTooltip "Ver código fuente">
-<!ENTITY cmd.edittext.label "Edit text">

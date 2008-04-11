@@ -5,5 +5,3 @@
 <!ENTITY viewsource-viewMenu.accesskey "m">
 <!ENTITY viewsourcewith.commandkey "U">
 <!ENTITY viewsourcewithButton.label "Bron">
-<!ENTITY viewsourcewithTooltip "Bekyk bron">
-<!ENTITY cmd.edittext.label "Edit text">

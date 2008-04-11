@@ -1,35 +1,50 @@
 #viewsourcewith-button,
 #button-viewsourcewith {
-  list-style-image: url("chrome://viewsourcewith/content/img/ff/tb24-off.png");
-  -moz-image-region: rect(7px 31px 31px 7px);
+  list-style-image: url("chrome://viewsourcewith/content/img/ff/tb24.png");
+  -moz-image-region: rect(8px 34px 32px 10px);
 }
 
 #viewsourcewith-button[disabled],
 #button-viewsourcewith[disabled] {
-  list-style-image: url("chrome://viewsourcewith/content/img/ff/tb24.png");
-  -moz-image-region: rect(7px 31px 31px 7px);
+  -moz-image-region: rect(8px 34px 32px 10px);
   -moz-opacity: 0.5;
 }
 
 #viewsourcewith-button:hover,
 #button-viewsourcewith:hover {
-  list-style-image: url("chrome://viewsourcewith/content/img/ff/tb24.png");
-  -moz-image-region: rect(7px 31px 31px 7px);
+  -moz-image-region: rect(8px 76px 32px 52px);
+}
+
+#viewsourcewith-button[focusedtype="text"],
+#button-viewsourcewith[focusedtype="text"] {
+  -moz-image-region: rect(47px 34px 71px 10px);
+}
+
+#viewsourcewith-button:hover[focusedtype="text"],
+#button-viewsourcewith:hover[focusedtype="text"] {
+  -moz-image-region: rect(47px 76px 71px 52px);
 }
 
 toolbar[iconsize="small"] #viewsourcewith-button {
-  list-style-image: url("chrome://viewsourcewith/content/img/ff/tb16-off.png");
-  -moz-image-region: rect(0px 16px 16px 0px);
+  list-style-image: url("chrome://viewsourcewith/content/img/ff/tb16.png");
+  -moz-image-region: rect(0px 15px 15px 0px);
 }
 
 toolbar[iconsize="small"] #viewsourcewith-button[disabled] {
-  list-style-image: url("chrome://viewsourcewith/content/img/ff/tb16.png");
   -moz-opacity: 0.5;
-  -moz-image-region: rect(0px 16px 16px 0px);
+  -moz-image-region: rect(0px 15px 15px 0px);
 }
 
 toolbar[iconsize="small"] #viewsourcewith-button:hover {
-  list-style-image: url("chrome://viewsourcewith/content/img/ff/tb16.png");
+  -moz-image-region: rect(0px 31px 15px 16px);
+}
+
+toolbar[iconsize="small"] #viewsourcewith-button[focusedtype="text"] {
+  -moz-image-region: rect(16px 15px 31px 0px);
+}
+
+toolbar[iconsize="small"] #viewsourcewith-button:hover[focusedtype="text"] {
+  -moz-image-region: rect(16px 31px 31px 16px);
 }
 
 toolbar[iconsize="small"] #viewsourcewith-button[usenvustyle] {

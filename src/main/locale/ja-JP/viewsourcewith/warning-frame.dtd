@@ -1,3 +1,0 @@
-<!ENTITY warning.title "フレームを使用するページへの警告">
-<!ENTITY warningText.label "フレームを使用するページでは、ソースを表示するフレームにフォーカスを合わせてから (フレーム内をクリックしてから) 操作してください">
-<!ENTITY warningDisableDialog.label "このメッセージを次回から表示しない">

@@ -18,10 +18,10 @@
         buttons="accept"
         title="&vsw.brandname; &title;"
         persist="width height screenX screenY">
-        
+
     <script>
         window.addEventListener("load", onLoad, false);
-        
+
         function onLoad() {
             document.getElementById("helpIFrame")
                 .setAttribute("src", window.arguments[0]);

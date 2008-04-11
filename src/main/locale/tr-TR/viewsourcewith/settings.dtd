@@ -23,8 +23,7 @@
 <!ENTITY repl.editor.advice.label "Ayarlar yeniden başlatılınca etkin olur">
 <!ENTITY repl.image.viewer.item "(Hiçbiri)">
 <!ENTITY repl.image.viewer.label "Yerel resim görüntüleyici yerine kullan">
-<!ENTITY useProfilePath.label "Kimlik yolu kullan (Araç ipucunu okuyun)">
-<!ENTITY useProfilePath.tooltip "Kaldırılabilir sürücülerde kurulu nokta birimini yansıtır">
+<!ENTITY useProfilePath.label "Use path compatible with &apos;portable&apos; applications">
 <!ENTITY image.onlink.caption "Resmin üzerinden bağlantı varsa">
 <!ENTITY image.onlink.image.label "Resmi görüntüle">
 <!ENTITY image.onlink.link.label "Bağlantıyı görüntüle">
@@ -47,3 +46,4 @@
 <!ENTITY warning.delete.item "Delete &quot;&#37;1&quot;?">
 <!ENTITY jsconsole.label "Javascript konsolu">
 <!ENTITY repl.jsconsole.viewer.label "Kaynak dosyalarını açmak için Javascript konsolunu kullan">
+<!ENTITY advanced.allow.edit.text "Allow content edit of text boxes">

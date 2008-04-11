@@ -23,8 +23,7 @@
 <!ENTITY repl.editor.advice.label "Los cambios tienen efecto al reiniciar">
 <!ENTITY repl.image.viewer.item "(Ninguno)">
 <!ENTITY repl.image.viewer.label "Usar en lugar del visor de imágenes nativo">
-<!ENTITY useProfilePath.label "Usar ruta del perfil">
-<!ENTITY useProfilePath.tooltip "En unidades extraíbles reflejar el punto de montaje">
+<!ENTITY useProfilePath.label "Usar una ruta compatible con las aplicaciones &apos;portables&apos;">
 <!ENTITY image.onlink.caption "Cuando el elemento sea una imagen con un enlace">
 <!ENTITY image.onlink.image.label "Ver imagen">
 <!ENTITY image.onlink.link.label "Ver enlace">
@@ -47,3 +46,4 @@
 <!ENTITY warning.delete.item "¿Borrar &quot;&#37;1&quot;?">
 <!ENTITY jsconsole.label "Consola Javascript">
 <!ENTITY repl.jsconsole.viewer.label "Usar para abrir archivos fuente en la consola Javascript">
+<!ENTITY advanced.allow.edit.text "Permitir la edición de contenido en cuadros de texto">

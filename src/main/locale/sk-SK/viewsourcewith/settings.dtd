@@ -23,8 +23,7 @@
 <!ENTITY repl.editor.advice.label "Nastavenia sa použijú až po reštarte prehliadača">
 <!ENTITY repl.image.viewer.item "(žiadny)">
 <!ENTITY repl.image.viewer.label "Použite namiesto natívneho zobrazovača obrázkov">
-<!ENTITY useProfilePath.label "Použiť cestu k profilu (čítajte tooltipy)">
-<!ENTITY useProfilePath.tooltip "Na vymeniteľných médiách reflektujte na mount point unit">
+<!ENTITY useProfilePath.label "Use path compatible with &apos;portable&apos; applications">
 <!ENTITY image.onlink.caption "V prípade odkazu s obrázkom">
 <!ENTITY image.onlink.image.label "Zobraziť obrázok">
 <!ENTITY image.onlink.link.label "Zobraziť odkaz">
@@ -47,3 +46,4 @@
 <!ENTITY warning.delete.item "Vymazať &quot;&#37;1&quot;?">
 <!ENTITY jsconsole.label "Konzola Javascriptu">
 <!ENTITY repl.jsconsole.viewer.label "Použite na otvorenie zdrojových súborov v konzoli Javascriptu">
+<!ENTITY advanced.allow.edit.text "Allow content edit of text boxes">

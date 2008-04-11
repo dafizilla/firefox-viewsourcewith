@@ -9,6 +9,6 @@
 <!ENTITY picktitle.editor "Vælg editor">
 <!ENTITY parameters.label "Parametre">
 <!ENTITY token.filenames "Filnavn(e)">
-<!ENTITY token.line.number "Linienummer">
+<!ENTITY token.line.number "Linjenummer">
 <!ENTITY token.column.number "Kolonnenummer">
 <!ENTITY token.help "Hjælp...">

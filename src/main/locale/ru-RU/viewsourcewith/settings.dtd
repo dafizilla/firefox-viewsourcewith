@@ -23,8 +23,7 @@
 <!ENTITY repl.editor.advice.label "Настройки будут применены после перезапуска программы">
 <!ENTITY repl.image.viewer.item "(Нет)">
 <!ENTITY repl.image.viewer.label "Использовать вместо встроенного просмотра рисунков">
-<!ENTITY useProfilePath.label "Использовать путь к профилю (прочитайте подсказку)">
-<!ENTITY useProfilePath.tooltip "Для сменных носителей определяется точка монтирования">
+<!ENTITY useProfilePath.label "Use path compatible with &apos;portable&apos; applications">
 <!ENTITY image.onlink.caption "При связи ссылки с изображением">
 <!ENTITY image.onlink.image.label "Просмотр изображения">
 <!ENTITY image.onlink.link.label "Просмотр ссылки">
@@ -47,3 +46,4 @@
 <!ENTITY warning.delete.item "Удалить &quot;&#37;1&quot;?">
 <!ENTITY jsconsole.label "Консоль Javascript">
 <!ENTITY repl.jsconsole.viewer.label "Открывать исходники в консоли Javascript">
+<!ENTITY advanced.allow.edit.text "Allow content edit of text boxes">

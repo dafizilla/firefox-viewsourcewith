@@ -1,0 +1,10 @@
+<!ENTITY resources.title "Stíluslapok és szkriptek megnyitása">
+<!ENTITY all.tab.label "Minden forrás">
+<!ENTITY css.tab.label "Stíluslapok">
+<!ENTITY js.tab.label "Szkriptek">
+<!ENTITY showallframes.label "Forrás összes keretének megjelenítése">
+<!ENTITY editors.label "Az alábbi szerkesztő használata a megnyitáshoz:">
+<!ENTITY button.label.accept "Megjelenítés">
+<!ENTITY button.label.cancel "Bezárás">
+<!ENTITY resourcename.tree.label "Név">
+<!ENTITY resourcepath.tree.label "Webcím">

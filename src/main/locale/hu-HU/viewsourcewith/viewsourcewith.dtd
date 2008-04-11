@@ -1,0 +1,7 @@
+<!ENTITY cmd.viewsource.label "Forrás megjelenítése">
+<!ENTITY cmd.viewsource.frame.label "Keret forrásának megjelenítése">
+<!ENTITY cmd.viewsource-viewMenu.label "Forrás megjelenítése">
+<!ENTITY cmd.viewsource-attachMenu.label "Megnyitás a következővel">
+<!ENTITY viewsource-viewMenu.accesskey "j">
+<!ENTITY viewsourcewith.commandkey "k">
+<!ENTITY viewsourcewithButton.label "Oldal forrása">

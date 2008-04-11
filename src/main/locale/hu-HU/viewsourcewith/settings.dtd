@@ -1,0 +1,49 @@
+<!ENTITY settings.title "ViewSourceWith – beállítások">
+<!ENTITY destFolder.caption "Ideiglenes fájlokat tartalmazó mappa">
+<!ENTITY editorList.caption "Az elérhető külső szerkesztők listája">
+<!ENTITY configPath.label "Konfigurációs fájl">
+<!ENTITY defaultEditor.tree.label "Alapért.">
+<!ENTITY description.tree.label "Név">
+<!ENTITY show.tree.label "Enged">
+<!ENTITY new.button.label "Új">
+<!ENTITY edit.button.label "Szerkesztés">
+<!ENTITY delete.button.label "Törlés">
+<!ENTITY writtenBy.label "Készítő:">
+<!ENTITY site.label "Davide Ficano">
+<!ENTITY viewSource.home.tooltip "Honlap meglátogatása...">
+<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+<!ENTITY save.method.caption "Mentés alapértelmezett típusa">
+<!ENTITY save.method.normal.label "Normális">
+<!ENTITY save.method.dom.label "DOM fájl">
+<!ENTITY save.method.advice.label "Más típushoz tartsa lenyomva a SHIFT billentyűt.">
+<!ENTITY main.label "Fő beállítások">
+<!ENTITY advanced.label "Haladó">
+<!ENTITY repl.editor.label "A forrásban használja a menü elemeit">
+<!ENTITY repl.editor.open.focused.label "Keret aktív ablakának megnyitása">
+<!ENTITY repl.editor.advice.label "A módosítások az újraindítás után lépnek érvénybe.">
+<!ENTITY repl.image.viewer.item "(beépített képmegjelenítő)">
+<!ENTITY repl.image.viewer.label "Alkalmazás a képek megjelenítéséhez">
+<!ENTITY useProfilePath.label "A &apos;portable&apos; alkalmazásokkal kompatibilis útvonal használata">
+<!ENTITY image.onlink.caption "Ha a hivatkozás képet tartalmaz...">
+<!ENTITY image.onlink.image.label "Kép megjelenítése">
+<!ENTITY image.onlink.link.label "Hivatkozás megjelenítése">
+<!ENTITY temp.tab.label "Ideiglenes fájlok">
+<!ENTITY temp.clearAtExit.label "Fájlok törlése az alkalmazás bezárásakor">
+<!ENTITY temp.cleanNow.label "Törlés most">
+<!ENTITY view.tab.label "Nézet">
+<!ENTITY view.menu.label "Menü">
+<!ENTITY view.showIcons.label "Ikonok megjelenítése a menüben">
+<!ENTITY urlmapper.tab.label "Oldalak társítása">
+<!ENTITY urlmapper.caption "Társított oldalak listája">
+<!ENTITY urlmapper.enabled.tree.label "Enged">
+<!ENTITY urlmapper.name.tree.label "Név">
+<!ENTITY urlmapper.advice.label "Forrás megnyitása a kiszolgálón.">
+<!ENTITY view.showResourcesMenu.label "CSS/JS menü megjelenítése">
+<!ENTITY view.quickFrameShowMenu.label "A &apos;Gyors hozzáférés a keretekhez&apos; menü megjelenítése">
+<!ENTITY picktitle.destfolder "Válassza ki azt a mappát, amely a továbbiakban az ideiglenes fájlokat tartalmazza...">
+<!ENTITY picktitle.configPath "Konfigurációs fájl kiválasztása">
+<!ENTITY temp.useOSPath.label "Használja az operációs rendszer mappáját">
+<!ENTITY warning.delete.item "Eltávolítja a(z) &quot;&#37;1&quot; elemet a listáról?">
+<!ENTITY jsconsole.label "Javascript konzol">
+<!ENTITY repl.jsconsole.viewer.label "Javascript konzol használata a forrás megnyitásához">
+<!ENTITY advanced.allow.edit.text "Szövegmezők szerkesztésének engedélyezése">

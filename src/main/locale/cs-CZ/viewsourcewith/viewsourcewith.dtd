@@ -5,5 +5,3 @@
 <!ENTITY viewsource-viewMenu.accesskey "k">
 <!ENTITY viewsourcewith.commandkey "U">
 <!ENTITY viewsourcewithButton.label "Zdrojový kód">
-<!ENTITY viewsourcewithTooltip "Zobrazit zdrojový kód">
-<!ENTITY cmd.edittext.label "Edit text">

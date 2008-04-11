@@ -50,6 +50,10 @@
         <command id="cmd_runDefaultEditor" oncommand="gViewSourceWithMain.runEditor(event, gViewSourceWithMain.prefs.editorDefaultIndex, gViewSourceWithMain.prefs.openFocusWin);" />
         <command id="cmd_vswEnabledEditor" />
         <command id="cmd_vswAttachment" />
+
+	<commandset id="viewSourceWithEditMenuCommandSet" commandupdater="true" events="focus"
+                oncommandupdate="gViewSourceWithMain.updateFocused()"/>
+
     </commandset>
 
     <!-- Context Menu Firefox, Mozilla -->
@@ -203,7 +207,7 @@
             id="button-viewsourcewith"
             class="toolbarbutton-1"
             type="menu-button"
-            tooltiptext="&viewsourcewithTooltip;"
+            tooltiptext=""
             label="&viewsourcewithButton.label;"
             oncommand="gViewSourceWithMain.runEditor(event, gViewSourceWithMain.prefs.editorDefaultIndex);"
             observes="cmd_vswEnabledEditor"
@@ -222,7 +226,7 @@
         id="viewsourcewith-button"
         class="toolbarbutton-1"
         type="menu-button"
-        tooltiptext="&viewsourcewithTooltip;"
+        tooltiptext=""
         label="&viewsourcewithButton.label;"
         oncommand="gViewSourceWithMain.runEditor(event, gViewSourceWithMain.prefs.editorDefaultIndex);"
         observes="cmd_vswEnabledEditor"

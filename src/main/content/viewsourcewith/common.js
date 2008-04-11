@@ -424,7 +424,7 @@ ViewSourceWithCommon.makeUrlFromSpec = function(urlSpec) {
 ViewSourceWithCommon.getDocumentFromContextMenu = function(useFrameDocument) {
     var doc = window._content.document;
 
-    if (gContextMenu) {
+    if (!(typeof gContextMenu == "undefined") && gContextMenu) { // songbird needs typeof usage
         if (gContextMenu.inFrame) {
             if (useFrameDocument) {
                 doc = gContextMenu.target.ownerDocument;
@@ -523,4 +523,41 @@ ViewSourceWithCommon.getEditorForWindow = function(target) {
     } catch (err) {
     }
     return editor;
+}
+
+ViewSourceWithCommon.addToolbarButton = function(buttonId) {
+    var toolbar =
+        document.getElementById('nav-bar') ||
+        document.getElementById('mail-bar') ||
+        document.getElementById('mail-bar2');
+
+    if (toolbar
+        && toolbar.currentSet
+        && toolbar.currentSet.indexOf(buttonId) == -1
+        && toolbar.getAttribute('customizable') == 'true') {
+        toolbar.currentSet = toolbar.currentSet.replace(
+            /(urlbar-container|separator)/,
+            buttonId + ',$1');
+        toolbar.setAttribute('currentset', toolbar.currentSet);
+        toolbar.ownerDocument.persist(toolbar.id, 'currentset');
+        try { BrowserToolboxCustomizeDone(true); } catch (e) {}
+    }
+}
+
+ViewSourceWithCommon.isToolbarCustomizable = function() {
+    var toolbar =
+        document.getElementById('nav-bar') ||
+        document.getElementById('mail-bar') ||
+        document.getElementById('mail-bar2');
+
+    return toolbar && toolbar.currentSet;
+}
+
+ViewSourceWithCommon.isToolbarButtonAlreadyPresent = function(buttonId) {
+    var toolbar =
+        document.getElementById('nav-bar') ||
+        document.getElementById('mail-bar') ||
+        document.getElementById('mail-bar2');
+
+    return toolbar && toolbar.currentSet && toolbar.currentSet.indexOf(buttonId) >= 0;
 }

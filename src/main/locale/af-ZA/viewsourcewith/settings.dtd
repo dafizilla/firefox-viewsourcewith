@@ -23,8 +23,7 @@
 <!ENTITY repl.editor.advice.label "Opstelling word ná herbegin geaktiveer">
 <!ENTITY repl.image.viewer.item "(Geen)">
 <!ENTITY repl.image.viewer.label "Gebruik in die plek van gewone prentbekyker">
-<!ENTITY useProfilePath.label "Gebruik profielpad (lees nutswenk)">
-<!ENTITY useProfilePath.tooltip "Op uithaalaandrywers, weerspieël monteerpunteenheid">
+<!ENTITY useProfilePath.label "Use path compatible with &apos;portable&apos; applications">
 <!ENTITY image.onlink.caption "In geval van skakel met prent">
 <!ENTITY image.onlink.image.label "Bekyk prent">
 <!ENTITY image.onlink.link.label "Bekyk skakel">
@@ -47,3 +46,4 @@
 <!ENTITY warning.delete.item "Skrap &quot;&#37;1&quot;?">
 <!ENTITY jsconsole.label "JavaScript-konsole">
 <!ENTITY repl.jsconsole.viewer.label "Gebruik om bronlêers in JavaScript-konsole te open">
+<!ENTITY advanced.allow.edit.text "Allow content edit of text boxes">

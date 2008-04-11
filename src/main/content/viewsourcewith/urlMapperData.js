@@ -52,15 +52,15 @@ ViewSourceUrlMapperData.prototype = {
 
     set jsCode(v) {
         this._jsCode = v;
-    },
-
-    matchFilter : function(url) {
-        if (this.domainFilter == "") {
-            return false;
-        }
-        if (this._re == null) {
-            this._re = new RegExp(this.domainFilter);
-        }
-        return this._re.test(url);
     }
 };
+
+ViewSourceUrlMapperData.matchFilter = function(urlMapperData, url) {
+    if (urlMapperData.domainFilter == "") {
+        return false;
+    }
+    if (urlMapperData._re == null) {
+        urlMapperData._re = new RegExp(urlMapperData.domainFilter);
+    }
+    return urlMapperData._re.test(url);
+}

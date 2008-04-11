@@ -5,5 +5,3 @@
 <!ENTITY viewsource-viewMenu.accesskey "N">
 <!ENTITY viewsourcewith.commandkey "U">
 <!ENTITY viewsourcewithButton.label "Źródło">
-<!ENTITY viewsourcewithTooltip "Pokaż źródło strony">
-<!ENTITY cmd.edittext.label "Edytuj tekst">

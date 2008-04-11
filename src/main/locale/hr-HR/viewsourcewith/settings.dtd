@@ -23,8 +23,7 @@
 <!ENTITY repl.editor.advice.label "Postavke će se primijenjivati nakon ponovnog pokretanja">
 <!ENTITY repl.image.viewer.item "(Ništa)">
 <!ENTITY repl.image.viewer.label "Koristi umjesto zadanog preglednika slika">
-<!ENTITY useProfilePath.label "Koristi putanju profila (pročitajte alatnu oznaku)">
-<!ENTITY useProfilePath.tooltip "Na jedinicama koje se mogu ukloniti odražava točku umetanja uređaja">
+<!ENTITY useProfilePath.label "Use path compatible with &apos;portable&apos; applications">
 <!ENTITY image.onlink.caption "U slučaju poveznice sa slikom">
 <!ENTITY image.onlink.image.label "Pogledaj sliku">
 <!ENTITY image.onlink.link.label "Pogledaj poveznicu">
@@ -47,3 +46,4 @@
 <!ENTITY warning.delete.item "Brisati &quot;&#37;1&quot;?">
 <!ENTITY jsconsole.label "Javascript konzola">
 <!ENTITY repl.jsconsole.viewer.label "Koristi za otvaranje izvornog koda datoteka u Javascript konzoli">
+<!ENTITY advanced.allow.edit.text "Allow content edit of text boxes">

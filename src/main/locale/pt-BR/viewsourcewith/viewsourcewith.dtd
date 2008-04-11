@@ -5,5 +5,3 @@
 <!ENTITY viewsource-viewMenu.accesskey "C">
 <!ENTITY viewsourcewith.commandkey "C">
 <!ENTITY viewsourcewithButton.label "Código-fonte">
-<!ENTITY viewsourcewithTooltip "Exibir código-fonte">
-<!ENTITY cmd.edittext.label "Editar texto">

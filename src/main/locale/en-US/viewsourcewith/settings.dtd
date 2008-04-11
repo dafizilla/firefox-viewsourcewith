@@ -23,8 +23,7 @@
 <!ENTITY repl.editor.advice.label "Settings take effect after restart">
 <!ENTITY repl.image.viewer.item "(None)">
 <!ENTITY repl.image.viewer.label "Use in place of native image viewer">
-<!ENTITY useProfilePath.label "Use profile path (read tooltip)">
-<!ENTITY useProfilePath.tooltip "On removable drives reflects mount point unit">
+<!ENTITY useProfilePath.label "Use path compatible with &apos;portable&apos; applications">
 <!ENTITY image.onlink.caption "In case of link with image">
 <!ENTITY image.onlink.image.label "View image">
 <!ENTITY image.onlink.link.label "View link">
@@ -47,3 +46,4 @@
 <!ENTITY warning.delete.item "Delete &quot;&#37;1&quot;?">
 <!ENTITY jsconsole.label "Javascript console">
 <!ENTITY repl.jsconsole.viewer.label "Use to open source files into Javascript console">
+<!ENTITY advanced.allow.edit.text "Allow content edit of text boxes">

@@ -1,0 +1,7 @@
+<!ENTITY dialog.urlmapper.title "A kiszolgálón levő oldalak társítása">
+<!ENTITY urlMapperName.caption "A társítás neve">
+<!ENTITY domainfilter.caption "Szűrő (szabályos kifejezés)">
+<!ENTITY localpath.caption "A fájlokat tartalmazó mappa">
+<!ENTITY jsCode.caption "Javascript kód">
+<!ENTITY jsCode.insert.tooltiptext "Előre létrehozott kód beszúrása">
+<!ENTITY urlmapper.picktitle.directory "Válassza ki, mely mappa tartalmazza a kiszolgálón levő fájlokat...">

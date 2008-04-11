@@ -1,0 +1,14 @@
+<!ENTITY dialog.editor.title "Külső szerkesztő hozzáadása">
+<!ENTITY editorPath.label "Elérési útvonal">
+<!ENTITY description.label "Leírás">
+<!ENTITY shortcut.caption "Gyorsbillentyű">
+<!ENTITY shortcut.default.accel "Shift + Ctrl +">
+<!ENTITY shortcut.remove "Törlés">
+<!ENTITY shortcut.maybe.invalid "Lehetséges, hogy néhány gyorsbillentyű nem működik!">
+<!ENTITY invalid.path.chars "Helytelen útvonal! Ellenőrizze, hogy nem tartalmaz-e helytelen karaktereket.">
+<!ENTITY picktitle.editor "Külső szerkesztő kiválasztása">
+<!ENTITY parameters.label "Paraméterek">
+<!ENTITY token.filenames "Fájlnév">
+<!ENTITY token.line.number "Sorszám">
+<!ENTITY token.column.number "Oszlopszám">
+<!ENTITY token.help "Súgó...">

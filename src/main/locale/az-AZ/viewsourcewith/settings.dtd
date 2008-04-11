@@ -23,8 +23,7 @@
 <!ENTITY repl.editor.advice.label "Proqram yenidən işə salındıqdan sonra nizamlamalar tətbiq ediləcək">
 <!ENTITY repl.image.viewer.item "(Yoxdur)">
 <!ENTITY repl.image.viewer.label "Tə&apos;yin edilmiş təsvir göstərici yerinə işlət">
-<!ENTITY useProfilePath.label "Kimlik yolunu işlət (xatırlatmanı oxuyun)">
-<!ENTITY useProfilePath.tooltip "Dəyişdirilə bilən daşıyıcılar üçün quraşdırma nöqtəsi tə&apos;yin edilir">
+<!ENTITY useProfilePath.label "Use path compatible with &apos;portable&apos; applications">
 <!ENTITY image.onlink.caption "Təsvirli körpü ilə əlaqədar">
 <!ENTITY image.onlink.image.label "Təsvirə baxış">
 <!ENTITY image.onlink.link.label "Körpüyə baxış">
@@ -47,3 +46,4 @@
 <!ENTITY warning.delete.item "&quot;&#37;1&quot; silinsinmi?">
 <!ENTITY jsconsole.label "Javascript əmr sətri">
 <!ENTITY repl.jsconsole.viewer.label "Sənəd mənbəyini Javascript əmr sətrində açmaq üçün istifadə edin">
+<!ENTITY advanced.allow.edit.text "Allow content edit of text boxes">

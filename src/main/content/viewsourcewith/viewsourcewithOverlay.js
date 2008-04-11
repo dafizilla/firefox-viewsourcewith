@@ -8,6 +8,7 @@
  * Date     : 29-May-2005 getFileName moved to common and renamed getDocumentFileName
  * Date     : 17-Dec-2005 Under FF1.5 get cached copy for source
  * Date     : 11-Mar-2006 Open CSS and JS files
+ * Date     : 15-Dec-2007 Toolbar icon reflects focused element
  */
 
 var gViewSourceWithMain = {
@@ -162,7 +163,7 @@ var gViewSourceWithMain = {
                 // Local file can be saved as DOM documents
                 if (!saveDOM && (filePath = thiz.getLocalFilePage(urlToSave)) != null) {
                     // view file without save it
-                    editorData.runEditor([filePath.path]);
+                    ViewSourceEditorData.runEditor(editorData, [filePath.path]);
                 } else {
                     var fileName;
                     if (thiz._linkInfo.isOnLinkOrImage) {
@@ -245,17 +246,27 @@ var gViewSourceWithMain = {
     },
 
     openDlgWarning : function() {
-        var thiz = gViewSourceWithMain;
-        var ret = { countDown : 2,
-                    showFrameWarning : thiz.prefs.showFrameWarning};
+        const nsIPromptSVC = Components.interfaces.nsIPromptService;
+        var promptService = Components
+                        .classes["@mozilla.org/embedcomp/prompt-service;1"]
+                        .getService(nsIPromptSVC);
+        var checkResult = { value : false };
+        var rv = promptService.confirmEx(
+            window,
+            ViewSourceWithCommon.getLocalizedMessage("warning.title"),
+            ViewSourceWithCommon.getLocalizedMessage("warningText.label"),
+            (nsIPromptSVC.BUTTON_POS_0 * nsIPromptSVC.BUTTON_TITLE_IS_STRING)
+            + nsIPromptSVC.BUTTON_POS_0_DEFAULT
+            + nsIPromptSVC.BUTTON_DELAY_ENABLE,
+            ViewSourceWithCommon.getLocalizedMessage("warning.button.enabled.label"),
+            null,
+            null,
+            ViewSourceWithCommon.getLocalizedMessage("warning.disable.dialog.label"),
+            checkResult);
 
-        window.openDialog("chrome://viewsourcewith/content/warning-frame.xul",
-                          "_blank",
-                          "chrome,modal,resizable=yes,dependent=yes", ret);
-
-        if (thiz.prefs.showFrameWarning != ret.showFrameWarning) {
-            thiz.prefs.showFrameWarning = ret.showFrameWarning;
-            thiz.prefs.savePrefs();
+        if (rv == 0 && checkResult.value) {
+            gViewSourceWithMain.prefs.showFrameWarning = false;
+            gViewSourceWithMain.prefs.savePrefs();
         }
     },
 
@@ -484,6 +495,7 @@ var gViewSourceWithMain = {
         cleaner.enabled = thiz.prefs.tempClearAtExit;
 
         thiz._inputText.prefs = thiz.prefs;
+        thiz._linkInfo.prefs = thiz.prefs;
 
         gViewSourceEditorHooker.hookDefaultViewSource(gViewSourceWithMain.prefs);
 
@@ -508,7 +520,7 @@ var gViewSourceWithMain = {
 
                 var key = document.createElement("key");
                 key.setAttribute("id", keyId);
-                editor.keyData.setKeyTag(key);
+                KeyData.setKeyTag(editor.keyData, key);
                 key.setAttribute("command", cmdId);
                 keyset.appendChild(key);
 
@@ -520,6 +532,68 @@ var gViewSourceWithMain = {
                         + ", gViewSourceWithMain.prefs.openFocusWin);");
                 cmdset.appendChild(cmd);
             }
+        }
+
+        var buttonAdded = viewSourceWithFactory.getSharedValue("toolbarIconAdded", false);
+        if (buttonAdded) {
+            thiz.prefs.toolbarIconAdded = true;
+        } else {
+            viewSourceWithFactory.setSharedValue("toolbarIconAdded", true);
+            // Add button only if toolbarIconAdded doesn't exist
+            // otherwise the message appear at every new window open
+            thiz.addToolButton();
+        }
+        // Ensure the toolbar icon reflects the "show textbox" setting
+        thiz.updateFocused();
+    },
+
+    addToolButton : function() {
+        var thiz = gViewSourceWithMain;
+
+        try {
+            // return false on SeaMonkey
+            if (!ViewSourceWithCommon.isToolbarCustomizable()) {
+                return;
+            }
+            if (ViewSourceWithCommon.isToolbarButtonAlreadyPresent("viewsourcewith-button")) {
+                thiz.prefs.toolbarIconAdded = true;
+            } else {
+                if (!thiz.prefs.isToolbarIconAdded) {
+                    window.setTimeout("gViewSourceWithMain.installPrompt()", 100);
+                }
+            }
+        } catch(ex) {
+            ViewSourceWithCommon.log("addToolButton: " + ex);
+        }
+    },
+
+    installPrompt : function() {
+        try {
+            const nsIPromptSVC = Components.interfaces.nsIPromptService;
+            var promptService = Components
+                            .classes["@mozilla.org/embedcomp/prompt-service;1"]
+                            .getService(nsIPromptSVC);
+            var checkResult = { value : 0 };
+            var rv = promptService.confirmEx(
+                window,
+                "ViewSourceWith",
+                ViewSourceWithCommon.getLocalizedMessage("toolbarbutton.prompt"),
+                  (nsIPromptSVC.BUTTON_POS_0 * nsIPromptSVC.BUTTON_TITLE_YES)
+                + (nsIPromptSVC.BUTTON_POS_1 * nsIPromptSVC.BUTTON_TITLE_NO)
+                + nsIPromptSVC.BUTTON_POS_0_DEFAULT,
+                null,
+                null,
+                null,
+                null,
+                checkResult);
+
+            if (rv == 0) {
+                ViewSourceWithCommon.addToolbarButton("viewsourcewith-button");
+            }
+            // Don't ask any more
+            gViewSourceWithMain.prefs.toolbarIconAdded = true;
+        } catch (err) {
+            ViewSourceWithCommon.log("Error during installPrompt " + err);
         }
     },
 
@@ -641,6 +715,8 @@ var gViewSourceWithMain = {
                 vswMenuQuickFrame.setAttribute("hidden", "true");
             }
 
+            // Change context menu item label
+            gViewSourceWithMain.changeMenuLabelForTextBox(vswMenu, info.isOnTextInput);
         }
         return true;
     },
@@ -807,6 +883,62 @@ var gViewSourceWithMain = {
 
         goSetCommandEnabled("cmd_vswEnabledEditor", isEnabled);
         goSetCommandEnabled("cmd_runDefaultEditor", isEnabled);
+    },
+
+    updateFocused : function() {
+        try {
+            // When oncommandupdate calls this method the gViewSourceWithMain
+            // isn't fully created so we skip processing
+            if (gViewSourceWithMain._linkInfo) {
+                var isFocusOnTextBox = gViewSourceWithMain._linkInfo.findFocusedTextView() != null;
+                gViewSourceWithMain.changeToolbarImage(isFocusOnTextBox);
+                gViewSourceWithMain.changeMenuLabelForTextBox(
+                    document.getElementById("viewsourcewith-viewMenu"),
+                    isFocusOnTextBox);
+            }
+        } catch (err) {
+            ViewSourceWithCommon.log("updateFocused err " + err);
+        }
+    },
+
+    changeToolbarImage : function(isText) {
+        var toolbar = document.getElementById("viewsourcewith-button")
+                    || document.getElementById("button-viewsourcewith");
+
+        if (toolbar) {
+            if (isText) {
+                toolbar.setAttribute("tooltiptext",
+                    ViewSourceWithCommon.getLocalizedMessage("edittext.label"));
+                toolbar.setAttribute("focusedtype", "text");
+            } else {
+                toolbar.setAttribute("tooltiptext",
+                    ViewSourceWithCommon.getLocalizedMessage("viewsource.label"));
+                toolbar.removeAttribute("focusedtype");
+            }
+        }
+    },
+
+    changeMenuLabelForTextBox : function(menu, isOnTextBox) {
+        if (!menu) {
+            return;
+        }
+        var label;
+        var accesskey;
+        if (isOnTextBox) {
+            label = ViewSourceWithCommon.getLocalizedMessage("edittext.label");
+            accesskey = ViewSourceWithCommon.getLocalizedMessage("edittext.accesskey");
+        } else {
+            label = ViewSourceWithCommon.getLocalizedMessage("viewsource.label");
+            accesskey = ViewSourceWithCommon.getLocalizedMessage("viewsource.accesskey");
+        }
+        menu.setAttribute("label", label);
+        menu.setAttribute("accesskey", accesskey);
+    },
+
+    onPagehide : function(event) {
+        gViewSourceWithMain.changeToolbarImage(false);
+        gViewSourceWithMain.changeMenuLabelForTextBox(
+            document.getElementById("viewsourcewith-viewMenu"), false);
     }
 };
 
@@ -839,21 +971,25 @@ ViewSourceWithSaver.prototype = {
         var isLoadFinished = (stateFlags & wpl.STATE_STOP)
                              ;//&& (stateFlags & wpl.STATE_IS_NETWORK);
 
-        if (isLoadFinished) {
-            this.flushCache();
-            if (this.openFileCallback) {
-                try {
-                    this.openFileCallback.onOpenFile(this.editorData,
-                                                     this.appFile.path);
-                } catch (err) {
-                    ViewSourceWithCommon.log(
-                        "VSW: onStateChange error while executing JS code "
-                        + err);
+        try {
+            if (isLoadFinished) {
+                this.flushCache();
+                if (this.openFileCallback) {
+                    try {
+                        this.openFileCallback.onOpenFile(this.editorData,
+                                                         this.appFile.path);
+                    } catch (err) {
+                        ViewSourceWithCommon.log(
+                            "VSW: onStateChange error while executing JS code "
+                            + err);
+                    }
+                } else {
+                    ViewSourceEditorData.runEditor(this.editorData, [this.appFile.path]);
                 }
-            } else {
-                this.editorData.runEditor([this.appFile.path]);
             }
-
+        } catch (err) {
+            alert("Error while saving " + this.appFile.path + " more details on Error Console");
+            ViewSourceWithCommon.log("ViewSourceWithSaver.onStateChange error " + err);
         }
     },
 
@@ -942,3 +1078,4 @@ ViewSourceWithSaver.prototype = {
 
 window.addEventListener("load", gViewSourceWithMain.onLoad, false);
 window.addEventListener("unload", gViewSourceWithMain.onUnLoad, false);
+window.addEventListener("pagehide", gViewSourceWithMain.onPagehide, false);

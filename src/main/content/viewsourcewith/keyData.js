@@ -124,33 +124,33 @@ KeyData.prototype = {
     toString : function() {
         return "key = " + this._key + " keyCode = " + this._keyCode
                 + " modifiers = " + this.modifiers;
-    },
-
-    toXml : function() {
-        var tag = '<key';
-
-        if (this._key) {
-            tag += ' key="' + this._keyAsText + '"';
-        } else {
-            tag += ' keyCode="' + KeyData.VKNames[this._keyCode] + '"';
-        }
-        if (this._accel) {
-            tag += ' accel="' + (this._accel ? "Y" : "N") + '"';
-        }
-        if (this._shift) {
-            tag += ' shift="' + (this._shift ? "Y" : "N") + '"';
-        }
-
-        tag += "/>";
-        return tag;
-    },
-
-    setKeyTag : function(keyNode) {
-        if (this._key) {
-            keyNode.setAttribute("key", this._keyAsText);
-        } else {
-            keyNode.setAttribute("keycode", KeyData.VKNames[this._keyCode]);
-        }
-        keyNode.setAttribute("modifiers", this.modifiers);
     }
+}
+
+KeyData.toXml = function(keyData) {
+    var tag = '<key';
+
+    if (keyData.key) {
+        tag += ' key="' + keyData.keyAsText + '"';
+    } else {
+        tag += ' keyCode="' + KeyData.VKNames[keyData.keyCode] + '"';
+    }
+    if (keyData.accel) {
+        tag += ' accel="' + (keyData.accel ? "Y" : "N") + '"';
+    }
+    if (keyData.shift) {
+        tag += ' shift="' + (keyData.shift ? "Y" : "N") + '"';
+    }
+
+    tag += "/>";
+    return tag;
+}
+
+KeyData.setKeyTag = function(keyData, keyNode) {
+    if (keyData.key) {
+        keyNode.setAttribute("key", keyData.keyAsText);
+    } else {
+        keyNode.setAttribute("keycode", KeyData.VKNames[keyData.keyCode]);
+    }
+    keyNode.setAttribute("modifiers", keyData.modifiers);
 }

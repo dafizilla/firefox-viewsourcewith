@@ -23,8 +23,7 @@
 <!ENTITY repl.editor.advice.label "設定將會在重新啟動後生效">
 <!ENTITY repl.image.viewer.item "(空)">
 <!ENTITY repl.image.viewer.label "取代內建的圖片瀏覽器">
-<!ENTITY useProfilePath.label "使用使用者設定檔路徑">
-<!ENTITY useProfilePath.tooltip "使你可以將使用者設定檔存放在可攜式儲存媒介">
+<!ENTITY useProfilePath.label "Use path compatible with &apos;portable&apos; applications">
 <!ENTITY image.onlink.caption "當你試圖檢視的是個連向圖片的鏈結時">
 <!ENTITY image.onlink.image.label "檢視圖片">
 <!ENTITY image.onlink.link.label "檢視鏈結">
@@ -47,3 +46,4 @@
 <!ENTITY warning.delete.item "刪除 &quot;&#37;1&quot;？">
 <!ENTITY jsconsole.label "Javascript主控台">
 <!ENTITY repl.jsconsole.viewer.label "在Javascript主控台開啟原始碼">
+<!ENTITY advanced.allow.edit.text "Allow content edit of text boxes">

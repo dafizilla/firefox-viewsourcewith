@@ -10,7 +10,8 @@
         onload="return gViewSourceUrlMapper.onLoad();"
         ondialogaccept="return gViewSourceUrlMapper.onAccept();"
         buttons="accept,cancel"
-        title="&dialog.urlmapper.title;">
+        title="&dialog.urlmapper.title;"
+        persist="width height screenX screenY">
 
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/common.js"/>
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/prefs.js"/>

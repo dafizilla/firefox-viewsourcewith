@@ -23,8 +23,7 @@
 <!ENTITY repl.editor.advice.label "Modifiche effettive dopo il riavvio">
 <!ENTITY repl.image.viewer.item "(Nessuno)">
 <!ENTITY repl.image.viewer.label "Usa al posto del visualizzatore di immagini nativo">
-<!ENTITY useProfilePath.label "Usa il percorso del profilo (leggi tooltip)">
-<!ENTITY useProfilePath.tooltip "Su dischi rimovibili riflette il punto di montaggio dell&apos;unita&apos;">
+<!ENTITY useProfilePath.label "Usa percorso compatibile con applicazioni &apos;portable&apos;">
 <!ENTITY image.onlink.caption "Quando l&apos;elemento da visualizzare e&apos; un link con una immagine">
 <!ENTITY image.onlink.image.label "Visualizza l&apos;immagine">
 <!ENTITY image.onlink.link.label "Visualizza il link">
@@ -47,3 +46,4 @@
 <!ENTITY warning.delete.item "Eliminare &quot;&#37;1&quot;?">
 <!ENTITY jsconsole.label "Javascript console">
 <!ENTITY repl.jsconsole.viewer.label "Usa per aprire i sorgenti nella console degli errori">
+<!ENTITY advanced.allow.edit.text "Permetti la modifica del contenuto dei campi di testo">

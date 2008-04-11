@@ -144,12 +144,11 @@ var gViewSourceChooseEditor = {
         thiz._keyData.keyCode = null;
         thiz.oEditKey.value = "";
     },
-    
-    openHelp : function() {        
+
+    openHelp : function() {
         window.openDialog("chrome://viewsourcewith/content/settings/helpDialog.xul",
                           "_blank",
                           "chrome,resizable=yes,dependent=yes",
                           "chrome://viewsourcewith/content/help/tokenHelp.xhtml");
     }
-    
 };
