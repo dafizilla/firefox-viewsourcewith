@@ -1,0 +1,7 @@
+<!ENTITY dialog.urlmapper.title "Kobling for sider på tjener">
+<!ENTITY urlMapperName.caption "Koblingsnavn">
+<!ENTITY domainfilter.caption "Koblingsfilter (regulært uttrykk)">
+<!ENTITY localpath.caption "Mappe som inneholder sider på tjener">
+<!ENTITY jsCode.caption "Javascript kode">
+<!ENTITY jsCode.insert.tooltiptext "Sett inn forhåndsvalgt kode">
+<!ENTITY urlmapper.picktitle.directory "Velg mappe">

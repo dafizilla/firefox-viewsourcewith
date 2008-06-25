@@ -6,6 +6,6 @@
 <!ENTITY line.number.descr "Line number">
 <!ENTITY column.number.descr "Column number">
 <!ENTITY meaningful.js "This parameter is meaningful in Javascript console, otherwise its value is 1.">
-<!ENTITY line.column.usage "Line and Column number must be used together with specific editor cursor position command-line switch.">
+<!ENTITY line.column.usage "The line and column numbers must be combined with the command line option your specific editor supports to start editing at a given position.">
 <!ENTITY see "See">
 <!ENTITY more.details "for more details.">

@@ -1,5 +1,5 @@
 <!DOCTYPE extension [
-<!ENTITY extension.version "0.1">
+<!ENTITY extension.version "0.2">
 ]>
 
 <extension name="viewsourcewith">
@@ -55,6 +55,7 @@
         <locale pos="21" code="af-ZA" />
         <locale pos="22" code="th-TH" />
         <locale pos="23" code="hu-HU" />
+        <locale pos="24" code="nb-NO" />
     </locales>
 
     <styles>
@@ -82,7 +83,7 @@
             <description>Firefox</description>
             <id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</id>
             <minVersion>1.5</minVersion>
-            <maxVersion>3.0pre</maxVersion>
+            <maxVersion>3.0.*</maxVersion>
         </application>
         
         <application>
@@ -166,6 +167,7 @@
         <translator>Samuel Murray aka leuce (Afrikaans translation)</translator>
         <translator>lancaster (Thailand translation)</translator>
         <translator>Mikes Kaszm&#225;n Istv&#225;n (Hungarian translation)</translator>
+        <translator>Karol Ptasinski (Norwegian translation)</translator>
     </translators>
 
 </extension>

@@ -1,0 +1,10 @@
+<!ENTITY resources.title "Åpne stilsett og skripter">
+<!ENTITY all.tab.label "Alle ressurser">
+<!ENTITY css.tab.label "Stilsett">
+<!ENTITY js.tab.label "Skripter">
+<!ENTITY showallframes.label "Vis alle ressurser for rammer">
+<!ENTITY editors.label "Skriveprogram som skal brukes">
+<!ENTITY button.label.accept "Vis">
+<!ENTITY button.label.cancel "Lukk">
+<!ENTITY resourcename.tree.label "Navn">
+<!ENTITY resourcepath.tree.label "URL">

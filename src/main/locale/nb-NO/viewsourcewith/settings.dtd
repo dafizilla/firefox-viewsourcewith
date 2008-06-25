@@ -1,0 +1,49 @@
+<!ENTITY settings.title "ViewSourceWith - Innstillinger">
+<!ENTITY destFolder.caption "Mappe for midlertidige filer">
+<!ENTITY editorList.caption "Liste over skriveprogrammer">
+<!ENTITY configPath.label "Oppsettsfil">
+<!ENTITY defaultEditor.tree.label "Standard">
+<!ENTITY description.tree.label "Navn">
+<!ENTITY show.tree.label "Slått på">
+<!ENTITY new.button.label "Ny">
+<!ENTITY edit.button.label "Rediger">
+<!ENTITY delete.button.label "Slett">
+<!ENTITY writtenBy.label "Laget av">
+<!ENTITY site.label "Davide Ficano">
+<!ENTITY viewSource.home.tooltip "Gå til ViewSourceWith">
+<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+<!ENTITY save.method.caption "Forhåndsvalgt lagringsmetode">
+<!ENTITY save.method.normal.label "Normal">
+<!ENTITY save.method.dom.label "DOM dokument">
+<!ENTITY save.method.advice.label "Hold Shift inne for å bruke den andre metoden">
+<!ENTITY main.label "Generelt">
+<!ENTITY advanced.label "Avansert">
+<!ENTITY repl.editor.label "Bruk i stedet for internt Vis kildekode menyelement">
+<!ENTITY repl.editor.open.focused.label "Åpne fokusert vindu i rammesett">
+<!ENTITY repl.editor.advice.label "Endringer trer i kraft når programmet startes på nytt">
+<!ENTITY repl.image.viewer.item "(ingen)">
+<!ENTITY repl.image.viewer.label "Bruk i stedet for intern bildefremviser">
+<!ENTITY useProfilePath.label "Bruk sti kompatibel med flyttbare programmer">
+<!ENTITY image.onlink.caption "Hvis lenken åpner et bilde">
+<!ENTITY image.onlink.image.label "Vis bilde">
+<!ENTITY image.onlink.link.label "Vis lenke">
+<!ENTITY temp.tab.label "Midlertidige filer">
+<!ENTITY temp.clearAtExit.label "Fjern filer når programmet lukkes">
+<!ENTITY temp.cleanNow.label "Fjern">
+<!ENTITY view.tab.label "Vis">
+<!ENTITY view.menu.label "Meny">
+<!ENTITY view.showIcons.label "Vis ikoner i menyen">
+<!ENTITY urlmapper.tab.label "Koblinger">
+<!ENTITY urlmapper.caption "Liste over koblinger for sider på tjener">
+<!ENTITY urlmapper.enabled.tree.label "Slått på">
+<!ENTITY urlmapper.name.tree.label "Navn">
+<!ENTITY urlmapper.advice.label "Åpne sidens kildekode på tjenersiden">
+<!ENTITY view.showResourcesMenu.label "Vis CSS/JS meny">
+<!ENTITY view.quickFrameShowMenu.label "Vis meny for hurtigtilgang til rammer">
+<!ENTITY picktitle.destfolder "Velg mappe">
+<!ENTITY picktitle.configPath "Velg oppsettsfil">
+<!ENTITY temp.useOSPath.label "Bruk mappen som er standard for operativsystemet">
+<!ENTITY warning.delete.item "Slette &quot;&#37;1&quot;?">
+<!ENTITY jsconsole.label "Javascript konsoll">
+<!ENTITY repl.jsconsole.viewer.label "Bruk for å åpne kildekodefiler i Javascript konsoll">
+<!ENTITY advanced.allow.edit.text "Tillat redigering av innhold i tekstbokser">

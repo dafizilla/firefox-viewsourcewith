@@ -1,0 +1,14 @@
+<!ENTITY dialog.editor.title "Velg skriveprogram">
+<!ENTITY editorPath.label "Sti">
+<!ENTITY description.label "Beskrivelse">
+<!ENTITY shortcut.caption "Hurtigtast">
+<!ENTITY shortcut.default.accel "Shift + Ctrl +">
+<!ENTITY shortcut.remove "Fjern">
+<!ENTITY shortcut.maybe.invalid "Noen hurtigtaster vil kanskje ikke fungere">
+<!ENTITY invalid.path.chars "Ugyldig sti, sjekk at stien ikke inneholder ugyldige tegn">
+<!ENTITY picktitle.editor "Velg skriveprogram">
+<!ENTITY parameters.label "Parametere">
+<!ENTITY token.filenames "Filnavn">
+<!ENTITY token.line.number "Linjenummer">
+<!ENTITY token.column.number "Kolonnenummer">
+<!ENTITY token.help "Hjelp ...">

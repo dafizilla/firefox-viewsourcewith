@@ -1,0 +1,11 @@
+<!ENTITY title "Spesialparametere">
+<!ENTITY description "Du kan bruke spesialparametere som blir erstattet ved skriveprogrammets oppstart.">
+<!ENTITY parameter "Parameter">
+<!ENTITY replaced.with "Erstatt med">
+<!ENTITY file.names.descr "Filnavn">
+<!ENTITY line.number.descr "Linjenummer">
+<!ENTITY column.number.descr "Kolonnenummer">
+<!ENTITY meaningful.js "Denne parameteren er meningsfull i Javascript konsollen, ellers er dens verdi 1.">
+<!ENTITY line.column.usage "Linje- og kolonnenumre må brukes sammen med kommandolinjeargumentet ditt valgte skriveprogram krever for å starte redigeringen på en gitt posisjon.">
+<!ENTITY see "Se">
+<!ENTITY more.details "for flere detaljer.">
