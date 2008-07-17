@@ -23,6 +23,7 @@ function ViewSourceEditorData(isVisible, description, path, showAlways) {
     this.showAlways = showAlways;
     this._keyData = null;
     this.cmdArgs = "$f";
+    this.usePortable = false;
 }
 
 ViewSourceEditorData.prototype = {
@@ -78,7 +79,13 @@ ViewSourceEditorData.runEditor = function(editorData, paths, line, col) {
         allArgs = ViewSourceEditorData._parseToken(paths, line, col, allArgs, data);
     }
 
-    var editorFile = ViewSourceWithCommon.makeLocalFile(editorData.path);
+    var editorPath;
+    if (editorData.usePortable) {
+        editorPath = ViewSourceWithCommon.getProfileDir().path + editorData.path;
+    } else {
+        editorPath = editorData.path;
+    }
+    var editorFile = ViewSourceWithCommon.makeLocalFile(editorPath);
     if (editorFile.exists() && editorFile.isFile()) {
         ViewSourceWithCommon.runProgram(editorFile, allArgs);
     } else {
@@ -203,6 +210,7 @@ function ViewSourceWithPrefs() {
     this._showQuickFrame = false;
     this._replaceJSConsole = true;
     this._allowEditText = true;
+    this._defaultShortcutKey = this.newDefaultEditorKeyData();
 }
 
 ViewSourceWithPrefs.getTempDir = function() {
@@ -239,6 +247,7 @@ ViewSourceWithPrefs.prototype = {
         this._showQuickFrame = prefs._showQuickFrame;
         this._replaceJSConsole = prefs._replaceJSConsole;
         this._allowEditText = prefs._allowEditText;
+        this._defaultShortcutKey.copy(prefs._defaultShortcutKey);
     },
 
     get destFolder() {
@@ -405,6 +414,14 @@ ViewSourceWithPrefs.prototype = {
         this._allowEditText = newData;
     },
 
+    get defaultShortcutKey() {
+        return this._defaultShortcutKey;
+    },
+
+    set defaultShortcutKey(newValue) {
+        this._defaultShortcutKey = newValue;
+    },
+
     get isToolbarIconAdded() {
         return this.getBool(VSW_PREF_TOOLBAR_ICON_ADDED, false);
     },
@@ -500,9 +517,47 @@ ViewSourceWithPrefs.prototype = {
             this._showQuickFrame = this.getBoolean(doc, "show-quick-frame-menu", false);
             this._replaceJSConsole = this.getBoolean(doc, "replace-jsconsole-editor", true);
             this._allowEditText = this.getBoolean(doc, "allow-edit-text", true);
+            
+            this._defaultShortcutKey = this.getDefaultShortcutKey(doc);
         } else {
             throw this.getTagValue(doc, "parsererror");
         }
+    },
+
+    getDefaultShortcutKey : function(doc) {
+        var keyNode = this.getNodeByParent(doc, "default-editor-key", "key");
+        
+        if (keyNode) {
+            return KeyData.fromAttributes(keyNode.attributes);
+        }
+        
+        return this.newDefaultEditorKeyData();
+    },
+    
+    getNodeByParent : function(doc, parentNodeName, nodeName) {
+        var nl = doc.getElementsByTagName(parentNodeName);
+
+        if (nl) {
+            for (var i = 0; i < nl.length; i++) {
+                var node = this.getNode(nl.item(i).childNodes, nodeName);
+                if (node) {
+                    return node;
+                }
+            }
+        }
+        return null;
+    },
+    
+    getNode : function(nl, nodeName) {
+        if (nl) {
+            for (var i = 0; i < nl.length; i++) {
+                var node = nl.item(i);
+                if (node.localName == nodeName) {
+                    return node;
+                }
+            }
+        }
+        return null;
     },
 
     getVersion : function(doc) {
@@ -572,6 +627,7 @@ ViewSourceWithPrefs.prototype = {
         var showAlways = true;
         var keyData = null;
         var cmdArgs = null;
+        var usePortable = false;
 
         if (editorItemNode.hasChildNodes()) {
             var nl = editorItemNode.childNodes;
@@ -596,6 +652,8 @@ ViewSourceWithPrefs.prototype = {
                     keyData = KeyData.fromAttributes(curr.attributes);
                 } else if (curr.nodeName == "cmd-args") {
                     cmdArgs = curr.firstChild.nodeValue;
+                } else if (curr.nodeName == "use-portable") {
+                    usePortable = curr.firstChild.nodeValue == "true";
                 }
             }
         }
@@ -609,6 +667,7 @@ ViewSourceWithPrefs.prototype = {
         if (cmdArgs != null) {
             data.cmdArgs = cmdArgs;
         }
+        data.usePortable = usePortable;
 
         return data;
     },
@@ -629,6 +688,10 @@ ViewSourceWithPrefs.prototype = {
         str += '    <native-image-editor-index>'     + this._nativeImageEditorIndex + '</native-image-editor-index>\n';
         str += '    <replace-jsconsole-editor>'     + this._replaceJSConsole + '</replace-jsconsole-editor>\n';
         str += '    <allow-edit-text>'     + this._allowEditText + '</allow-edit-text>\n';
+
+        str += '    <default-editor-key>\n';
+        str += '        ' + KeyData.toXml(this._defaultShortcutKey) + '\n';
+        str += '    </default-editor-key>\n';
 
         str += '    <show-resources-menu>'     + this._showResourcesMenu + '</show-resources-menu>\n';
         str += '    <show-quick-frame-menu>'     + this._showQuickFrame + '</show-quick-frame-menu>\n';
@@ -662,6 +725,7 @@ ViewSourceWithPrefs.prototype = {
                 str += '            ' + KeyData.toXml(curr.keyData) + '\n';
             }
             str += '            <cmd-args><![CDATA[' + curr.cmdArgs + ']]></cmd-args>\n';
+            str += '            <use-portable>' + curr.usePortable + '</use-portable>\n';
 
             str += '        </editor-group-item>\n';
         }
@@ -801,5 +865,14 @@ ViewSourceWithPrefs.prototype = {
         data.jsCode = jsCode;
 
         return data;
-    }
+    },
+
+    newDefaultEditorKeyData : function() {    
+        var keyData = new KeyData();
+        keyData.key = "U".charCodeAt(0);
+        keyData.accel = true;
+        keyData.shift = true;
+
+        return keyData;
+    }    
 };

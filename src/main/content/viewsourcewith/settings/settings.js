@@ -250,6 +250,9 @@ var gViewSourceSettings = {
 
         thiz.oReplaceJSConsole.checked = thiz.prefs.replaceJSConsole;
         thiz.oAllowEditText.checked =  thiz.prefs.allowEditText;
+        document.getElementById("default-shortcut-key").value =
+                thiz.prefs.defaultShortcutKey.keyToString();
+
     },
 
     disableConfigPath : function(event) {
@@ -374,5 +377,28 @@ var gViewSourceSettings = {
             thiz.oUrlMapperTree.view.deleteSelectedItem();
             thiz.oUrlMapperTree.focus();
         }
+    },
+
+    handleDefaultShortcutKey : function (event) {
+        var thiz = gViewSourceSettings;
+
+        try {
+            event.preventDefault();
+            event.stopPropagation();
+            var edit = event.currentTarget;
+
+            KeyData.fromEvent(event, thiz.prefs.defaultShortcutKey);
+            edit.value = thiz.prefs.defaultShortcutKey.keyToString();
+        } catch (err) {
+            ViewSourceWithCommon.log(err);
+        }
+    },
+
+    clearDefaultShortcutKey : function(event) {
+        var thiz = gViewSourceSettings;
+
+        thiz.prefs.defaultShortcutKey = thiz.prefs.newDefaultEditorKeyData();
+        document.getElementById("default-shortcut-key").value =
+            thiz.prefs.defaultShortcutKey.keyToString();
     }
 };

@@ -6,7 +6,7 @@
 var gViewSourceChooseEditor = {
     onLoad : function() {
         sizeToContent();
-        gViewSourceChooseEditor.initControls();
+        this.initControls();
     },
 
     onAccept : function() {
@@ -23,6 +23,9 @@ var gViewSourceChooseEditor = {
                 item.description = thiz.oDescription.value;
                 item.keyData = thiz._keyData.isValid() ? thiz._keyData : null;
                 item.cmdArgs = thiz.oCmdArgs.value;
+                if (this.oUsePortableCheckbox.checked) {
+                    item.usePortable = true;
+                }
             }
         } catch (err) {
             alert("chooseEditor.onAccept: " + err);
@@ -54,10 +57,8 @@ var gViewSourceChooseEditor = {
     },
 
     getDescriptionFromFileName : function() {
-        var thiz = gViewSourceChooseEditor;
-
         var descr = ViewSourceWithCommon.makeLocalFile(
-                                thiz.oEditorAppPath.value).leafName;
+                                this.getEditorPathBySettings()).leafName;
         // remove extension (if any)
         descr = descr.replace(/\.[^\.]*/, "");
 
@@ -68,18 +69,14 @@ var gViewSourceChooseEditor = {
         var isValid = false;
 
         try {
-            var editorFile = ViewSourceWithCommon.resolveExecPath(
-                                gViewSourceChooseEditor.oEditorAppPath.value);
+            var editorFile = ViewSourceWithCommon.resolveExecPath(this.getEditorPathBySettings());
             isValid = editorFile != null;
 
-            if (isValid) {
-                gViewSourceChooseEditor.oEditorAppPath.value = editorFile.path;
-            } else {
+            if (!isValid) {
                 isValid = confirm(ViewSourceWithCommon.getLocalizedMessage("err.invalidEditor"));
             }
         } catch (err) {
-            alert(gViewSourceChooseEditor
-                    .oEditorAppPath.getAttribute("errinvalidpathchars"));
+            alert(this.oEditorAppPath.getAttribute("errinvalidpathchars"));
         }
         return isValid;
     },
@@ -91,6 +88,10 @@ var gViewSourceChooseEditor = {
         thiz.oDescription = document.getElementById("description");
         thiz.oEditKey = document.getElementById("key");
         thiz.oCmdArgs = document.getElementById("cmdargs");
+        thiz.oUsePortableCheckbox = document.getElementById("usePortableCheckbox");
+        
+        this.oUsePortableCheckbox.addEventListener("CheckboxStateChange",
+            function(event) { gViewSourceChooseEditor.tooglePortablePath(event);}, false);
 
         var item = window.arguments[0];
         if (item) {
@@ -109,6 +110,9 @@ var gViewSourceChooseEditor = {
                     alert("chooseEditor.initControls: " + err);
                 }
             }
+            if (item.usePortable) {
+                thiz.oUsePortableCheckbox.checked = true;   
+            }
         }
         if (ViewSourceWithCommon.isMacOSX) {
             document.getElementById("macAlert").removeAttribute("hidden");
@@ -123,15 +127,8 @@ var gViewSourceChooseEditor = {
             event.stopPropagation();
             var edit = event.currentTarget;
 
-            thiz._keyData.key = null;
-            thiz._keyData.keyCode = null;
-            if (event.charCode) {
-                thiz._keyData.key = event.charCode;
-                edit.value = thiz._keyData.keyAsText;
-            } else {
-                thiz._keyData.keyCode = event.keyCode;
-                edit.value = thiz._keyData.keyCodeAsText;
-            }
+            KeyData.fromEvent(event, thiz._keyData);
+            edit.value = thiz._keyData.keyToString();
         } catch (err) {
             ViewSourceWithCommon.log(err);
         }
@@ -150,5 +147,70 @@ var gViewSourceChooseEditor = {
                           "_blank",
                           "chrome,resizable=yes,dependent=yes",
                           "chrome://viewsourcewith/content/help/tokenHelp.xhtml");
+    },
+    
+    onInputEditorPath : function(event) {
+        this.updatePreviewPortablePath();    
+    },
+    
+    updatePreviewPortablePath : function() {
+        var oPreviewPortableRow = document.getElementById("preview-portable-row");
+        
+        if (!oPreviewPortableRow.hasAttribute("collapsed")) {
+            var previewPortablePath = document.getElementById("preview-portable-path");
+            var path = this.getPortablePath();
+            if (path) {
+                previewPortablePath.value = path;
+            } else {
+                
+                previewPortablePath.value = previewPortablePath.getAttribute("invalidpathtext");
+            }
+        }
+    },
+    
+    getPortablePath : function() {
+        try {
+            var relativePath = this.oEditorAppPath.value;
+            // If path doesn't start with a separator then add it
+            if (!/^[\\\/].*/.test(relativePath)) {
+                relativePath = (ViewSourceWithCommon.isWindows ? "\\" : "/") + relativePath;
+                this.oEditorAppPath.value = relativePath;
+            }
+            var file = ViewSourceWithCommon.makeLocalFile(
+                        ViewSourceWithCommon.getProfileDir().path + relativePath);
+            file.normalize();
+            return file.path;
+        } catch (err) {
+            return null;
+        }
+    },
+
+    getEditorPathBySettings : function() {
+        if (this.oUsePortableCheckbox.checked) {
+            return this.getPortablePath();
+        }
+        return this.oEditorAppPath.value;
+    },
+    
+    tooglePortablePath : function(event) {
+        var oLabel = document.getElementById("editorpath-label");
+        var oPreviewPortableRow = document.getElementById("preview-portable-row");
+        var labelValue;
+
+        if (this.oUsePortableCheckbox.checked) {
+            labelValue = oLabel.getAttribute("labelportable");
+            if (ViewSourceWithCommon.isWindows) {
+                labelValue = labelValue.replace(/\//g, "\\");
+            }
+            oPreviewPortableRow.removeAttribute("collapsed");
+            this.oEditorAppPath.setAttribute("browsecollapsed", "true");
+            this.updatePreviewPortablePath();
+        } else {
+            labelValue = oLabel.getAttribute("labelnormal");
+            oPreviewPortableRow.setAttribute("collapsed", "true");
+            this.oEditorAppPath.removeAttribute("browsecollapsed");
+        }
+
+        oLabel.setAttribute("label", labelValue);
     }
 };

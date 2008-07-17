@@ -14,6 +14,7 @@ ViewSourceWithCommon.locale = Components.classes["@mozilla.org/intl/stringbundle
     .createBundle("chrome://viewsourcewith/locale/viewsourcewith.properties");
 
 ViewSourceWithCommon.isMacOSX = top.window.navigator.platform.indexOf("Mac") >= 0;
+ViewSourceWithCommon.isWindows = top.window.navigator.platform.indexOf("Win") >= 0;
 
 function ViewSourceWithCommon() {
     this.gPathSeparator = top.window.navigator.platform.indexOf("Win") < 0 ? "/" : "\\";

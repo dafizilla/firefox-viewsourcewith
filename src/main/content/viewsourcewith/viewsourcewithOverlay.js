@@ -504,6 +504,10 @@ var gViewSourceWithMain = {
             // under FF prior 1.5
             return;
         }
+        
+        KeyData.setKeyTag(thiz.prefs.defaultShortcutKey,
+                          document.getElementById("key_viewsourcewith"));
+
         var keyset = document.getElementById("key_viewsourcewith").parentNode;
         var cmdset = document.getElementById("cmd_runDefaultEditor").parentNode;
 

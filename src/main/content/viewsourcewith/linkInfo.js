@@ -206,6 +206,7 @@ ViewSourceWithLinkInfo.findFocusedTextView = function(dispatcher, editorInfo) {
         if (!textWindow && textElement) {
             textWindow = textElement.ownerDocument.defaultView;
         }
+
         htmlEditor = ViewSourceWithCommon.getEditorForWindow(textWindow);
         if (htmlEditor) {
             view = htmlEditor.document.defaultView;
@@ -283,11 +284,19 @@ function HTMLEditor(editorNode, window) {
     this.__defineGetter__("value", function() {
         // http://www.xulplanet.com/references/xpcomref/ifaces/nsIEditor.html
         // The contributor section contains the whole flags list
-        return this._editorNode.outputToString(this._editorNode.contentsMIMEType, 2);
+        return this._editorNode.outputToString(this._getMimeType(),
+                                               Components.interfaces.nsIEditor.eNone);
     })
 
     this.__defineSetter__("value", function(value) {
-        this._editorNode.rebuildDocumentFromSource(value);
+        if (this._getMimeType() == "text/html") {
+            this._editorNode.rebuildDocumentFromSource(value);
+        } else {
+            this._editorNode.selectAll();
+            this._editorNode
+                .QueryInterface(Components.interfaces.nsIPlaintextEditor)
+                .insertText(value);
+        }
     })
 
     this.getAttribute = function(attrName) {
@@ -326,6 +335,20 @@ function HTMLEditor(editorNode, window) {
     this.listenModification = function() {}
 
     this.stopListenModification = function() {}
+
+    this._getMimeType = function() {
+        // test if we are under email client
+        if (typeof gMsgCompose == "undefined") {
+            return this._editorNode.contentsMIMEType;
+        } else {
+            if (gMsgCompose.composeHTML) {
+                return "text/html";
+            } else {
+                return "text/plain";
+            }
+        }
+    }
+
 }).apply(HTMLEditor.prototype);
 
 

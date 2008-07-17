@@ -7,12 +7,12 @@
 
     <content>
         <xul:hbox xbl:inherits="flex">
-            <xul:textbox flex="1" anonid="textbox" xbl:inherits="id" />
+            <xul:textbox flex="1" anonid="textbox" xbl:inherits="id,oninput" />
             <xul:button
                     class="filepicker-browse"
                     anonid="pickbutton"
                     oncommand="onPickFile();"
-                    xbl:inherits="class=buttonclass,label=buttonlabel"
+                    xbl:inherits="class=buttonclass,label=buttonlabel,collapsed=browsecollapsed"
                     />
         </xul:hbox>
     </content>

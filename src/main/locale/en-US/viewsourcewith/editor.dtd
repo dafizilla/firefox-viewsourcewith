@@ -4,7 +4,7 @@
 <!ENTITY shortcut.caption "Shortcut key">
 <!ENTITY shortcut.default.accel "Shift + Ctrl + ">
 <!ENTITY shortcut.remove "Remove">
-<!ENTITY shortcut.maybe.invalid "Some shortcut should not work">
+<!ENTITY shortcut.maybe.invalid "Some shortcuts may not work">
 <!ENTITY invalid.path.chars "Invalid path, ensure it doesn&apos;t contain invalid characters">
 <!ENTITY picktitle.editor "Select editor">
 <!ENTITY parameters.label "Parameters">
@@ -12,3 +12,9 @@
 <!ENTITY token.line.number "Line number">
 <!ENTITY token.column.number "Column number">
 <!ENTITY token.help "Help...">
+<!ENTITY editPathPortable.label "Relative Path (example /../editors/vim)">
+<!ENTITY use.portable.label "Use path relative to profile (for portable applications)">
+<!ENTITY preview.path.label "Preview Path">
+
+<!ENTITY shortcut.default.caption "Default Editor Shortcut Key">
+<!ENTITY shortcut.restore "Restore">

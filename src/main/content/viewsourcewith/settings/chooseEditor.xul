@@ -22,6 +22,38 @@
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/prefs.js"/>
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/settings/chooseEditor.js"/>
 
+    <groupbox orient="horizontal">
+        <caption id="editorpath-label"
+                    label="&editorPath.label;"
+                    labelnormal="&editorPath.label;"
+                    labelportable="&editPathPortable.label;"/>
+        <vbox flex="1">
+            <!--
+                hbox is necessary to flex the filepicker only horizontally.
+                When window is small the filepicker is resized to a few of pixels
+                so we wrap it with a "not" flexible hbox
+            -->
+            <hbox>
+                <filepicker id="editorpath"
+                    errinvalidpathchars="&invalid.path.chars;"
+                    mode="open"
+                    pickTitle="&picktitle.editor;"
+                    filters="apps"
+                    flex="1"
+                    oninput="gViewSourceChooseEditor.onInputEditorPath(event)"/>
+            </hbox>
+            <checkbox id="usePortableCheckbox"
+                label="&use.portable.label;"/>
+            <hbox id="preview-portable-row" collapsed="true" align="center">
+                <label value="&preview.path.label;" control="preview-portable-path"/>
+                <textbox id="preview-portable-path"
+                        flex="1"
+                        readonly="true"
+                        invalidpathtext="&invalid.path.chars;"/>
+            </hbox>
+        </vbox>
+    </groupbox>
+
     <grid>
         <columns>
             <column/>
@@ -29,17 +61,6 @@
         </columns>
 
         <rows>
-            <row align="center">
-                <label control="editorpath" value="&editorPath.label;" />
-                <hbox>
-                    <filepicker id="editorpath"
-                        errinvalidpathchars="&invalid.path.chars;"
-                        flex="1"
-                        mode="open"
-                        pickTitle="&picktitle.editor;"
-                        filters="apps" />
-                </hbox>
-            </row>
             <row align="center">
                 <label control="description" value="&description.label;" />
                 <textbox flex="1" id="description" maxlength="50"/>
@@ -65,9 +86,10 @@
             </row>
         </rows>
     </grid>
+
     <groupbox orient="horizontal" align="center">
         <caption label="&shortcut.caption;"/>
-            <vbox>
+            <vbox flex="1">
                 <hbox align="center">
                     <label value="&shortcut.default.accel;" />
                     <textbox flex="1" id="key" onkeypress="gViewSourceChooseEditor.handleKey(event);" />

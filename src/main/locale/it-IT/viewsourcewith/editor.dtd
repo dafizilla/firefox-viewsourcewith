@@ -12,3 +12,9 @@
 <!ENTITY token.line.number "Numero linea">
 <!ENTITY token.column.number "Numero colonna">
 <!ENTITY token.help "Help...">
+<!ENTITY editPathPortable.label "Percorso relativo (esempio /../editors/vim)">
+<!ENTITY use.portable.label "Usa percorso relativo al profilo (per applicazioni &apos;portable&apos;)">
+<!ENTITY preview.path.label "Anteprima percorso">
+
+<!ENTITY shortcut.default.caption "Combinazione tasti editor predefinito">
+<!ENTITY shortcut.restore "Ripristina">

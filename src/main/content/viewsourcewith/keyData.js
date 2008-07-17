@@ -39,6 +39,21 @@ KeyData.fromAttributes = function(attributes) {
     return kd.isValid() ? kd : null;
 }
 
+KeyData.fromEvent = function(event, keyData) {
+    if (keyData) {
+        keyData.key = null;
+        keyData.keyCode = null;
+    } else {
+        keyData = new KeyData();
+    }
+    if (event.charCode) {
+        keyData.key = event.charCode;
+    } else {
+        keyData.keyCode = event.keyCode;
+    }
+    return keyData;
+}
+
 function KeyData() {
     this._key = null;
     this._keyAsText = "";
@@ -124,6 +139,10 @@ KeyData.prototype = {
     toString : function() {
         return "key = " + this._key + " keyCode = " + this._keyCode
                 + " modifiers = " + this.modifiers;
+    },
+    
+    keyToString : function() {
+        return this._key ? this.keyAsText : this.keyCodeAsText;
     }
 }
 
@@ -147,10 +166,14 @@ KeyData.toXml = function(keyData) {
 }
 
 KeyData.setKeyTag = function(keyData, keyNode) {
+    if (!keyData || !keyNode) return;
+
     if (keyData.key) {
         keyNode.setAttribute("key", keyData.keyAsText);
+        keyNode.removeAttribute("keycode");
     } else {
         keyNode.setAttribute("keycode", KeyData.VKNames[keyData.keyCode]);
+        keyNode.removeAttribute("key");
     }
     keyNode.setAttribute("modifiers", keyData.modifiers);
 }

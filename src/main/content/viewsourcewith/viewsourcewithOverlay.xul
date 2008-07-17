@@ -31,6 +31,11 @@
         <commandset id="viewSourceWithCommands" />
     </commandset>
 
+    <!-- Command set Thunderbird compose window-->
+    <commandset id="composeCommands">
+        <commandset id="viewSourceWithCommands" />
+    </commandset>
+
     <!-- Command set Mozilla-->
     <commandset id="commands">
         <commandset id="viewSourceWithCommands" />
@@ -197,6 +202,21 @@
     <hbox id="nav-bar-buttons">
         <toolbarbutton id="viewsourcewith-button" />
     </hbox>
+
+    <!-- Thunderbird -->
+    <toolbarpalette id="MsgComposeToolbarPalette">
+        <toolbarbutton id="viewsourcewith-button" />
+    </toolbarpalette>
+
+    <!-- Thunderbird 2.0 -->
+    <toolbar id="composeToolbar2"
+           defaultset="button-send,spacer,button-address,spacer,spellingButton,spacer,button-attach,viewsourcewith-button,spacer,button-security,spacer,button-save">
+    </toolbar>
+
+    <!-- Thunderbird 1.0 - 1-5 -->
+    <toolbar id="composeToolbar"
+          defaultset="button-send,spacer,button-address,spacer,spellingButton,spacer,button-attach,viewsourcewith-button,spacer,button-security,spacer,button-save,spring,throbber-box">
+    </toolbar>
 
     <!-- Mozilla/SeaMonkey Mail Toolbar Element
         On Mail toolbar the button ids are xxx-button
