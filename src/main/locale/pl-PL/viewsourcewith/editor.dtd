@@ -2,7 +2,7 @@
 <!ENTITY editorPath.label "Ścieżka:">
 <!ENTITY description.label "Nazwa:">
 <!ENTITY shortcut.caption "Skrót klawiaturowy">
-<!ENTITY shortcut.default.accel "Shift + Ctrl + ">
+<!ENTITY shortcut.default.accel "Shift + Ctrl +">
 <!ENTITY shortcut.remove "Usuń">
 <!ENTITY shortcut.maybe.invalid "Niektóre skróty klawiaturowe mogą nie działać">
 <!ENTITY invalid.path.chars "Nieprawidłowa ścieżka. Sprawdź czy nie zawiera niedozwolonych znaków.">
@@ -12,3 +12,8 @@
 <!ENTITY token.line.number "Numer wiersza">
 <!ENTITY token.column.number "Numer kolumny">
 <!ENTITY token.help "Pomoc">
+<!ENTITY editPathPortable.label "Względna ścieżka">
+<!ENTITY use.portable.label "użyj względnej ścieżki do profilu">
+<!ENTITY preview.path.label "Podgląd ścieżki">
+<!ENTITY shortcut.default.caption "Default Editor Shortcut Key">
+<!ENTITY shortcut.restore "Restore">

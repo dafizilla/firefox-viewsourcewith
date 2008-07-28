@@ -46,4 +46,4 @@
 <!ENTITY warning.delete.item "&quot;&#37;1&quot; silinsinmi?">
 <!ENTITY jsconsole.label "Javascript əmr sətri">
 <!ENTITY repl.jsconsole.viewer.label "Sənəd mənbəyini Javascript əmr sətrində açmaq üçün istifadə edin">
-<!ENTITY advanced.allow.edit.text "Allow content edit of text boxes">
+<!ENTITY advanced.allow.edit.text "Mətnlərin içərisində düzəliş aparılmasına icazə verilsin">

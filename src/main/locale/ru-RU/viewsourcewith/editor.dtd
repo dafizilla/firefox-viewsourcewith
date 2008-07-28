@@ -12,3 +12,8 @@
 <!ENTITY token.line.number "Номер строки">
 <!ENTITY token.column.number "Номер столбца">
 <!ENTITY token.help "Справка...">
+<!ENTITY editPathPortable.label "Relative Path (example /../editors/vim)">
+<!ENTITY use.portable.label "Use path relative to profile (for portable applications)">
+<!ENTITY preview.path.label "Preview Path">
+<!ENTITY shortcut.default.caption "Default Editor Shortcut Key">
+<!ENTITY shortcut.restore "Restore">

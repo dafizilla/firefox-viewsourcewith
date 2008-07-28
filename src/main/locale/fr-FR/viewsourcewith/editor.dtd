@@ -12,3 +12,8 @@
 <!ENTITY token.line.number "Numéro de ligne">
 <!ENTITY token.column.number "Numéro de colonne">
 <!ENTITY token.help "Aide">
+<!ENTITY editPathPortable.label "Chemin relatif (exemple /&#46;&#46;/editeurs/pspad)">
+<!ENTITY use.portable.label "Utiliser un répertoire relatif (pour les applications portables)">
+<!ENTITY preview.path.label "Afficher un aperçu du répertoire">
+<!ENTITY shortcut.default.caption "Raccourci clavier de l&apos;éditeur par défaut">
+<!ENTITY shortcut.restore "Restaurer">

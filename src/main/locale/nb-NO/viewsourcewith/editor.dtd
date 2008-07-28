@@ -12,3 +12,8 @@
 <!ENTITY token.line.number "Linjenummer">
 <!ENTITY token.column.number "Kolonnenummer">
 <!ENTITY token.help "Hjelp ...">
+<!ENTITY editPathPortable.label "Relativ sti (ekesempel /&#46;&#46;/editors/vim)">
+<!ENTITY use.portable.label "Bruk sti relativ til profilen (for flyttbare programmer)">
+<!ENTITY preview.path.label "Forhåndsvisning av sti">
+<!ENTITY shortcut.default.caption "Snarvei til standard skriveprogram">
+<!ENTITY shortcut.restore "Gjenopprett">

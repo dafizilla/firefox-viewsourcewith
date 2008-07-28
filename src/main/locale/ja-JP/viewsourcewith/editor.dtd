@@ -12,3 +12,8 @@
 <!ENTITY token.line.number "行番号">
 <!ENTITY token.column.number "列番号">
 <!ENTITY token.help "ヘルプ...">
+<!ENTITY editPathPortable.label "相対パス(例 /&#46;&#46;/editors/vim)">
+<!ENTITY use.portable.label "プロファイルへの相対パスを使用(ポータブルアプリケーション向け)">
+<!ENTITY preview.path.label "パスのプレビュー">
+<!ENTITY shortcut.default.caption "エディターのデフォルトのショートカットキー">
+<!ENTITY shortcut.restore "初期化">

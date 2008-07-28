@@ -12,3 +12,8 @@
 <!ENTITY token.line.number "เลขบรรทัด">
 <!ENTITY token.column.number "เลขคอลัมน์">
 <!ENTITY token.help "คำแนะนำ...">
+<!ENTITY editPathPortable.label "Relative Path (ตัวอย่าง /&#46;&#46;/editors/vim)">
+<!ENTITY use.portable.label "ใช้ Relative Path เทียบกับโฟลเดอร์ Profile (สำหรับ Portable)">
+<!ENTITY preview.path.label "Preview Path">
+<!ENTITY shortcut.default.caption "Default Editor Shortcut Key">
+<!ENTITY shortcut.restore "Restore">

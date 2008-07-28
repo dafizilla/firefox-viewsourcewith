@@ -12,3 +12,8 @@
 <!ENTITY token.line.number "Número de línea">
 <!ENTITY token.column.number "Número de columna">
 <!ENTITY token.help "Ayuda ...">
+<!ENTITY editPathPortable.label "Ruta relativa (por ejemplo /&#46;&#46;/editores/vim)">
+<!ENTITY use.portable.label "Usar ruta relativa al perfil (para aplicaciones portables)">
+<!ENTITY preview.path.label "Ruta previa">
+<!ENTITY shortcut.default.caption "Combinación para el editor por defecto">
+<!ENTITY shortcut.restore "Restaurar">

@@ -12,3 +12,8 @@
 <!ENTITY token.line.number "列">
 <!ENTITY token.column.number "行">
 <!ENTITY token.help "說明">
+<!ENTITY editPathPortable.label "Relative Path (example /../editors/vim)">
+<!ENTITY use.portable.label "Use path relative to profile (for portable applications)">
+<!ENTITY preview.path.label "Preview Path">
+<!ENTITY shortcut.default.caption "Default Editor Shortcut Key">
+<!ENTITY shortcut.restore "Restore">

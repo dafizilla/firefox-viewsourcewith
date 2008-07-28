@@ -4,7 +4,7 @@
 <!ENTITY shortcut.caption "Qısayollar">
 <!ENTITY shortcut.default.accel "Shift + Ctrl + ">
 <!ENTITY shortcut.remove "Sil">
-<!ENTITY shortcut.maybe.invalid "Bə&apos;zi qısaltmalar işləməyə bilər">
+<!ENTITY shortcut.maybe.invalid "Bə'zi qısaltmalar işləməyə bilər">
 <!ENTITY invalid.path.chars "Yol xətalıdır, xətalı simvollar yazılmadığına əmin olun">
 <!ENTITY picktitle.editor "Düzəliş aparma proqramı seçin">
 <!ENTITY parameters.label "Parametrlər">
@@ -12,3 +12,9 @@
 <!ENTITY token.line.number "Sətir №">
 <!ENTITY token.column.number "Sütun №">
 <!ENTITY token.help "Kömək...">
+<!ENTITY editPathPortable.label "Müvafiq yol (məs /../editors/vim)">
+<!ENTITY use.portable.label "Profil üçün müvafiq daxil edin (səyyar proqramlar üçün)">
+<!ENTITY preview.path.label "İlkin baxış yolu">
+
+<!ENTITY shortcut.default.caption "Düzəliş proqramının ilkin qısayolu">
+<!ENTITY shortcut.restore "Bərpa et">

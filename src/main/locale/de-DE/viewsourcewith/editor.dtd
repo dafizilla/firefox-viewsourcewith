@@ -12,3 +12,8 @@
 <!ENTITY token.line.number "Zeilennummer">
 <!ENTITY token.column.number "Spaltennummer">
 <!ENTITY token.help "Hilfe...">
+<!ENTITY editPathPortable.label "Relativer Pfad (z. B. /&#46;&#46;/editoren/vim)">
+<!ENTITY use.portable.label "Relativen Pfad zum Profil verwenden (für &quot;portable&quot; Anwendungen)">
+<!ENTITY preview.path.label "Pfad-Vorschau">
+<!ENTITY shortcut.default.caption "Tastaturkürzel für den Standardeditor">
+<!ENTITY shortcut.restore "Standard wiederherstellen">
