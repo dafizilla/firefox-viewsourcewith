@@ -134,6 +134,17 @@
         </menu>
     </popup>
 
+    <popup id="msgComposeContext">
+        <menu id="viewsourcewith-msgCompose"
+              label="&cmd.viewsource-attachMenu.label;"
+              observes="cmd_vswAttachment"
+              accesskey="&viewsource-viewMenu.accesskey;"
+              insertafter="spellCheckSuggestionsSeparator">
+            <menupopup id="viewsourcewith-msgComposeMenuPopup"
+                       onpopupshowing="if (event.target == this) { gViewSourceWithMain.initViewMenu(event); }" />
+        </menu>
+    </popup>
+
     <menu id="viewsourcewith-viewMenu"
           label="&cmd.viewsource-viewMenu.label;"
           observes="cmd_vswEnabledEditor"

@@ -274,6 +274,10 @@ function HTMLEditor(editorNode, window) {
     BaseEditor.call(this, editorNode, ".html");
     this._bodyTag = this._editorNode.rootElement;
     this._window = window;
+
+    if (this._getMimeType() == "text/plain") {
+        this._fileExtension = ".txt";
+    }
 }
 
 (function() {
