@@ -56,7 +56,7 @@
         <command id="cmd_vswEnabledEditor" />
         <command id="cmd_vswAttachment" />
 
-	<commandset id="viewSourceWithEditMenuCommandSet" commandupdater="true" events="focus"
+        <commandset id="viewSourceWithEditMenuCommandSet" commandupdater="true" events="focus"
                 oncommandupdate="gViewSourceWithMain.updateFocused()"/>
 
     </commandset>
@@ -199,6 +199,11 @@
         <toolbarbutton id="viewsourcewith-button" />
     </toolbarpalette>
 
+    <!-- SeamMonkey 2.0 Mail Toolbar Element -->
+    <toolbarpalette id="composeToolbar">
+        <toolbarbutton id="viewsourcewith-button" insertafter="button-attach" />
+    </toolbarpalette>
+
     <!-- NVU Toolbar Element -->
     <toolbarpalette id="NvuToolbarPalette">
         <toolbarbutton id="viewsourcewith-button" usenvustyle="true"/>
@@ -212,6 +217,11 @@
     -->
     <hbox id="nav-bar-buttons">
         <toolbarbutton id="viewsourcewith-button" />
+    </hbox>
+
+    <!-- SeaMonkey 2.0 -->
+    <hbox id="nav-bar">
+        <toolbarbutton id="viewsourcewith-button" insertafter="stop-button"/>
     </hbox>
 
     <!-- Thunderbird -->

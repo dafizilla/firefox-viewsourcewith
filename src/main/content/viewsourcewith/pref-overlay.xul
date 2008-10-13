@@ -26,10 +26,18 @@
     ]]>
     </script>
 
+    <!-- SeaMonkey 2.0 needs this and the preference attribute on checkbox -->
+    <preferences id="navigator_preferences">
+      <preference id="browser.toolbars.showbutton.viewsourcewith"
+                  name="browser.toolbars.showbutton.viewsourcewith"
+                  type="bool"/>
+    </preferences>
+
   <groupbox id="prefShowButtonsBox1">
      <vbox>
         <checkbox id="viewsourcewithButton"
                 label="ViewSourceWith"
+                preference="browser.toolbars.showbutton.viewsourcewith"
                 prefstring="browser.toolbars.showbutton.viewsourcewith"/>
     </vbox>
    </groupbox>
