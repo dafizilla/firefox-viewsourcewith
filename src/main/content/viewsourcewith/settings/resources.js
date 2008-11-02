@@ -38,14 +38,21 @@ var gVSWResources = {
         var cleaner = ViewSourceWithTempCleaner.getTempCleaner();
 
         for (var i = 0; i < items.length; i++) {
-            urls.push(items[i].value);
-            var fileName = ViewSourceWithCommon.getDocumentFileName(items[i].value);
-            var filePath = ViewSourceWithCommon.initFileToRun(
-                                fileName,
+            var resUrl = items[i].value;
+            urls.push(resUrl);
+
+            // local files must be read from their original disk position
+            var filePath = ViewSourceWithCommon.getLocalFilePage(resUrl);
+            if (!filePath) {
+                // Create a copy on temporary directory
+                filePath = ViewSourceWithCommon.initFileToRun(
+                                ViewSourceWithCommon.getDocumentFileName(resUrl),
                                 thiz.prefs.destFolder,
                                 thiz.prefs.tempMaxFilesSamePrefix,
                                 true,
                                 cleaner);
+            }
+
             fileNames.push(filePath);
         }
 
@@ -131,8 +138,18 @@ var gVSWResources = {
         var arr = new Array();
 
         for (var i in map) {
+            // Ensure local paths are in UTF-8 charset
+            var localUrl = ViewSourceWithCommon.getLocalFilePage(i);
+            var resPath;
+            if (localUrl) {
+                resPath = localUrl.path;
+            } else {
+                resPath = i;
+            }
+
             arr.push({ name : thiz.getName(i),
-                       path : i,
+                       displayPath : resPath,   // is used only to display it
+                       url : i,                 // contains the url also file://
                        resType : resType
                      });
         }
@@ -226,7 +243,7 @@ ResourceTreeView.prototype = {
 
         for (var i = 0; i < this.items.length; i++) {
             if (this.selection.isSelected(i)) {
-                ar.push( { value : this.items[i].path } );
+                ar.push( { value : this.items[i].url } );
             }
         }
 
@@ -264,7 +281,7 @@ ResourceTreeView.prototype = {
             case "resource-name":
                 return this.items[row].name;
             case "resource-path":
-                return this.items[row].path;
+                return this.items[row].displayPath;
         }
 
         return "";

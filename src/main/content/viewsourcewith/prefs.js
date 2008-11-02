@@ -68,6 +68,17 @@ ViewSourceEditorData.runEditor = function(editorData, paths, line, col) {
     if (isNaN(intCol) || intCol < 1) {
         col = "1";
     }
+
+    // Under Linux (and hoping on MacOSX) the passed charset
+    // doesn't work so we force UTF-8
+    if (!ViewSourceWithCommon.isWindows) {
+        var charset = "UTF-8";
+
+        for (var i in paths) {
+            paths[i] = ViewSourceWithCommon.fromUnicode(paths[i], charset);
+        }
+    }
+    
     var allArgs = new Array();
     var data = { str : cmdArgs,
                  currPos : 0,

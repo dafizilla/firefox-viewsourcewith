@@ -61,25 +61,31 @@ ViewSourceWithCommon.makeURL = function(aURL) {
 }
 
 ViewSourceWithCommon.makeLocalFileByUrl = function(url) {
-    const nsIFileProtocolHandler    = Components.interfaces.nsIFileProtocolHandler;
-    const CONTRACTID_FILE           = "@mozilla.org/network/protocol;1?name=file";
-
-    var handler = Components.classes[CONTRACTID_FILE].createInstance();
-    handler = handler.QueryInterface(nsIFileProtocolHandler);
-    return handler.getFileFromURLSpec(url);
+    // nsIIOService.newURI returns handle correctly UTF-8 string
+    // nsIFileProtocolHandler.getFileFromURLSpec doesn't work properly with UTF-8
+    
+    var ioService = Components.classes["@mozilla.org/network/io-service;1"]
+                            .getService(Components.interfaces.nsIIOService);
+    return ioService.newURI(url, null, null)
+            .QueryInterface(Components.interfaces.nsIFileURL)
+            .file;
 }
 
 ViewSourceWithCommon.runProgram = function(theFile, cmdArgs) {
-    const nsIProcess                    = Components.interfaces.nsIProcess;
-    const CONTRACTID_PROCESS            = "@mozilla.org/process/util;1";
+    var theProcess;
+    if (ViewSourceWithCommon.isWindows) {
+        theProcess = Components.classes["@dafizilla.sourceforge.net/winprocess;1"]
+                        .createInstance()
+                        .QueryInterface(Components.interfaces.IWinProcess);
+    } else {
+        theProcess = Components.classes["@mozilla.org/process/util;1"]
+                        .createInstance(Components.interfaces.nsIProcess);
+    }
 
     var execFile = ViewSourceWithCommon.makeLocalFile(theFile);
-
     var numArgs = cmdArgs.length;
-    var theProcess = Components.classes[CONTRACTID_PROCESS]
-                        .createInstance(nsIProcess);
-    theProcess.init(execFile);
 
+    theProcess.init(execFile);
     theProcess.run(false, cmdArgs, numArgs);
 }
 
@@ -227,7 +233,7 @@ ViewSourceWithCommon.getUnicodeConverterService = function (charset) {
     const CONTRACTID_UNICODE = "@mozilla.org/intl/scriptableunicodeconverter";
     const nsUnicodeService = Components.interfaces.nsIScriptableUnicodeConverter;
 
-    var unicodeCvt = Components.classes[CONTRACTID_UNICODE].getService(nsUnicodeService);
+    var unicodeCvt = Components.classes[CONTRACTID_UNICODE].createInstance(nsUnicodeService);
     if (charset) {
         unicodeCvt.charset = charset;
     }
@@ -249,8 +255,8 @@ ViewSourceWithCommon.toUnicode = function(text, charset, defValue) {
 
 ViewSourceWithCommon.fromUnicode = function(text, charset, defValue) {
     try {
-        return ViewSourceWithCommon.getUnicodeConverterService(charset)
-            .ConvertFromUnicode(text);
+        var converter = ViewSourceWithCommon.getUnicodeConverterService(charset);
+        return converter.ConvertFromUnicode(text) + converter.Finish();
     } catch (err) {
         if (defValue) {
             return defValue;
@@ -561,4 +567,15 @@ ViewSourceWithCommon.isToolbarButtonAlreadyPresent = function(buttonId) {
         document.getElementById('mail-bar2');
 
     return toolbar && toolbar.currentSet && toolbar.currentSet.indexOf(buttonId) >= 0;
+}
+
+ViewSourceWithCommon.getLocalFilePage = function(url) {
+    try {
+        if (url.substring(0, 7) == "file://") {
+            var file = ViewSourceWithCommon.makeLocalFileByUrl(url);
+            return file.exists() && file.isDirectory() ? null : file;
+        }
+    } catch (err) {
+    }
+    return null;
 }

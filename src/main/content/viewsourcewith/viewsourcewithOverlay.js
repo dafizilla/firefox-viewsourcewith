@@ -161,7 +161,7 @@ var gViewSourceWithMain = {
                 thiz._inputText.viewText(editorData, thiz._linkInfo);
             } else {
                 // Local file can be saved as DOM documents
-                if (!saveDOM && (filePath = thiz.getLocalFilePage(urlToSave)) != null) {
+                if (!saveDOM && (filePath = ViewSourceWithCommon.getLocalFilePage(urlToSave)) != null) {
                     // view file without save it
                     ViewSourceEditorData.runEditor(editorData, [filePath.path]);
                 } else {
@@ -212,7 +212,7 @@ var gViewSourceWithMain = {
         var filePath;
 
         // Local file can be saved as DOM documents
-        if (!saveDOM && (filePath = thiz.getLocalFilePage(url)) != null) {
+        if (!saveDOM && (filePath = ViewSourceWithCommon.getLocalFilePage(url)) != null) {
             ret.isLocal = true;
             ret.filePath = filePath;
         } else {
@@ -276,17 +276,6 @@ var gViewSourceWithMain = {
                           "chrome,resizable=yes,dependent=yes",
                           gViewSourceWithMain._resources,
                           gViewSourceWithMain.prefs);
-    },
-
-    getLocalFilePage : function(url) {
-        try {
-            if (url.substring(0, 7) == "file://") {
-                var filePath = ViewSourceWithCommon.makeLocalFileByUrl(url);
-                return filePath.isDirectory() ? null : filePath;
-            }
-        } catch (err) {
-        }
-        return null;
     },
 
     insertMenuItems : function(menu, fnViewPage, hasShortCutKey, isFrame) {
