@@ -1,5 +1,5 @@
 <!DOCTYPE extension [
-<!ENTITY extension.version "0.3">
+<!ENTITY extension.version "0.4e">
 ]>
 
 <extension name="viewsourcewith">
@@ -30,6 +30,16 @@
     <prefs>
         <pref>vsw.js</pref>
     </prefs>
+    
+    <!-- used by install.js and build process to set components -->
+    <components>
+        <component platform="xpt">winprocess.xpt</component>
+        <component platform="win" platform-path="platform/WINNT_x86-msvc/">winprocess.dll</component>
+        <!--<component platform="linux" platform-path="platform/Linux_x86-gcc3/">winprocess.i386</component>-->
+        <!--<component platform="linux64" platform-path="platform/Linux_x86_64-gcc3/">winprocess.64</component>-->
+        <!--<component platform="darwin" platform-path="platform/Darwin_ppc-gcc3/">winprocess.ppc</component>-->
+        <!--<component platform="darwin" platform-path="platform/Darwin_x86-gcc3/">winprocess.osx</component>-->
+    </components>
 
     <locales>
         <locale pos="1" code="en-US" />
@@ -128,7 +138,7 @@
             <description>SeaMonkey</description>
             <id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</id>
             <minVersion>1.0</minVersion>
-            <maxVersion>1.0.*</maxVersion>
+            <maxVersion>2.0a1</maxVersion>
         </application>
 
         <application>
