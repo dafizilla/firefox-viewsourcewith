@@ -88,6 +88,10 @@
         <overlay description="Mozilla/SeaMonkey - Navigator Prefs window" uri="chrome://communicator/content/pref/pref-navigator.xul" value="chrome://viewsourcewith/content/pref-overlay.xul" />
         <overlay description="Mozilla/SeaMonkey - Mail Prefs window" uri="chrome://messenger/content/pref-mailnews.xul" value="chrome://viewsourcewith/content/pref-overlay.xul" />
 
+        <overlay description="SeaMonkey - Main window"
+                 uri="chrome://navigator/content/navigator.xul"
+                 value="chrome://viewsourcewith/content/viewsourcewithOverlaySeaMonkey.xul application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a} appversion>=2.0a1" />
+
         <overlay description="Songbird - Main window" uri="chrome://songbird/content/xul/mainScriptsOverlay.xul" value="chrome://viewsourcewith/content/viewsourcewithOverlay.xul" />
     </overlays>
 
