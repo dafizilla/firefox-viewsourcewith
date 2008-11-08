@@ -1,9 +1,9 @@
 <!DOCTYPE extension [
-<!ENTITY extension.version "0.4e">
+<!ENTITY extension.version "0.4">
 ]>
 
 <extension name="viewsourcewith">
-    <title-name>ViewSourceWith</title-name>
+    <title-name>Dafizilla ViewSourceWith</title-name>
     <uuid>{eecba28f-b68b-4b3a-b501-6ce12e6b8696}</uuid>
     <version>&extension.version;</version>
     <description>View page source with external applications</description>
@@ -88,11 +88,13 @@
         <overlay description="Mozilla/SeaMonkey - Navigator Prefs window" uri="chrome://communicator/content/pref/pref-navigator.xul" value="chrome://viewsourcewith/content/pref-overlay.xul" />
         <overlay description="Mozilla/SeaMonkey - Mail Prefs window" uri="chrome://messenger/content/pref-mailnews.xul" value="chrome://viewsourcewith/content/pref-overlay.xul" />
 
-        <overlay description="SeaMonkey - Main window"
+        <overlay description="SeaMonkey2 - Main window"
                  uri="chrome://navigator/content/navigator.xul"
-                 value="chrome://viewsourcewith/content/viewsourcewithOverlaySeaMonkey.xul application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a} appversion>=2.0a1" />
+                 value="chrome://viewsourcewith/content/viewsourcewithOverlaySeaMonkey.xul application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a} appversion>=2.0a1"
+                 add-to-contents-rdf="false" />
 
-        <overlay description="Songbird - Main window" uri="chrome://songbird/content/xul/mainScriptsOverlay.xul" value="chrome://viewsourcewith/content/viewsourcewithOverlay.xul" />
+        <overlay description="Songbird - Main window" uri="chrome://songbird/content/xul/mainScriptsOverlay.xul" value="chrome://viewsourcewith/content/viewsourcewithOverlay.xul"
+                add-to-contents-rdf="false" />
     </overlays>
 
     <compatibility>
@@ -100,7 +102,7 @@
             <description>Firefox</description>
             <id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</id>
             <minVersion>1.5</minVersion>
-            <maxVersion>3.0.*</maxVersion>
+            <maxVersion>3.1</maxVersion>
         </application>
         
         <application>
@@ -149,7 +151,7 @@
           <description>Songbird</description>
           <id>songbird@songbirdnest.com</id>
           <minVersion>0.3</minVersion>
-          <maxVersion>0.6pre</maxVersion>
+          <maxVersion>0.7</maxVersion>
         </application>
     </compatibility>
 
