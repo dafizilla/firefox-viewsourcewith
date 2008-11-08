@@ -34,7 +34,7 @@ var localeDir           = "/" + name + "/"
 var locales             = new Array(<xsl:apply-templates select="//locales/locale" mode="install.js"/>);
 var skins               = new Array( <xsl:apply-templates select="//skins/skin" mode="install.js"/>);
 var prefs               = new Array( <xsl:apply-templates select="//prefs/pref" mode="install.js"/> );
-var components          = new Array(  );
+var components          = [ ];
 var searchPlugins       = new Array(  );
 
 // Mozilla Suite/Seamonkey stores all pref files in a single directory
@@ -104,9 +104,29 @@ if(error == SUCCESS)
         }
     }
 
+
+
+    // Add xpt to components
+    <xsl:apply-templates select="//components/component[@platform='xpt']" mode="install.js"/>
+
+    var platformStr = new String(Install.platform);
+    if (!platformStr.search(/^Win/)) {
+    <xsl:apply-templates select="//components/component[@platform='win']" mode="install.js"/>
+    } else if (/linux.*i686/i.test(platformStr)) {
+    <xsl:apply-templates select="//components/component[@platform='linux']" mode="install.js"/>
+    } else if (/linux.*x86_64/i.test(platformStr)) {
+    <xsl:apply-templates select="//components/component[@platform='linux64']" mode="install.js"/>
+    } else if (/.*Darwin/i.test(platformStr)) {
+    <xsl:apply-templates select="//components/component[@platform='darwin']" mode="install.js"/>
+    } else {
+        alert("Your operating system (" + Install.platform + ") does not appear to be supported");
+        cancelInstall(error);
+    }
+
     for (var i = 0; i &lt; components.length; i++) {
-        addFile(name + " Components", version, "components/" + components[i],
-            compFolder, components[i], true);
+        // Platform specific components installation
+        addFile(name, version, components[i][0],
+            compFolder, components[i][1], true);
     }
 
     for (var i = 0; i &lt; searchPlugins.length; i++) {

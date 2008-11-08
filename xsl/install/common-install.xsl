@@ -67,6 +67,14 @@
 </xsl:choose>
 </xsl:template>
 
+<xsl:template match="//component" mode="install.js">
+<xsl:text>components.push( [&quot;</xsl:text><xsl:value-of select="@platform-path"/><xsl:text>components/</xsl:text><xsl:value-of select="."/><xsl:text>&quot;, </xsl:text>
+<xsl:text>&quot;</xsl:text><xsl:value-of select="."/><xsl:text>&quot;] );</xsl:text>
+    <xsl:if test="position() != last()"><xsl:text>
+</xsl:text>
+    </xsl:if>
+</xsl:template>
+
 <xsl:template match="//locale" mode="chrome-manifest">
 <xsl:text>locale	</xsl:text><xsl:value-of select="//extension/@name"/>
 <xsl:text>	</xsl:text>

@@ -35,10 +35,10 @@
   </RDF:Description>
 
   <RDF:Seq RDF:about="urn:mozilla:overlays">
-    <xsl:apply-templates select="overlays/overlay" mode="contents.rdf-list"/>
+    <xsl:apply-templates select="overlays/overlay[@add-to-contents-rdf='true' or not(@add-to-contents-rdf)]" mode="contents.rdf-list"/>
   </RDF:Seq>
 
-  <xsl:apply-templates select="overlays/overlay" mode="contents.rdf-element" />
+  <xsl:apply-templates select="overlays/overlay[@add-to-contents-rdf='true' or not(@add-to-contents-rdf)]" mode="contents.rdf-element" />
 
 </RDF:RDF>
 </xsl:template>
