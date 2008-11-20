@@ -15,6 +15,10 @@ ViewSourceWithCommon.locale = Components.classes["@mozilla.org/intl/stringbundle
 
 ViewSourceWithCommon.isMacOSX = top.window.navigator.platform.indexOf("Mac") >= 0;
 ViewSourceWithCommon.isWindows = top.window.navigator.platform.indexOf("Win") >= 0;
+ViewSourceWithCommon.prefBranch = Components
+    .classes["@mozilla.org/preferences-service;1"]
+    .getService(Components.interfaces.nsIPrefService)
+    .getBranch("extensions.dafizilla.viewsourcewith.");
 
 function ViewSourceWithCommon() {
     this.gPathSeparator = top.window.navigator.platform.indexOf("Win") < 0 ? "/" : "\\";
@@ -63,7 +67,7 @@ ViewSourceWithCommon.makeURL = function(aURL) {
 ViewSourceWithCommon.makeLocalFileByUrl = function(url) {
     // nsIIOService.newURI returns handle correctly UTF-8 string
     // nsIFileProtocolHandler.getFileFromURLSpec doesn't work properly with UTF-8
-    
+
     var ioService = Components.classes["@mozilla.org/network/io-service;1"]
                             .getService(Components.interfaces.nsIIOService);
     return ioService.newURI(url, null, null)
@@ -72,12 +76,17 @@ ViewSourceWithCommon.makeLocalFileByUrl = function(url) {
 }
 
 ViewSourceWithCommon.runProgram = function(theFile, cmdArgs) {
-    var theProcess;
+    var theProcess = null;
+
     if (ViewSourceWithCommon.isWindows) {
-        theProcess = Components.classes["@dafizilla.sourceforge.net/winprocess;1"]
-                        .createInstance()
-                        .QueryInterface(Components.interfaces.IWinProcess);
-    } else {
+        if (!ViewSourceWithCommon.prefBranch.prefHasUserValue("useWinProcess")
+            || ViewSourceWithCommon.prefBranch.getBoolPref("useWinProcess")) {
+            theProcess = Components.classes["@dafizilla.sourceforge.net/winprocess;1"]
+                            .createInstance()
+                            .QueryInterface(Components.interfaces.IWinProcess);
+        }
+    }
+    if (!theProcess) {
         theProcess = Components.classes["@mozilla.org/process/util;1"]
                         .createInstance(Components.interfaces.nsIProcess);
     }
@@ -169,7 +178,6 @@ ViewSourceWithCommon.read = function(file) {
     const nsFis = Components.interfaces.nsIFileInputStream;
     const CONTRACTID_SIS = "@mozilla.org/scriptableinputstream;1";
     const nsSis = Components.interfaces.nsIScriptableInputStream;
-
 
     var str = "";
     var fiStream = Components.classes[CONTRACTID_FIS].createInstance(nsFis);
