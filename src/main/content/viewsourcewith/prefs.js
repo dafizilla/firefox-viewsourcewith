@@ -12,9 +12,9 @@
  * Date     : 27-Jul-07 Fixed problem with hiddenDOMWindow
  */
 
-const VSW_PREF_CONFIG_PATH = "dafi.viewsource.configPath";
-const VSW_PREF_USE_PROFILE_PATH = "dafi.viewsource.useProfilePath";
-const VSW_PREF_TOOLBAR_ICON_ADDED = "dafi.viewsource.toolbaricon.added";
+const VSW_PREF_CONFIG_PATH = "configPath";
+const VSW_PREF_USE_PROFILE_PATH = "useProfilePath";
+const VSW_PREF_TOOLBAR_ICON_ADDED = "toolbaricon.added";
 
 function ViewSourceEditorData(isVisible, description, path, showAlways) {
     this._isVisible = ViewSourceWithCommon.isTrue(isVisible);
@@ -78,7 +78,7 @@ ViewSourceEditorData.runEditor = function(editorData, paths, line, col) {
             paths[i] = ViewSourceWithCommon.fromUnicode(paths[i], charset);
         }
     }
-    
+
     var allArgs = new Array();
     var data = { str : cmdArgs,
                  currPos : 0,
@@ -192,15 +192,14 @@ ViewSourceEditorData.getToken = function(data) {
 }
 
 function ViewSourceWithPrefs() {
-    this.prefBranch = Components.classes['@mozilla.org/preferences-service;1']
-                      .getService()
-                      .QueryInterface(Components.interfaces.nsIPrefBranch);
+    this._prefBranch = new ViewSourceWithPrefBranchHelper(ViewSourceWithCommon.prefBranch);
+    this.migratePrefs();
     this._editorDefaultIndex    = -1
     this._showFrameWarning   = true;
     this._destFolder    = ViewSourceWithPrefs.getTempDir();
     this._editorData    = new Array();
-    this._configPath    =  this.getString(VSW_PREF_CONFIG_PATH, null);
-    this._useProfilePath =  this.getBool(VSW_PREF_USE_PROFILE_PATH, false);
+    this._configPath    =  this._prefBranch.getString(VSW_PREF_CONFIG_PATH, null);
+    this._useProfilePath =  this._prefBranch.getBool(VSW_PREF_USE_PROFILE_PATH, false);
     this._saveMethod     = "normal";
     this._replaceNativeEditor = false;
     this._openFocusWin  = true;
@@ -434,46 +433,11 @@ ViewSourceWithPrefs.prototype = {
     },
 
     get isToolbarIconAdded() {
-        return this.getBool(VSW_PREF_TOOLBAR_ICON_ADDED, false);
+        return this._prefBranch.getBool(VSW_PREF_TOOLBAR_ICON_ADDED, false);
     },
 
     set toolbarIconAdded(newValue) {
-        return this.setBool(VSW_PREF_TOOLBAR_ICON_ADDED, newValue);
-    },
-
-    getString : function(prefName, defValue) {
-        var prefValue;
-        try {
-            prefValue = this.prefBranch.getCharPref(prefName);
-        } catch (ex) {
-            prefValue = null;
-        }
-        if (prefValue != null){
-            prefValue = ViewSourceWithCommon.toUnicode(prefValue, "UTF-8", prefValue);
-        }
-        return prefValue == null ? defValue : prefValue;
-    },
-
-    setString : function(prefName, prefValue) {
-        prefValue = ViewSourceWithCommon.fromUnicode(prefValue, "UTF-8", prefValue);
-        this.prefBranch.setCharPref(prefName, prefValue);
-    },
-
-    getBool : function(prefName, defValue) {
-        var prefValue = false;
-        try {
-            prefValue = this.prefBranch.getBoolPref(prefName);
-        } catch (ex) {
-            if (defValue != undefined) {
-                prefValue = defValue;
-            }
-        }
-
-        return prefValue;
-    },
-
-    setBool : function(prefName, prefValue) {
-        this.prefBranch.setBoolPref(prefName, prefValue);
+        return this._prefBranch.setBool(VSW_PREF_TOOLBAR_ICON_ADDED, newValue);
     },
 
     /**
@@ -528,7 +492,7 @@ ViewSourceWithPrefs.prototype = {
             this._showQuickFrame = this.getBoolean(doc, "show-quick-frame-menu", false);
             this._replaceJSConsole = this.getBoolean(doc, "replace-jsconsole-editor", true);
             this._allowEditText = this.getBoolean(doc, "allow-edit-text", true);
-            
+
             this._defaultShortcutKey = this.getDefaultShortcutKey(doc);
         } else {
             throw this.getTagValue(doc, "parsererror");
@@ -537,14 +501,14 @@ ViewSourceWithPrefs.prototype = {
 
     getDefaultShortcutKey : function(doc) {
         var keyNode = this.getNodeByParent(doc, "default-editor-key", "key");
-        
+
         if (keyNode) {
             return KeyData.fromAttributes(keyNode.attributes);
         }
-        
+
         return this.newDefaultEditorKeyData();
     },
-    
+
     getNodeByParent : function(doc, parentNodeName, nodeName) {
         var nl = doc.getElementsByTagName(parentNodeName);
 
@@ -558,7 +522,7 @@ ViewSourceWithPrefs.prototype = {
         }
         return null;
     },
-    
+
     getNode : function(nl, nodeName) {
         if (nl) {
             for (var i = 0; i < nl.length; i++) {
@@ -769,8 +733,8 @@ ViewSourceWithPrefs.prototype = {
             // These params doesn't go on xml file
             // and must be written ALWAYS after file to ensure
             // data consistency
-            this.setString(VSW_PREF_CONFIG_PATH, this._configPath);
-            this.setBool(VSW_PREF_USE_PROFILE_PATH, this._useProfilePath);
+            this._prefBranch.setString(VSW_PREF_CONFIG_PATH, this._configPath);
+            this._prefBranch.setBool(VSW_PREF_USE_PROFILE_PATH, this._useProfilePath);
 
             viewSourceWithFactory.resetPrefsInstance();
         } catch (err) {
@@ -878,12 +842,79 @@ ViewSourceWithPrefs.prototype = {
         return data;
     },
 
-    newDefaultEditorKeyData : function() {    
+    newDefaultEditorKeyData : function() {
         var keyData = new KeyData();
         keyData.key = "U".charCodeAt(0);
         keyData.accel = true;
         keyData.shift = true;
 
         return keyData;
-    }    
+    },
+
+    migratePrefs : function() {
+        var oldPrefBranch = new ViewSourceWithPrefBranchHelper(Components
+            .classes["@mozilla.org/preferences-service;1"]
+            .getService(Components.interfaces.nsIPrefService)
+            .getBranch("dafi.viewsource."));
+
+        if (oldPrefBranch._prefBranch.prefHasUserValue(VSW_PREF_CONFIG_PATH)) {
+            this._prefBranch.setString(VSW_PREF_CONFIG_PATH,
+                oldPrefBranch.getString(VSW_PREF_CONFIG_PATH));
+            oldPrefBranch._prefBranch.clearUserPref(VSW_PREF_CONFIG_PATH);
+        }
+
+        if (oldPrefBranch._prefBranch.prefHasUserValue(VSW_PREF_USE_PROFILE_PATH)) {
+            this._prefBranch.setBool(VSW_PREF_USE_PROFILE_PATH,
+                oldPrefBranch.getBool(VSW_PREF_USE_PROFILE_PATH));
+            oldPrefBranch._prefBranch.clearUserPref(VSW_PREF_USE_PROFILE_PATH);
+        }
+
+        if (oldPrefBranch._prefBranch.prefHasUserValue(VSW_PREF_TOOLBAR_ICON_ADDED)) {
+            this._prefBranch.setBool(VSW_PREF_TOOLBAR_ICON_ADDED,
+                oldPrefBranch.getBool(VSW_PREF_TOOLBAR_ICON_ADDED));
+            oldPrefBranch._prefBranch.clearUserPref(VSW_PREF_TOOLBAR_ICON_ADDED);
+        }
+    }
 };
+
+function ViewSourceWithPrefBranchHelper(prefBranch) {
+    this._prefBranch = prefBranch;
+}
+
+ViewSourceWithPrefBranchHelper.prototype = {
+    getString : function(prefName, defValue) {
+        var prefValue;
+        try {
+            prefValue = this._prefBranch.getCharPref(prefName);
+        } catch (ex) {
+            prefValue = null;
+        }
+        if (prefValue != null) {
+            prefValue = ViewSourceWithCommon.toUnicode(prefValue, "UTF-8", prefValue);
+        }
+        return prefValue == null ? defValue : prefValue;
+    },
+
+    setString : function(prefName, prefValue) {
+        prefValue = ViewSourceWithCommon.fromUnicode(prefValue, "UTF-8", prefValue);
+        this._prefBranch.setCharPref(prefName, prefValue);
+    },
+
+    getBool : function(prefName, defValue) {
+        var prefValue = false;
+        try {
+            prefValue = this._prefBranch.getBoolPref(prefName);
+        } catch (ex) {
+            if (defValue != undefined) {
+                prefValue = defValue;
+            }
+        }
+
+        return prefValue;
+    },
+
+    setBool : function(prefName, prefValue) {
+        this._prefBranch.setBoolPref(prefName, prefValue);
+    }
+}
+

@@ -140,7 +140,7 @@ KeyData.prototype = {
         return "key = " + this._key + " keyCode = " + this._keyCode
                 + " modifiers = " + this.modifiers;
     },
-    
+
     keyToString : function() {
         return this._key ? this.keyAsText : this.keyCodeAsText;
     }

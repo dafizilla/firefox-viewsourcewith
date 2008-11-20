@@ -89,7 +89,7 @@ var gViewSourceChooseEditor = {
         thiz.oEditKey = document.getElementById("key");
         thiz.oCmdArgs = document.getElementById("cmdargs");
         thiz.oUsePortableCheckbox = document.getElementById("usePortableCheckbox");
-        
+
         this.oUsePortableCheckbox.addEventListener("CheckboxStateChange",
             function(event) { gViewSourceChooseEditor.tooglePortablePath(event);}, false);
 
@@ -111,7 +111,7 @@ var gViewSourceChooseEditor = {
                 }
             }
             if (item.usePortable) {
-                thiz.oUsePortableCheckbox.checked = true;   
+                thiz.oUsePortableCheckbox.checked = true;
             }
         }
         if (ViewSourceWithCommon.isMacOSX) {
@@ -148,26 +148,26 @@ var gViewSourceChooseEditor = {
                           "chrome,resizable=yes,dependent=yes",
                           "chrome://viewsourcewith/content/help/tokenHelp.xhtml");
     },
-    
+
     onInputEditorPath : function(event) {
-        this.updatePreviewPortablePath();    
+        this.updatePreviewPortablePath();
     },
-    
+
     updatePreviewPortablePath : function() {
         var oPreviewPortableRow = document.getElementById("preview-portable-row");
-        
+
         if (!oPreviewPortableRow.hasAttribute("collapsed")) {
             var previewPortablePath = document.getElementById("preview-portable-path");
             var path = this.getPortablePath();
             if (path) {
                 previewPortablePath.value = path;
             } else {
-                
+
                 previewPortablePath.value = previewPortablePath.getAttribute("invalidpathtext");
             }
         }
     },
-    
+
     getPortablePath : function() {
         try {
             var relativePath = this.oEditorAppPath.value;
@@ -191,7 +191,7 @@ var gViewSourceChooseEditor = {
         }
         return this.oEditorAppPath.value;
     },
-    
+
     tooglePortablePath : function(event) {
         var oLabel = document.getElementById("editorpath-label");
         var oPreviewPortableRow = document.getElementById("preview-portable-row");
