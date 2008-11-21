@@ -51,7 +51,7 @@
                      sortDirection="ascending" sortActive="true"/>
             <splitter class="tree-splitter"/>
             <treecol id="resource-path" label="&resourcepath.tree.label;" flex="1" persist="width"
-                     onclick="gVSWResources.allResourcesTreeView.sort('path');"/>
+                     onclick="gVSWResources.allResourcesTreeView.sort('displayPath');"/>
           </treecols>
           <treechildren ondblclick="gVSWResources.onDblClick(event);"/>
         </tree>
@@ -65,7 +65,7 @@
                      sortDirection="ascending" sortActive="true"/>
             <splitter class="tree-splitter"/>
             <treecol id="resource-path" label="&resourcepath.tree.label;" flex="1" persist="width"
-                     onclick="gVSWResources.cssResourcesTreeView.sort('path');"/>
+                     onclick="gVSWResources.cssResourcesTreeView.sort('displayPath');"/>
           </treecols>
           <treechildren ondblclick="gVSWResources.onDblClick(event);"/>
         </tree>
@@ -79,7 +79,7 @@
                      sortDirection="ascending" sortActive="true"/>
             <splitter class="tree-splitter"/>
             <treecol id="resource-path" label="&resourcepath.tree.label;" flex="1" persist="width"
-                     onclick="gVSWResources.jsResourcesTreeView.sort('path');"/>
+                     onclick="gVSWResources.jsResourcesTreeView.sort('displayPath');"/>
           </treecols>
           <treechildren ondblclick="gVSWResources.onDblClick(event);"/>
         </tree>
