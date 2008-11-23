@@ -187,7 +187,7 @@ var gViewSourceWithMain = {
                     }
                     var pageHandler = new VswServerPagesHandler();
 
-                    if (pageHandler.matches(urlToSave, thiz.prefs.urlMapperData)) {
+                    if (pageHandler.matches(urlToSave, thiz.prefs.urlMapperData, 1, 1, editorData)) {
                         saver.openFileCallback = pageHandler;
                     }
                     if (saveDOM) {
@@ -801,7 +801,7 @@ var gViewSourceWithMain = {
                              .messageURIToMsgHdr(messages[i]).mime2DecodedSubject;
                 // 20-Apr-07 If subject contains Japanese characters many editors
                 // are unable to open the file so subject is no more added to file name
-                var fileName = /*subject + */"msg" + i + ".txt";
+                var fileName = /*subject + */"msg" + i + ".html";
                 var filePath = ViewSourceWithCommon.initFileToRun(
                                     unescape(fileName),
                                     thiz.prefs.destFolder,
