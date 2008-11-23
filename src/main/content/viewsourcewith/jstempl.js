@@ -6,6 +6,7 @@
 // data.pageSourcePath the path to page source retrieved by browser
 // data.line        the line number, useful when called from JS console
 // data.column      the column number, useful when called from JS console
+// data.editorName  the editor name
 var localPath = data.localPath;
 var uri = data.uri.spec;
 var dirSep = top.window.navigator.platform.indexOf("Win") < 0 ? "/" : "\\";

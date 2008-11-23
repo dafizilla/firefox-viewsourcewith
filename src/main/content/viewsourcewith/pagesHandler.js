@@ -7,7 +7,7 @@ function VswServerPagesHandler() {
 }
 
 VswServerPagesHandler.prototype = {
-    matches : function(urlToSave, urlMapperData, line, column) {
+    matches : function(urlToSave, urlMapperData, line, column, editorData) {
         var umd = this._findUrlMapperData(urlToSave, urlMapperData);
 
         if (umd != null) {
@@ -21,6 +21,8 @@ VswServerPagesHandler.prototype = {
             if (isNaN(intColumn) || intColumn < 1) {
                 column = "1";
             }
+            var editorName = typeof (editorData) == "undefined"
+                ? "" : editorData.description;
 
             this.data = { uri : ViewSourceWithCommon.makeUrlFromSpec(urlToSave),
                           localPath : umd.localPath,
@@ -30,7 +32,8 @@ VswServerPagesHandler.prototype = {
                           // private by function called
                           jsCode : umd.jsCode,
                           line: line,
-                          column : column};
+                          column : column,
+                          editorName : editorName};
 
             // should be trimmed before compare
             if (this.data.jsCode == "") {
@@ -85,7 +88,7 @@ VswServerPagesHandler.prototype = {
         var args = new Array();
 
         for (var i = 0; i < outFiles.length; i++) {
-            if (this.matches(urls[i], urlMapperData, line, column)) {
+            if (this.matches(urls[i], urlMapperData, line, column, editorData)) {
                 this.data.pageSourcePath = outFiles[i].path;
                 args = args.concat(this.getServerPageFileNames());
             } else {
