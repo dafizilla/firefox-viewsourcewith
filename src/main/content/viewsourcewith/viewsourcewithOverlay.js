@@ -709,7 +709,7 @@ var gViewSourceWithMain = {
             }
 
             // Change context menu item label
-            gViewSourceWithMain.changeMenuLabelForTextBox(vswMenu, info.isOnTextInput);
+            gViewSourceWithMain.changeMenuLabel(vswMenu, info.isOnTextInput, info);
         }
         return true;
     },
@@ -885,7 +885,7 @@ var gViewSourceWithMain = {
             if (gViewSourceWithMain._linkInfo) {
                 var isFocusOnTextBox = gViewSourceWithMain._linkInfo.findFocusedTextView() != null;
                 gViewSourceWithMain.changeToolbarImage(isFocusOnTextBox);
-                gViewSourceWithMain.changeMenuLabelForTextBox(
+                gViewSourceWithMain.changeMenuLabel(
                     document.getElementById("viewsourcewith-viewMenu"),
                     isFocusOnTextBox);
             }
@@ -911,26 +911,40 @@ var gViewSourceWithMain = {
         }
     },
 
-    changeMenuLabelForTextBox : function(menu, isOnTextBox) {
+    changeMenuLabel : function(menu, isOnTextBox, info) {
         if (!menu) {
             return;
         }
         var label;
         var accesskey;
         if (isOnTextBox) {
-            label = ViewSourceWithCommon.getLocalizedMessage("edittext.label");
-            accesskey = ViewSourceWithCommon.getLocalizedMessage("edittext.accesskey");
+            label = "edittext.label";
+            accesskey = "edittext.accesskey";
+        } else if (info && info.isOnLinkOrImage) {
+            if (info.isOnLink) {
+                if (info.isOnImage && gViewSourceWithMain.prefs.openImageOnLink) {
+                    label = "viewsource.image.label";
+                    accesskey = "viewsource.image.accesskey";
+                } else {
+                    label = "viewsource.link.label";
+                    accesskey = "viewsource.link.accesskey";
+                }
+            } else {
+                label = "viewsource.image.label";
+                accesskey = "viewsource.image.accesskey";
+            }
         } else {
-            label = ViewSourceWithCommon.getLocalizedMessage("viewsource.label");
-            accesskey = ViewSourceWithCommon.getLocalizedMessage("viewsource.accesskey");
+            label = "viewsource.label";
+            accesskey = "viewsource.accesskey";
         }
-        menu.setAttribute("label", label);
-        menu.setAttribute("accesskey", accesskey);
+
+        menu.setAttribute("label", ViewSourceWithCommon.getLocalizedMessage(label));
+        menu.setAttribute("accesskey", ViewSourceWithCommon.getLocalizedMessage(accesskey));
     },
 
     onPagehide : function(event) {
         gViewSourceWithMain.changeToolbarImage(false);
-        gViewSourceWithMain.changeMenuLabelForTextBox(
+        gViewSourceWithMain.changeMenuLabel(
             document.getElementById("viewsourcewith-viewMenu"), false);
     }
 };
