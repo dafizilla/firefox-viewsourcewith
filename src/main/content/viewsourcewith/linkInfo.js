@@ -20,6 +20,7 @@ ViewSourceWithLinkInfo.prototype = {
     isOnLink : false,
     isOnImage : false,
     isOnLinkOrImage : false,
+    isOnBGImage : false,
 
     isOnTextInput : false,
     target : null,
@@ -35,6 +36,7 @@ ViewSourceWithLinkInfo.prototype = {
         this.isOnLink = false;
         this.isOnImage = false;
         this.isOnLinkOrImage = false;
+        this.isOnBGImage = false;
 
         this.isOnTextInput = false;
         this.target = null;
@@ -71,7 +73,8 @@ ViewSourceWithLinkInfo.prototype = {
         if (!(typeof gContextMenu == "undefined") && gContextMenu) { // songbird needs typeof usage
             this.isOnLink = gContextMenu.onLink;
             this.isOnImage = gContextMenu.onImage;
-            this.isOnLinkOrImage = this.isOnLink || this.isOnImage;
+            this.isOnBGImage = gContextMenu.hasBGImage;
+            this.isOnLinkOrImage = this.isOnLink || this.isOnImage || this.isOnBGImage;
             this.isOnTextInput = gContextMenu.onTextInput;
 
             this.target = gContextMenu.target;
@@ -90,8 +93,12 @@ ViewSourceWithLinkInfo.prototype = {
                     }
                 } else {
                     this.image = IMAGE_PATH_IMG;
-                    this.url = gContextMenu.imageURL;
                     this.extType = "jpg"; // fake value
+                    if (this.isOnImage) {
+                        this.url = gContextMenu.imageURL;
+                    } else if (this.isOnBGImage) {
+                        this.url = gContextMenu.bgImageURL;
+                    }
                 }
             }
         }
@@ -127,6 +134,7 @@ ViewSourceWithLinkInfo.prototype = {
                 "isOnLink           = " + this.isOnLink + "\n" +
                 "isOnImage          = " + this.isOnImage + "\n" +
                 "isOnLinkOrImage    = " + this.isOnLinkOrImage +  "\n" +
+                "isOnBGImage        = " + this.isOnBGImage  + "\n" +
                 "isOnTextInput      = " + this.isOnTextInput  + "\n" +
                 "extType            = " + this.extType;
     },
