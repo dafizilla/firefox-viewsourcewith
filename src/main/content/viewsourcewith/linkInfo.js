@@ -73,7 +73,7 @@ ViewSourceWithLinkInfo.prototype = {
         if (!(typeof gContextMenu == "undefined") && gContextMenu) { // songbird needs typeof usage
             this.isOnLink = gContextMenu.onLink;
             this.isOnImage = gContextMenu.onImage;
-            this.isOnBGImage = gContextMenu.hasBGImage;
+            this.isOnBGImage = gContextMenu.hasBGImage && prefs.openBkgImage;
             this.isOnLinkOrImage = this.isOnLink || this.isOnImage || this.isOnBGImage;
             this.isOnTextInput = gContextMenu.onTextInput;
 

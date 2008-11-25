@@ -15,6 +15,7 @@
 const VSW_PREF_CONFIG_PATH = "configPath";
 const VSW_PREF_USE_PROFILE_PATH = "useProfilePath";
 const VSW_PREF_TOOLBAR_ICON_ADDED = "toolbaricon.added";
+const VSW_PREF_OPEN_BKG_IMAGE = "openBkgImage";
 
 function ViewSourceEditorData(isVisible, description, path, showAlways) {
     this._isVisible = ViewSourceWithCommon.isTrue(isVisible);
@@ -874,6 +875,10 @@ ViewSourceWithPrefs.prototype = {
                 oldPrefBranch.getBool(VSW_PREF_TOOLBAR_ICON_ADDED));
             oldPrefBranch._prefBranch.clearUserPref(VSW_PREF_TOOLBAR_ICON_ADDED);
         }
+    },
+    
+    get openBkgImage() {
+        return this._prefBranch.getBool(VSW_PREF_OPEN_BKG_IMAGE, true);
     }
 };
 
