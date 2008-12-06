@@ -3,7 +3,7 @@
 <!ENTITY css.tab.label "Stylesheets">
 <!ENTITY js.tab.label "Scripts">
 <!ENTITY showallframes.label "Alle hulpbronnen van frames weergeven">
-<!ENTITY editors.label "Te grbuiken bewerkingsprogramma">
+<!ENTITY editors.label "Te gebruiken bewerkingsprogramma">
 <!ENTITY button.label.accept "Bekijken">
 <!ENTITY button.label.cancel "Sluiten">
 <!ENTITY resourcename.tree.label "Naam">

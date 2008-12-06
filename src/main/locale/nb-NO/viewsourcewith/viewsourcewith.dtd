@@ -1,7 +1,7 @@
-<!ENTITY cmd.viewsource.label "Vis kildekode med">
-<!ENTITY cmd.viewsource.frame.label "Vis kildekode for ramme med">
-<!ENTITY cmd.viewsource-viewMenu.label "Kildekode med">
-<!ENTITY cmd.viewsource-attachMenu.label "Åpne med">
+<!ENTITY cmd.viewsource.label "Vis kildekode i">
+<!ENTITY cmd.viewsource.frame.label "Vis kildekode for ramme i">
+<!ENTITY cmd.viewsource-viewMenu.label "Kildekode i">
+<!ENTITY cmd.viewsource-attachMenu.label "Åpne i">
 <!ENTITY viewsource-viewMenu.accesskey "w">
 <!ENTITY viewsourcewith.commandkey "U">
 <!ENTITY viewsourcewithButton.label "Kildekode">

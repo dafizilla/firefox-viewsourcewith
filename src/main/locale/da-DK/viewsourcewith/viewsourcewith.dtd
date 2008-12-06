@@ -1,5 +1,5 @@
 <!ENTITY cmd.viewsource.label "Vis kildekode med">
-<!ENTITY cmd.viewsource.frame.label "Vis frame kildekode med">
+<!ENTITY cmd.viewsource.frame.label "Vis ramme kildekode med">
 <!ENTITY cmd.viewsource-viewMenu.label "Kildekode med">
 <!ENTITY cmd.viewsource-attachMenu.label "Åbn med">
 <!ENTITY viewsource-viewMenu.accesskey "K">

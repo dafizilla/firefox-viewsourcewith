@@ -878,7 +878,7 @@ ViewSourceWithPrefs.prototype = {
     },
     
     get openBkgImage() {
-        return this._prefBranch.getBool(VSW_PREF_OPEN_BKG_IMAGE, true);
+        return this._prefBranch.getBool(VSW_PREF_OPEN_BKG_IMAGE, false);
     }
 };
 

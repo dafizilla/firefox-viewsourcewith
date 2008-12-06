@@ -1,5 +1,5 @@
 <!DOCTYPE extension [
-<!ENTITY extension.version "0.4">
+<!ENTITY extension.version "0.4.1">
 ]>
 
 <extension name="viewsourcewith">
@@ -48,21 +48,21 @@
         <locale pos="4" code="es-ES" />
         <locale pos="5" code="pl-PL" />
         <locale pos="6" code="ja-JP" />
-        <locale pos="7" code="zh-TW" />
+        <!--<locale pos="7" code="zh-TW" />-->
         <locale pos="8" code="pt-BR" />
         <locale pos="9" code="de-DE" />
         <locale pos="10" code="ru-RU" />
         <locale pos="11" code="nl-NL" />
         <locale pos="12" code="es-AR" />
-        <locale pos="13" code="cs-CZ" />
-        <locale pos="14" code="zh-CN" />
+        <!--<locale pos="13" code="cs-CZ" />-->
+        <!--<locale pos="14" code="zh-CN" />-->
         <locale pos="15" code="tr-TR" />
         <locale pos="16" code="sk-SK" />
         <locale pos="17" code="az-AZ" />
         <locale pos="18" code="da-DK" />
         <locale pos="19" code="fa-IR" />
-        <locale pos="20" code="hr-HR" />
-        <locale pos="21" code="af-ZA" />
+        <!--<locale pos="20" code="hr-HR" />-->
+        <!--<locale pos="21" code="af-ZA" />-->
         <locale pos="22" code="th-TH" />
         <locale pos="23" code="hu-HU" />
         <locale pos="24" code="nb-NO" />
@@ -102,7 +102,7 @@
             <description>Firefox</description>
             <id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</id>
             <minVersion>1.5</minVersion>
-            <maxVersion>3.1</maxVersion>
+            <maxVersion>3.2a1pre</maxVersion>
         </application>
         
         <application>
@@ -116,7 +116,7 @@
             <description>Thunderbird</description>
             <id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</id>
             <minVersion>0.5</minVersion>
-            <maxVersion>2.0.0.*</maxVersion>
+            <maxVersion>3.0b2pre</maxVersion>
         </application>
         
         <application>
@@ -150,8 +150,8 @@
         <application>
           <description>Songbird</description>
           <id>songbird@songbirdnest.com</id>
-          <minVersion>0.3</minVersion>
-          <maxVersion>0.7</maxVersion>
+          <minVersion>1.0</minVersion>
+          <maxVersion>1.0</maxVersion>
         </application>
     </compatibility>
 

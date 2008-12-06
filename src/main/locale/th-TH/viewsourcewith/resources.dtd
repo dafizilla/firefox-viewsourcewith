@@ -3,7 +3,7 @@
 <!ENTITY css.tab.label "Style Sheets">
 <!ENTITY js.tab.label "Scripts">
 <!ENTITY showallframes.label "แสดงทุกเฟรม">
-<!ENTITY editors.label "เครื่องมือแก้ไขที่ใช้">
+<!ENTITY editors.label "ตัวแก้ไขที่ใช้">
 <!ENTITY button.label.accept "ดู">
 <!ENTITY button.label.cancel "ปิด">
 <!ENTITY resourcename.tree.label "ชื่อ">

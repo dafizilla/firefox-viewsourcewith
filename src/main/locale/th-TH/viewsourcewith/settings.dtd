@@ -1,10 +1,10 @@
 <!ENTITY settings.title "ตั้งค่า ViewSourceWith">
-<!ENTITY destFolder.caption "โฟลเดอร์สำหรับไฟล์ชั่วคราว">
-<!ENTITY editorList.caption "รายชื่อเครื่องมือแก้ไข">
+<!ENTITY destFolder.caption "โฟลเดอร์ชั่วคราว">
+<!ENTITY editorList.caption "รายชื่อตัวแก้ไข">
 <!ENTITY configPath.label "ไฟล์ตั้งค่า">
 <!ENTITY defaultEditor.tree.label "ปริยาย">
 <!ENTITY description.tree.label "ชื่อ">
-<!ENTITY show.tree.label "เปิดใช้งาน?">
+<!ENTITY show.tree.label "เปิดใช้งาน">
 <!ENTITY new.button.label "เพิ่ม">
 <!ENTITY edit.button.label "แก้ไข">
 <!ENTITY delete.button.label "ลบ">
@@ -12,38 +12,38 @@
 <!ENTITY site.label "Davide Ficano">
 <!ENTITY viewSource.home.tooltip "ไปยังเว็บ ViewSourceWith">
 <!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
-<!ENTITY save.method.caption "วิธีบันทึก">
+<!ENTITY save.method.caption "วิธีการบันทึก">
 <!ENTITY save.method.normal.label "ปกติ">
-<!ENTITY save.method.dom.label "เอกสาร DOM">
-<!ENTITY save.method.advice.label "กด Shift ค้างไว้เพื่อใช้อีกวิธี">
+<!ENTITY save.method.dom.label "DOM document">
+<!ENTITY save.method.advice.label "กด Shift ค้างเพื่อใช้วิธีอื่น">
 <!ENTITY main.label "ทั่วไป">
 <!ENTITY advanced.label "ขั้นสูง">
 <!ENTITY repl.editor.label "ใช้สำหรับหัวข้อเมนู Message/Page source ดั้งเดิม">
-<!ENTITY repl.editor.open.focused.label "เปิดหน้าต่างที่โฟกัสไว้บนเฟรมเซ็ท">
-<!ENTITY repl.editor.advice.label "การตั้งค่าจะมีผลหลังการเปิดโปรแกรมครั้งหน้า">
+<!ENTITY repl.editor.open.focused.label "เปิดหน้าต่างที่โฟกัสบนเฟรมเซ็ท">
+<!ENTITY repl.editor.advice.label "การตั้งค่าจะมีผลเมื่อปิดและเปิดโปรแกรมใหม่">
 <!ENTITY repl.image.viewer.item "(ไม่มี)">
 <!ENTITY repl.image.viewer.label "ใช้สำหรับโปรแกรมดูภาพดั้งเดิม">
-<!ENTITY useProfilePath.label "ใช้ Path ที่เข้ากันได้กับโปรแกรมแบบ Portable">
-<!ENTITY image.onlink.caption "ในกรณลิงค์ที่เป็นภาพ">
+<!ENTITY useProfilePath.label "ใช้พาธที่เข้ากันได้กับโปรแกรมแบบพกพา (Portable)">
+<!ENTITY image.onlink.caption "ในกรณีลิงค์ที่เป็นภาพ">
 <!ENTITY image.onlink.image.label "ดูภาพ">
-<!ENTITY image.onlink.link.label "ดูลิงค์">
+<!ENTITY image.onlink.link.label "ดูลิงก์">
 <!ENTITY temp.tab.label "ไฟล์ชั่วคราว">
 <!ENTITY temp.clearAtExit.label "ลบไฟล์เมื่อออกจากโปรแกรม">
 <!ENTITY temp.cleanNow.label "ลบ">
-<!ENTITY view.tab.label "แสดงผล">
+<!ENTITY view.tab.label "ดู">
 <!ENTITY view.menu.label "เมนู">
 <!ENTITY view.showIcons.label "แสดงไอคอนบนเมนู">
-<!ENTITY urlmapper.tab.label "Mappings">
-<!ENTITY urlmapper.caption "รายการ Mapping">
-<!ENTITY urlmapper.enabled.tree.label "เปิดใช้งาน?">
+<!ENTITY urlmapper.tab.label "เชื่อมโยง">
+<!ENTITY urlmapper.caption "รายการเชื่อมโยง">
+<!ENTITY urlmapper.enabled.tree.label "เปิดใช้งาน">
 <!ENTITY urlmapper.name.tree.label "ชื่อ">
-<!ENTITY urlmapper.advice.label "เปิดซอร์สของหน้าบนฝั่งเซิร์ฟเวอร์">
+<!ENTITY urlmapper.advice.label "เปิดซอร์สโค้ดบนฝั่งเซิร์ฟเวอร์">
 <!ENTITY view.showResourcesMenu.label "แสดงเมนู CSS/JS">
 <!ENTITY view.quickFrameShowMenu.label "แสดงเมนู Quick access frames">
 <!ENTITY picktitle.destfolder "เลือกโฟลเดอร์">
 <!ENTITY picktitle.configPath "เลือกไฟล์ตั้งค่า">
 <!ENTITY temp.useOSPath.label "ใช้โฟลเดอร์ของระบบปฏิบัติการ">
 <!ENTITY warning.delete.item "ลบ &quot;&#37;1&quot;?">
-<!ENTITY jsconsole.label "Javascript console">
-<!ENTITY repl.jsconsole.viewer.label "ใช้สำหรับเปิดซอร์สโค้ดเข้าไปใน Javascript console">
-<!ENTITY advanced.allow.edit.text "อนุญาตให้แก้ไขเนื้อหากล่องข้อความ">
+<!ENTITY jsconsole.label "JavaScript console">
+<!ENTITY repl.jsconsole.viewer.label "ใช้สำหรับเปิดซอร์สโค้ดเข้าไปใน JavaScript console">
+<!ENTITY advanced.allow.edit.text "อนุญาตให้แก้ไขเนื้อหาในกล่องข้อความ">

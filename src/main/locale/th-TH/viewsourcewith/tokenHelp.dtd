@@ -1,11 +1,11 @@
-<!ENTITY title "special parameters">
-<!ENTITY description "คุณสามารถกำหนด Parameter พิเศษเพื่อนำไปใช้ตอนเรียกโปรแกรม Editor ได้">
-<!ENTITY parameter "Parameter">
+<!ENTITY title "พารามิเตอร์พิเศษ">
+<!ENTITY description "คุณสามารถกำหนดพารามิเตอร์พิเศษที่ไปเรียกตัวแก้ไขได้">
+<!ENTITY parameter "พารามิเตอร์">
 <!ENTITY replaced.with "หมายถึง">
 <!ENTITY file.names.descr "ชื่อไฟล์">
 <!ENTITY line.number.descr "เลขบรรทัด">
 <!ENTITY column.number.descr "เลขคอลัมน์">
-<!ENTITY meaningful.js "Parameter ที่ดอกจันจะมีผลเฉพาะในจาวาสคริปต์คอนโซล นอกนั้นจะมีค่าเป็น 1">
-<!ENTITY line.column.usage "เลขบรรทัดและคอลัมน์ใช้เพื่อกำหนดตำแหน่งเคอร์เซอร์ใน Editor">
-<!ENTITY see "ดูข้อมูลเพิ่มเติมได้ที่">
+<!ENTITY meaningful.js "พารามิเตอร์นี้จะมีผลเฉพาะในจาวาสคริปต์คอนโซล นอกนั้นมีค่าเป็น 1">
+<!ENTITY line.column.usage "เลขบรรทัดและคอลัมน์ใช้เพื่อกำหนดตำแหน่งเคอร์เซอร์ในตัวแก้ไข">
+<!ENTITY see "ดูเพิ่มเติมที่">
 <!ENTITY more.details ".">

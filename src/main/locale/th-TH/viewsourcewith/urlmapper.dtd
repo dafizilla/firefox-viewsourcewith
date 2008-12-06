@@ -1,7 +1,7 @@
 <!ENTITY dialog.urlmapper.title "การเชื่อมโยงหน้าบนเซิร์ฟเวอร์">
 <!ENTITY urlMapperName.caption "ชื่อการเชื่อมโยง">
-<!ENTITY domainfilter.caption "รายการเชื่อมโยง (regular expression)">
+<!ENTITY domainfilter.caption "รายการเชื่อมโยง (Regular Expression)">
 <!ENTITY localpath.caption "โฟลเดอร์ที่เก็บหน้าของเซิร์ฟเวอร์">
-<!ENTITY jsCode.caption "โค้ด Javascript">
-<!ENTITY jsCode.insert.tooltiptext "แทรกโค้ดไว้ล่วงหน้า">
+<!ENTITY jsCode.caption "โค้ด JavaScript">
+<!ENTITY jsCode.insert.tooltiptext "แทรกโค้ดที่เตรียมไว้">
 <!ENTITY urlmapper.picktitle.directory "เลือกโฟลเดอร์">

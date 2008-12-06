@@ -4,16 +4,16 @@
 <!ENTITY shortcut.caption "کلید میانبر">
 <!ENTITY shortcut.default.accel "Shift + Ctrl +">
 <!ENTITY shortcut.remove "حذف">
-<!ENTITY shortcut.maybe.invalid ".ممکن است بعضی از میانبرها کار نکنند">
-<!ENTITY invalid.path.chars ".مسیر نادرست است.مطمئن شوید که در آدرس کاراکترهای غیر مجاز وجود ندارد">
+<!ENTITY shortcut.maybe.invalid "ممکن است بعضی از میانبرها کار نکنند.">
+<!ENTITY invalid.path.chars "مسیر نادرست است.مطمئن شوید که در آدرس کاراکترهای غیر مجاز وجود ندارد.">
 <!ENTITY picktitle.editor "انتخاب ادیتور">
 <!ENTITY parameters.label "پارامترها">
 <!ENTITY token.filenames "(نام فایل (ها">
 <!ENTITY token.line.number "شماره خط">
 <!ENTITY token.column.number "شماره ستون">
 <!ENTITY token.help "...راهنما">
-<!ENTITY editPathPortable.label "Relative Path (example /../editors/vim)">
-<!ENTITY use.portable.label "Use path relative to profile (for portable applications)">
-<!ENTITY preview.path.label "Preview Path">
-<!ENTITY shortcut.default.caption "Default Editor Shortcut Key">
-<!ENTITY shortcut.restore "Restore">
+<!ENTITY editPathPortable.label "مسیر وابسته (نمونه: /&#46;&#46;/editors/vim)">
+<!ENTITY use.portable.label "استفاده از مسیر مربوط به پروفایل (برای برنامه‌های پرتابل)">
+<!ENTITY preview.path.label "پیش‌نمایش">
+<!ENTITY shortcut.default.caption "میانبر پیش‌فرض ویرایشگر">
+<!ENTITY shortcut.restore "بازگردانی">

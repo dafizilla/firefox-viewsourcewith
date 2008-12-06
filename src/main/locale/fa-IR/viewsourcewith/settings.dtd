@@ -1,4 +1,4 @@
-<!ENTITY settings.title "ViewSourceWith تنظیمات">
+<!ENTITY settings.title "تنظیمات ViewSourceWith">
 <!ENTITY destFolder.caption "پوشه فایل های موقت">
 <!ENTITY editorList.caption "لیست ویرایشگر">
 <!ENTITY configPath.label "فایل تنظیمات">
@@ -10,12 +10,12 @@
 <!ENTITY delete.button.label "حذف">
 <!ENTITY writtenBy.label "Davide Ficano">
 <!ENTITY site.label "نویسنده">
-<!ENTITY viewSource.home.tooltip "ViewSourceWith بازدید از سایت">
+<!ENTITY viewSource.home.tooltip "بازدید از سایت ViewSourceWith">
 <!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
 <!ENTITY save.method.caption "متد از پیش تعریف شده">
 <!ENTITY save.method.normal.label "معمولی">
-<!ENTITY save.method.dom.label "DOM document">
-<!ENTITY save.method.advice.label ".را پایین نگه دارید SHIFT برای استفاده از متدهای دیگر کلید">
+<!ENTITY save.method.dom.label "پرونده DOM">
+<!ENTITY save.method.advice.label "برای استفاده از متدهای دیگر کلید SHIFT را پایین نگه دارید .">
 <!ENTITY main.label "اصلی">
 <!ENTITY advanced.label "پیشرفته">
 <!ENTITY repl.editor.label "استفاده به جای گزینه های نمایش سورس در منو">
@@ -38,12 +38,12 @@
 <!ENTITY urlmapper.enabled.tree.label "فعال">
 <!ENTITY urlmapper.name.tree.label "نام">
 <!ENTITY urlmapper.advice.label "&apos;باز کردن سورس &apos;از طرف سرور">
-<!ENTITY view.showResourcesMenu.label "CSS/JS نمایش منوی">
-<!ENTITY view.quickFrameShowMenu.label "&apos;نمایش منوی &apos;دسترسی سریع به فریم">
+<!ENTITY view.showResourcesMenu.label "نمایش منوی CSS/JS">
+<!ENTITY view.quickFrameShowMenu.label "نمایش منوی &apos;دسترسی سریع به فریم&apos;">
 <!ENTITY picktitle.destfolder "انتخاب پوشه">
 <!ENTITY picktitle.configPath "انتخاب فایل تنظیمات">
 <!ENTITY temp.useOSPath.label "استفاده از پوشه سیستم عامل">
-<!ENTITY warning.delete.item "&quot;&#37;1&quot; پاک کردن">
+<!ENTITY warning.delete.item "پاک کردن &quot;&#37;1&quot;">
 <!ENTITY jsconsole.label "کنسول جاوا اسکریپت">
 <!ENTITY repl.jsconsole.viewer.label "برای باز کردن سورس در کنسول جاوا اسکریپت">
 <!ENTITY advanced.allow.edit.text "اجازه دادن برای ویرایش محتوای جعبه های متنی">

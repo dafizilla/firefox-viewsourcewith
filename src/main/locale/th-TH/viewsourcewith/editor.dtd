@@ -1,9 +1,9 @@
-<!ENTITY dialog.editor.title "เลือกเครื่องมือแก้ไข">
-<!ENTITY editorPath.label "พาธ">
-<!ENTITY description.label "ชื่อ">
+<!ENTITY dialog.editor.title "เลือกตัวแก้ไข">
+<!ENTITY editorPath.label "พาธของตัวแก้ไข">
+<!ENTITY description.label "คำอธิบาย">
 <!ENTITY shortcut.caption "คีย์ลัด">
-<!ENTITY shortcut.default.accel "Ctrl + Shift +">
-<!ENTITY shortcut.remove "ลบคีย์ลัด">
+<!ENTITY shortcut.default.accel "Shift + Ctrl +">
+<!ENTITY shortcut.remove "ลบ">
 <!ENTITY shortcut.maybe.invalid "คีย์ลัดบางคีย์อาจใช้ไม่ได้">
 <!ENTITY invalid.path.chars "พาธไม่ถูกต้อง กรุณาตรวจสอบให้แน่ใจว่าไม่มีอักขระที่ไม่อนุญาตอยู่">
 <!ENTITY picktitle.editor "เลือกเครื่องมือแก้ไข">
@@ -12,8 +12,8 @@
 <!ENTITY token.line.number "เลขบรรทัด">
 <!ENTITY token.column.number "เลขคอลัมน์">
 <!ENTITY token.help "คำแนะนำ...">
-<!ENTITY editPathPortable.label "Relative Path (ตัวอย่าง /&#46;&#46;/editors/vim)">
-<!ENTITY use.portable.label "ใช้ Relative Path เทียบกับโฟลเดอร์ Profile (สำหรับ Portable)">
-<!ENTITY preview.path.label "Preview Path">
-<!ENTITY shortcut.default.caption "Default Editor Shortcut Key">
-<!ENTITY shortcut.restore "Restore">
+<!ENTITY editPathPortable.label "พาธสัมพัทธ์ (เช่น /&#46;&#46;/editors/vim)">
+<!ENTITY use.portable.label "ใช้พาธสัมพัทธ์เทียบกับโฟลเดอร์ Profile (สำหรับ Portable)">
+<!ENTITY preview.path.label "พาธสำหรับดูตัวอย่าง">
+<!ENTITY shortcut.default.caption "คัย์ลัดของตัวแก้ไขหลัก">
+<!ENTITY shortcut.restore "คืนค่าเดิม">
