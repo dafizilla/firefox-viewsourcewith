@@ -23,7 +23,7 @@
 <!ENTITY repl.editor.advice.label "Einstellungen werden erst nach einem Programmneustart wirksam">
 <!ENTITY repl.image.viewer.item "Nichts">
 <!ENTITY repl.image.viewer.label "Anstelle der programmeigenen Grafikanzeige verwenden">
-<!ENTITY useProfilePath.label "Einen mit &quot;portablen&quot; Anwendungen kompatibelen Pfad verwenden">
+<!ENTITY useProfilePath.label "Einen mit portablen Anwendungen kompatiblen Pfad verwenden">
 <!ENTITY image.onlink.caption "Im Fall von Grafik-Links">
 <!ENTITY image.onlink.image.label "Grafik anzeigen">
 <!ENTITY image.onlink.link.label "Link-Ziel anzeigen">

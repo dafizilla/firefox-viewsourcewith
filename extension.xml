@@ -54,7 +54,7 @@
         <locale pos="10" code="ru-RU" />
         <locale pos="11" code="nl-NL" />
         <locale pos="12" code="es-AR" />
-        <!--<locale pos="13" code="cs-CZ" />-->
+        <locale pos="13" code="cs-CZ" />
         <!--<locale pos="14" code="zh-CN" />-->
         <locale pos="15" code="tr-TR" />
         <locale pos="16" code="sk-SK" />
