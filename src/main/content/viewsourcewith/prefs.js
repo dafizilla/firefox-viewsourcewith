@@ -137,6 +137,7 @@ ViewSourceEditorData._parseToken = function(paths, line, col, allArgs, data) {
                     break;
                 case 'c':
                     str += col;
+                    break;
                 default:
                     str += data.currToken[i];
             }
@@ -462,7 +463,14 @@ ViewSourceWithPrefs.prototype = {
         } else {
             this._configPath = configPath;
         }
-        var xml = ViewSourceWithCommon.loadTextFile(configPath);
+        var xml = "";
+        try {
+            xml = ViewSourceWithCommon.loadTextFile(configPath);
+        } catch(ex) {
+            ViewSourceWithCommon.log("VSW error" + ex);
+            throw "Ensure " + configPath + " exists and it is readable"
+                + "\nSee error console for more details";
+        }
 
         var parser = new DOMParser();
         var doc = parser.parseFromString(xml, "text/xml");
