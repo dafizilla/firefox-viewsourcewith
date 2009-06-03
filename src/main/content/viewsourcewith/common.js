@@ -336,7 +336,7 @@ ViewSourceWithCommon.generateUniqueFile = function(file, maxValue) {
     return file;
 }
 
-ViewSourceWithCommon.getDocumentFileName = function(doc) {
+ViewSourceWithCommon.getDocumentFileName = function(doc, suggestedExtension) {
     const contractIDStdURL = "@mozilla.org/network/standard-url;1";
     const nsIURL = Components.interfaces.nsIURL;
     var uri = Components.classes[contractIDStdURL].createInstance(nsIURL);
@@ -384,14 +384,24 @@ ViewSourceWithCommon.getDocumentFileName = function(doc) {
         }
     }
 
-    try {
-        fileName += "." + ViewSourceWithCommon.getMIMEService()
-                                .getPrimaryExtension(doc.contentType, null);
-    } catch (err) {
-        if (uri.fileExtension == "") {
-            fileName += ".htm";
+    var extension = "";
+    if (typeof (suggestedExtension) == "undefined"
+        || suggestedExtension == null || suggestedExtension == "") {
+        try {
+            extension = "." + ViewSourceWithCommon.getMIMEService()
+                                    .getPrimaryExtension(doc.contentType, null);
+        } catch (err) {
+            if (uri.fileExtension == "") {
+                extension = ".htm";
+            }
+        }
+    } else {
+        if (uri.fileExtension != suggestedExtension) {
+            extension = "." + suggestedExtension;
         }
     }
+
+    fileName += extension;
 
     var host = "";
 
