@@ -1,5 +1,5 @@
 <!DOCTYPE extension [
-<!ENTITY extension.version "0.4.1">
+<!ENTITY extension.version "0.4.2">
 ]>
 
 <extension name="viewsourcewith">
@@ -12,6 +12,7 @@
     <iconurl-path>content/img/appicon.png</iconurl-path>
     <optionurl-path>/content/settings/settings.xul</optionurl-path>
     <author>Davide Ficano</author>
+    <ohloh-project-name>viewsourcewith</ohloh-project-name>
 
     <!-- Point to directory containing content, locales and skins. -->
     <!-- If present must start with / (slash) -->
@@ -102,7 +103,7 @@
             <description>Firefox</description>
             <id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</id>
             <minVersion>1.5</minVersion>
-            <maxVersion>3.2a1pre</maxVersion>
+            <maxVersion>3.6a1pre</maxVersion>
         </application>
         
         <application>
@@ -116,7 +117,7 @@
             <description>Thunderbird</description>
             <id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</id>
             <minVersion>0.5</minVersion>
-            <maxVersion>3.0b2pre</maxVersion>
+            <maxVersion>3.1a1pre</maxVersion>
         </application>
         
         <application>
