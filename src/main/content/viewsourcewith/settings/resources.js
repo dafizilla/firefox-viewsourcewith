@@ -3,11 +3,16 @@
  * Date  : 14-Mar-06
  */
 var gVSWResources = {
+    resExtensions : [],
+
     onLoad : function() {
         gVSWResources.res = window.arguments[0];
         gVSWResources.prefs = window.arguments[1];
 
         gVSWResources.treeViews = new Array();
+
+        this.resExtensions[VSW_STYLE_TYPE] = "css";
+        this.resExtensions[VSW_SCRIPT_TYPE] = "js";
 
         gVSWResources.initControls();
         sizeToContent();
@@ -38,15 +43,17 @@ var gVSWResources = {
         var cleaner = ViewSourceWithTempCleaner.getTempCleaner();
 
         for (var i = 0; i < items.length; i++) {
-            var resUrl = items[i].value;
+            var resUrl = items[i].url;
             urls.push(resUrl);
 
             // local files must be read from their original disk position
             var filePath = ViewSourceWithCommon.getLocalFilePage(resUrl);
             if (!filePath) {
+                var ext = this.resExtensions[items[i].resType];
+
                 // Create a copy on temporary directory
                 filePath = ViewSourceWithCommon.initFileToRun(
-                                ViewSourceWithCommon.getDocumentFileName(resUrl),
+                                ViewSourceWithCommon.getDocumentFileName(resUrl, ext),
                                 thiz.prefs.destFolder,
                                 thiz.prefs.tempMaxFilesSamePrefix,
                                 true,
@@ -243,7 +250,7 @@ ResourceTreeView.prototype = {
 
         for (var i = 0; i < this.items.length; i++) {
             if (this.selection.isSelected(i)) {
-                ar.push( { value : this.items[i].url } );
+                ar.push(this.items[i]);
             }
         }
 
