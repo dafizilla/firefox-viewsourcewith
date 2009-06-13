@@ -6,7 +6,7 @@
 
 #viewsourcewith-button[disabled],
 #button-viewsourcewith[disabled]  {
-  -moz-opacity: 0.5;
+  opacity: 0.5;
   -moz-image-region: rect(0 41px 38px 0);
 }
 

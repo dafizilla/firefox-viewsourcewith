@@ -31,7 +31,7 @@
 .itemtreebox-edit[disabled="true"] {
   min-width: 0px;
   list-style-image: url("chrome://viewsourcewith/content/img/edit.png");
-  -moz-opacity: 0.5;
+  opacity: 0.5;
 }
 
 .itemtreebox-delete {
@@ -42,7 +42,7 @@
 .itemtreebox-delete[disabled="true"] {
   min-width: 0px;
   list-style-image: url("chrome://viewsourcewith/content/img/delete.png");
-  -moz-opacity: 0.5;
+  opacity: 0.5;
 }
 
 .filepicker-browse {
@@ -53,7 +53,7 @@
 .filepicker-browse[disabled="true"] {
   min-width: 0px;
   list-style-image: url("chrome://viewsourcewith/content/img/browse.png");
-  -moz-opacity: 0.5;
+  opacity: 0.5;
 }
 
 .link {

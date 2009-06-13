@@ -7,7 +7,7 @@
 #viewsourcewith-button[disabled],
 #button-viewsourcewith[disabled] {
   -moz-image-region: rect(8px 34px 32px 10px);
-  -moz-opacity: 0.5;
+  opacity: 0.5;
 }
 
 #viewsourcewith-button:hover,
@@ -31,7 +31,7 @@ toolbar[iconsize="small"] #viewsourcewith-button {
 }
 
 toolbar[iconsize="small"] #viewsourcewith-button[disabled] {
-  -moz-opacity: 0.5;
+  opacity: 0.5;
   -moz-image-region: rect(0px 15px 15px 0px);
 }
 
