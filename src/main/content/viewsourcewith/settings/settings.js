@@ -292,14 +292,14 @@ var gViewSourceSettings = {
             var i;
 
             // The first menuitem isn't removed
-            for (i = children.length - 1; i > 0; i--) {
+            for (var i = children.length - 1; i > 0; i--) {
                 popup.removeChild(children[i]);
             }
 
             var editorData = thiz.oTreeEditor.view.items;
             var tmp = new Array();
 
-            for (i = 0; i < editorData.length; i++) {
+            for (var i = 0; i < editorData.length; i++) {
                 var el = { index: i,
                            description: editorData[i].description
                          };
@@ -309,7 +309,7 @@ var gViewSourceSettings = {
 
             // The index on sorted item
             var currIndex = 0;
-            for (i = 0; i < tmp.length; i++) {
+            for (var i = 0; i < tmp.length; i++) {
                 if (tmp[i].index == thiz.oTreeEditor.view.imageEditorIdx) {
                     currIndex = i + 1;
                 }

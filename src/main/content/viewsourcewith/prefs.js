@@ -140,6 +140,7 @@ ViewSourceEditorData._parseToken = function(paths, line, col, allArgs, data) {
                     break;
                 default:
                     str += data.currToken[i];
+                    break;
             }
         } else {
             str += data.currToken[i];
@@ -718,7 +719,7 @@ ViewSourceWithPrefs.prototype = {
 
 
         str += '    <url-mappers>\n';
-        for (i = 0; i < this.urlMapperData.length; i++) {
+        for (var i = 0; i < this.urlMapperData.length; i++) {
             var curr = this.urlMapperData[i];
             var enabled = curr.enabled ? "true" : "false";
 

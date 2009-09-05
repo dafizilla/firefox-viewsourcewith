@@ -314,7 +314,7 @@ ViewSourceWithCommon.generateUniqueFile = function(file, maxValue) {
         var ext;
 
         if (extPos < 0) {
-            name = name;
+            name = leafName;
             ext = "";
         } else {
             name = leafName.substr(0, extPos);

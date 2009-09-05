@@ -324,7 +324,7 @@ var gViewSourceWithMain = {
             }
 
             var editorIndexes = thiz.prefs.visibleEditorIndexes;
-            for (i = 0, j = editorIndexes.length; i < j; i++) {
+            for (var i = 0, j = editorIndexes.length; i < j; i++) {
                 thiz.insertEditorMenuItem(menu, editorIndexes[i], fnViewPage, hasShortCutKey);
             }
 
@@ -504,7 +504,7 @@ var gViewSourceWithMain = {
         thiz.removeChildrenByIdPrefix(cmdset, "cmd_viewsourcewithEditor");
 
         var editorIndexes = thiz.prefs.visibleEditorIndexes;
-        for (i = 0, j = editorIndexes.length; i < j; i++) {
+        for (var i = 0, j = editorIndexes.length; i < j; i++) {
             var editor = thiz.prefs.editorData[editorIndexes[i]];
 
             if (editor.keyData) {
@@ -616,7 +616,7 @@ var gViewSourceWithMain = {
         var ctxMenus = ["contentAreaContextMenu",
                         "messagePaneContext",
                         "editorContentContext"];
-        for (i in ctxMenus) {
+        for (var i in ctxMenus) {
             var n = document.getElementById(ctxMenus[i]);
             if (n) {
                 n.addEventListener("popupshowing", thiz.onPopupShowingContextMenu, false);
@@ -665,7 +665,7 @@ var gViewSourceWithMain = {
         var ctxMenus = ["contentAreaContextMenu",
                         "messagePaneContext",
                         "editorContentContext"];
-        for (i in ctxMenus) {
+        for (var i in ctxMenus) {
             var n = document.getElementById(ctxMenus[i]);
             if (n) {
                 n.removeEventListener("popupshowing", thiz.onPopupShowingContextMenu, false);
