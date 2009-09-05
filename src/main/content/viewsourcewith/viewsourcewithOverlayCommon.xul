@@ -58,7 +58,7 @@
     <!-- preventBubble is deprecated versus stopPropagation in Gecko 1.9 -->
     <toolbarbutton
         id="viewsourcewith-button"
-        class="toolbarbutton-1"
+        class="toolbarbutton-1 chromeclass-toolbar-additional"
         type="menu-button"
         tooltiptext=""
         label="&viewsourcewithButton.label;"
