@@ -21,6 +21,7 @@ ViewSourceWithLinkInfo.prototype = {
     isOnImage : false,
     isOnLinkOrImage : false,
     isOnBGImage : false,
+    isOnMedia : false,
 
     isOnTextInput : false,
     target : null,
@@ -37,6 +38,7 @@ ViewSourceWithLinkInfo.prototype = {
         this.isOnImage = false;
         this.isOnLinkOrImage = false;
         this.isOnBGImage = false;
+        this.isOnMedia = false;
 
         this.isOnTextInput = false;
         this.target = null;
@@ -76,6 +78,7 @@ ViewSourceWithLinkInfo.prototype = {
             this.isOnBGImage = gContextMenu.hasBGImage && prefs.openBkgImage;
             this.isOnLinkOrImage = this.isOnLink || this.isOnImage || this.isOnBGImage;
             this.isOnTextInput = gContextMenu.onTextInput;
+            this.isOnMedia = gContextMenu.onVideo || gContextMenu.onAudio;
 
             this.target = gContextMenu.target;
             if (this.isOnTextInput) {

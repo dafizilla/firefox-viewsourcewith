@@ -20,6 +20,7 @@
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/browserHelper.js" />
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/pagesHandler.js" />
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/urldownloader.js" />
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/messenger.js" />
 
     <!-- Common key key_viewsourcewith -->
     <key id="key_viewsourcewith"
@@ -42,8 +43,7 @@
           accesskey="&viewsource-viewMenu.accesskey;"
           class="menu-iconic"
           insertafter="context-viewinfo">
-        <menupopup id="viewsourcewithMenuPopup"
-                   onpopupshowing="if (event.target == this) { gViewSourceWithMain.initCtxMenu(event); }" />
+        <menupopup id="viewsourcewithMenuPopup" />
     </menu>
 
     <menu id="viewsourcewith-viewMenu"
@@ -62,11 +62,9 @@
         type="menu-button"
         tooltiptext=""
         label="&viewsourcewithButton.label;"
-        oncommand="gViewSourceWithMain.runEditor(event, gViewSourceWithMain.prefs.editorDefaultIndex);"
         observes="cmd_vswEnabledEditor"
         key="key_viewsourcewith">
         <menupopup id="viewsourcewith-toolbarMenuPopup"
-                   onpopupshowing="return gViewSourceWithMain.initViewMenu(event);"
                    oncommand="event.stopPropagation();" />
     </toolbarbutton>
 

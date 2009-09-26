@@ -885,7 +885,7 @@ ViewSourceWithPrefs.prototype = {
             oldPrefBranch._prefBranch.clearUserPref(VSW_PREF_TOOLBAR_ICON_ADDED);
         }
     },
-    
+
     get openBkgImage() {
         return this._prefBranch.getBool(VSW_PREF_OPEN_BKG_IMAGE, false);
     }

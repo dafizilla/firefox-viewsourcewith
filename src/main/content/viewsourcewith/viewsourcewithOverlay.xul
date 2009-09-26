@@ -50,19 +50,36 @@
     <!-- Context Menu Firefox, Mozilla -->
     <popup id="contentAreaContextMenu">
         <menu id="vswMenuQuickFrame" />
-        <menu id="viewsourcewithMenu" />
+        <menu id="viewsourcewithMenu">
+            <menupopup id="viewsourcewithMenuPopup"
+                       onpopupshowing="if (event.target == this) { gViewSourceWithMain.initCtxMenu(event); }" />
+        </menu>
     </popup>
 
-    <!-- Context Menu Thunderbird -->
+    <!-- Context Menu Thunderbird 2 -->
     <popup id="messagePaneContext">
         <menu id="vswMenuQuickFrame" />
-        <menu id="viewsourcewithMenu" />
+        <menu id="viewsourcewithMenu">
+            <menupopup id="viewsourcewithMenuPopup"
+                       onpopupshowing="if (event.target == this) { gViewSourceWithMain.initCtxMenu(event); }" />
+        </menu>
+    </popup>
+
+    <!-- Context Menu Thunderbird 3 -->
+    <popup id="mailContext">
+        <menu id="viewsourcewithMenu">
+            <menupopup id="viewsourcewithMenuPopup"
+                       onpopupshowing="if (event.target == this) { gViewSourceWithMessenger.initThreadPaneMenu(event); }" />
+        </menu>
     </popup>
 
     <!-- Context Menu NVU -->
     <popup id="editorContentContext">
         <menu id="vswMenuQuickFrame" />
-        <menu id="viewsourcewithMenu" />
+        <menu id="viewsourcewithMenu">
+            <menupopup id="viewsourcewithMenuPopup"
+                       onpopupshowing="if (event.target == this) { gViewSourceWithMain.initCtxMenu(event); }" />
+        </menu>
     </popup>
 
     <!-- View Menu Firefox -->
@@ -97,7 +114,7 @@
               accesskey="&viewsource-viewMenu.accesskey;"
               insertafter="context-openAttachment">
             <menupopup id="viewsourcewith-attachmentMenuPopup"
-                       onpopupshowing="if (event.target == this) { gViewSourceWithMain.initViewMenu(event); }" />
+                       onpopupshowing="if (event.target == this) { gViewSourceWithMessenger.initAttachMenu(event); }" />
         </menu>
     </popup>
 
@@ -144,22 +161,38 @@
 
     <!-- Firefox Toolbar Element -->
     <toolbarpalette id="BrowserToolbarPalette">
-        <toolbarbutton id="viewsourcewith-button" />
+        <toolbarbutton id="viewsourcewith-button"
+            oncommand="gViewSourceWithMain.runEditor(event, gViewSourceWithMain.prefs.editorDefaultIndex);">
+            <menupopup id="viewsourcewith-toolbarMenuPopup"
+                       onpopupshowing="return gViewSourceWithMain.initViewMenu(event);" />
+        </toolbarbutton>
     </toolbarpalette>
 
     <!-- Thunderbird Toolbar Element -->
     <toolbarpalette id="MailToolbarPalette">
-        <toolbarbutton id="viewsourcewith-button" />
+        <toolbarbutton id="viewsourcewith-button"
+            oncommand="gViewSourceWithMain.runEditor(event, gViewSourceWithMain.prefs.editorDefaultIndex, undefined, gViewSourceWithMessenger.openMessagesFromThreadPane);">
+            <menupopup id="viewsourcewith-toolbarMenuPopup"
+                       onpopupshowing="return gViewSourceWithMessenger.initThreadPaneMenu(event);" />
+        </toolbarbutton>
     </toolbarpalette>
 
     <!-- SeamMonkey 2.0 Mail Toolbar Element -->
     <toolbarpalette id="composeToolbar">
-        <toolbarbutton id="viewsourcewith-button" insertafter="button-attach" />
+        <toolbarbutton id="viewsourcewith-button" insertafter="button-attach"
+            oncommand="gViewSourceWithMain.runEditor(event, gViewSourceWithMain.prefs.editorDefaultIndex);">
+            <menupopup id="viewsourcewith-toolbarMenuPopup"
+                       onpopupshowing="return gViewSourceWithMain.initViewMenu(event);" />
+        </toolbarbutton>
     </toolbarpalette>
 
     <!-- NVU Toolbar Element -->
     <toolbarpalette id="NvuToolbarPalette">
-        <toolbarbutton id="viewsourcewith-button" usenvustyle="true"/>
+        <toolbarbutton id="viewsourcewith-button" usenvustyle="true"
+            oncommand="gViewSourceWithMain.runEditor(event, gViewSourceWithMain.prefs.editorDefaultIndex);">
+            <menupopup id="viewsourcewith-toolbarMenuPopup"
+                       onpopupshowing="return gViewSourceWithMain.initViewMenu(event);" />
+        </toolbarbutton>
     </toolbarpalette>
 
     <!-- Mozilla/SeaMonkey Navigator Toolbar Element -->
@@ -169,22 +202,25 @@
         The updateButton function hides button with name XXXX-button
     -->
     <hbox id="nav-bar-buttons">
-        <toolbarbutton id="viewsourcewith-button" />
+        <toolbarbutton id="viewsourcewith-button"
+            oncommand="gViewSourceWithMain.runEditor(event, gViewSourceWithMain.prefs.editorDefaultIndex);">
+            <menupopup id="viewsourcewith-toolbarMenuPopup"
+                       onpopupshowing="return gViewSourceWithMain.initViewMenu(event);" />
+        </toolbarbutton>
     </hbox>
 
     <!-- Thunderbird -->
     <toolbarpalette id="MsgComposeToolbarPalette">
-        <toolbarbutton id="viewsourcewith-button" />
+        <toolbarbutton id="viewsourcewith-button"
+            oncommand="gViewSourceWithMain.runEditor(event, gViewSourceWithMain.prefs.editorDefaultIndex);">
+            <menupopup id="viewsourcewith-toolbarMenuPopup"
+                       onpopupshowing="return gViewSourceWithMain.initViewMenu(event);" />
+        </toolbarbutton>
     </toolbarpalette>
 
     <!-- Thunderbird 2.0 -->
     <toolbar id="composeToolbar2"
            defaultset="button-send,spacer,button-address,spacer,spellingButton,spacer,button-attach,viewsourcewith-button,spacer,button-security,spacer,button-save">
-    </toolbar>
-
-    <!-- Thunderbird 1.0 - 1-5 -->
-    <toolbar id="composeToolbar"
-          defaultset="button-send,spacer,button-address,spacer,spellingButton,spacer,button-attach,viewsourcewith-button,spacer,button-security,spacer,button-save,spring,throbber-box">
     </toolbar>
 
     <!-- Mozilla/SeaMonkey Mail Toolbar Element

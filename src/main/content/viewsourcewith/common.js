@@ -597,3 +597,7 @@ ViewSourceWithCommon.getLocalFilePage = function(url) {
     }
     return null;
 }
+
+ViewSourceWithCommon.isMessenger = function() {
+    return typeof(GetNumSelectedMessages) != "undefined";
+}

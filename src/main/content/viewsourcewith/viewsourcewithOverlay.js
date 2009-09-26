@@ -22,7 +22,6 @@ var gViewSourceWithMain = {
 
         var obs = ViewSourceWithCommon.getObserverService();
         obs.addObserver(thiz, "vsw:update-config", false);
-        obs.addObserver(thiz, "mail:updateToolbarItems", false);
         thiz.init();
     },
 
@@ -31,7 +30,6 @@ var gViewSourceWithMain = {
 
         var obs = ViewSourceWithCommon.getObserverService();
         obs.removeObserver(thiz, "vsw:update-config");
-        obs.removeObserver(thiz, "mail:updateToolbarItems");
         thiz.removeListeners();
     },
 
@@ -94,10 +92,6 @@ var gViewSourceWithMain = {
     initViewMenu : function(event) {
         var thiz = gViewSourceWithMain;
 
-        if (thiz.handleEmailClient(event)) {
-            return true;
-        }
-
         var doc = ViewSourceWithCommon.getFocusedDocument();
         gViewSourceWithMain._linkInfo.init(doc, thiz.prefs);
         thiz._resources = new Resources(doc);
@@ -112,20 +106,6 @@ var gViewSourceWithMain = {
 
         thiz._resources = new Resources(null);
         thiz.insertMenuItems(event.target, "viewPageFromConsoleMenu",
-                             true, false);
-        return true;
-    },
-
-    handleEmailClient : function(event) {
-        var thiz = gViewSourceWithMain;
-
-        if (!thiz.isMessenger()) {
-            return false;
-        }
-        thiz.goUpdateEditorCommands();
-        thiz._resources = new Resources(null);
-
-        thiz.insertMenuItems(event.target, "viewPageFromViewMenuTB",
                              true, false);
         return true;
     },
@@ -181,10 +161,6 @@ var gViewSourceWithMain = {
                                         false,
                                         cleaner);
                     var saver = new ViewSourceWithSaver(editorData, uniqueFilePath);
-                    if (!thiz._linkInfo.isOnLinkOrImage) {
-                        saver.pageDescriptor = ViewSourceWithBrowserHelper
-                                                .getPageDescriptor(documentToSave);
-                    }
                     var pageHandler = new VswServerPagesHandler();
 
                     if (pageHandler.matches(urlToSave, thiz.prefs.urlMapperData, 1, 1, editorData)) {
@@ -352,8 +328,14 @@ var gViewSourceWithMain = {
             var item = document.createElement("menuitem");
 
             item.setAttribute("label", thiz.prefs.editorData[thiz.prefs.editorDefaultIndex].description);
-            item.setAttribute("oncommand", "gViewSourceWithMain."
-                                    + fnViewPage + "(" + thiz.prefs.editorDefaultIndex + ", event);");
+
+            // little hack to allow existing code to work when fnViewPage is not
+            // defined in main namespace gViewSourceWithMain
+            if (fnViewPage.indexOf(".") < 0) {
+                fnViewPage = "gViewSourceWithMain." + fnViewPage;
+            }
+            item.setAttribute("oncommand",
+                                fnViewPage + "(" + thiz.prefs.editorDefaultIndex + ", event);");
             item.setAttribute("id", "viewsourcewith-viewMenuItemDefault");
             // setting key after appendChild doesn't work
             if (hasShortCutKey) {
@@ -390,8 +372,13 @@ var gViewSourceWithMain = {
             item.setAttribute("key", "viewsourcewithEditor" + label);
         }
         item.setAttribute("label", label);
-        item.setAttribute("oncommand", "gViewSourceWithMain."
-                                + fnViewPage + "(" + editorDataIdx + ", event);");
+        // little hack to allow existing code to work when fnViewPage is not
+        // defined in main namespace gViewSourceWithMain
+        if (fnViewPage.indexOf(".") < 0) {
+            fnViewPage = "gViewSourceWithMain." + fnViewPage;
+        }
+        item.setAttribute("oncommand",
+                            fnViewPage + "(" + editorDataIdx + ", event);");
         menu.appendChild(item);
 
         return item;
@@ -438,14 +425,14 @@ var gViewSourceWithMain = {
         return hasCSSorJS;
     },
 
-    runEditor : function(event, editorIdx, openFocusedWindow) {
+    runEditor : function(event, editorIdx, openFocusedWindow, fnViewPage) {
         var thiz = gViewSourceWithMain;
 
         if (!thiz.prefs.isDefaultEditorValid()) {
             thiz.openDlgSettings();
         } else {
-            if (thiz.isMessenger()) {
-                thiz.viewPageFromViewMenuTB(editorIdx, event);
+            if (typeof (fnViewPage) == "function") {
+                fnViewPage(editorIdx, event);
                 return true;
             }
             var focusedWindow = _content;
@@ -469,10 +456,6 @@ var gViewSourceWithMain = {
 
         if (topic == "vsw:update-config") {
             thiz.init();
-        } else if (topic == "mail:updateToolbarItems") {
-            if (thiz.isMessenger()) {
-                thiz.goUpdateEditorCommands();
-            }
         }
     },
 
@@ -598,10 +581,6 @@ var gViewSourceWithMain = {
                 node.removeChild(children[i]);
             }
         }
-    },
-
-    isMessenger : function() {
-        return typeof(GetNumSelectedMessages) != "undefined";
     },
 
     addListeners : function() {
@@ -772,95 +751,6 @@ var gViewSourceWithMain = {
         saver.saveURIList(urls, fileNames);
     },
 
-    viewPageFromViewMenuTB : function(editorDataIdx, event) {
-        try {
-            var thiz = gViewSourceWithMain;
-            if (thiz.handleAttachments(editorDataIdx, event)) {
-                return;
-            }
-            var messages = GetSelectedMessages();
-
-            // First, get the mail session
-            const mailSessionContractID = "@mozilla.org/messenger/services/session;1";
-            const nsIMsgMailSession = Components.interfaces.nsIMsgMailSession;
-            var mailSession = Components.classes[mailSessionContractID].getService(nsIMsgMailSession);
-
-            var mailCharacterSet = "charset=" + msgWindow.mailCharacterSet;
-
-            var messenger = Components.classes['@mozilla.org/messenger;1'].createInstance();
-            messenger = messenger.QueryInterface(Components.interfaces.nsIMessenger);
-
-            var urls = new Array();
-            var fileNames = new Array();
-            var cleaner = ViewSourceWithTempCleaner.getTempCleaner();
-
-            for (var i = 0; i < messages.length; i++) {
-                // Now, we need to get a URL from a URI
-                var url = mailSession.ConvertMsgURIToMsgURL(messages[i], msgWindow);
-                var subject = messenger.messageServiceFromURI(url)
-                             .messageURIToMsgHdr(messages[i]).mime2DecodedSubject;
-                // 20-Apr-07 If subject contains Japanese characters many editors
-                // are unable to open the file so subject is no more added to file name
-                var fileName = /*subject + */"msg" + i + ".html";
-                var filePath = ViewSourceWithCommon.initFileToRun(
-                                    unescape(fileName),
-                                    thiz.prefs.destFolder,
-                                    thiz.prefs.tempMaxFilesSamePrefix,
-                                    true,
-                                    cleaner);
-
-                urls.push(url);
-                fileNames.push(filePath);
-            }
-            var saver = new UrlDownloader();
-            saver.callbackObject = { editorData : thiz.prefs.editorData[editorDataIdx],
-                                     urlMapperData : thiz.prefs.urlMapperData};
-            saver.onFinish = thiz.onFinishRunEditor;
-            saver.saveURIList(urls, fileNames);
-        } catch (err) {
-            ViewSourceWithCommon.log("viewPageFromViewMenuTB: " + err);
-        }
-    },
-
-    handleAttachments : function(editorDataIdx, event) {
-        var thiz = gViewSourceWithMain;
-
-        var attachmentList = document.commandDispatcher.focusedElement;
-        var canHandle = attachmentList
-                        && attachmentList.id == "attachmentList"
-                        && attachmentList.selectedItems.length > 0;
-
-        if (!canHandle) {
-            return false;
-        }
-
-        var selectedAttachments = attachmentList.selectedItems;
-        var urls = new Array();
-        var fileNames = new Array();
-        var cleaner = ViewSourceWithTempCleaner.getTempCleaner();
-
-        for (var i = 0; i < selectedAttachments.length; i++) {
-            var attach = selectedAttachments[i].attachment;
-            var fileName = attach.displayName;
-            var filePath = ViewSourceWithCommon.initFileToRun(
-                                fileName,
-                                thiz.prefs.destFolder,
-                                thiz.prefs.tempMaxFilesSamePrefix,
-                                true,
-                                cleaner);
-            fileNames.push(filePath);
-            urls.push(attach.url);
-        }
-
-        var saver = new UrlDownloader();
-        saver.callbackObject = { editorData : thiz.prefs.editorData[editorDataIdx],
-                                 urlMapperData : thiz.prefs.urlMapperData};
-        saver.onFinish = thiz.onFinishRunEditor;
-        saver.saveURIList(urls, fileNames);
-
-        return true;
-    },
-
     onFinishRunEditor : function(urls, outFiles, callbackObject) {
         var pageHandler = new VswServerPagesHandler();
         pageHandler.runEditor(urls,
@@ -869,13 +759,6 @@ var gViewSourceWithMain = {
                               callbackObject.editorData,
                               callbackObject.line,
                               callbackObject.col);
-    },
-
-    goUpdateEditorCommands : function(cmdset) {
-        var isEnabled = GetNumSelectedMessages() > 0;
-
-        goSetCommandEnabled("cmd_vswEnabledEditor", isEnabled);
-        goSetCommandEnabled("cmd_runDefaultEditor", isEnabled);
     },
 
     updateFocused : function() {
@@ -915,27 +798,29 @@ var gViewSourceWithMain = {
         if (!menu) {
             return;
         }
-        var label;
-        var accesskey;
+        var label = "viewsource.label";
+        var accesskey = "viewsource.accesskey";
         if (isOnTextBox) {
             label = "edittext.label";
             accesskey = "edittext.accesskey";
-        } else if (info && info.isOnLinkOrImage) {
-            if (info.isOnLink) {
-                if (info.isOnImage && gViewSourceWithMain.prefs.openImageOnLink) {
+        } else if (info) {
+            if (info.isOnLinkOrImage) {
+                if (info.isOnLink) {
+                    if (info.isOnImage && gViewSourceWithMain.prefs.openImageOnLink) {
+                        label = "viewsource.image.label";
+                        accesskey = "viewsource.image.accesskey";
+                    } else {
+                        label = "viewsource.link.label";
+                        accesskey = "viewsource.link.accesskey";
+                    }
+                } else {
                     label = "viewsource.image.label";
                     accesskey = "viewsource.image.accesskey";
-                } else {
-                    label = "viewsource.link.label";
-                    accesskey = "viewsource.link.accesskey";
                 }
-            } else {
-                label = "viewsource.image.label";
-                accesskey = "viewsource.image.accesskey";
+            } else if (info.isOnMedia) {
+                label = "viewsource.media.label";
+                accesskey = "viewsource.media.accesskey";
             }
-        } else {
-            label = "viewsource.label";
-            accesskey = "viewsource.accesskey";
         }
 
         menu.setAttribute("label", ViewSourceWithCommon.getLocalizedMessage(label));
@@ -953,10 +838,6 @@ function ViewSourceWithSaver(editorData, appFile) {
     this.editorData = editorData;
     this.appFile = appFile;
     this.openFileCallback = null;
-    this.pageDescriptor = null;
-    this.webShell = null;
-    this.progress = null;
-    this.useCache = false;
 }
 
 ViewSourceWithSaver.prototype = {
@@ -966,10 +847,6 @@ ViewSourceWithSaver.prototype = {
     },
 
     saveURI : function(urlToSave) {
-        if (this.loadFromCache(Components.interfaces
-                                .nsIWebPageDescriptor.DISPLAY_AS_SOURCE)) {
-            return;
-        }
         this.internalSaveURI(urlToSave);
     },
 
@@ -980,7 +857,6 @@ ViewSourceWithSaver.prototype = {
 
         try {
             if (isLoadFinished) {
-                this.flushCache();
                 if (this.openFileCallback) {
                     try {
                         this.openFileCallback.onOpenFile(this.editorData,
@@ -1041,40 +917,6 @@ ViewSourceWithSaver.prototype = {
                         null, this.appFile);
     },
 
-    loadFromCache : function(displayType) {
-        this.useCache = false;
-
-        if (!this.pageDescriptor) {
-            return false;
-        }
-
-        try {
-            this.webShell = Components.classes["@mozilla.org/webshell;1"]
-                                    .createInstance();
-
-            const nsIWebProgress = Components.interfaces.nsIWebProgress;
-            this.progress = this.webShell.QueryInterface(nsIWebProgress);
-            this.progress.addProgressListener(this,
-                                         nsIWebProgress.NOTIFY_STATE_DOCUMENT);
-            var pageLoader = this.webShell.QueryInterface(
-                                Components.interfaces.nsIWebPageDescriptor);
-            pageLoader.loadPage(this.pageDescriptor, displayType);
-            this.useCache = true;
-        } catch (err) {
-        }
-        return this.useCache;
-    },
-
-    flushCache : function() {
-        if (!this.useCache) {
-            return;
-        }
-        var webNavigation = this.webShell.QueryInterface(
-                                Components.interfaces.nsIWebNavigation);
-        var content = webNavigation.document.body.textContent;
-        ViewSourceWithCommon.saveTextFile(this.appFile, content);
-    },
-
     onStatusChange : function(webProgress, request, status, message) {},
     onLocationChange : function(webProgress, request, location) {},
     onProgressChange : function(webProgress, request,
@@ -1086,3 +928,4 @@ ViewSourceWithSaver.prototype = {
 window.addEventListener("load", gViewSourceWithMain.onLoad, false);
 window.addEventListener("unload", gViewSourceWithMain.onUnLoad, false);
 window.addEventListener("pagehide", gViewSourceWithMain.onPagehide, false);
+

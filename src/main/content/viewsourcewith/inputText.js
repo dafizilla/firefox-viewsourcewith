@@ -83,7 +83,7 @@ var ViewSourceWithInputText = {
                     textTarget.setModified(false);
                     textTarget.lastModifiedTime = currFileTime;
                     textTarget.listenModification();
-                    
+
                     // Set mail status to modified
                     if (typeof gMsgCompose != "undefined") {
                         gMsgCompose.bodyModified = true;
