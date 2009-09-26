@@ -38,16 +38,45 @@ var gViewSourceWithMessenger = {
     onLoad : function() {
         var obs = ViewSourceWithCommon.getObserverService();
         obs.addObserver(this, "mail:updateToolbarItems", false);
+
+        this.addListener();
     },
 
     onUnLoad : function() {
         var obs = ViewSourceWithCommon.getObserverService();
         obs.removeObserver(this, "mail:updateToolbarItems");
+        this.removeListeners();
     },
 
     observe : function(subject, topic, state) {
         if (topic == "mail:updateToolbarItems") {
             this.goUpdateEditorCommands();
+        }
+    },
+
+    addListener : function() {
+        var attachContext = document.getElementById("attachmentListContext");
+        if (attachContext) {
+            attachContext.addEventListener("popupshowing",
+                        this.onPopupShowingAttachContextMenu, false);
+        }
+    },
+
+    removeListeners : function() {
+        var attachContext = document.getElementById("attachmentListContext");
+        if (attachContext) {
+            attachContext.removeEventListener("popupshowing",
+                                this.onPopupShowingAttachContextMenu, false);
+        }
+    },
+
+    onPopupShowingAttachContextMenu : function(event) {
+        if (event.target == this) {
+            var attachmentList = document.getElementById("attachmentList");
+            if (attachmentList) {
+                var isEnabled = attachmentList.selectedItems.length > 0;
+                goSetCommandEnabled("cmd_vswAttachment", isEnabled);
+            }
         }
     },
 

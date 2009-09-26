@@ -603,12 +603,6 @@ var gViewSourceWithMain = {
             }
         }
 
-        var attachContext = document.getElementById("attachmentListContext");
-        if (attachContext) {
-            attachContext.addEventListener("popupshowing",
-                        thiz.onPopupShowingAttachContextMenu, false);
-        }
-
         var console = document.getElementById("ConsoleBox");
         if (console) {
             console.addEventListener("click", thiz.onClickConsole, true);
@@ -651,12 +645,6 @@ var gViewSourceWithMain = {
                 n.removeEventListener("popuphidden", thiz.onPopupHiddenContextMenu, false);
             }
         }
-
-        var attachContext = document.getElementById("attachmentListContext");
-        if (attachContext) {
-            attachContext.removeEventListener("popupshowing",
-                                thiz.onPopupShowingAttachContextMenu, false);
-        }
     },
 
     onPopupShowingContextMenu : function(event) {
@@ -696,16 +684,6 @@ var gViewSourceWithMain = {
     onPopupHiddenContextMenu : function(event) {
         if (event.target == this) {
             gViewSourceWithMain._linkInfo.reset();
-        }
-    },
-
-    onPopupShowingAttachContextMenu : function(event) {
-        if (event.target == this) {
-            var attachmentList = document.getElementById("attachmentList");
-            if (attachmentList) {
-                var isEnabled = attachmentList.selectedItems.length > 0;
-                goSetCommandEnabled("cmd_vswAttachment", isEnabled);
-            }
         }
     },
 
