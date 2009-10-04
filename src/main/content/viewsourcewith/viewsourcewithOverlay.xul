@@ -212,9 +212,9 @@
     <!-- Thunderbird -->
     <toolbarpalette id="MsgComposeToolbarPalette">
         <toolbarbutton id="viewsourcewith-button"
-            oncommand="gViewSourceWithMain.runEditor(event, gViewSourceWithMain.prefs.editorDefaultIndex);">
+            oncommand="gViewSourceWithMain.runEditor(event, gViewSourceWithMain.prefs.editorDefaultIndex, undefined, gViewSourceWithMessenger.openMessageFromCompose);">
             <menupopup id="viewsourcewith-toolbarMenuPopup"
-                       onpopupshowing="return gViewSourceWithMain.initViewMenu(event);" />
+                       onpopupshowing="if (event.target == this) { gViewSourceWithMessenger.initComposeMenu(event); }" />
         </toolbarbutton>
     </toolbarpalette>
 

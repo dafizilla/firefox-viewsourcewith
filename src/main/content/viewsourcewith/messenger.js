@@ -103,6 +103,15 @@ var gViewSourceWithMessenger = {
         return this.initThreadPaneMenu(event, "gViewSourceWithMessenger.viewAttachments");
     },
 
+    initComposeMenu : function(event) {
+        gViewSourceWithMain._resources = new Resources(null);
+
+        gViewSourceWithMain.insertMenuItems(event.target,
+                    "gViewSourceWithMessenger.openMessageFromCompose",
+                    true, false);
+        return true;
+    },
+
     openMessagesFromThreadPane : function(editorDataIdx, event) {
         try {
             var prefs = gViewSourceWithMain.prefs;
@@ -158,6 +167,26 @@ var gViewSourceWithMessenger = {
         }
     },
 
+    openMessageFromCompose : function(editorDataIdx, event) {
+        var editor = GetCurrentEditor();
+
+        if (!editor) {
+            return;
+        }
+        
+        var editorInfo = {};
+        editorInfo.textWindow = editor.document.defaultView;
+        editorInfo.textElement = editor;
+        editorInfo.textView = editor.document.defaultView;
+        editorInfo.htmlEditor = ViewSourceWithCommon.getEditorForWindow(editor.document.defaultView);
+        editorInfo.isHtmlEditor = true;
+
+        editorInfo.textWindow.focus();
+        gViewSourceWithMain._linkInfo.init(editor.document, gViewSourceWithMain.prefs, editorInfo);
+
+        gViewSourceWithMain.viewPage(gViewSourceWithMain._linkInfo.doc, editorDataIdx, event);
+    },
+    
     viewAttachments : function(editorDataIdx, event) {
         var attachmentList = document.getElementById("attachmentList");
         var canHandle = attachmentList

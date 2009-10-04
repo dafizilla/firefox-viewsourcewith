@@ -46,7 +46,7 @@ ViewSourceWithLinkInfo.prototype = {
         this.extType = null;
     },
 
-    init : function(document, prefs) {
+    init : function(document, prefs, editorInfo) {
         this.reset();
         this.doc = document;
         this.url = document.location.href;
@@ -60,7 +60,7 @@ ViewSourceWithLinkInfo.prototype = {
                                 .getPrimaryExtension(this.doc.contentType, null);
                     this.isOnImage = true;
             } else {
-                this.handleInputText();
+                this.handleInputText(editorInfo);
             }
         }
 
@@ -108,9 +108,15 @@ ViewSourceWithLinkInfo.prototype = {
         return handled;
     },
 
-    handleInputText : function() {
-        var editorInfo = {};
-        var view = this.findFocusedTextView(null, editorInfo);
+    handleInputText : function(editorInfo) {
+        var view;
+        
+        if (editorInfo) {
+            view = editorInfo.textView;
+        } else {
+            editorInfo = {};
+            view = this.findFocusedTextView(null, editorInfo);
+        }
 
         if (view) {
             this.isOnTextInput = true;
