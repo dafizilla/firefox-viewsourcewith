@@ -554,7 +554,8 @@ ViewSourceWithCommon.addToolbarButton = function(buttonId) {
     var toolbar =
         document.getElementById('nav-bar') ||
         document.getElementById('mail-bar') ||
-        document.getElementById('mail-bar2');
+        document.getElementById('mail-bar2') ||
+        document.getElementById('mail-bar3');
 
     if (toolbar
         && toolbar.currentSet
@@ -573,7 +574,8 @@ ViewSourceWithCommon.isToolbarCustomizable = function() {
     var toolbar =
         document.getElementById('nav-bar') ||
         document.getElementById('mail-bar') ||
-        document.getElementById('mail-bar2');
+        document.getElementById('mail-bar2') ||
+        document.getElementById('mail-bar3');
 
     return toolbar && toolbar.currentSet;
 }
@@ -582,7 +584,8 @@ ViewSourceWithCommon.isToolbarButtonAlreadyPresent = function(buttonId) {
     var toolbar =
         document.getElementById('nav-bar') ||
         document.getElementById('mail-bar') ||
-        document.getElementById('mail-bar2');
+        document.getElementById('mail-bar2') ||
+        document.getElementById('mail-bar3');
 
     return toolbar && toolbar.currentSet && toolbar.currentSet.indexOf(buttonId) >= 0;
 }
