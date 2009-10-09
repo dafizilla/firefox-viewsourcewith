@@ -72,6 +72,9 @@
         <copy todir="${tmp.dir}/${extension.name}/install/platform" failonerror="false">
             <fileset dir="${src.dir}/platform" />
         </copy>
+        <copy todir="${replacement.output.dir}/defaults" failonerror="false" overwrite="true">
+            <fileset dir="${src.dir}/defaults" />
+        </copy>
     </target>
 
     <target name="apply-install-js" unless="exclude.installjs">
@@ -144,11 +147,6 @@
        </xslt>
     </target>
 
-    <target name="jar1">
-        <mkdir dir="${tmp.dir}/${extension.name}/main"/>
-        <zip destfile="${tmp.dir}/${extension.name}/main/${jar.name}" basedir="${src.main.dir}" compress="false"/>
-    </target>
-
     <target name="jar">
         <mkdir dir="${tmp.dir}/${extension.name}/main"/>
 
@@ -212,7 +210,27 @@
         <mkdir dir="${migrate.dir}/profile" />
     </target>
 
-    <target name="upload" depends="bin-dist">
+    <target name="upload" depends="bin-dist, upload-ohloh, upload-sfnet" description="Upload to web sites host application"/>
+
+    <target name="upload-sfnet" if="upload.sfnet">
+        <echo message="Uploading ${dist.name}.xpi to frs.sourceforge.net" />
+
+        <!-- If sfnet.directory is not defined then set it to extension.name -->
+        <condition property="sfnet.directory" value="${extension.name}">
+            <not>
+                <isset property="${sfnet.directory}"/>
+            </not>
+        </condition>
+        
+        <exec executable="rsync">
+          <arg value="-e"/>
+          <arg value="ssh"/>
+          <arg value="${bin.dist.dir}/${dist.name}.xpi"/>
+          <arg value="dafi,dafizilla@frs.sourceforge.net:/home/frs/project/d/da/dafizilla/${sfnet.directory}/v${extension.version}/"/>
+        </exec>
+    </target>
+
+    <target name="upload-ohloh" if="upload.ohloh">
         <echo message="Uploading ${dist.name}.xpi to upload.ohloh.net" />
         <exec executable="scp">
           <arg value="${bin.dist.dir}/${dist.name}.xpi"/>
