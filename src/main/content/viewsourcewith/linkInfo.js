@@ -110,7 +110,7 @@ ViewSourceWithLinkInfo.prototype = {
 
     handleInputText : function(editorInfo) {
         var view;
-        
+
         if (editorInfo) {
             view = editorInfo.textView;
         } else {

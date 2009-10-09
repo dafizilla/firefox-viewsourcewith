@@ -173,7 +173,7 @@ var gViewSourceWithMessenger = {
         if (!editor) {
             return;
         }
-        
+
         var editorInfo = {};
         editorInfo.textWindow = editor.document.defaultView;
         editorInfo.textElement = editor;
@@ -186,7 +186,7 @@ var gViewSourceWithMessenger = {
 
         gViewSourceWithMain.viewPage(gViewSourceWithMain._linkInfo.doc, editorDataIdx, event);
     },
-    
+
     viewAttachments : function(editorDataIdx, event) {
         var attachmentList = document.getElementById("attachmentList");
         var canHandle = attachmentList

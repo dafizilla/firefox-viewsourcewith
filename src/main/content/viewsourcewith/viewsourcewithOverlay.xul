@@ -12,16 +12,6 @@
         <commandset id="viewSourceWithCommands" />
     </commandset>
 
-    <!-- Command set Thunderbird-->
-    <commandset id="mailCommands">
-        <commandset id="viewSourceWithCommands" />
-    </commandset>
-
-    <!-- Command set Thunderbird compose window-->
-    <commandset id="composeCommands">
-        <commandset id="viewSourceWithCommands" />
-    </commandset>
-
     <!-- Command set Mozilla-->
     <commandset id="commands">
         <commandset id="viewSourceWithCommands" />
@@ -37,39 +27,12 @@
         <commandset id="viewSourceWithCommands" />
     </commandset>
 
-    <commandset id="viewSourceWithCommands">
-        <command id="cmd_runDefaultEditor" oncommand="gViewSourceWithMain.runEditor(event, gViewSourceWithMain.prefs.editorDefaultIndex, gViewSourceWithMain.prefs.openFocusWin);" />
-        <command id="cmd_vswEnabledEditor" />
-        <command id="cmd_vswAttachment" />
-
-        <commandset id="viewSourceWithEditMenuCommandSet" commandupdater="true" events="focus"
-                oncommandupdate="gViewSourceWithMain.updateFocused()"/>
-
-    </commandset>
-
     <!-- Context Menu Firefox, Mozilla -->
     <popup id="contentAreaContextMenu">
         <menu id="vswMenuQuickFrame" />
         <menu id="viewsourcewithMenu">
             <menupopup id="viewsourcewithMenuPopup"
                        onpopupshowing="if (event.target == this) { gViewSourceWithMain.initCtxMenu(event); }" />
-        </menu>
-    </popup>
-
-    <!-- Context Menu Thunderbird 2 -->
-    <popup id="messagePaneContext">
-        <menu id="vswMenuQuickFrame" />
-        <menu id="viewsourcewithMenu">
-            <menupopup id="viewsourcewithMenuPopup"
-                       onpopupshowing="if (event.target == this) { gViewSourceWithMain.initCtxMenu(event); }" />
-        </menu>
-    </popup>
-
-    <!-- Context Menu Thunderbird 3 -->
-    <popup id="mailContext">
-        <menu id="viewsourcewithMenu">
-            <menupopup id="viewsourcewithMenuPopup"
-                       onpopupshowing="if (event.target == this) { gViewSourceWithMessenger.initThreadPaneMenu(event); }" />
         </menu>
     </popup>
 
@@ -81,6 +44,14 @@
                        onpopupshowing="if (event.target == this) { gViewSourceWithMain.initCtxMenu(event); }" />
         </menu>
     </popup>
+
+    <menu id="viewsourcewith-viewMenu"
+          label="&cmd.viewsource-viewMenu.label;"
+          observes="cmd_vswEnabledEditor"
+          accesskey="&viewsource-viewMenu.accesskey;">
+        <menupopup id="viewsourcewith-viewMenuPopup"
+                   onpopupshowing="if (event.target == this) { gViewSourceWithMain.initViewMenu(event); }" />
+    </menu>
 
     <!-- View Menu Firefox -->
     <menupopup id="menu_viewPopup">
@@ -102,40 +73,8 @@
         </menu>
     </popup>
 
-    <!--
-        To handle correctly insertafter is necessary to overlay msgHdrViewOverlay.xul
-        But overlaying msgHdrViewOverlay.xul we must remove the messenger.xul overlay
-        that includes msgHdrViewOverlay.xul making insertafter not reachable
-    -->
-    <popup id="attachmentListContext">
-        <menu id="viewsourcewith-attachmentMenu"
-              label="&cmd.viewsource-attachMenu.label;"
-              observes="cmd_vswAttachment"
-              accesskey="&viewsource-viewMenu.accesskey;"
-              insertafter="context-openAttachment">
-            <menupopup id="viewsourcewith-attachmentMenuPopup"
-                       onpopupshowing="if (event.target == this) { gViewSourceWithMessenger.initAttachMenu(event); }" />
-        </menu>
-    </popup>
-
-    <popup id="msgComposeContext">
-        <menu id="viewsourcewith-msgCompose"
-              label="&cmd.viewsource-attachMenu.label;"
-              observes="cmd_vswAttachment"
-              accesskey="&viewsource-viewMenu.accesskey;"
-              insertafter="spellCheckSuggestionsSeparator">
-            <menupopup id="viewsourcewith-msgComposeMenuPopup"
-                       onpopupshowing="if (event.target == this) { gViewSourceWithMain.initViewMenu(event); }" />
-        </menu>
-    </popup>
-
     <!-- Shortcuts Element Firefox -->
     <keyset id="mainKeyset">
-        <key id="key_viewsourcewith" />
-    </keyset>
-
-    <!-- Shortcuts Element Thunderbird -->
-    <keyset id="mailKeys">
         <key id="key_viewsourcewith" />
     </keyset>
 
@@ -168,24 +107,6 @@
         </toolbarbutton>
     </toolbarpalette>
 
-    <!-- Thunderbird Toolbar Element -->
-    <toolbarpalette id="MailToolbarPalette">
-        <toolbarbutton id="viewsourcewith-button"
-            oncommand="gViewSourceWithMain.runEditor(event, gViewSourceWithMain.prefs.editorDefaultIndex, undefined, gViewSourceWithMessenger.openMessagesFromThreadPane);">
-            <menupopup id="viewsourcewith-toolbarMenuPopup"
-                       onpopupshowing="return gViewSourceWithMessenger.initThreadPaneMenu(event);" />
-        </toolbarbutton>
-    </toolbarpalette>
-
-    <!-- SeamMonkey 2.0 Mail Toolbar Element -->
-    <toolbarpalette id="composeToolbar">
-        <toolbarbutton id="viewsourcewith-button" insertafter="button-attach"
-            oncommand="gViewSourceWithMain.runEditor(event, gViewSourceWithMain.prefs.editorDefaultIndex);">
-            <menupopup id="viewsourcewith-toolbarMenuPopup"
-                       onpopupshowing="return gViewSourceWithMain.initViewMenu(event);" />
-        </toolbarbutton>
-    </toolbarpalette>
-
     <!-- NVU Toolbar Element -->
     <toolbarpalette id="NvuToolbarPalette">
         <toolbarbutton id="viewsourcewith-button" usenvustyle="true"
@@ -208,20 +129,6 @@
                        onpopupshowing="return gViewSourceWithMain.initViewMenu(event);" />
         </toolbarbutton>
     </hbox>
-
-    <!-- Thunderbird -->
-    <toolbarpalette id="MsgComposeToolbarPalette">
-        <toolbarbutton id="viewsourcewith-button"
-            oncommand="gViewSourceWithMain.runEditor(event, gViewSourceWithMain.prefs.editorDefaultIndex, undefined, gViewSourceWithMessenger.openMessageFromCompose);">
-            <menupopup id="viewsourcewith-toolbarMenuPopup"
-                       onpopupshowing="if (event.target == this) { gViewSourceWithMessenger.initComposeMenu(event); }" />
-        </toolbarbutton>
-    </toolbarpalette>
-
-    <!-- Thunderbird 2.0 -->
-    <toolbar id="composeToolbar2"
-           defaultset="button-send,spacer,button-address,spacer,spellingButton,spacer,button-attach,viewsourcewith-button,spacer,button-security,spacer,button-save">
-    </toolbar>
 
     <!-- Mozilla/SeaMonkey Mail Toolbar Element
         On Mail toolbar the button ids are xxx-button

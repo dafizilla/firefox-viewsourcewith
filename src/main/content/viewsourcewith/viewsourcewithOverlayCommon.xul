@@ -22,6 +22,15 @@
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/urldownloader.js" />
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/messenger.js" />
 
+    <commandset id="viewSourceWithCommands">
+        <command id="cmd_runDefaultEditor" oncommand="gViewSourceWithMain.runEditor(event, gViewSourceWithMain.prefs.editorDefaultIndex, gViewSourceWithMain.prefs.openFocusWin);" />
+        <command id="cmd_vswEnabledEditor" />
+        <command id="cmd_vswAttachment" />
+
+        <commandset id="viewSourceWithEditMenuCommandSet" commandupdater="true" events="focus"
+                oncommandupdate="gViewSourceWithMain.updateFocused()"/>
+    </commandset>
+
     <!-- Common key key_viewsourcewith -->
     <key id="key_viewsourcewith"
          key="&viewsourcewith.commandkey;"
@@ -44,14 +53,6 @@
           class="menu-iconic"
           insertafter="context-viewinfo">
         <menupopup id="viewsourcewithMenuPopup" />
-    </menu>
-
-    <menu id="viewsourcewith-viewMenu"
-          label="&cmd.viewsource-viewMenu.label;"
-          observes="cmd_vswEnabledEditor"
-          accesskey="&viewsource-viewMenu.accesskey;">
-        <menupopup id="viewsourcewith-viewMenuPopup"
-                   onpopupshowing="if (event.target == this) { gViewSourceWithMain.initViewMenu(event); }" />
     </menu>
 
     <!-- Common toolbarbutton viewsourcewith-button -->

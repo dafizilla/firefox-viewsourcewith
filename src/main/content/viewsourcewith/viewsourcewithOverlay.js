@@ -179,33 +179,6 @@ var gViewSourceWithMain = {
         }
     },
 
-    getLocalFilePathFromLinkInfo : function(linkInfo, saveDOM) {
-        var url = linkInfo.url;
-        var thiz = gViewSourceWithMain;
-        var ret = { isLocal : true,
-                    filePath : null
-                  };
-        var filePath;
-
-        // Local file can be saved as DOM documents
-        if (!saveDOM && (filePath = ViewSourceWithCommon.getLocalFilePage(url)) != null) {
-            ret.isLocal = true;
-            ret.filePath = filePath;
-        } else {
-            var fileName;
-            if (linkInfo.isOnLinkOrImage) {
-                fileName = ViewSourceWithCommon.getDocumentFileName(url);
-            } else {
-                fileName = ViewSourceWithCommon.getDocumentFileName(linkInfo.doc);
-            }
-            ret.isLocal = false;
-            ret.filePath = ViewSourceWithCommon.makeLocalFile(
-                                thiz.prefs.destFolder,
-                                [fileName]);
-        }
-        return ret;
-    },
-
     openDlgSettings : function() {
         // Javascript console requires browser.js and mailcore.js but when
         // they are declared in viewsourcewithOverlay.xul hang VSW. So we use
@@ -436,8 +409,11 @@ var gViewSourceWithMain = {
                 return true;
             }
             var focusedWindow = _content;
+            if (typeof(openFocusedWindow) == "undefined" || openFocusedWindow == null) {
+                openFocusedWindow = true;
+            }
 
-            if (openFocusedWindow == undefined || openFocusedWindow) {
+            if (openFocusedWindow) {
                 focusedWindow = document.commandDispatcher.focusedWindow;
                 // Don't get url from browser widgets (e.g. google bar, address bar)
                 if (focusedWindow == window) {
