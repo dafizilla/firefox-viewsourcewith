@@ -224,6 +224,7 @@ function ViewSourceWithPrefs() {
     this._replaceJSConsole = true;
     this._allowEditText = true;
     this._defaultShortcutKey = this.newDefaultEditorKeyData();
+    this._showButtonOnPopup = true;
 }
 
 ViewSourceWithPrefs.getTempDir = function() {
@@ -261,6 +262,7 @@ ViewSourceWithPrefs.prototype = {
         this._replaceJSConsole = prefs._replaceJSConsole;
         this._allowEditText = prefs._allowEditText;
         this._defaultShortcutKey.copy(prefs._defaultShortcutKey);
+        this._showButtonOnPopup = prefs._showButtonOnPopup;
     },
 
     get destFolder() {
@@ -443,6 +445,14 @@ ViewSourceWithPrefs.prototype = {
         return this._prefBranch.setBool(VSW_PREF_TOOLBAR_ICON_ADDED, newValue);
     },
 
+    get showButtonOnPopup() {
+        return this._showButtonOnPopup;
+    },
+
+    set showButtonOnPopup(newValue) {
+        this._showButtonOnPopup = newValue;
+    },
+
     /**
      * If path doesn't exist create the file, set configPath and return its path
      */
@@ -504,6 +514,7 @@ ViewSourceWithPrefs.prototype = {
             this._allowEditText = this.getBoolean(doc, "allow-edit-text", true);
 
             this._defaultShortcutKey = this.getDefaultShortcutKey(doc);
+            this._showButtonOnPopup = this.getBoolean(doc, "show-button-on-popup", true);
         } else {
             throw this.getTagValue(doc, "parsererror");
         }
@@ -663,7 +674,7 @@ ViewSourceWithPrefs.prototype = {
         var str = "";
 
         str += '<?xml version="1.0" encoding="' + charset + '"?>\n';
-        str += '<view-source-with version="1.1">\n';
+        str += '<view-source-with version="1.2">\n';
         str += '    <default-item-index>' + this._editorDefaultIndex + '</default-item-index>\n';
         str += '    <show-frame-warning>' + this._showFrameWarning + '</show-frame-warning>\n';
         str += '    <save-method>'        + this._saveMethod + '</save-method>\n';
@@ -673,6 +684,7 @@ ViewSourceWithPrefs.prototype = {
         str += '    <native-image-editor-index>'     + this._nativeImageEditorIndex + '</native-image-editor-index>\n';
         str += '    <replace-jsconsole-editor>'     + this._replaceJSConsole + '</replace-jsconsole-editor>\n';
         str += '    <allow-edit-text>'     + this._allowEditText + '</allow-edit-text>\n';
+        str += '    <show-button-on-popup>' + this._showButtonOnPopup + '</show-button-on-popup>\n';
 
         str += '    <default-editor-key>\n';
         str += '        ' + KeyData.toXml(this._defaultShortcutKey) + '\n';

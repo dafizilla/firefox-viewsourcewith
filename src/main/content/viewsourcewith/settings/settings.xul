@@ -133,6 +133,15 @@
                </radiogroup>
             </vbox>
         </groupbox>
+
+        <groupbox orient="horizontal" align="center">
+            <caption label="&view.toolbarbutton.on.popup.caption;"/>
+            <vbox flex="1">
+              <checkbox id="toolbarbuttonOnPopup"
+                        label="&view.toolbarbutton.on.popup.label;"
+                        checked="true"/>
+            </vbox>
+        </groupbox>
       </tabpanel>
 
       <tabpanel id="advanced" orient="vertical" style="overflow: auto;">

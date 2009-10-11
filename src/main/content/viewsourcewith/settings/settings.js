@@ -54,6 +54,7 @@ var gViewSourceSettings = {
 
                 thiz.prefs.replaceJSConsole = thiz.oReplaceJSConsole.checked;
                 thiz.prefs.allowEditText = thiz.oAllowEditText.checked;
+                thiz.prefs.showButtonOnPopup = thiz.oShowButtonOnPopup.checked;
 
                 thiz.prefs.savePrefs();
                 ViewSourceWithCommon.getObserverService()
@@ -137,6 +138,7 @@ var gViewSourceSettings = {
 
         thiz.oReplaceJSConsole = document.getElementById("replaceJSConsole");
         thiz.oAllowEditText = document.getElementById("allowEditText");
+        thiz.oShowButtonOnPopup = document.getElementById("toolbarbuttonOnPopup");
 
         thiz.initValues(true);
     },
@@ -250,6 +252,8 @@ var gViewSourceSettings = {
 
         thiz.oReplaceJSConsole.checked = thiz.prefs.replaceJSConsole;
         thiz.oAllowEditText.checked =  thiz.prefs.allowEditText;
+        thiz.oShowButtonOnPopup.checked = thiz.prefs.showButtonOnPopup;
+
         document.getElementById("default-shortcut-key").value =
                 thiz.prefs.defaultShortcutKey.keyToString();
 

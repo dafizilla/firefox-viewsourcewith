@@ -495,8 +495,23 @@ var gViewSourceWithMain = {
             // otherwise the message appear at every new window open
             thiz.addToolButton();
         }
+
+        thiz.adjustToolbarButtonStyle(document.getElementById("viewsourcewith-button"));
+
         // Ensure the toolbar icon reflects the "show textbox" setting
         thiz.updateFocused();
+    },
+
+    adjustToolbarButtonStyle : function (button) {
+        if (button) {
+            var buttonClass = "chromeclass-toolbar-additional";
+
+            if (gViewSourceWithMain.prefs.showButtonOnPopup) {
+                ViewSourceWithCommon.removeClass(button, buttonClass);
+            } else {
+                ViewSourceWithCommon.addClass(button, buttonClass);
+            }
+        }
     },
 
     addToolButton : function() {

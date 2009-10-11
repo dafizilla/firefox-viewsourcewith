@@ -604,3 +604,18 @@ ViewSourceWithCommon.getLocalFilePage = function(url) {
 ViewSourceWithCommon.isMessenger = function() {
     return typeof(GetNumSelectedMessages) != "undefined";
 }
+
+ViewSourceWithCommon.hasClass = function(el, cls) {
+    return el.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+}
+
+ViewSourceWithCommon.addClass = function(el, cls) {
+    if (!ViewSourceWithCommon.hasClass(el, cls)) el.className += " " + cls;
+}
+
+ViewSourceWithCommon.removeClass = function(el, cls) {
+    if (ViewSourceWithCommon.hasClass(el, cls)) {
+        var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+        el.className = el.className.replace(reg,' ');
+    }
+}
