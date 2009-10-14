@@ -12,8 +12,8 @@
 <!ENTITY token.line.number "Reëlnommer">
 <!ENTITY token.column.number "Kolomnommer">
 <!ENTITY token.help "Hulp...">
-<!ENTITY editPathPortable.label "Relative Path (example /../editors/vim)">
-<!ENTITY use.portable.label "Use path relative to profile (for portable applications)">
-<!ENTITY preview.path.label "Preview Path">
-<!ENTITY shortcut.default.caption "Default Editor Shortcut Key">
-<!ENTITY shortcut.restore "Restore">
+<!ENTITY editPathPortable.label "Relatiewe pad (byvoorbeeld /../editors/vim)">
+<!ENTITY use.portable.label "Gebruik pad relatief tot profiel (vir draagbare programme)">
+<!ENTITY preview.path.label "Voorskoupad">
+<!ENTITY shortcut.default.caption "Verstekredigeerder-snelsleutel">
+<!ENTITY shortcut.restore "Teruglaai">

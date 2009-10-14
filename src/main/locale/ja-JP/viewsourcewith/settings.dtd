@@ -47,3 +47,5 @@
 <!ENTITY jsconsole.label "Javascript コンソール">
 <!ENTITY repl.jsconsole.viewer.label "ソースファイルを Javascript コンソールで開く">
 <!ENTITY advanced.allow.edit.text "テキストボックスの内容の編集を許可">
+<!ENTITY view.toolbarbutton.on.popup.caption "ポップアップウィンドウのボタン">
+<!ENTITY view.toolbarbutton.on.popup.label "ポップアップウィンドウにツールバーボタンを表示">

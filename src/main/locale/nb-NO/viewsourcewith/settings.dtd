@@ -47,3 +47,5 @@
 <!ENTITY jsconsole.label "Javascript konsoll">
 <!ENTITY repl.jsconsole.viewer.label "Bruk for å åpne kildekodefiler i Javascript konsoll">
 <!ENTITY advanced.allow.edit.text "Tillat redigering av innhold i tekstbokser">
+<!ENTITY view.toolbarbutton.on.popup.caption "Knapp i sprettoppvinduer">
+<!ENTITY view.toolbarbutton.on.popup.label "Vis verktøylinjeknapp i sprettoppvinduer">

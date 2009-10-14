@@ -23,7 +23,7 @@
 <!ENTITY repl.editor.advice.label "A módosítások az újraindítás után lépnek érvénybe.">
 <!ENTITY repl.image.viewer.item "(beépített képmegjelenítő)">
 <!ENTITY repl.image.viewer.label "Alkalmazás a képek megjelenítéséhez">
-<!ENTITY useProfilePath.label "A &apos;portable&apos; alkalmazásokkal kompatibilis útvonal használata">
+<!ENTITY useProfilePath.label "A 'portable' alkalmazásokkal kompatibilis útvonal használata">
 <!ENTITY image.onlink.caption "Ha a hivatkozás képet tartalmaz...">
 <!ENTITY image.onlink.image.label "Kép megjelenítése">
 <!ENTITY image.onlink.link.label "Hivatkozás megjelenítése">
@@ -39,7 +39,7 @@
 <!ENTITY urlmapper.name.tree.label "Név">
 <!ENTITY urlmapper.advice.label "Forrás megnyitása a kiszolgálón.">
 <!ENTITY view.showResourcesMenu.label "CSS/JS menü megjelenítése">
-<!ENTITY view.quickFrameShowMenu.label "A &apos;Gyors hozzáférés a keretekhez&apos; menü megjelenítése">
+<!ENTITY view.quickFrameShowMenu.label "A 'Gyors hozzáférés a keretekhez' menü megjelenítése">
 <!ENTITY picktitle.destfolder "Válassza ki azt a mappát, amely a továbbiakban az ideiglenes fájlokat tartalmazza...">
 <!ENTITY picktitle.configPath "Konfigurációs fájl kiválasztása">
 <!ENTITY temp.useOSPath.label "Használja az operációs rendszer mappáját">
@@ -47,3 +47,5 @@
 <!ENTITY jsconsole.label "Javascript konzol">
 <!ENTITY repl.jsconsole.viewer.label "Javascript konzol használata a forrás megnyitásához">
 <!ENTITY advanced.allow.edit.text "Szövegmezők szerkesztésének engedélyezése">
+<!ENTITY view.toolbarbutton.on.popup.caption "Gomb a felbukkanó ablakokban">
+<!ENTITY view.toolbarbutton.on.popup.label "Eszköztár gomb megjelenítése a felbukkanó ablakokban">

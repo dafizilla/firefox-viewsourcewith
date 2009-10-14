@@ -23,7 +23,7 @@
 <!ENTITY repl.editor.advice.label "Настройки будут применены после перезапуска программы">
 <!ENTITY repl.image.viewer.item "(Нет)">
 <!ENTITY repl.image.viewer.label "Использовать вместо встроенного просмотра рисунков">
-<!ENTITY useProfilePath.label "Использовать путь, совместимый с &apos;портативными&apos; приложениями">
+<!ENTITY useProfilePath.label "Использовать путь, совместимый с 'портативными' приложениями">
 <!ENTITY image.onlink.caption "При связи ссылки с изображением">
 <!ENTITY image.onlink.image.label "Просмотр изображения">
 <!ENTITY image.onlink.link.label "Просмотр ссылки">
@@ -47,3 +47,5 @@
 <!ENTITY jsconsole.label "Консоль Javascript">
 <!ENTITY repl.jsconsole.viewer.label "Открывать исходники в консоли Javascript">
 <!ENTITY advanced.allow.edit.text "Разрешить редактирование содержимого полей ввода">
+<!ENTITY view.toolbarbutton.on.popup.caption "Кнопка на всплывающих окнах">
+<!ENTITY view.toolbarbutton.on.popup.label "Показывать кнопку на всплывающих окнах">

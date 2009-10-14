@@ -47,3 +47,5 @@
 <!ENTITY jsconsole.label "JavaScript-Konsole">
 <!ENTITY repl.jsconsole.viewer.label "Quelltext-Dateien in der JavaScript-Konsole öffnen">
 <!ENTITY advanced.allow.edit.text "Bearbeiten des Inhalts von Texteingabefeldern mit VSW ermöglichen">
+<!ENTITY view.toolbarbutton.on.popup.caption "Schaltfläche in Pop-up-Fenstern">
+<!ENTITY view.toolbarbutton.on.popup.label "Symbolleisten-Schaltfläche in Pop-up-Fenstern anzeigen">

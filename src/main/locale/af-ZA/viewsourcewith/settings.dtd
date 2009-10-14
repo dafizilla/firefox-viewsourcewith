@@ -23,7 +23,7 @@
 <!ENTITY repl.editor.advice.label "Opstelling word ná herbegin geaktiveer">
 <!ENTITY repl.image.viewer.item "(Geen)">
 <!ENTITY repl.image.viewer.label "Gebruik in die plek van gewone prentbekyker">
-<!ENTITY useProfilePath.label "Use path compatible with &apos;portable&apos; applications">
+<!ENTITY useProfilePath.label "Gebruik pad versoenbaar met 'draagbare' programme">
 <!ENTITY image.onlink.caption "In geval van skakel met prent">
 <!ENTITY image.onlink.image.label "Bekyk prent">
 <!ENTITY image.onlink.link.label "Bekyk skakel">
@@ -37,13 +37,15 @@
 <!ENTITY urlmapper.caption "Bedienerbladsy-padkaartinglys">
 <!ENTITY urlmapper.enabled.tree.label "Geaktiveer">
 <!ENTITY urlmapper.name.tree.label "Naam">
-<!ENTITY urlmapper.advice.label "Open bladsybronne aan &apos;bedienerkant&apos;">
+<!ENTITY urlmapper.advice.label "Open bladsybronne aan 'bedienerkant'">
 <!ENTITY view.showResourcesMenu.label "Wys CSS/JS-kieslys">
-<!ENTITY view.quickFrameShowMenu.label "Wys &apos;kitstoegangrame&apos;-kieslys">
+<!ENTITY view.quickFrameShowMenu.label "Wys 'kitstoegangrame'-kieslys">
 <!ENTITY picktitle.destfolder "Kies vouer">
 <!ENTITY picktitle.configPath "Kies instellingslêer">
 <!ENTITY temp.useOSPath.label "Gebruik bedryfstelselvouer">
 <!ENTITY warning.delete.item "Skrap &quot;&#37;1&quot;?">
 <!ENTITY jsconsole.label "JavaScript-konsole">
 <!ENTITY repl.jsconsole.viewer.label "Gebruik om bronlêers in JavaScript-konsole te open">
-<!ENTITY advanced.allow.edit.text "Allow content edit of text boxes">
+<!ENTITY advanced.allow.edit.text "Laat inhoudredgering van tekskassis toe">
+<!ENTITY view.toolbarbutton.on.popup.caption "Knoppie op opspringvensters">
+<!ENTITY view.toolbarbutton.on.popup.label "Wys nutsbalk-knop op opspringvensters">

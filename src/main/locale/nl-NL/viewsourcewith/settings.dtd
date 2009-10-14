@@ -1,6 +1,6 @@
 <!ENTITY settings.title "ViewSourceWith instellingen">
 <!ENTITY destFolder.caption "Map met tijdelijke bestanden">
-<!ENTITY editorList.caption "Lijst bewerkingsprogramma&apos;s">
+<!ENTITY editorList.caption "Lijst bewerkingsprogramma’s">
 <!ENTITY configPath.label "Configuratiebestand">
 <!ENTITY defaultEditor.tree.label "Standaard">
 <!ENTITY description.tree.label "Naam">
@@ -14,7 +14,7 @@
 <!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
 <!ENTITY save.method.caption "Vooraf aangegeven methode om op te slaan">
 <!ENTITY save.method.normal.label "Normaal">
-<!ENTITY save.method.dom.label "DOM document">
+<!ENTITY save.method.dom.label "DOM-document">
 <!ENTITY save.method.advice.label "Houd de SHIFT-toets ingedrukt om een andere methode te kiezen">
 <!ENTITY main.label "Algemeen">
 <!ENTITY advanced.label "Geavanceerd">
@@ -23,7 +23,7 @@
 <!ENTITY repl.editor.advice.label "Instellingen worden doorgevoerd na herstarten">
 <!ENTITY repl.image.viewer.item "(Geen)">
 <!ENTITY repl.image.viewer.label "Gebruik dit in plaats van de gebruikelijke afbeeldingsweergave">
-<!ENTITY useProfilePath.label "Pad dat compatibel is met &apos;portable&apos; toepassingen gebruiken">
+<!ENTITY useProfilePath.label "Pad dat compatibel is met ‘portable’-toepassingen gebruiken">
 <!ENTITY image.onlink.caption "Bij een koppeling met een afbeelding">
 <!ENTITY image.onlink.image.label "Afbeelding bekijken">
 <!ENTITY image.onlink.link.label "Koppeling bekijken">
@@ -34,16 +34,18 @@
 <!ENTITY view.menu.label "Menu">
 <!ENTITY view.showIcons.label "Pictogrammen in menu weergeven">
 <!ENTITY urlmapper.tab.label "Mappings">
-<!ENTITY urlmapper.caption "Mappinglijst voor serverpagina&apos;s">
+<!ENTITY urlmapper.caption "Mappinglijst voor serverpagina’s">
 <!ENTITY urlmapper.enabled.tree.label "Ingeschakeld">
 <!ENTITY urlmapper.name.tree.label "Naam">
-<!ENTITY urlmapper.advice.label "Paginabronnen aan de &apos;server-zijde&apos; openen">
-<!ENTITY view.showResourcesMenu.label "CSS/JS-menu weergeven">
-<!ENTITY view.quickFrameShowMenu.label "&apos;Snelle toegang tot frames&apos;-menu weergeven">
+<!ENTITY urlmapper.advice.label "Paginabronnen aan de ‘server-zijde’ openen">
+<!ENTITY view.showResourcesMenu.label "Menu CSS/JS weergeven">
+<!ENTITY view.quickFrameShowMenu.label "Menu ‘Snelle toegang tot frames’ weergeven">
 <!ENTITY picktitle.destfolder "Selecteer een map">
 <!ENTITY picktitle.configPath "Selecteer een configuratiebestand">
 <!ENTITY temp.useOSPath.label "Map van het besturingssysteem gebruiken">
-<!ENTITY warning.delete.item "&quot;&#37;1&quot; verwijderen?">
+<!ENTITY warning.delete.item "“&#37;1” verwijderen?">
 <!ENTITY jsconsole.label "Javascriptconsole">
 <!ENTITY repl.jsconsole.viewer.label "Gebruiken om bronbestanden te openen in Javascriptconsole">
 <!ENTITY advanced.allow.edit.text "Bewerken van inhoud van tekstvelden toestaan">
+<!ENTITY view.toolbarbutton.on.popup.caption "Knop op pop-upvensters">
+<!ENTITY view.toolbarbutton.on.popup.label "Werkbalkknop weergeven op pop-upvensters">

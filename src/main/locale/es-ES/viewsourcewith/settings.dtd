@@ -47,3 +47,5 @@
 <!ENTITY jsconsole.label "Consola Javascript">
 <!ENTITY repl.jsconsole.viewer.label "Usar para abrir archivos fuente en la consola Javascript">
 <!ENTITY advanced.allow.edit.text "Permitir la edición de contenido en cuadros de texto">
+<!ENTITY view.toolbarbutton.on.popup.caption "Botón en las ventanas emergentes">
+<!ENTITY view.toolbarbutton.on.popup.label "Mostrar un botón en la barra de herramientas de las ventanas emergentes">

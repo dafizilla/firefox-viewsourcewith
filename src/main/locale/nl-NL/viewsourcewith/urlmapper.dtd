@@ -1,7 +1,7 @@
-<!ENTITY dialog.urlmapper.title "Mapping serverpagina&apos;s">
+<!ENTITY dialog.urlmapper.title "Mapping serverpagina’s">
 <!ENTITY urlMapperName.caption "Naam van de mapping">
 <!ENTITY domainfilter.caption "Mappingfilter (reguliere expressie)">
-<!ENTITY localpath.caption "Map met serverpagina&apos;s">
+<!ENTITY localpath.caption "Map met serverpagina’s">
 <!ENTITY jsCode.caption "Javascriptcode">
 <!ENTITY jsCode.insert.tooltiptext "Vooraf ingestelde code invoegen">
 <!ENTITY urlmapper.picktitle.directory "Map selecteren">

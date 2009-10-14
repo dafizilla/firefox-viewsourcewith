@@ -47,3 +47,5 @@
 <!ENTITY jsconsole.label "Console de erros">
 <!ENTITY repl.jsconsole.viewer.label "Use para abrir arquivos do console de erros">
 <!ENTITY advanced.allow.edit.text "Permitir edição do conteúdo de caixas de texto">
+<!ENTITY view.toolbarbutton.on.popup.caption "Botão nas janelas popup">
+<!ENTITY view.toolbarbutton.on.popup.label "Exibir botão da barra de ferramentas em janelas popup">

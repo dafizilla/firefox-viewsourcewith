@@ -15,20 +15,20 @@
 <!ENTITY save.method.caption "Méthode de sauvegarde prédéfinie">
 <!ENTITY save.method.normal.label "Normale">
 <!ENTITY save.method.dom.label "Document DOM">
-<!ENTITY save.method.advice.label "Pour utiliser l&apos;autre méthode maintenez appuyée la touche SHIFT">
+<!ENTITY save.method.advice.label "Pour utiliser l'autre méthode maintenez appuyée la touche SHIFT">
 <!ENTITY main.label "Générales">
 <!ENTITY advanced.label "Avancées">
-<!ENTITY repl.editor.label "Utiliser l&apos;éditeur de viewsourcewith en cliquant sur &apos;Code source de la page (FF) / du message (TB)&apos;">
-<!ENTITY repl.editor.open.focused.label "Ouvrir la fenêtre sélectionnée s&apos;il existe un jeu de cadres">
-<!ENTITY repl.editor.advice.label "Les paramètres ne prendront effet qu&apos;au redémarrage">
+<!ENTITY repl.editor.label "Utiliser l'éditeur de viewsourcewith en cliquant sur 'Code source de la page (FF) / du message (TB)'">
+<!ENTITY repl.editor.open.focused.label "Ouvrir la fenêtre sélectionnée s'il existe un jeu de cadres">
+<!ENTITY repl.editor.advice.label "Les paramètres ne prendront effet qu'au redémarrage">
 <!ENTITY repl.image.viewer.item "(Aucun)">
-<!ENTITY repl.image.viewer.label "Utiliser à la place de la visionneuse d&apos;images d&apos;origine">
-<!ENTITY useProfilePath.label "Utiliser un chemin compatible avec les applications &apos;portables&apos;">
-<!ENTITY image.onlink.caption "Quand l&apos;élément à visualiser est un lien vers une image">
-<!ENTITY image.onlink.image.label "Voir l&apos;image">
+<!ENTITY repl.image.viewer.label "Utiliser à la place de la visionneuse d'images d'origine">
+<!ENTITY useProfilePath.label "Utiliser un chemin compatible avec les applications 'portables'">
+<!ENTITY image.onlink.caption "Quand l'élément à visualiser est un lien vers une image">
+<!ENTITY image.onlink.image.label "Voir l'image">
 <!ENTITY image.onlink.link.label "Voir le lien">
 <!ENTITY temp.tab.label "Fichiers temporaires">
-<!ENTITY temp.clearAtExit.label "Supprimer les fichiers à la fermeture de l&apos;application">
+<!ENTITY temp.clearAtExit.label "Supprimer les fichiers à la fermeture de l'application">
 <!ENTITY temp.cleanNow.label "Supprimer">
 <!ENTITY view.tab.label "Voir">
 <!ENTITY view.menu.label "Menu">
@@ -37,13 +37,15 @@
 <!ENTITY urlmapper.caption "Liste de mappage des pages sur le serveur">
 <!ENTITY urlmapper.enabled.tree.label "Activé">
 <!ENTITY urlmapper.name.tree.label "Nom">
-<!ENTITY urlmapper.advice.label "Ouvrir la source de la page &apos;côté serveur&apos;">
+<!ENTITY urlmapper.advice.label "Ouvrir la source de la page 'côté serveur'">
 <!ENTITY view.showResourcesMenu.label "Afficher le menu CSS/JS">
-<!ENTITY view.quickFrameShowMenu.label "Afficher le menu &apos;accès rapide aux cadres&apos;">
+<!ENTITY view.quickFrameShowMenu.label "Afficher le menu 'accès rapide aux cadres'">
 <!ENTITY picktitle.destfolder "Sélectionner un dossier">
 <!ENTITY picktitle.configPath "Sélectionner un fichier de configuration">
-<!ENTITY temp.useOSPath.label "Utiliser le dossier du système d&apos;exploitation">
-<!ENTITY warning.delete.item "Supprimer &apos;&#37;1&apos; ?">
+<!ENTITY temp.useOSPath.label "Utiliser le dossier du système d'exploitation">
+<!ENTITY warning.delete.item "Supprimer '&#37;1' ?">
 <!ENTITY jsconsole.label "Console JavaScript">
 <!ENTITY repl.jsconsole.viewer.label "Utiliser pour ouvrir les fichiers sources dans la console JavaScript">
-<!ENTITY advanced.allow.edit.text "Autoriser l&apos;édition du contenu des zones de texte">
+<!ENTITY advanced.allow.edit.text "Autoriser l'édition du contenu des zones de texte">
+<!ENTITY view.toolbarbutton.on.popup.caption "Bouton sur les fenêtres popups">
+<!ENTITY view.toolbarbutton.on.popup.label "Afficher le bouton de l'extension sur les popups">

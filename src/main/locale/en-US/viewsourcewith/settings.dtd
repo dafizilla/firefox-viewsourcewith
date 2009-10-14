@@ -47,3 +47,5 @@
 <!ENTITY jsconsole.label "Javascript console">
 <!ENTITY repl.jsconsole.viewer.label "Use to open source files into Javascript console">
 <!ENTITY advanced.allow.edit.text "Allow content edit of text boxes">
+<!ENTITY view.toolbarbutton.on.popup.caption "Button on popup windows">
+<!ENTITY view.toolbarbutton.on.popup.label "Show toolbar button on popup windows">
