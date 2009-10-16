@@ -97,8 +97,8 @@ ViewSourceEditorData.runEditor = function(editorData, paths, line, col) {
     } else {
         editorPath = editorData.path;
     }
-    var editorFile = ViewSourceWithCommon.makeLocalFile(editorPath);
-    if (editorFile.exists() && editorFile.isFile()) {
+    var editorFile = ViewSourceWithCommon.resolveExecPath(editorPath);
+    if (editorFile && editorFile.exists() && editorFile.isFile()) {
         ViewSourceWithCommon.runProgram(editorFile, allArgs);
     } else {
         var msg = ViewSourceWithCommon.getFormattedMessage(
