@@ -140,10 +140,13 @@ var gViewSourceWithMain = {
             if (thiz._linkInfo.isOnTextInput) {
                 thiz._inputText.viewText(editorData, thiz._linkInfo);
             } else {
+                var pageHandler = new VswServerPagesHandler();
+
                 // Local file can be saved as DOM documents
                 if (!saveDOM && (filePath = ViewSourceWithCommon.getLocalFilePage(urlToSave)) != null) {
                     // view file without save it
-                    ViewSourceEditorData.runEditor(editorData, [filePath.path]);
+                    pageHandler.runEditor([urlToSave], [filePath],
+                            thiz.prefs.urlMapperData, editorData);
                 } else {
                     var fileName;
                     if (thiz._linkInfo.isOnLinkOrImage) {
@@ -161,7 +164,6 @@ var gViewSourceWithMain = {
                                         false,
                                         cleaner);
                     var saver = new ViewSourceWithSaver(editorData, uniqueFilePath);
-                    var pageHandler = new VswServerPagesHandler();
 
                     if (pageHandler.matches(urlToSave, thiz.prefs.urlMapperData, 1, 1, editorData)) {
                         saver.openFileCallback = pageHandler;
