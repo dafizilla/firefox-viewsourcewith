@@ -702,13 +702,17 @@ var gViewSourceWithMain = {
         var fileNames = new Array();
         var cleaner = ViewSourceWithTempCleaner.getTempCleaner();
 
-        var fileName = ViewSourceWithCommon.getDocumentFileName(url);
-        var filePath = ViewSourceWithCommon.initFileToRun(
-                            unescape(fileName),
-                            thiz.prefs.destFolder,
-                            thiz.prefs.tempMaxFilesSamePrefix,
-                            true,
-                            cleaner);
+        // local files must be read from their original disk position
+        var filePath = ViewSourceWithCommon.getLocalFilePage(url);
+        if (!filePath) {
+            var fileName = ViewSourceWithCommon.getDocumentFileName(url);
+            var filePath = ViewSourceWithCommon.initFileToRun(
+                                unescape(fileName),
+                                thiz.prefs.destFolder,
+                                thiz.prefs.tempMaxFilesSamePrefix,
+                                true,
+                                cleaner);
+        }
 
         urls.push(url);
         fileNames.push(filePath);
