@@ -600,9 +600,32 @@ var gViewSourceWithMain = {
         if (console) {
             console.addEventListener("click", thiz.onClickConsole, true);
         }
+        var ctxMenu = document.getElementById("ConsoleContext");
+        if (ctxMenu) {
+            ctxMenu.addEventListener("popupshowing", thiz.onPopupShowingConsole, true);
+        }
+    },
+
+    onPopupShowingConsole : function(event) {
+        var console = document.getElementById("ConsoleBox");
+        var selectedItem = console.selectedItem;
+        // the url attr is used prior FF 1.5 and on SeaMonkey
+        var hasUrl = selectedItem
+                    && (selectedItem.getAttribute("url") ||
+                        selectedItem.getAttribute("href"));
+        var vswConsole = document.getElementById("vswConsole");
+        // Error Console2 sets url to chrome://
+        if (hasUrl && hasUrl != "chrome://") {
+            vswConsole.removeAttribute("hidden");
+        } else {
+            vswConsole.setAttribute("hidden", "true");
+        }
     },
 
     onClickConsole : function(event) {
+        if (event.button == 2) {// ignore right click
+            return;
+        }
         var thiz = gViewSourceWithMain;
 
         if (!thiz.prefs.replaceJSConsole) {
