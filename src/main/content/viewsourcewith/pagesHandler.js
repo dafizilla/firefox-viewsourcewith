@@ -67,23 +67,6 @@ VswServerPagesHandler.prototype = {
         return [];
     },
 
-    onOpenFile : function (editorData, filePath) {
-        if (this.data) {
-            this.data.pageSourcePath = filePath;
-            var fileArr = this.getServerPageFileNames();
-            this._openServerPages(editorData, fileArr);
-        }
-    },
-
-    _openServerPages : function(editorData, fileArr) {
-        try {
-            ViewSourceEditorData.runEditor(editorData, fileArr);
-        } catch (err) {
-            ViewSourceWithCommon.log(
-                "VSW: openServerPages Unable to run program\n" + err);
-        }
-    },
-
     runEditor : function(urls, outFiles, urlMapperData, editorData, line, column) {
         var args = new Array();
 

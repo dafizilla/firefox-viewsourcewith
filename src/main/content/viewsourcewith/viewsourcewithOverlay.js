@@ -163,15 +163,16 @@ var gViewSourceWithMain = {
                                         thiz.prefs.tempMaxFilesSamePrefix,
                                         false,
                                         cleaner);
-                    var saver = new ViewSourceWithSaver(editorData, uniqueFilePath);
-
-                    if (pageHandler.matches(urlToSave, thiz.prefs.urlMapperData, 1, 1, editorData)) {
-                        saver.openFileCallback = pageHandler;
-                    }
+                    var saver = new UrlDownloader();
+                    saver.callbackObject = { editorData : editorData,
+                                             urlMapperData : thiz.prefs.urlMapperData};
+                    saver.onFinish = gViewSourceWithMain.onFinishRunEditor;
                     if (saveDOM) {
-                        saver.saveDocument(documentToSave);
+                        saver.saveDocument(documentToSave, urlToSave, uniqueFilePath);
                     } else {
-                        saver.saveURI(urlToSave);
+                        saver.saveURIList([urlToSave], [uniqueFilePath],
+                            ViewSourceWithBrowserHelper.getReferrer(document),
+                            ViewSourceWithBrowserHelper.getPostData());
                     }
                 }
             }
@@ -831,97 +832,6 @@ var gViewSourceWithMain = {
             document.getElementById("viewsourcewith-viewMenu"), false);
     }
 };
-
-function ViewSourceWithSaver(editorData, appFile) {
-    this.editorData = editorData;
-    this.appFile = appFile;
-    this.openFileCallback = null;
-}
-
-ViewSourceWithSaver.prototype = {
-    saveDocument : function(documentToSave) {
-        // I don't know how to get DOM document from cache
-        this.internalSaveDocument(documentToSave);
-    },
-
-    saveURI : function(urlToSave) {
-        this.internalSaveURI(urlToSave);
-    },
-
-    onStateChange : function(webProgress, request, stateFlags, status) {
-        const wpl = Components.interfaces.nsIWebProgressListener;
-        var isLoadFinished = (stateFlags & wpl.STATE_STOP)
-                             ;//&& (stateFlags & wpl.STATE_IS_NETWORK);
-
-        try {
-            if (isLoadFinished) {
-                if (this.openFileCallback) {
-                    try {
-                        this.openFileCallback.onOpenFile(this.editorData,
-                                                         this.appFile.path);
-                    } catch (err) {
-                        ViewSourceWithCommon.log(
-                            "VSW: onStateChange error while executing JS code "
-                            + err);
-                    }
-                } else {
-                    ViewSourceEditorData.runEditor(this.editorData, [this.appFile.path]);
-                }
-            }
-        } catch (err) {
-            alert("Error while saving " + this.appFile.path + " more details on Error Console");
-            ViewSourceWithCommon.log("ViewSourceWithSaver.onStateChange error " + err);
-        }
-    },
-
-    QueryInterface : function(iid) {
-        if (iid.equals(Components.interfaces.nsIWebProgressListener) ||
-            iid.equals(Components.interfaces.nsISupportsWeakReference) ||
-            iid.equals(Components.interfaces.nsISupports)) {
-            return this;
-        }
-
-        throw Components.results.NS_NOINTERFACE;
-    },
-
-    internalSaveDocument : function(documentToSave) {
-        const nsIWBP = Components.interfaces.nsIWebBrowserPersist;
-        var persist = ViewSourceWithCommon.makeWebBrowserPersist();
-
-        persist.progressListener = this;
-        persist.persistFlags = nsIWBP.PERSIST_FLAGS_REPLACE_EXISTING_FILES
-                               | nsIWBP.PERSIST_FLAGS_FROM_CACHE
-                               | nsIWBP.PERSIST_FLAGS_NO_CONVERSION
-                               | nsIWBP.PERSIST_FLAGS_NO_BASE_TAG_MODIFICATIONS
-                               | nsIWBP.PERSIST_FLAGS_DONT_FIXUP_LINKS;
-        var encodingFlags = nsIWBP.ENCODE_FLAGS_RAW;
-        persist.saveDocument(documentToSave, this.appFile,
-                             null, null, encodingFlags, 0);
-    },
-
-    internalSaveURI : function(urlToSave) {
-        const nsIWBP = Components.interfaces.nsIWebBrowserPersist;
-        var persist = ViewSourceWithCommon.makeWebBrowserPersist();
-
-        persist.progressListener = this;
-        persist.persistFlags = nsIWBP.PERSIST_FLAGS_REPLACE_EXISTING_FILES
-                               | nsIWBP.PERSIST_FLAGS_FROM_CACHE;
-
-        var referrer = ViewSourceWithBrowserHelper.getReferrer(document);
-
-        var uri = ViewSourceWithCommon.makeURL(urlToSave);
-        persist.saveURI(uri, null, referrer,
-                        ViewSourceWithBrowserHelper.getPostData(),
-                        null, this.appFile);
-    },
-
-    onStatusChange : function(webProgress, request, status, message) {},
-    onLocationChange : function(webProgress, request, location) {},
-    onProgressChange : function(webProgress, request,
-                                curSelfProgress, maxSelfProgress,
-                                curTotalProgress, maxTotalProgress) {},
-    onSecurityChange : function(webProgress, request, state) {}
-}
 
 window.addEventListener("load", gViewSourceWithMain.onLoad, false);
 window.addEventListener("unload", gViewSourceWithMain.onUnLoad, false);

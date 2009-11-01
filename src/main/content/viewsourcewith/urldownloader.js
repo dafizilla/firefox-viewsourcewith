@@ -12,17 +12,34 @@ function UrlDownloader() {
 }
 
 UrlDownloader.prototype = {
-    saveURIList : function(urls, outFiles) {
+    saveURIList : function(urls, outFiles, referrer, postData) {
         if (!this.onFinish) {
-            throw "UrlDownloader: the onFinish is not valid";
+            throw new Error("UrlDownloader: the onFinish is not valid");
         }
         this.urls = urls;
         this.outFiles = outFiles;
         this.count = 0;
 
-        for (var i = 0; i < urls.length; i++) {
-            this.internalSaveURI(urls[i], outFiles[i]);
+        if (typeof(referrer) == "undefined") {
+            referrer = null;
         }
+        if (typeof(postData) == "undefined") {
+            postData = null;
+        }
+
+        for (var i = 0; i < urls.length; i++) {
+            this.internalSaveURI(urls[i], outFiles[i], referrer, postData);
+        }
+    },
+
+    saveDocument : function(documentToSave, urlToSave, outFile) {
+        if (!this.onFinish) {
+            throw new Error("UrlDownloader: the onFinish is not valid");
+        }
+        this.urls = [urlToSave];
+        this.outFiles = [outFile];
+        this.count = 0;
+        this.internalSaveDocument(documentToSave, outFile);
     },
 
     onStateChange : function(webProgress, request, stateFlags, status) {
@@ -49,7 +66,7 @@ UrlDownloader.prototype = {
         throw Components.results.NS_NOINTERFACE;
     },
 
-    internalSaveURI : function(url, outFile) {
+    internalSaveURI : function(url, outFile, referrer, postData) {
         const nsIWBP = Components.interfaces.nsIWebBrowserPersist;
         var persist = ViewSourceWithCommon.makeWebBrowserPersist();
 
@@ -57,11 +74,23 @@ UrlDownloader.prototype = {
         persist.persistFlags = nsIWBP.PERSIST_FLAGS_REPLACE_EXISTING_FILES
                                | nsIWBP.PERSIST_FLAGS_FROM_CACHE;
 
-        var referrer = null;//ViewSourceWithBrowserHelper.getReferrer(document);
-        var postData = null;//ViewSourceWithBrowserHelper.getPostData();
-
         var uri = ViewSourceWithCommon.makeURL(url);
         persist.saveURI(uri, null, referrer, postData, null, outFile);
+    },
+
+    internalSaveDocument : function(documentToSave, outFile) {
+        const nsIWBP = Components.interfaces.nsIWebBrowserPersist;
+        var persist = ViewSourceWithCommon.makeWebBrowserPersist();
+
+        persist.progressListener = this;
+        persist.persistFlags = nsIWBP.PERSIST_FLAGS_REPLACE_EXISTING_FILES
+                               | nsIWBP.PERSIST_FLAGS_FROM_CACHE
+                               | nsIWBP.PERSIST_FLAGS_NO_CONVERSION
+                               | nsIWBP.PERSIST_FLAGS_NO_BASE_TAG_MODIFICATIONS
+                               | nsIWBP.PERSIST_FLAGS_DONT_FIXUP_LINKS;
+        var encodingFlags = nsIWBP.ENCODE_FLAGS_RAW;
+        persist.saveDocument(documentToSave, outFile,
+                             null, null, encodingFlags, 0);
     },
 
     onStatusChange : function(webProgress, request, status, message) {},
