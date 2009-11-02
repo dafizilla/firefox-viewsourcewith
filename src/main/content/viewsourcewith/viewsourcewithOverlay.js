@@ -156,7 +156,7 @@ var gViewSourceWithMain = {
                         fileName = ViewSourceWithCommon.getDocumentFileName(documentToSave);
                     }
 
-                    var cleaner = ViewSourceWithTempCleaner.getTempCleaner();
+                    var cleaner = viewSourceWithFactory.getTempCleaner();
                     var uniqueFilePath = ViewSourceWithCommon.initFileToRun(
                                         fileName,
                                         thiz.prefs.destFolder,
@@ -442,7 +442,7 @@ var gViewSourceWithMain = {
         var thiz = gViewSourceWithMain;
 
         thiz.prefs = ViewSourceWithPrefs.getInstance();
-        var cleaner = ViewSourceWithTempCleaner.getTempCleaner();
+        var cleaner = viewSourceWithFactory.getTempCleaner();
         cleaner.enabled = thiz.prefs.tempClearAtExit;
 
         thiz._inputText.prefs = thiz.prefs;
@@ -724,7 +724,7 @@ var gViewSourceWithMain = {
         var thiz = gViewSourceWithMain;
         var urls = new Array();
         var fileNames = new Array();
-        var cleaner = ViewSourceWithTempCleaner.getTempCleaner();
+        var cleaner = viewSourceWithFactory.getTempCleaner();
 
         // local files must be read from their original disk position
         var filePath = ViewSourceWithCommon.getLocalFilePage(url);

@@ -137,7 +137,7 @@ var gViewSourceWithMessenger = {
 
             var urls = new Array();
             var fileNames = new Array();
-            var cleaner = ViewSourceWithTempCleaner.getTempCleaner();
+            var cleaner = viewSourceWithFactory.getTempCleaner();
 
             for (var i = 0; i < messages.length; i++) {
                 // Now, we need to get a URL from a URI
@@ -200,7 +200,7 @@ var gViewSourceWithMessenger = {
         var selectedAttachments = attachmentList.selectedItems;
         var urls = new Array();
         var fileNames = new Array();
-        var cleaner = ViewSourceWithTempCleaner.getTempCleaner();
+        var cleaner = viewSourceWithFactory.getTempCleaner();
 
         for (var i = 0; i < selectedAttachments.length; i++) {
             var attach = selectedAttachments[i].attachment;

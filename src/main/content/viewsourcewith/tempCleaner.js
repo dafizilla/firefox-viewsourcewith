@@ -8,11 +8,6 @@
  *                      the last destroyed
  */
 
-// static method
-ViewSourceWithTempCleaner.getTempCleaner = function() {
-    return viewSourceWithFactory.getTempCleaner();
-}
-
 function ViewSourceWithTempCleaner() {
     this._enabled = false;
     this._tempFileList = new Array();

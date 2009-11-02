@@ -99,7 +99,7 @@
                                 checked="false"/>
                         <spacer flex="1"/>
                         <button label="&temp.cleanNow.label;"
-                                oncommand="ViewSourceWithTempCleaner.getTempCleaner().clean(); return true;"/>
+                                oncommand="viewSourceWithFactory.getTempCleaner().clean(); return true;"/>
                     </hbox>
                 </vbox>
             </vbox>

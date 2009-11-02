@@ -40,7 +40,7 @@ var gVSWResources = {
         var items = thiz.treeViews[thiz.oResourceTabBox.selectedIndex].selectedItems;
         var urls = new Array();
         var fileNames = new Array();
-        var cleaner = ViewSourceWithTempCleaner.getTempCleaner();
+        var cleaner = viewSourceWithFactory.getTempCleaner();
 
         for (var i = 0; i < items.length; i++) {
             var resUrl = items[i].url;

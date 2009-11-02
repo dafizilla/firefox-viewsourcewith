@@ -24,7 +24,7 @@ var ViewSourceWithInputText = {
                 var fileName = ViewSourceWithCommon.getDocumentFileName(
                                                     target.document);
                 filePath = thiz.generateInputTextFile(target, fileName);
-                ViewSourceWithTempCleaner.getTempCleaner()
+                viewSourceWithFactory.getTempCleaner()
                         .deleteTemporaryFileOnExit(filePath);
             }
 
