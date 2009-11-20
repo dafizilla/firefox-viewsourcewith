@@ -37,9 +37,7 @@ VswServerPagesHandler.prototype = {
 
             // should be trimmed before compare
             if (this.data.jsCode == "") {
-                this.data.jsCode = ViewSourceWithCommon.readHttpReq(
-                        "chrome://viewsourcewith/content/jstempl.js")
-                        .responseText;
+                this.data.jsCode = ViewSourceUrlMapperData.getDefaultJSCode();
             }
         } else {
             //ViewSourceWithCommon.log("no mapping found");

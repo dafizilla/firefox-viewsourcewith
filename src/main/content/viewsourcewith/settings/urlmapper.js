@@ -126,9 +126,7 @@ var gViewSourceUrlMapper = {
         var thiz = gViewSourceUrlMapper;
 
         try {
-            thiz.oJsCode.value = ViewSourceWithCommon.readHttpReq(
-                        "chrome://viewsourcewith/content/jstempl.js")
-                        .responseText;
+            thiz.oJsCode.value = ViewSourceUrlMapperData.getDefaultJSCode();
         } catch (err) {
             ViewSourceWithCommon.log("onJsInsert : " + err);
         }

@@ -64,3 +64,13 @@ ViewSourceUrlMapperData.matchFilter = function(urlMapperData, url) {
     }
     return urlMapperData._re.test(url);
 }
+
+ViewSourceUrlMapperData.getDefaultJSCode = function() {
+    var httpReq = new XMLHttpRequest();
+    httpReq.open("GET", "chrome://viewsourcewith/content/jstempl.js", false);
+    // Set mimetype to make happy XMLHttpRequest, see bug 384298
+    httpReq.overrideMimeType("text/plain"); 
+    httpReq.send(null);
+
+    return httpReq.responseText;
+}
