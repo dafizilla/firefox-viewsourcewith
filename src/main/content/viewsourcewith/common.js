@@ -98,6 +98,37 @@ ViewSourceWithCommon.runProgram = function(theFile, cmdArgs) {
     theProcess.run(false, cmdArgs, numArgs);
 }
 
+ViewSourceWithCommon.getFileFromAppBundle = function(execFile) {
+    // See bug 307463 and 322865
+    var bundleFile = null;
+
+    if (execFile
+        && execFile.leafName.match(/\.app$/)
+        && execFile.exists()
+        && execFile.isDirectory()) {
+        try {
+            var pListFile = ViewSourceWithCommon.makeLocalFile(
+                                    execFile.path,
+                                    ["Contents", "Info.plist"]);
+            var pListText = ViewSourceWithCommon.loadTextFile(pListFile);
+            var re = /\<key\>CFBundleExecutable\<\/key\>[ \t\n\v\r]*\<string\>[ \t\n\v\r]*(.*)[ \t\n\v\r]*\<\/string\>/
+            var m = pListText.match(re);
+
+            if (m && m.length == 2) {
+                bundleFile = ViewSourceWithCommon.makeLocalFile(
+                                        execFile.path,
+                                        ["Contents", "MacOS", m[1]]);
+            }
+        } catch (err) {
+            ViewSourceWithCommon.log("VSW:getFileFromAppBundle: " + err);
+        }
+    }
+    if (bundleFile && bundleFile.exists() && bundleFile.isFile()) {
+        return bundleFile;
+    }
+    return null;
+}
+
 ViewSourceWithCommon.resolveExecPath = function(execFile) {
     execFile = ViewSourceWithCommon.makeLocalFile(execFile);
 
@@ -105,32 +136,7 @@ ViewSourceWithCommon.resolveExecPath = function(execFile) {
         return execFile;
     }
     if (ViewSourceWithCommon.isMacOSX) {
-        // See bug 307463 and 322865
-        var leafName = execFile.leafName;
-        var bundleFile = execFile;
-
-        if (leafName.match(/\.app$/) && execFile.exists() && execFile.isDirectory()) {
-            try {
-                var pListFile = ViewSourceWithCommon.makeLocalFile(
-                                        execFile.path,
-                                        ["Contents", "Info.plist"]);
-                var pListText = ViewSourceWithCommon.loadTextFile(pListFile);
-                var re = /\<key\>CFBundleExecutable\<\/key\>[ \t\n\v\r]*\<string\>[ \t\n\v\r]*(.*)[ \t\n\v\r]*\<\/string\>/
-                var m = pListText.match(re);
-
-                if (m && m.length == 2) {
-                    bundleFile = ViewSourceWithCommon.makeLocalFile(
-                                            execFile.path,
-                                            ["Contents", "MacOS", m[1]]);
-                }
-            } catch (err) {
-                ViewSourceWithCommon.log("VSW:resolveExecPath: " + err);
-            }
-        }
-
-        if (bundleFile.exists() && bundleFile.isFile()) {
-            return bundleFile;
-        }
+        return ViewSourceWithCommon.getFileFromAppBundle(execFile) || execFile;
     }
     return null;
 }

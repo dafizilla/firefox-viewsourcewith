@@ -10,19 +10,18 @@ var gViewSourceChooseEditor = {
     },
 
     onAccept : function() {
-        var thiz = gViewSourceChooseEditor;
         var isValid = false;
 
         try {
-            isValid = thiz.checkEditor()
-                      && thiz.checkDescription();
+            isValid = this.checkEditor()
+                      && this.checkDescription();
             var item = window.arguments[0];
 
             if (isValid && item) {
-                item.path = thiz.oEditorAppPath.value;
-                item.description = thiz.oDescription.value;
-                item.keyData = thiz._keyData.isValid() ? thiz._keyData : null;
-                item.cmdArgs = thiz.oCmdArgs.value;
+                item.path = this.oEditorAppPath.value;
+                item.description = this.oDescription.value;
+                item.keyData = this._keyData.isValid() ? this._keyData : null;
+                item.cmdArgs = this.oCmdArgs.value;
                 if (this.oUsePortableCheckbox.checked) {
                     item.usePortable = true;
                 }
@@ -35,30 +34,31 @@ var gViewSourceChooseEditor = {
     },
 
     checkDescription : function() {
-        var thiz = gViewSourceChooseEditor;
         var isValid = false;
 
         try {
-            isValid = thiz.oDescription.value != "";
+            isValid = this.oDescription.value != "";
             if (!isValid) {
                 isValid = confirm(ViewSourceWithCommon
                         .getLocalizedMessage("warning.invalidDescription"));
                 if (isValid) {
-                    thiz.oDescription.value = thiz.getDescriptionFromFileName();
+                    this.oDescription.value = this.getDescriptionFromFileName();
                 }
             }
         } catch (err) {
         }
         // Shift focus to allow text input
         if (!isValid) {
-            thiz.oDescription.focus();
+            this.oDescription.focus();
         }
         return isValid;
     },
 
-    getDescriptionFromFileName : function() {
-        var descr = ViewSourceWithCommon.makeLocalFile(
-                                this.getEditorPathBySettings()).leafName;
+    getDescriptionFromFileName : function(fullPath) {
+        if (typeof (fullPath) == "undefined" || fullPath == null) {
+            fullPath = this.getEditorPathBySettings();
+        }
+        var descr = ViewSourceWithCommon.makeLocalFile(fullPath).leafName;
         // remove extension (if any)
         descr = descr.replace(/\.[^\.]*/, "");
 
@@ -82,64 +82,60 @@ var gViewSourceChooseEditor = {
     },
 
     initControls : function() {
-        var thiz = gViewSourceChooseEditor;
-
-        thiz.oEditorAppPath = document.getElementById("editorpath");
-        thiz.oDescription = document.getElementById("description");
-        thiz.oEditKey = document.getElementById("key");
-        thiz.oCmdArgs = document.getElementById("cmdargs");
-        thiz.oUsePortableCheckbox = document.getElementById("usePortableCheckbox");
+        this.oEditorAppPath = document.getElementById("editorpath");
+        this.oDescription = document.getElementById("description");
+        this.oEditKey = document.getElementById("key");
+        this.oCmdArgs = document.getElementById("cmdargs");
+        this.oUsePortableCheckbox = document.getElementById("usePortableCheckbox");
 
         this.oUsePortableCheckbox.addEventListener("CheckboxStateChange",
             function(event) { gViewSourceChooseEditor.tooglePortablePath(event);}, false);
 
         var item = window.arguments[0];
         if (item) {
-            thiz.oEditorAppPath.value = item.path;
-            thiz.oDescription.value = item.description;
-            thiz.oCmdArgs.value = item.cmdArgs;
+            this.oEditorAppPath.value = item.path;
+            this.oDescription.value = item.description;
+            this.oCmdArgs.value = item.cmdArgs;
 
-            thiz._keyData = new KeyData();
-            thiz._keyData.shift = true;
-            thiz._keyData.accel = true;
+            this._keyData = new KeyData();
+            this._keyData.shift = true;
+            this._keyData.accel = true;
             if (item.keyData) {
                 try {
-                    thiz.oEditKey.value = item.keyData.showKeyName();
-                    thiz._keyData.copy(item.keyData);
+                    this.oEditKey.value = item.keyData.showKeyName();
+                    this._keyData.copy(item.keyData);
                 } catch (err) {
                     alert("chooseEditor.initControls: " + err);
                 }
             }
             if (item.usePortable) {
-                thiz.oUsePortableCheckbox.checked = true;
+                this.oUsePortableCheckbox.checked = true;
             }
         }
         if (ViewSourceWithCommon.isMacOSX) {
             document.getElementById("macAlert").removeAttribute("hidden");
+            this.oEditorAppPath.onfilechoosen =
+                "return gViewSourceChooseEditor.onPickOSXFile(isOk, filePath);";
         }
     },
 
     handleKey : function (event) {
-        var thiz = gViewSourceChooseEditor;
-
         try {
             event.preventDefault();
             event.stopPropagation();
             var edit = event.currentTarget;
 
-            KeyData.fromEvent(event, thiz._keyData);
-            edit.value = thiz._keyData.keyToString();
+            KeyData.fromEvent(event, this._keyData);
+            edit.value = this._keyData.keyToString();
         } catch (err) {
             ViewSourceWithCommon.log(err);
         }
     },
 
     clearKey : function(event) {
-        var thiz = gViewSourceChooseEditor;
-
-        thiz._keyData.key = null;
-        thiz._keyData.keyCode = null;
-        thiz.oEditKey.value = "";
+        this._keyData.key = null;
+        this._keyData.keyCode = null;
+        this.oEditKey.value = "";
     },
 
     openHelp : function() {
@@ -212,5 +208,21 @@ var gViewSourceChooseEditor = {
         }
 
         oLabel.setAttribute("label", labelValue);
+    },
+    
+    onPickOSXFile : function(isOk, filePath) {
+        var fillInputBox = isOk;
+
+        if (isOk) {
+            var execFile = ViewSourceWithCommon.makeLocalFile(filePath);
+            if (ViewSourceWithCommon.getFileFromAppBundle(execFile)) {
+                this.oEditorAppPath.value = "/usr/bin/open";
+                this.oDescription.value = this.getDescriptionFromFileName(filePath);
+                this.oCmdArgs.value = '-a "' + filePath + '" $f';
+                fillInputBox = false;
+            }
+        }
+
+        return fillInputBox;
     }
 };
