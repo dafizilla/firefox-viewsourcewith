@@ -441,7 +441,7 @@ var gViewSourceWithMain = {
     init : function() {
         var thiz = gViewSourceWithMain;
 
-        thiz.prefs = ViewSourceWithPrefs.getInstance();
+        thiz.prefs = viewSourceWithFactory.getPrefsInstance();
         var cleaner = viewSourceWithFactory.getTempCleaner();
         cleaner.enabled = thiz.prefs.tempClearAtExit;
 

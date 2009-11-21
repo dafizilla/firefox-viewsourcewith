@@ -235,10 +235,6 @@ ViewSourceWithPrefs.getTempDir = function() {
     return "";
 }
 
-ViewSourceWithPrefs.getInstance = function() {
-    return viewSourceWithFactory.getPrefsInstance();
-}
-
 ViewSourceWithPrefs.prototype = {
     copy : function(prefs) {
         this._editorDefaultIndex    = prefs._editorDefaultIndex;
