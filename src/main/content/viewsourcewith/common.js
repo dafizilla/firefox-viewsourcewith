@@ -136,7 +136,12 @@ ViewSourceWithCommon.resolveExecPath = function(execFile) {
         return execFile;
     }
     if (ViewSourceWithCommon.isMacOSX) {
-        return ViewSourceWithCommon.getFileFromAppBundle(execFile) || execFile;
+        var bundleFile = ViewSourceWithCommon.getFileFromAppBundle(execFile);
+        if (bundleFile) {
+            return bundleFile;
+        } else if (execFile.exists() && execFile.isFile()) {
+            return execFile;
+        }
     }
     return null;
 }
