@@ -10,11 +10,11 @@
 ]>
 
 <dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
-        id="viewsourcewithChooseEditor"
+        id="viewsourcewithChooseEditor2"
         onload="return gViewSourceChooseEditor.onLoad();"
         ondialogaccept="return gViewSourceChooseEditor.onAccept();"
         buttons="accept,cancel"
-        persist="width height screenX screenY"
+        persist="screenX screenY"
         title="&dialog.editor.title;">
 
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/common.js"/>

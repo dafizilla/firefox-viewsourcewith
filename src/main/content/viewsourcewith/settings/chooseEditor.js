@@ -5,8 +5,8 @@
  */
 var gViewSourceChooseEditor = {
     onLoad : function() {
-        sizeToContent();
         this.initControls();
+        window.sizeToContent();
     },
 
     onAccept : function() {
@@ -208,6 +208,7 @@ var gViewSourceChooseEditor = {
         }
 
         oLabel.setAttribute("label", labelValue);
+        window.sizeToContent();
     },
     
     onPickOSXFile : function(isOk, filePath) {
