@@ -1,5 +1,5 @@
 <!DOCTYPE extension [
-<!ENTITY extension.version "0.5.1">
+<!ENTITY extension.version "0.5.2">
 ]>
 
 <extension name="viewsourcewith">
@@ -84,7 +84,9 @@
         <overlay description="Thunderbird - Compose Message window" uri="chrome://messenger/content/messengercompose/messengercompose.xul" value="chrome://viewsourcewith/content/viewsourcewithOverlayMessenger.xul" />
 
         <overlay description="NVU - Main window" uri="chrome://editor/content/editor.xul" value="chrome://viewsourcewith/content/viewsourcewithOverlay.xul" />
-        <overlay description="Console Javascript" uri="chrome://global/content/console.xul" value="chrome://viewsourcewith/content/viewsourcewithOverlay.xul" />
+
+        <overlay description="Error Console" uri="chrome://global/content/console.xul" value="chrome://viewsourcewith/content/viewsourcewithOverlay.xul" />
+        <overlay description="Error Console2" uri="chrome://console2/content/console2.xul" value="chrome://viewsourcewith/content/viewsourcewithOverlay.xul" />
 
         <overlay description="Mozilla/SeaMonkey - Navigator Prefs window" uri="chrome://communicator/content/pref/pref-navigator.xul" value="chrome://viewsourcewith/content/pref-overlay.xul" />
         <overlay description="Mozilla/SeaMonkey - Mail Prefs window" uri="chrome://messenger/content/pref-mailnews.xul" value="chrome://viewsourcewith/content/pref-overlay.xul" />
