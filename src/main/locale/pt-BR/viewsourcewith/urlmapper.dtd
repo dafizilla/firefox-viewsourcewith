@@ -1,4 +1,4 @@
-<!ENTITY dialog.urlmapper.title "Mapeamento de arquivos do servidor">
+<!ENTITY dialog.urlmapper.title "Arquivos do servidor">
 <!ENTITY urlMapperName.caption "Nome do mapeamento">
 <!ENTITY domainfilter.caption "Filtro de mapeamento (expressão regular)">
 <!ENTITY localpath.caption "Diretório contendo arquivos do servidor">

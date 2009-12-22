@@ -12,18 +12,18 @@
 <!ENTITY site.label "Davide Ficano">
 <!ENTITY viewSource.home.tooltip "Visitar o site">
 <!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith/">
-<!ENTITY save.method.caption "Método de salvamento pré-definido">
+<!ENTITY save.method.caption "Método de salvamento">
 <!ENTITY save.method.normal.label "Normal">
 <!ENTITY save.method.dom.label "Documento DOM">
 <!ENTITY save.method.advice.label "Segure a tecla Shift para alternar entre os métodos">
 <!ENTITY main.label "Geral">
 <!ENTITY advanced.label "Avançado">
-<!ENTITY repl.editor.label "Usar o ViewSourceWith como visualizador padrão no item &quot;Código-fonte&quot; do menu de contexto">
+<!ENTITY repl.editor.label "Usar o ViewSourceWith como visualizador padrão no item &quot;Código-fonte&quot; dos menus">
 <!ENTITY repl.editor.open.focused.label "Em framesets, abrir o frame selecionado">
 <!ENTITY repl.editor.advice.label "As alterações só terão efeito após o reinício">
 <!ENTITY repl.image.viewer.item "(Nenhum)">
-<!ENTITY repl.image.viewer.label "Usar o seguinte vizualizador como padrão no item &quot;Exibir imagem&quot; do menu de contexto">
-<!ENTITY useProfilePath.label "Usar pasta compatível com aplicativos portáteis (versões portable)">
+<!ENTITY repl.image.viewer.label "Usar o seguinte vizualizador como padrão no item &quot;Exibir imagem&quot; dos menus">
+<!ENTITY useProfilePath.label "Usar pasta compatível com aplicações portáteis (versões portable)">
 <!ENTITY image.onlink.caption "Quando o elemento a ser exibido for um link para uma imagem">
 <!ENTITY image.onlink.image.label "Visualizar a imagem">
 <!ENTITY image.onlink.link.label "Visualizar o link">

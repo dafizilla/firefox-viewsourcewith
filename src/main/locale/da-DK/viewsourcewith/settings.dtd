@@ -23,7 +23,7 @@
 <!ENTITY repl.editor.advice.label "Indstillinger virker først efter genstart">
 <!ENTITY repl.image.viewer.item "(Ingen)">
 <!ENTITY repl.image.viewer.label "Brug i stedet for indbygget billedfremviser">
-<!ENTITY useProfilePath.label "Brug stier der er kompatible med &apos;portable&apos; programmer">
+<!ENTITY useProfilePath.label "Brug stier der er kompatible med 'portable' programmer">
 <!ENTITY image.onlink.caption "I tilfælde af link med billede">
 <!ENTITY image.onlink.image.label "Vis billede">
 <!ENTITY image.onlink.link.label "Vis link">
@@ -37,9 +37,9 @@
 <!ENTITY urlmapper.caption "Serversider mapping-liste">
 <!ENTITY urlmapper.enabled.tree.label "Slået til">
 <!ENTITY urlmapper.name.tree.label "Navn">
-<!ENTITY urlmapper.advice.label "Åbn side kildekoder på &apos;serverside&apos;">
+<!ENTITY urlmapper.advice.label "Åbn side kildekoder på 'serverside'">
 <!ENTITY view.showResourcesMenu.label "Vis CSS/JS-menu">
-<!ENTITY view.quickFrameShowMenu.label "Vis &apos;quick access frames&apos;-menu">
+<!ENTITY view.quickFrameShowMenu.label "Vis 'quick access frames'-menu">
 <!ENTITY picktitle.destfolder "Vælg mappe">
 <!ENTITY picktitle.configPath "Vælg konfigurationsfil">
 <!ENTITY temp.useOSPath.label "Brug operativsystemfolder">
@@ -47,3 +47,5 @@
 <!ENTITY jsconsole.label "Javascript-konsol">
 <!ENTITY repl.jsconsole.viewer.label "Bruges til at åbne kildefiler ind i Javascript-konsollen">
 <!ENTITY advanced.allow.edit.text "Tillad indholdsredigering af tekstfelter">
+<!ENTITY view.toolbarbutton.on.popup.caption "Knap på pop-op-vinduer">
+<!ENTITY view.toolbarbutton.on.popup.label "Vis værktøjslinje på pop-op-vinduer">

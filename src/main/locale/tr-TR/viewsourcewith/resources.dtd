@@ -1,10 +1,10 @@
-<!ENTITY resources.title "Open style sheets and scripts">
+<!ENTITY resources.title "Biçim tabloları ve betikleri aç">
 <!ENTITY all.tab.label "Tüm kaynaklar">
-<!ENTITY css.tab.label "Stil belgeleri">
-<!ENTITY js.tab.label "Scriptler">
-<!ENTITY showallframes.label "Show all frames resources">
-<!ENTITY editors.label "Editor to use">
-<!ENTITY button.label.accept "View">
+<!ENTITY css.tab.label "Biçim Tabloları">
+<!ENTITY js.tab.label "Betikler">
+<!ENTITY showallframes.label "Tüm pencere kaynaklarını göster">
+<!ENTITY editors.label "Kullanılacak düzenleyici">
+<!ENTITY button.label.accept "Görünüm">
 <!ENTITY button.label.cancel "Kapat">
 <!ENTITY resourcename.tree.label "İsim">
 <!ENTITY resourcepath.tree.label "URL">

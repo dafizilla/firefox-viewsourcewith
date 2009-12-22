@@ -47,3 +47,5 @@
 <!ENTITY jsconsole.label "Javascript 控制台">
 <!ENTITY repl.jsconsole.viewer.label "在 Javascript 控制台中使用打开源文件">
 <!ENTITY advanced.allow.edit.text "允许文本框的内容编辑">
+<!ENTITY view.toolbarbutton.on.popup.caption "在弹出窗口中的按钮">
+<!ENTITY view.toolbarbutton.on.popup.label "在弹出窗口中的显示工具栏按钮">

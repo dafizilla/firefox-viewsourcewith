@@ -7,13 +7,13 @@
 <!ENTITY shortcut.maybe.invalid "Bazı kısayollar çalışmayabilir">
 <!ENTITY invalid.path.chars "Geçersiz yol, yol isminin geçersiz karakterler içermediğinden emin olun">
 <!ENTITY picktitle.editor "Düzenleyici seçin">
-<!ENTITY parameters.label "Parameters">
+<!ENTITY parameters.label "Koşullar">
 <!ENTITY token.filenames "Dosya ismi">
 <!ENTITY token.line.number "Satır numarası">
 <!ENTITY token.column.number "Sütün numarası">
 <!ENTITY token.help "Yardım...">
-<!ENTITY editPathPortable.label "Relative Path (example /../editors/vim)">
-<!ENTITY use.portable.label "Use path relative to profile (for portable applications)">
-<!ENTITY preview.path.label "Preview Path">
-<!ENTITY shortcut.default.caption "Default Editor Shortcut Key">
-<!ENTITY shortcut.restore "Restore">
+<!ENTITY editPathPortable.label "Göreli Konum (örnek /../editors/vim)">
+<!ENTITY use.portable.label "Profile bağlı konumu kullan (taşınabilir uygulamalar için)">
+<!ENTITY preview.path.label "Önizleme Konumu">
+<!ENTITY shortcut.default.caption "Varsayılan Düzenleyici Kısayol Tuşu">
+<!ENTITY shortcut.restore "Geri Yükle">

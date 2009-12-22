@@ -10,7 +10,7 @@
 <!ENTITY delete.button.label "Sil">
 <!ENTITY writtenBy.label "Hazırlayan">
 <!ENTITY site.label "Davide Ficano">
-<!ENTITY viewSource.home.tooltip "ViewSourceWith&apos;e git">
+<!ENTITY viewSource.home.tooltip "ViewSourceWith'e git">
 <!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
 <!ENTITY save.method.caption "Önceden tanımlanmış kayıt yöntemi">
 <!ENTITY save.method.normal.label "Normal">
@@ -23,7 +23,7 @@
 <!ENTITY repl.editor.advice.label "Ayarlar yeniden başlatılınca etkin olur">
 <!ENTITY repl.image.viewer.item "(Hiçbiri)">
 <!ENTITY repl.image.viewer.label "Yerel resim görüntüleyici yerine kullan">
-<!ENTITY useProfilePath.label "Use path compatible with &apos;portable&apos; applications">
+<!ENTITY useProfilePath.label "'Taşınabilir' uygulamalar ile uyumlu konumu kullan">
 <!ENTITY image.onlink.caption "Resmin üzerinden bağlantı varsa">
 <!ENTITY image.onlink.image.label "Resmi görüntüle">
 <!ENTITY image.onlink.link.label "Bağlantıyı görüntüle">
@@ -37,13 +37,15 @@
 <!ENTITY urlmapper.caption "Sunucu sayfaları tasarım dizelgesi">
 <!ENTITY urlmapper.enabled.tree.label "Etkin">
 <!ENTITY urlmapper.name.tree.label "İsim">
-<!ENTITY urlmapper.advice.label "Kaynak kodunu &quot;sunucu taraflı&quot; aç">
+<!ENTITY urlmapper.advice.label "Kaynak kodunu 'sunucu taraflı' aç">
 <!ENTITY view.showResourcesMenu.label "CSS/JS menüsünü göster">
-<!ENTITY view.quickFrameShowMenu.label "&apos;Çerçevelere hızlı erişim&apos; menüsünü göster">
+<!ENTITY view.quickFrameShowMenu.label "'Çerçevelere hızlı erişim' menüsünü göster">
 <!ENTITY picktitle.destfolder "Klasör seçin">
 <!ENTITY picktitle.configPath "Yapılandırma dosyası seçin">
-<!ENTITY temp.useOSPath.label "Use operating system folder">
-<!ENTITY warning.delete.item "Delete &quot;&#37;1&quot;?">
+<!ENTITY temp.useOSPath.label "İşletim sistemi klasörünü kullan">
+<!ENTITY warning.delete.item "&quot;&#37;1&quot; sil?">
 <!ENTITY jsconsole.label "Javascript konsolu">
 <!ENTITY repl.jsconsole.viewer.label "Kaynak dosyalarını açmak için Javascript konsolunu kullan">
-<!ENTITY advanced.allow.edit.text "Allow content edit of text boxes">
+<!ENTITY advanced.allow.edit.text "Metin kutularının içeriğinin düzenlenmesine izin ver">
+<!ENTITY view.toolbarbutton.on.popup.caption "Açılır pencere üzerindeki düğme">
+<!ENTITY view.toolbarbutton.on.popup.label "Açılır pencereler üzerinde araç çubuğu düğmesini göster">

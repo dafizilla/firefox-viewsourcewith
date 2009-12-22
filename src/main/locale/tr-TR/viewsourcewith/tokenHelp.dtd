@@ -1,6 +1,6 @@
 <!ENTITY title "özel karakterler">
-<!ENTITY description "Düzenleyici başlarken değişebilecek özel parametreler kullanabilirsiniz.">
-<!ENTITY parameter "Parametre">
+<!ENTITY description "Düzenleyici başlarken değişebilecek özel koşullar kullanabilirsiniz.">
+<!ENTITY parameter "Koşul">
 <!ENTITY replaced.with "Bununla değiştirildi">
 <!ENTITY file.names.descr "Dosya isimleri">
 <!ENTITY line.number.descr "Satır numarası">
