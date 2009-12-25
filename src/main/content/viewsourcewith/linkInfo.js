@@ -83,7 +83,7 @@ ViewSourceWithLinkInfo.prototype = {
             this.target = gContextMenu.target;
             if (this.isOnTextInput) {
                 handled = this.handleInputText();
-            } else if (this.isOnLinkOrImage) {
+            } else if (this.isOnLinkOrImage || this.isOnMedia) {
                 handled = true;
                 if (this.isOnLink) {
                     if (this.isOnImage && prefs.openImageOnLink) {
@@ -101,6 +101,8 @@ ViewSourceWithLinkInfo.prototype = {
                         this.url = gContextMenu.imageURL;
                     } else if (this.isOnBGImage) {
                         this.url = gContextMenu.bgImageURL;
+                    } else if (this.isOnMedia) {
+                        this.url = gContextMenu.mediaURL;
                     }
                 }
             }
