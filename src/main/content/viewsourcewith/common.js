@@ -98,6 +98,12 @@ ViewSourceWithCommon.runProgram = function(theFile, cmdArgs) {
     theProcess.run(false, cmdArgs, numArgs);
 }
 
+/**
+ * Extract under OSX the executable file path contained inside an AppBundle file
+ * @param execFile the nsIFile pointing to an appBundle (ie .app file)
+ * @returns the nsILocalFile of executable contained into appBundle file,
+ * null otherwise
+ */
 ViewSourceWithCommon.getFileFromAppBundle = function(execFile) {
     // See bug 307463 and 322865
     var bundleFile = null;
@@ -129,6 +135,11 @@ ViewSourceWithCommon.getFileFromAppBundle = function(execFile) {
     return null;
 }
 
+/**
+ * Resolve in a cross platform way the passed execFile to an executable program
+ * @param execFile executable nsIFile
+ * @returns the executable resolved nsIFile or null
+ */
 ViewSourceWithCommon.resolveExecPath = function(execFile) {
     execFile = ViewSourceWithCommon.makeLocalFile(execFile);
 
@@ -311,6 +322,14 @@ ViewSourceWithCommon.log = function(message) {
             .logStringMessage(message);
 }
 
+/**
+ * Generate, if necessary, an unique file inside the same directory of passed file.
+ * If the passed file exists or matches other unique criteria a new file
+ * with unique path will be generated and returned otherwise the passed file is returned
+ * @param file the nsIFile to test and use as template if it already exists
+ * @param maxValue max count to use to generate unique file name, by default 64
+ * @returns the file itself if it is unique or a new nsILocalFile
+ */
 ViewSourceWithCommon.generateUniqueFile = function(file, maxValue) {
     const MAX_FILE_PATH = 128;
 
@@ -347,6 +366,13 @@ ViewSourceWithCommon.generateUniqueFile = function(file, maxValue) {
     return file;
 }
 
+/**
+ * Return a file name from passed doc/url
+ * @param doc an HTMLDocument or url string from which get the file name
+ * @param suggestedExtension if specified append this extension to file name
+ * otherwise try to determine the extension from document and if it fails use .htm
+ * @returns the file name
+ */
 ViewSourceWithCommon.getDocumentFileName = function(doc, suggestedExtension) {
     const contractIDStdURL = "@mozilla.org/network/standard-url;1";
     const nsIURL = Components.interfaces.nsIURL;
@@ -457,6 +483,12 @@ ViewSourceWithCommon.makeUrlFromSpec = function(urlSpec) {
     return uri;
 }
 
+/**
+ * Get the document under mouse cursor when context menu is opened
+ * @param useFrameDocument if true return the frame document under context menu
+ * otherwise the content document
+ * @returns the document under mouse cursor
+ */
 ViewSourceWithCommon.getDocumentFromContextMenu = function(useFrameDocument) {
     var doc = window._content.document;
 
@@ -484,6 +516,16 @@ ViewSourceWithCommon.getFocusedDocument = function() {
     return focusedWindow.document;
 }
 
+/**
+ * Generate an unique file inside folder destFolder.
+ * @param fileName the file name to use, invalid characters will be removed
+ * @param destFolder the destination folder
+ * @param maxPrefix max count of prefixes used to generate unique file name, default 64
+ * @param touch if true create an empty file with generated file path, this ensures
+ * the caller to obtain a safe path, default false
+ * @param cleaner, add file to cleaner to delete from disk at shutdown time
+ * @returns the unique nsILocalFile
+ */
 ViewSourceWithCommon.initFileToRun = function(fileName,
                                               destFolder,
                                               maxPrefix,

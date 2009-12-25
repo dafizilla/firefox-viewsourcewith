@@ -12,6 +12,27 @@ function UrlDownloader() {
 }
 
 UrlDownloader.prototype = {
+    /**
+     * Save the current document page source attempting to fetch from cache, this
+     * should be always possible if pageDescriptor points to the current page.
+     * If the cache doesn't contain the page then call saveURIList.
+     * @param pageDescriptor the pageDescription necessary to access the cache
+     * @param url the url to save, it is used only if the cache doesn't contain the page
+     * @param outFile the destination nsILocalFile where to store page
+     * @param referrer the referrer, can be null
+     * @param postData the post data, can be null
+     */
+    saveURIFromCache : function(pageDescriptor, url, outFile, referrer, postData) {
+        this.useCache = this.loadFromCache(Components.interfaces
+                                .nsIWebPageDescriptor.DISPLAY_AS_SOURCE,
+                                pageDescriptor);
+        if (this.useCache) {
+            this.outFiles = [outFile];
+        } else {
+            this.saveURIList([url], [outFile], referrer, postData);
+        }
+    },
+
     saveURIList : function(urls, outFiles, referrer, postData) {
         if (!this.onFinish) {
             throw new Error("UrlDownloader: the onFinish is not valid");
@@ -51,6 +72,7 @@ UrlDownloader.prototype = {
             ++this.count;
 
             if (this.count == this.outFiles.length) {
+                this.flushCache();
                 this.onFinish(this.urls, this.outFiles, this.callbackObject);
             }
         }
@@ -91,6 +113,40 @@ UrlDownloader.prototype = {
         var encodingFlags = nsIWBP.ENCODE_FLAGS_RAW;
         persist.saveDocument(documentToSave, outFile,
                              null, null, encodingFlags, 0);
+    },
+
+    loadFromCache : function(displayType, pageDescriptor) {
+        var foundCache = false;
+
+        if (pageDescriptor) {
+            try {
+                this.webShell = Components.classes["@mozilla.org/webshell;1"]
+                                        .createInstance();
+    
+                const nsIWebProgress = Components.interfaces.nsIWebProgress;
+                this.progress = this.webShell.QueryInterface(nsIWebProgress);
+                this.progress.addProgressListener(this,
+                                             nsIWebProgress.NOTIFY_STATE_DOCUMENT);
+                var pageLoader = this.webShell.QueryInterface(
+                                    Components.interfaces.nsIWebPageDescriptor);
+                pageLoader.loadPage(pageDescriptor, displayType);
+                foundCache = true;
+            } catch (err) {
+            }
+        }
+
+        return foundCache;
+    },
+
+    flushCache : function() {
+        if (this.useCache) {
+            // reset flag
+            this.useCache = false;
+            var webNavigation = this.webShell.QueryInterface(
+                                    Components.interfaces.nsIWebNavigation);
+            var content = webNavigation.document.body.textContent;
+            ViewSourceWithCommon.saveTextFile(this.outFiles[0], content);
+        }
     },
 
     onStatusChange : function(webProgress, request, status, message) {},

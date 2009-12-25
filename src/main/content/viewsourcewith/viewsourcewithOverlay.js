@@ -149,7 +149,8 @@ var gViewSourceWithMain = {
                             thiz.prefs.urlMapperData, editorData);
                 } else {
                     var fileName;
-                    if (thiz._linkInfo.isOnLinkOrImage) {
+                    if (thiz._linkInfo.isOnLinkOrImage
+                        || thiz._linkInfo.isOnMedia) {
                         urlToSave = thiz._linkInfo.url;
                         fileName = ViewSourceWithCommon.getDocumentFileName(thiz._linkInfo.url);
                     } else {
@@ -170,9 +171,19 @@ var gViewSourceWithMain = {
                     if (saveDOM) {
                         saver.saveDocument(documentToSave, urlToSave, uniqueFilePath);
                     } else {
-                        saver.saveURIList([urlToSave], [uniqueFilePath],
-                            ViewSourceWithBrowserHelper.getReferrer(document),
-                            ViewSourceWithBrowserHelper.getPostData());
+                        if (thiz._linkInfo.isOnLinkOrImage ||
+                            thiz._linkInfo.isOnMedia) {
+                            saver.saveURIList([urlToSave], [uniqueFilePath],
+                                ViewSourceWithBrowserHelper.getReferrer(document),
+                                ViewSourceWithBrowserHelper.getPostData());
+                        } else {
+                            saver.saveURIFromCache(
+                                ViewSourceWithBrowserHelper.getPageDescriptor(documentToSave),
+                                urlToSave,
+                                uniqueFilePath,
+                                ViewSourceWithBrowserHelper.getReferrer(document),
+                                ViewSourceWithBrowserHelper.getPostData());
+                        }
                     }
                 }
             }
