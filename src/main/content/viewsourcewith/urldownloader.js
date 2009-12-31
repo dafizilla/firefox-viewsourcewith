@@ -120,8 +120,7 @@ UrlDownloader.prototype = {
 
         if (pageDescriptor) {
             try {
-                this.webShell = Components.classes["@mozilla.org/webshell;1"]
-                                        .createInstance();
+                this.webShell = ViewSourceWithCommon.createDocShellInstance();
     
                 const nsIWebProgress = Components.interfaces.nsIWebProgress;
                 this.progress = this.webShell.QueryInterface(nsIWebProgress);
@@ -132,6 +131,7 @@ UrlDownloader.prototype = {
                 pageLoader.loadPage(pageDescriptor, displayType);
                 foundCache = true;
             } catch (err) {
+                ViewSourceWithCommon.log("loadFromCache " + err);
             }
         }
 

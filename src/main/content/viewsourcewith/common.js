@@ -186,7 +186,7 @@ ViewSourceWithCommon.makeOutputStream = function(fileNameOrLocalFile, append) {
     var os = Components.classes[CONTRACTID_FOS].createInstance(nsFos);
     var flags = 0x02 | 0x08 | 0x20; // wronly | create | truncate
     if (append != null && append != undefined && append) {
-        flags = 0x02 | 0x10; // wronly | append
+        flags = 0x02 | 0x08 | 0x10; // wronly | create | append
     }
     var file = ViewSourceWithCommon.makeLocalFile(fileNameOrLocalFile);
 
@@ -670,5 +670,16 @@ ViewSourceWithCommon.removeClass = function(el, cls) {
     if (ViewSourceWithCommon.hasClass(el, cls)) {
         var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
         el.className = el.className.replace(reg,' ');
+    }
+}
+
+ViewSourceWithCommon.createDocShellInstance = function() {
+    // Under FF3.6 @mozilla.org/webshell;1 has been removed
+    if ("@mozilla.org/docshell;1" in Components.classes) {
+        return Components.classes["@mozilla.org/docshell;1"]
+                            .createInstance();
+    } else {
+        return Components.classes["@mozilla.org/webshell;1"]
+                            .createInstance();
     }
 }
