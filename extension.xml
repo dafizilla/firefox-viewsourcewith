@@ -1,5 +1,5 @@
 <!DOCTYPE extension [
-<!ENTITY extension.version "0.5.2">
+<!ENTITY extension.version "0.5.3">
 ]>
 
 <extension name="viewsourcewith">
@@ -56,11 +56,11 @@
         <locale pos="11" code="nl-NL" />
         <!--<locale pos="12" code="es-AR" />-->
         <!--<locale pos="13" code="cs-CZ" />-->
-        <!--<locale pos="14" code="zh-CN" />-->
-        <!--<locale pos="15" code="tr-TR" />-->
+        <locale pos="14" code="zh-CN" />
+        <locale pos="15" code="tr-TR" />
         <locale pos="16" code="sk-SK" />
         <locale pos="17" code="az-AZ" />
-        <!--<locale pos="18" code="da-DK" />-->
+        <locale pos="18" code="da-DK" />
         <!--<locale pos="19" code="fa-IR" />-->
         <!--<locale pos="20" code="hr-HR" />-->
         <locale pos="21" code="af-ZA" />
