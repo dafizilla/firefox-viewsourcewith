@@ -28,6 +28,8 @@ UrlDownloader.prototype = {
                                 pageDescriptor);
         if (this.useCache) {
             this.outFiles = [outFile];
+            this.urls = [url];
+            this.count = 0;
         } else {
             this.saveURIList([url], [outFile], referrer, postData);
         }
