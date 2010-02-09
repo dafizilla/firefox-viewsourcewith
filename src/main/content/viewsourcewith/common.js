@@ -374,11 +374,19 @@ ViewSourceWithCommon.generateUniqueFile = function(file, maxValue) {
  * @returns the file name
  */
 ViewSourceWithCommon.getDocumentFileName = function(doc, suggestedExtension) {
-    const contractIDStdURL = "@mozilla.org/network/standard-url;1";
-    const nsIURL = Components.interfaces.nsIURL;
-    var uri = Components.classes[contractIDStdURL].createInstance(nsIURL);
+    var uri;
 
-    uri.spec = doc.location ? doc.location.href : doc;
+    try {
+        // on thunderbird extract correct name, ext for mailbox:// image urls
+        uri = Components.classes["@mozilla.org/network/io-service;1"]
+                    .getService(Components.interfaces.nsIIOService)
+                    .newURI(doc.location ? doc.location.href : doc, null, null)
+                    .QueryInterface(Components.interfaces.nsIURL);
+    } catch (err) {
+        uri = Components.classes["@mozilla.org/network/standard-url;1"]
+            .createInstance(Components.interfaces.nsIURL);
+        uri.spec = doc.location ? doc.location.href : doc;
+    }
 
     var fileName;
     // This url contains only directory name (e.g. http://www.xulplanet.com/)

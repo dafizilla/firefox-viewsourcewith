@@ -597,9 +597,10 @@ var gViewSourceWithMain = {
             frameMenu.addEventListener("popupshowing", thiz.initCtxMenuFrame, false);
         }
 
-        var ctxMenus = ["contentAreaContextMenu",
-                        "messagePaneContext",
-                        "editorContentContext"];
+        var ctxMenus = ["contentAreaContextMenu",   // FF
+                        "messagePaneContext",       // TB 2.x
+                        "editorContentContext",     // TB 2.x/3.x mail editor
+                        "mailContext"];             // TB 3.x
         for (var i in ctxMenus) {
             var n = document.getElementById(ctxMenus[i]);
             if (n) {
@@ -663,15 +664,24 @@ var gViewSourceWithMain = {
             frameMenu.removeEventListener("popupshowing", thiz.initCtxMenuFrame, false);
         }
 
-        var ctxMenus = ["contentAreaContextMenu",
-                        "messagePaneContext",
-                        "editorContentContext"];
+        var ctxMenus = ["contentAreaContextMenu",   // FF
+                        "messagePaneContext",       // TB 2.x
+                        "editorContentContext",     // TB 2.x/3.x mail editor
+                        "mailContext"];             // TB 3.x
         for (var i in ctxMenus) {
             var n = document.getElementById(ctxMenus[i]);
             if (n) {
                 n.removeEventListener("popupshowing", thiz.onPopupShowingContextMenu, false);
                 n.removeEventListener("popuphidden", thiz.onPopupHiddenContextMenu, false);
             }
+        }
+        var console = document.getElementById("ConsoleBox");
+        if (console) {
+            console.removeEventListener("click", thiz.onClickConsole, true);
+        }
+        var ctxMenu = document.getElementById("ConsoleContext");
+        if (ctxMenu) {
+            ctxMenu.removeEventListener("popupshowing", thiz.onPopupShowingConsole, true);
         }
     },
 
@@ -697,10 +707,12 @@ var gViewSourceWithMain = {
             }
 
             var vswMenuQuickFrame = document.getElementById("vswMenuQuickFrame");
-            if (thiz.prefs.showQuickFrame && gContextMenu && gContextMenu.inFrame) {
-                vswMenuQuickFrame.removeAttribute("hidden");
-            } else {
-                vswMenuQuickFrame.setAttribute("hidden", "true");
+            if (vswMenuQuickFrame) {
+                if (thiz.prefs.showQuickFrame && gContextMenu && gContextMenu.inFrame) {
+                    vswMenuQuickFrame.removeAttribute("hidden");
+                } else {
+                    vswMenuQuickFrame.setAttribute("hidden", "true");
+                }
             }
 
             // Change context menu item label

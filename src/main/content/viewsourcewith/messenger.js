@@ -115,6 +115,7 @@ var gViewSourceWithMessenger = {
     openMessagesFromThreadPane : function(editorDataIdx, event) {
         try {
             var prefs = gViewSourceWithMain.prefs;
+            var linkInfo = gViewSourceWithMain._linkInfo;
 
             var messages;
             if (typeof gFolderDisplay == "undefined") {
@@ -125,38 +126,51 @@ var gViewSourceWithMessenger = {
                 messages = gFolderDisplay.selectedMessageUris;
             }
 
-            // First, get the mail session
-            const mailSessionContractID = "@mozilla.org/messenger/services/session;1";
-            const nsIMsgMailSession = Components.interfaces.nsIMsgMailSession;
-            var mailSession = Components.classes[mailSessionContractID].getService(nsIMsgMailSession);
-
-            var mailCharacterSet = "charset=" + msgWindow.mailCharacterSet;
-
-            var messenger = Components.classes['@mozilla.org/messenger;1'].createInstance();
-            messenger = messenger.QueryInterface(Components.interfaces.nsIMessenger);
-
             var urls = new Array();
             var fileNames = new Array();
             var cleaner = viewSourceWithFactory.getTempCleaner();
 
-            for (var i = 0; i < messages.length; i++) {
-                // Now, we need to get a URL from a URI
-                var url = mailSession.ConvertMsgURIToMsgURL(messages[i], msgWindow);
-                var subject = messenger.messageServiceFromURI(url)
-                             .messageURIToMsgHdr(messages[i]).mime2DecodedSubject;
-                // 20-Apr-07 If subject contains Japanese characters many editors
-                // are unable to open the file so subject is no more added to file name
-                var fileName = /*subject + */"msg" + i + ".html";
+            if (linkInfo.isOnLinkOrImage) {
+                var fileName = ViewSourceWithCommon.getDocumentFileName(linkInfo.url);
                 var filePath = ViewSourceWithCommon.initFileToRun(
                                     unescape(fileName),
                                     prefs.destFolder,
                                     prefs.tempMaxFilesSamePrefix,
                                     true,
                                     cleaner);
-
-                urls.push(url);
+                urls.push(linkInfo.url);
                 fileNames.push(filePath);
+            } else {
+                // First, get the mail session
+                const mailSessionContractID = "@mozilla.org/messenger/services/session;1";
+                const nsIMsgMailSession = Components.interfaces.nsIMsgMailSession;
+                var mailSession = Components.classes[mailSessionContractID].getService(nsIMsgMailSession);
+
+                var mailCharacterSet = "charset=" + msgWindow.mailCharacterSet;
+
+                var messenger = Components.classes['@mozilla.org/messenger;1'].createInstance();
+                messenger = messenger.QueryInterface(Components.interfaces.nsIMessenger);
+
+                for (var i = 0; i < messages.length; i++) {
+                    // Now, we need to get a URL from a URI
+                    var url = mailSession.ConvertMsgURIToMsgURL(messages[i], msgWindow);
+                    var subject = messenger.messageServiceFromURI(url)
+                                 .messageURIToMsgHdr(messages[i]).mime2DecodedSubject;
+                    // 20-Apr-07 If subject contains Japanese characters many editors
+                    // are unable to open the file so subject is no more added to file name
+                    var fileName = /*subject + */"msg" + i + ".html";
+                    var filePath = ViewSourceWithCommon.initFileToRun(
+                                        unescape(fileName),
+                                        prefs.destFolder,
+                                        prefs.tempMaxFilesSamePrefix,
+                                        true,
+                                        cleaner);
+
+                    urls.push(url);
+                    fileNames.push(filePath);
+                }
             }
+
             var saver = new UrlDownloader();
             saver.callbackObject = { editorData : prefs.editorData[editorDataIdx],
                                      urlMapperData : prefs.urlMapperData};
