@@ -44,7 +44,7 @@
     </tabs>
     <tabpanels flex="1">
       <tabpanel orient="vertical" flex="1">
-        <tree id="all-resources" flex="1" hidecolumnpicker="true" onkeypress="gVSWResources.onTreeKeyPress(event);">
+        <tree id="all-resources" flex="1" hidecolumnpicker="true">
           <treecols>
             <treecol id="resource-name" label="&resourcename.tree.label;" flex="1" persist="width"
                      onclick="gVSWResources.allResourcesTreeView.sort('name');"
@@ -58,7 +58,7 @@
       </tabpanel>
 
       <tabpanel orient="vertical" flex="1">
-        <tree id="css-resources" flex="1" hidecolumnpicker="true" onkeypress="gVSWResources.onTreeKeyPress(event);">
+        <tree id="css-resources" flex="1" hidecolumnpicker="true">
           <treecols>
             <treecol id="resource-name" label="&resourcename.tree.label;" flex="1" persist="width"
                      onclick="gVSWResources.cssResourcesTreeView.sort('name');"
@@ -72,7 +72,7 @@
       </tabpanel>
 
       <tabpanel orient="vertical" flex="1">
-        <tree id="js-resources" flex="1" hidecolumnpicker="true" onkeypress="gVSWResources.onTreeKeyPress(event);">
+        <tree id="js-resources" flex="1" hidecolumnpicker="true">
           <treecols>
             <treecol id="resource-name" label="&resourcename.tree.label;" flex="1" persist="width"
                      onclick="gVSWResources.jsResourcesTreeView.sort('name');"
