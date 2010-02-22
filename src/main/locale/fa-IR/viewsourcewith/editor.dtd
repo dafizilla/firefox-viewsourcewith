@@ -12,7 +12,7 @@
 <!ENTITY token.line.number "شماره خط">
 <!ENTITY token.column.number "شماره ستون">
 <!ENTITY token.help "...راهنما">
-<!ENTITY editPathPortable.label "مسیر وابسته (نمونه: /&#46;&#46;/editors/vim)">
+<!ENTITY editPathPortable.label "مسیر وابسته (نمونه: /../editors/vim)">
 <!ENTITY use.portable.label "استفاده از مسیر مربوط به پروفایل (برای برنامه‌های پرتابل)">
 <!ENTITY preview.path.label "پیش‌نمایش">
 <!ENTITY shortcut.default.caption "میانبر پیش‌فرض ویرایشگر">

@@ -12,7 +12,7 @@
 <!ENTITY token.line.number "Číslo řádku">
 <!ENTITY token.column.number "Číslo sloupce">
 <!ENTITY token.help "Nápověda...">
-<!ENTITY editPathPortable.label "Relativní cesta (např. /&#46;&#46;/editors/vim)">
+<!ENTITY editPathPortable.label "Relativní cesta (např. /../editors/vim)">
 <!ENTITY use.portable.label "Použít relativní cestu k profilu (pro portovatelné aplikace)">
 <!ENTITY preview.path.label "Cesta k náhledu">
 <!ENTITY shortcut.default.caption "Klávesová zkratka výchozího editoru">

@@ -1,6 +1,6 @@
 <!ENTITY dialog.editor.title "プログラムの選択">
 <!ENTITY editorPath.label "プログラムへのパス">
-<!ENTITY description.label "概要">
+<!ENTITY description.label "表示名">
 <!ENTITY shortcut.caption "ショートカットキー">
 <!ENTITY shortcut.default.accel "Ctrl + Shift +">
 <!ENTITY shortcut.remove "削除">
@@ -12,7 +12,7 @@
 <!ENTITY token.line.number "行番号">
 <!ENTITY token.column.number "列番号">
 <!ENTITY token.help "ヘルプ...">
-<!ENTITY editPathPortable.label "相対パス(例 /&#46;&#46;/editors/vim)">
+<!ENTITY editPathPortable.label "相対パス(例 /../editors/vim)">
 <!ENTITY use.portable.label "プロファイルへの相対パスを使用(ポータブルアプリケーション向け)">
 <!ENTITY preview.path.label "パスのプレビュー">
 <!ENTITY shortcut.default.caption "エディターのデフォルトのショートカットキー">

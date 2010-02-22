@@ -12,7 +12,7 @@
 <!ENTITY token.line.number "Sorszám">
 <!ENTITY token.column.number "Oszlopszám">
 <!ENTITY token.help "Súgó...">
-<!ENTITY editPathPortable.label "Relatív útvonal (pl. /&#46;&#46;/szerkeszt/vim)">
+<!ENTITY editPathPortable.label "Relatív útvonal (pl. /../szerkeszt/vim)">
 <!ENTITY use.portable.label "A profilhoz viszonyított relatív útvonal használata (&apos;portable&apos; alkalmazásokhoz)">
 <!ENTITY preview.path.label "Útvonal előnézet">
 <!ENTITY shortcut.default.caption "Szerkesztő alapértelmezett gyorsbillentyűje">
