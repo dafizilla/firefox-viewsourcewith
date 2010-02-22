@@ -115,41 +115,4 @@
                        onpopupshowing="return gViewSourceWithMain.initViewMenu(event);" />
         </toolbarbutton>
     </toolbarpalette>
-
-    <!-- Mozilla/SeaMonkey Navigator Toolbar Element -->
-    <!--
-        http://lxr.mozilla.org/mozilla/source/xpfe/browser/resources/content/navigator.js
-        The listener checks children of browser.toolbars.showbutton.XXXX
-        The updateButton function hides button with name XXXX-button
-    -->
-    <hbox id="nav-bar-buttons">
-        <toolbarbutton id="viewsourcewith-button"
-            oncommand="gViewSourceWithMain.runEditor(event, gViewSourceWithMain.prefs.editorDefaultIndex);">
-            <menupopup id="viewsourcewith-toolbarMenuPopup"
-                       onpopupshowing="return gViewSourceWithMain.initViewMenu(event);" />
-        </toolbarbutton>
-    </hbox>
-
-    <!-- Mozilla/SeaMonkey Mail Toolbar Element
-        On Mail toolbar the button ids are xxx-button
-        instead on navigation toolbar are button-xxx
-    -->
-    <hbox id="toolbar_button_box">
-        <toolbarbutton
-            id="button-viewsourcewith"
-            class="toolbarbutton-1"
-            type="menu-button"
-            tooltiptext=""
-            label="&viewsourcewithButton.label;"
-            oncommand="gViewSourceWithMain.runEditor(event, gViewSourceWithMain.prefs.editorDefaultIndex);"
-            observes="cmd_vswEnabledEditor"
-            key="key_viewsourcewith"
-            disabled="true"
-            insertafter="button-stop">
-            <menupopup id="viewsourcewith-toolbarMenuPopup"
-                       onpopupshowing="return gViewSourceWithMain.initViewMenu(event);"
-                       oncommand="event.stopPropagation();" />
-        </toolbarbutton>
-    </hbox>
 </overlay>
-

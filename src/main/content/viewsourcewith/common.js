@@ -623,7 +623,7 @@ ViewSourceWithCommon.addToolbarButton = function(buttonId) {
         && toolbar.currentSet.indexOf(buttonId) == -1
         && toolbar.getAttribute('customizable') == 'true') {
         toolbar.currentSet = toolbar.currentSet.replace(
-            /(urlbar-container|separator)/,
+            /(urlbar-container|separator|throbber-box)/, // throbber-box for SM2
             buttonId + ',$1');
         toolbar.setAttribute('currentset', toolbar.currentSet);
         toolbar.ownerDocument.persist(toolbar.id, 'currentset');
