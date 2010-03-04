@@ -9,9 +9,9 @@
 <!ENTITY edit.button.label "Uredi">
 <!ENTITY delete.button.label "Obriši">
 <!ENTITY writtenBy.label "Napisao">
-<!ENTITY site.label "Davide Ficano">
+
 <!ENTITY viewSource.home.tooltip "Idite na ViewSourceWith">
-<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+
 <!ENTITY save.method.caption "Predefinirana metoda spremanja">
 <!ENTITY save.method.normal.label "Normalna">
 <!ENTITY save.method.dom.label "DOM dokument">

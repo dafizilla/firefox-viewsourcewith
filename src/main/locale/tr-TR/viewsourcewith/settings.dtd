@@ -9,9 +9,9 @@
 <!ENTITY edit.button.label "Ekle">
 <!ENTITY delete.button.label "Sil">
 <!ENTITY writtenBy.label "Hazırlayan">
-<!ENTITY site.label "Davide Ficano">
+
 <!ENTITY viewSource.home.tooltip "ViewSourceWith'e git">
-<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+
 <!ENTITY save.method.caption "Önceden tanımlanmış kayıt yöntemi">
 <!ENTITY save.method.normal.label "Normal">
 <!ENTITY save.method.dom.label "DOM belgesi">

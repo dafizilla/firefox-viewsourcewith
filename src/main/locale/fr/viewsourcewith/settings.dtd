@@ -9,9 +9,9 @@
 <!ENTITY edit.button.label "Modifier">
 <!ENTITY delete.button.label "Supprimer">
 <!ENTITY writtenBy.label "Écrite par">
-<!ENTITY site.label "Davide Ficano">
+
 <!ENTITY viewSource.home.tooltip "Lancer ViewSourceWith">
-<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+
 <!ENTITY save.method.caption "Méthode de sauvegarde prédéfinie">
 <!ENTITY save.method.normal.label "Normale">
 <!ENTITY save.method.dom.label "Document DOM">

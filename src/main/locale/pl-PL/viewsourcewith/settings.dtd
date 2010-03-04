@@ -9,9 +9,9 @@
 <!ENTITY edit.button.label "Edytuj">
 <!ENTITY delete.button.label "Usuń">
 <!ENTITY writtenBy.label "Autor:">
-<!ENTITY site.label "Davide Ficano">
+
 <!ENTITY viewSource.home.tooltip "Odwiedź stronę rozszerzenia">
-<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+
 <!ENTITY save.method.caption "Predefiniowana metoda zapisu">
 <!ENTITY save.method.normal.label "Normalna">
 <!ENTITY save.method.dom.label "Dokument DOM">

@@ -9,9 +9,9 @@
 <!ENTITY edit.button.label "แก้ไข">
 <!ENTITY delete.button.label "ลบ">
 <!ENTITY writtenBy.label "พัฒนาโดย">
-<!ENTITY site.label "Davide Ficano">
+
 <!ENTITY viewSource.home.tooltip "ไปยังเว็บ ViewSourceWith">
-<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+
 <!ENTITY save.method.caption "วิธีการบันทึก">
 <!ENTITY save.method.normal.label "ปกติ">
 <!ENTITY save.method.dom.label "DOM document">

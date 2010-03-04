@@ -9,9 +9,9 @@
 <!ENTITY edit.button.label "Upravit">
 <!ENTITY delete.button.label "Smazat">
 <!ENTITY writtenBy.label "Written by">
-<!ENTITY site.label "Davide Ficano">
+
 <!ENTITY viewSource.home.tooltip "Otevřít stránku rozšíření ViewSourceWith">
-<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+
 <!ENTITY save.method.caption "Výchozí metoda uložení">
 <!ENTITY save.method.normal.label "Normalní">
 <!ENTITY save.method.dom.label "DOM dokument">

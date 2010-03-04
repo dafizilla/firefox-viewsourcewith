@@ -9,9 +9,9 @@
 <!ENTITY edit.button.label "Redigeer">
 <!ENTITY delete.button.label "Skrap">
 <!ENTITY writtenBy.label "Geskryf deur">
-<!ENTITY site.label "Davide Ficano">
+
 <!ENTITY viewSource.home.tooltip "Gaan na ViewSourceWith">
-<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+
 <!ENTITY save.method.caption "Voorafgedefinieerde stoormetode">
 <!ENTITY save.method.normal.label "Gewoon">
 <!ENTITY save.method.dom.label "DOM-dokument">

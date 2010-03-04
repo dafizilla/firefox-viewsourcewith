@@ -9,9 +9,9 @@
 <!ENTITY edit.button.label "Rediger">
 <!ENTITY delete.button.label "Slet">
 <!ENTITY writtenBy.label "Skrevet af">
-<!ENTITY site.label "Davide Ficano">
+
 <!ENTITY viewSource.home.tooltip "Gå til ViewSourceWith">
-<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+
 <!ENTITY save.method.caption "Prædefineret gem-metode">
 <!ENTITY save.method.normal.label "Normal">
 <!ENTITY save.method.dom.label "DOM-dokument">

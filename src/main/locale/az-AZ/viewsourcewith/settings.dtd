@@ -9,9 +9,9 @@
 <!ENTITY edit.button.label "Düzəliş">
 <!ENTITY delete.button.label "Sil">
 <!ENTITY writtenBy.label "Müəllif">
-<!ENTITY site.label "Davide Ficano">
+
 <!ENTITY viewSource.home.tooltip "ViewSourceWith internet səhifəsi">
-<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+
 <!ENTITY save.method.caption "Üstünlük verilən qeyd şəkli">
 <!ENTITY save.method.normal.label "Adi">
 <!ENTITY save.method.dom.label "DOM sənədi">

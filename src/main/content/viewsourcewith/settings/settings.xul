@@ -6,9 +6,11 @@
 <!DOCTYPE dialog
 [
 <!ENTITY % settingsDTD SYSTEM "chrome://viewsourcewith/locale/settings.dtd" >
-%settingsDTD;
 <!ENTITY % editorDTD SYSTEM "chrome://viewsourcewith/locale/editor.dtd" >
+<!ENTITY % appInfoDTD SYSTEM "chrome://viewsourcewith/content/appInfo.dtd" >
+%settingsDTD;
 %editorDTD;
+%appInfoDTD;
 ]>
 
 <dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"

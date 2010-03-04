@@ -9,9 +9,9 @@
 <!ENTITY edit.button.label "编辑">
 <!ENTITY delete.button.label "删除">
 <!ENTITY writtenBy.label "作者:">
-<!ENTITY site.label "Davide Ficano">
+
 <!ENTITY viewSource.home.tooltip "转到ViewSourceWith主页">
-<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+
 <!ENTITY save.method.caption "预定义的保存方式">
 <!ENTITY save.method.normal.label "正常">
 <!ENTITY save.method.dom.label "DOM 文档">

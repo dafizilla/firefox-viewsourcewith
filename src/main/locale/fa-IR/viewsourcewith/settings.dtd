@@ -11,7 +11,7 @@
 <!ENTITY writtenBy.label "Davide Ficano">
 <!ENTITY site.label "نویسنده">
 <!ENTITY viewSource.home.tooltip "بازدید از سایت ViewSourceWith">
-<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+
 <!ENTITY save.method.caption "متد از پیش تعریف شده">
 <!ENTITY save.method.normal.label "معمولی">
 <!ENTITY save.method.dom.label "پرونده DOM">

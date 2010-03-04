@@ -9,9 +9,9 @@
 <!ENTITY edit.button.label "編集">
 <!ENTITY delete.button.label "削除">
 <!ENTITY writtenBy.label "作成者:">
-<!ENTITY site.label "Davide Ficano">
+
 <!ENTITY viewSource.home.tooltip "ViewSourceWith のホームページを表示">
-<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+
 <!ENTITY save.method.caption "一時ファイルの既定の保存方法">
 <!ENTITY save.method.normal.label "標準">
 <!ENTITY save.method.dom.label "DOM ドキュメント">

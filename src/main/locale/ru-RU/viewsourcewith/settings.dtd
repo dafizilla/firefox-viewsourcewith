@@ -9,9 +9,9 @@
 <!ENTITY edit.button.label "Правка">
 <!ENTITY delete.button.label "Удалить">
 <!ENTITY writtenBy.label "Расширение создано">
-<!ENTITY site.label "Davide Ficano">
+
 <!ENTITY viewSource.home.tooltip "Посетить домашнюю страницу ViewSourceWith">
-<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+
 <!ENTITY save.method.caption "Предпочитаемый метод сохранения">
 <!ENTITY save.method.normal.label "Обычный">
 <!ENTITY save.method.dom.label "Документ DOM">

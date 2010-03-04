@@ -9,9 +9,9 @@
 <!ENTITY edit.button.label "Szerkesztés">
 <!ENTITY delete.button.label "Törlés">
 <!ENTITY writtenBy.label "Készítő:">
-<!ENTITY site.label "Davide Ficano">
+
 <!ENTITY viewSource.home.tooltip "Honlap meglátogatása...">
-<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith">
+
 <!ENTITY save.method.caption "Mentés alapértelmezett típusa">
 <!ENTITY save.method.normal.label "Normális">
 <!ENTITY save.method.dom.label "DOM fájl">
