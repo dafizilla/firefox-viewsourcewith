@@ -1,5 +1,5 @@
 <!DOCTYPE extension [
-<!ENTITY extension.version "0.6">
+<!ENTITY extension.version "0.6.1">
 ]>
 
 <extension name="viewsourcewith">
