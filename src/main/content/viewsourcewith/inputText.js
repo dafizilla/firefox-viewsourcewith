@@ -23,7 +23,7 @@ var ViewSourceWithInputText = {
             if (generateNewFileName) {
                 var fileName = ViewSourceWithCommon.getDocumentFileName(
                                                     target.document);
-                filePath = thiz.generateInputTextFile(target, fileName);
+                filePath = thiz.generateInputTextFile(linkInfo, fileName);
                 viewSourceWithFactory.getTempCleaner()
                         .deleteTemporaryFileOnExit(filePath);
             }
@@ -41,7 +41,8 @@ var ViewSourceWithInputText = {
         }
    },
 
-    generateInputTextFile : function(target, fileName) {
+    generateInputTextFile : function(linkInfo, fileName) {
+        var target = linkInfo.target;
         var thiz = ViewSourceWithInputText;
 
         var controlName = ViewSourceWithCommon.getPortableFileName(target.name);
@@ -49,10 +50,28 @@ var ViewSourceWithInputText = {
         // replace last extension with target one
         var re = /\.[^\.]*$/;
         var dateStamp = new Date().getTime();
+        var fileExtension = thiz.findExtension(linkInfo, thiz.prefs.fileExtensionMapper);
         var filePath = ViewSourceWithCommon.makeLocalFile(
                             thiz.prefs.destFolder,
-                            [fileName.replace(re, controlName + dateStamp + target.fileExtension)]);
+                            [fileName.replace(re, controlName + dateStamp + fileExtension)]);
         return filePath;
+    },
+
+    findExtension : function(linkInfo, fileExtensionMapper) {
+        var url = linkInfo.url;
+
+        try {
+            for (var mapper in fileExtensionMapper) {
+                var m = fileExtensionMapper[mapper];
+
+                if (new RegExp(m.domainFilter).test(url)) {
+                    return m.fileExtension;
+                }
+            }
+        } catch (err) {
+            alert("Error while processing mapper. " + err);
+        }
+        return linkInfo.target.fileExtension;
     },
 
     fillInputText : function(textTarget) {

@@ -215,6 +215,7 @@ function ViewSourceWithPrefs() {
 
     this._nativeImageEditorIndex = -1;
     this._urlMapperData    = new Array();
+    this._fileExtensionMapper = new Array();
 
     if (this._useProfilePath) {
         this._configPath = this.profilePath;
@@ -253,6 +254,7 @@ ViewSourceWithPrefs.prototype = {
         this._viewShowMenuIcon = prefs._viewShowMenuIcon;
         this._nativeImageEditorIndex = prefs._nativeImageEditorIndex;
         this._urlMapperData = prefs._urlMapperData;
+        this._fileExtensionMapper = prefs._fileExtensionMapper;
         this._showResourcesMenu = prefs._showResourcesMenu;
         this._showQuickFrame = prefs._showQuickFrame;
         this._replaceJSConsole = prefs._replaceJSConsole;
@@ -393,6 +395,14 @@ ViewSourceWithPrefs.prototype = {
         this._urlMapperData = newData;
     },
 
+    get fileExtensionMapper() {
+        return this._fileExtensionMapper;
+    },
+    
+    set fileExtensionMapper(newData) {
+        this._fileExtensionMapper = newData;
+    },
+
     get showResourcesMenu() {
         return this._showResourcesMenu;
     },
@@ -499,6 +509,8 @@ ViewSourceWithPrefs.prototype = {
             this.nativeImageEditorIndex = this.getTagValue(doc, "native-image-editor-index", "-1");
 
             this._urlMapperData = this.getUrlMappers(doc);
+            this._fileExtensionMapper = this.getFileExtensionMapper(doc);
+
             // sanity check
             if (this._editorData.length > 0 && !(0 <= this._editorDefaultIndex && this._editorDefaultIndex < this._editorData.length)) {
                 this._editorDefaultIndex = 0;
@@ -742,6 +754,18 @@ ViewSourceWithPrefs.prototype = {
         str += '    </url-mappers>\n';
         str += '\n';
 
+        str += '    <file-extension-mappers>\n';
+        for (var i = 0; i < this.fileExtensionMapper.length; i++) {
+            var curr = this.fileExtensionMapper[i];
+
+            str += '        <file-extension-mapper>\n';
+            str += '            <domain-filter><![CDATA[' + curr.domainFilter + ']]></domain-filter>\n';
+            str += '            <file-extension><![CDATA[' + curr.fileExtension + ']]></file-extension>\n';
+            str += '        </file-extension-mapper>\n';
+        }
+        str += '    </file-extension-mappers>\n';
+        str += '\n';
+
         str += '</view-source-with>\n';
         str += '\n';
 
@@ -856,6 +880,60 @@ ViewSourceWithPrefs.prototype = {
         data.localPath = localPath;
         data.enabled = enabled;
         data.jsCode = jsCode;
+
+        return data;
+    },
+
+    getFileExtensionMapper : function(doc) {
+        var nl = doc.getElementsByTagName("file-extension-mappers");
+        var ar = new Array();
+
+        if (nl && nl.item(0) && nl.item(0).hasChildNodes()) {
+            nl = nl.item(0).childNodes;
+            for (var i = 0; i < nl.length; i++) {
+                var curr = nl.item(i);
+                var isValid = curr.nodeType == Node.ELEMENT_NODE;
+
+                if (isValid && curr.nodeName == "file-extension-mapper") {
+                    var item = this.createFileExtensionMapper(curr);
+                    if (item) {
+                        ar.push(item);
+                    }
+                }
+            }
+        }
+        return ar;
+    },
+
+    createFileExtensionMapper : function(fileExtensionMapper) {
+        var domainFilter = "";
+        var fileExtension = "";
+
+        if (fileExtensionMapper.hasChildNodes()) {
+            var nl = fileExtensionMapper.childNodes;
+
+            for (var i = 0; i < nl.length; i++) {
+                var curr = nl.item(i);
+
+                var isValid = curr.nodeType == Node.ELEMENT_NODE;// && curr.hasChildNodes();
+
+                if (!isValid) {
+                    continue;
+                }
+                if (curr.nodeName == "file-extension") {
+                    fileExtension = curr.firstChild.nodeValue;
+                } else if (curr.nodeName == "domain-filter") {
+                    domainFilter = curr.firstChild.nodeValue;
+                }
+            }
+        }
+
+        if (fileExtension == null || domainFilter == null) {
+            return null;
+        }
+        var data = {};
+        data.domainFilter = domainFilter;
+        data.fileExtension = fileExtension;
 
         return data;
     },
