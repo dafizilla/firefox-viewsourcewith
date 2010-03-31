@@ -48,6 +48,7 @@ var gViewSourceSettings = {
 
                 thiz.prefs.nativeImageEditorIndex = thiz.oTreeEditor.view.imageEditorIdx;
                 thiz.prefs.urlMapperData = thiz.oUrlMapperTree.view.items;
+                thiz.prefs.fileExtensionMapper = thiz.oFileExtensionMapperTree.view.items;
 
                 thiz.prefs.showResourcesMenu = thiz.oViewShowResourcesMenu.checked;
                 thiz.prefs.showQuickFrame = thiz.oViewQuickFrameShowMenu.checked;
@@ -139,6 +140,8 @@ var gViewSourceSettings = {
         thiz.oReplaceJSConsole = document.getElementById("replaceJSConsole");
         thiz.oAllowEditText = document.getElementById("allowEditText");
         thiz.oShowButtonOnPopup = document.getElementById("toolbarbuttonOnPopup");
+
+        thiz.oFileExtensionMapperTree = document.getElementById("fileExtensionMapperTree");
 
         thiz.initValues(true);
     },
@@ -247,6 +250,9 @@ var gViewSourceSettings = {
         thiz.oUrlMapperTree.view = new TreeViewUrlMapper(thiz.prefs.urlMapperData);
         thiz.oUrlMapperTree.view.selection.select(-1);
 
+        thiz.oFileExtensionMapperTree.view = new TreeViewFileExtensionMapper(thiz.prefs.fileExtensionMapper);
+        thiz.oFileExtensionMapperTree.view.selection.select(-1);
+
         thiz.oViewShowResourcesMenu.checked = thiz.prefs.showResourcesMenu;
         thiz.oViewQuickFrameShowMenu.checked = thiz.prefs.showQuickFrame;
 
@@ -256,7 +262,6 @@ var gViewSourceSettings = {
 
         document.getElementById("default-shortcut-key").value =
                 thiz.prefs.defaultShortcutKey.keyToString();
-
     },
 
     disableConfigPath : function(event) {
@@ -404,5 +409,47 @@ var gViewSourceSettings = {
         thiz.prefs.defaultShortcutKey = thiz.prefs.newDefaultEditorKeyData();
         document.getElementById("default-shortcut-key").value =
             thiz.prefs.defaultShortcutKey.keyToString();
+    },
+
+    newFileExtensionMapper : function() {
+        var thiz = gViewSourceSettings;
+        var param = {isOk : false, item : {domainFilter : "", fileExtension : ""}};
+
+        window.openDialog("chrome://viewsourcewith/content/settings/fileExtensionMapper.xul",
+                          "_blank",
+                          "chrome,modal,resizable=yes,dependent=yes",
+                          param);
+        if (param.isOk) {
+            thiz.oFileExtensionMapperTree.view.insertItem(param.item);
+            thiz.oFileExtensionMapperTree.view.invalidate();
+        }
+    },
+
+    editFileExtensionMapper : function(event) {
+        var thiz = gViewSourceSettings;
+        var selIdx = thiz.oFileExtensionMapperTree.view.selection.currentIndex;
+
+        if (selIdx < 0) {
+            return;
+        }
+        var param = {isOk : false, item : thiz.oFileExtensionMapperTree.view.items[selIdx]};
+        window.openDialog("chrome://viewsourcewith/content/settings/fileExtensionMapper.xul",
+                          "_blank",
+                          "chrome,modal,resizable=yes,dependent=yes",
+                          param);
+        thiz.oFileExtensionMapperTree.view.invalidate();
+    },
+
+    deleteFileExtensionMapper : function() {
+        var thiz = gViewSourceSettings;
+        var msg = thiz.oFileExtensionMapperTree.getAttribute("deleteitemmsg");
+        var selIdx = thiz.oFileExtensionMapperTree.view.selection.currentIndex;
+        var item = thiz.oFileExtensionMapperTree.view.items[selIdx];
+
+        msg = msg.replace(/%1/, item.fileExtension + " [" + item.domainFilter + "]");
+        if (confirm(msg)) {
+            thiz.oFileExtensionMapperTree.view.deleteSelectedItem();
+            thiz.oFileExtensionMapperTree.focus();
+        }
     }
 };

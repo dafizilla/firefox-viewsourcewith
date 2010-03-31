@@ -1,0 +1,3 @@
+<!ENTITY dialog.fileExtensionMapper.title "Mappatura estensioni file">
+<!ENTITY domainfilter.caption "Filtro di dominio (espressione regolare)">
+<!ENTITY fileExtension.caption "Estensione file (se necessario aggiungere il punto)">

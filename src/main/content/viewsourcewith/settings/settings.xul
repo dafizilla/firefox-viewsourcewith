@@ -33,6 +33,7 @@
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/settings/treeViewUrlMapper.js"/>
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/tempCleaner.js"/>
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/settings/settings.js"/>
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/settings/treeViewFileExtensionMapper.js"/>
 
   <tabbox id="vswTabBox" flex="1">
     <tabs onselect="gViewSourceSettings.onSelectTab(this.selectedIndex);">
@@ -105,6 +106,22 @@
                     </hbox>
                 </vbox>
             </vbox>
+        </groupbox>
+
+        <groupbox orient="horizontal" flex="1">
+            <caption label="&fileExtensionMapper.caption;"/>
+                <itemtreebox
+                    id="fileExtensionMapperTree"
+                    flex="1"
+                    deleteitemmsg="&warning.delete.item;"
+
+                    onnew="return gViewSourceSettings.newFileExtensionMapper(event);"
+                    onedit="return gViewSourceSettings.editFileExtensionMapper(event);"
+                    ondelete="return gViewSourceSettings.deleteFileExtensionMapper(event);">
+                        <treecol id="fileExtensionMapperRegExp" label="&fileExtensionMapper.domain.filter.label;" flex="1" persist="width"/>
+                        <splitter class="tree-splitter"/>
+                        <treecol id="fileExtensionMapperExt" label="&fileExtensionMapper.file.extension.label;" flex="1" persist="width"/>
+                </itemtreebox>
         </groupbox>
 
       </tabpanel>
