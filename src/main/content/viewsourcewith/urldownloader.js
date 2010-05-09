@@ -123,7 +123,7 @@ UrlDownloader.prototype = {
         if (pageDescriptor) {
             try {
                 this.webShell = ViewSourceWithCommon.createDocShellInstance();
-    
+
                 const nsIWebProgress = Components.interfaces.nsIWebProgress;
                 this.progress = this.webShell.QueryInterface(nsIWebProgress);
                 this.progress.addProgressListener(this,

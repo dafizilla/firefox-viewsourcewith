@@ -210,7 +210,7 @@ var gViewSourceChooseEditor = {
         oLabel.setAttribute("label", labelValue);
         window.sizeToContent();
     },
-    
+
     onPickOSXFile : function(isOk, filePath) {
         var fillInputBox = isOk;
 

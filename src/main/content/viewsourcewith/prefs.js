@@ -398,7 +398,7 @@ ViewSourceWithPrefs.prototype = {
     get fileExtensionMapper() {
         return this._fileExtensionMapper;
     },
-    
+
     set fileExtensionMapper(newData) {
         this._fileExtensionMapper = newData;
     },
