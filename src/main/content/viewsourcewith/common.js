@@ -430,8 +430,8 @@ ViewSourceWithCommon.getDocumentFileName = function(doc, suggestedExtension) {
     }
 
     var extension = "";
-    if (typeof (suggestedExtension) == "undefined"
-        || suggestedExtension == null || suggestedExtension == "") {
+    if (typeof (suggestedExtension) === "undefined"
+        || suggestedExtension === null || suggestedExtension === "") {
         try {
             extension = "." + ViewSourceWithCommon.getMIMEService()
                                     .getPrimaryExtension(doc.contentType, null);
@@ -441,8 +441,9 @@ ViewSourceWithCommon.getDocumentFileName = function(doc, suggestedExtension) {
             }
         }
     } else {
-        if (uri.fileExtension != suggestedExtension) {
-            extension = "." + suggestedExtension;
+        if (uri.fileExtension !== suggestedExtension) {
+            extension = suggestedExtension[0] == '.'
+                ? suggestedExtension : ("." + suggestedExtension);
         }
     }
 
@@ -611,19 +612,25 @@ ViewSourceWithCommon.getEditorForWindow = function(target) {
     return editor;
 }
 
+ViewSourceWithCommon.getToolbar = function() {
+    return document.getElementById('nav-bar') ||
+        document.getElementById('mail-bar3') || // TB3 must be checked before TB2
+        document.getElementById('mail-bar2') || // TB2
+        document.getElementById('mail-bar');
+}
+
 ViewSourceWithCommon.addToolbarButton = function(buttonId) {
-    var toolbar =
-        document.getElementById('nav-bar') ||
-        document.getElementById('mail-bar') ||
-        document.getElementById('mail-bar2') ||
-        document.getElementById('mail-bar3');
+    var toolbar = ViewSourceWithCommon.getToolbar();
 
     if (toolbar
         && toolbar.currentSet
         && toolbar.currentSet.indexOf(buttonId) == -1
         && toolbar.getAttribute('customizable') == 'true') {
+
+        // throbber-box for SM2
+        // button-tag for TB3
         toolbar.currentSet = toolbar.currentSet.replace(
-            /(urlbar-container|separator|throbber-box)/, // throbber-box for SM2
+            /(urlbar-container|separator|throbber-box|button-tag)/,
             buttonId + ',$1');
         toolbar.setAttribute('currentset', toolbar.currentSet);
         toolbar.ownerDocument.persist(toolbar.id, 'currentset');
@@ -632,21 +639,13 @@ ViewSourceWithCommon.addToolbarButton = function(buttonId) {
 }
 
 ViewSourceWithCommon.isToolbarCustomizable = function() {
-    var toolbar =
-        document.getElementById('nav-bar') ||
-        document.getElementById('mail-bar') ||
-        document.getElementById('mail-bar2') ||
-        document.getElementById('mail-bar3');
+    var toolbar = ViewSourceWithCommon.getToolbar();
 
     return toolbar && toolbar.currentSet;
 }
 
 ViewSourceWithCommon.isToolbarButtonAlreadyPresent = function(buttonId) {
-    var toolbar =
-        document.getElementById('nav-bar') ||
-        document.getElementById('mail-bar') ||
-        document.getElementById('mail-bar2') ||
-        document.getElementById('mail-bar3');
+    var toolbar = ViewSourceWithCommon.getToolbar();
 
     return toolbar && toolbar.currentSet && toolbar.currentSet.indexOf(buttonId) >= 0;
 }
