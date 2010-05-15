@@ -49,3 +49,7 @@
 <!ENTITY advanced.allow.edit.text "Mətnlərin içərisində düzəliş aparılmasına icazə verilsin">
 <!ENTITY view.toolbarbutton.on.popup.caption "Özü açılan pəncərədə düymə">
 <!ENTITY view.toolbarbutton.on.popup.label "Özü açılan pəncərədə vasitlər lövhəsi düyməsini göstər">
+
+<!ENTITY fileExtensionMapper.caption "Mətn sahəsi üçün hazırlanmış sənəd adlarında istifadə olunan genişləmə">
+<!ENTITY fileExtensionMapper.domain.filter.label "Əhatə süzgəci (Adi ifadə)">
+<!ENTITY fileExtensionMapper.file.extension.label "Sənəd genişləməsi">

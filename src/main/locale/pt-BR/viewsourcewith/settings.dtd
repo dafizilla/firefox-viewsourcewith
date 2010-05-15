@@ -9,9 +9,7 @@
 <!ENTITY edit.button.label "Editar">
 <!ENTITY delete.button.label "Remover">
 <!ENTITY writtenBy.label "Criado por">
-
 <!ENTITY viewSource.home.tooltip "Visitar o site">
-<!ENTITY viewSource.url "http://dafizilla.sourceforge.net/viewsourcewith/">
 <!ENTITY save.method.caption "Método de salvamento">
 <!ENTITY save.method.normal.label "Normal">
 <!ENTITY save.method.dom.label "Documento DOM">
@@ -49,3 +47,6 @@
 <!ENTITY advanced.allow.edit.text "Permitir edição do conteúdo de caixas de texto">
 <!ENTITY view.toolbarbutton.on.popup.caption "Botão nas janelas popup">
 <!ENTITY view.toolbarbutton.on.popup.label "Exibir botão da barra de ferramentas em janelas popup">
+<!ENTITY fileExtensionMapper.caption "Extensão usada em nomes de arquivos gerados para campos de texto">
+<!ENTITY fileExtensionMapper.domain.filter.label "Filtro de domínio (expressão regular)">
+<!ENTITY fileExtensionMapper.file.extension.label "Extensão do arquivo">

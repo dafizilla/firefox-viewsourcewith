@@ -11,9 +11,9 @@
 <!ENTITY token.filenames "Bestandsna(a)m(en)">
 <!ENTITY token.line.number "Regelnummer">
 <!ENTITY token.column.number "Kolomnummer">
-<!ENTITY token.help "Help...">
+<!ENTITY token.help "Hulp…">
 <!ENTITY editPathPortable.label "Relatief pad (bijvoorbeeld /../editors/vim)">
 <!ENTITY use.portable.label "Gebruik aan profiel gerelateerd pad (voor draagbare toepassingen)">
 <!ENTITY preview.path.label "Voorbeeld pad">
-<!ENTITY shortcut.default.caption "Standaard sneltoets naar bewerkingsprogramma">
+<!ENTITY shortcut.default.caption "Standaardsneltoets naar bewerkingsprogramma">
 <!ENTITY shortcut.restore "Herstellen">

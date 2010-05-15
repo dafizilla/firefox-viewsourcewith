@@ -1,0 +1,10 @@
+<!ENTITY resources.title "스크립트와 스타일시트 열기">
+<!ENTITY all.tab.label "리소스 추가">
+<!ENTITY css.tab.label "스타일시트">
+<!ENTITY js.tab.label "스크립트">
+<!ENTITY showallframes.label "모든 프레임 리소스 보이기">
+<!ENTITY editors.label "이용할 편집기">
+<!ENTITY button.label.accept "보기">
+<!ENTITY button.label.cancel "닫기">
+<!ENTITY resourcename.tree.label "이름">
+<!ENTITY resourcepath.tree.label "URL">

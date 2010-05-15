@@ -9,9 +9,7 @@
 <!ENTITY edit.button.label "Edit">
 <!ENTITY delete.button.label "Delete">
 <!ENTITY writtenBy.label "Written by">
-
 <!ENTITY viewSource.home.tooltip "Go to ViewSourceWith">
-
 <!ENTITY save.method.caption "Predefined save method">
 <!ENTITY save.method.normal.label "Normal">
 <!ENTITY save.method.dom.label "DOM document">
@@ -49,7 +47,6 @@
 <!ENTITY advanced.allow.edit.text "Allow content edit of text boxes">
 <!ENTITY view.toolbarbutton.on.popup.caption "Button on popup windows">
 <!ENTITY view.toolbarbutton.on.popup.label "Show toolbar button on popup windows">
-
 <!ENTITY fileExtensionMapper.caption "Used extension in generated file names for text fields">
 <!ENTITY fileExtensionMapper.domain.filter.label "Domain Filter (Regular Expression)">
 <!ENTITY fileExtensionMapper.file.extension.label "File Extension">

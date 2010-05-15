@@ -1,0 +1,3 @@
+<!ENTITY dialog.fileExtensionMapper.title "Dateiendung-Mapping">
+<!ENTITY domainfilter.caption "Domain-Filter (Regulärer Ausdruck)">
+<!ENTITY fileExtension.caption "Dateiendung (falls notwendig, fügen Sie den Punkt hinzu)">

@@ -1,0 +1,7 @@
+<!ENTITY dialog.urlmapper.title "서버 페이지 매핑">
+<!ENTITY urlMapperName.caption "매핑 이름">
+<!ENTITY domainfilter.caption "매핑 필터 (정규 표현식)">
+<!ENTITY localpath.caption "서버에서 처리되는 페이지를 포함하는 폴더">
+<!ENTITY jsCode.caption "자바스크립트 코드">
+<!ENTITY jsCode.insert.tooltiptext "이미 정의된 코드 추가">
+<!ENTITY urlmapper.picktitle.directory "폴더 선택">

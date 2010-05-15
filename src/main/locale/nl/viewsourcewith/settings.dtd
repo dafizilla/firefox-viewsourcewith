@@ -9,9 +9,7 @@
 <!ENTITY edit.button.label "Bewerken">
 <!ENTITY delete.button.label "Verwijderen">
 <!ENTITY writtenBy.label "Geschreven door">
-
 <!ENTITY viewSource.home.tooltip "Ga naar ViewSourceWith">
-
 <!ENTITY save.method.caption "Vooraf aangegeven methode om op te slaan">
 <!ENTITY save.method.normal.label "Normaal">
 <!ENTITY save.method.dom.label "DOM-document">
@@ -37,7 +35,7 @@
 <!ENTITY urlmapper.caption "Mappinglijst voor serverpagina’s">
 <!ENTITY urlmapper.enabled.tree.label "Ingeschakeld">
 <!ENTITY urlmapper.name.tree.label "Naam">
-<!ENTITY urlmapper.advice.label "Paginabronnen aan de ‘server-zijde’ openen">
+<!ENTITY urlmapper.advice.label "Paginabronnen aan de ‘serverzijde’ openen">
 <!ENTITY view.showResourcesMenu.label "Menu CSS/JS weergeven">
 <!ENTITY view.quickFrameShowMenu.label "Menu ‘Snelle toegang tot frames’ weergeven">
 <!ENTITY picktitle.destfolder "Selecteer een map">
@@ -49,3 +47,6 @@
 <!ENTITY advanced.allow.edit.text "Bewerken van inhoud van tekstvelden toestaan">
 <!ENTITY view.toolbarbutton.on.popup.caption "Knop op pop-upvensters">
 <!ENTITY view.toolbarbutton.on.popup.label "Werkbalkknop weergeven op pop-upvensters">
+<!ENTITY fileExtensionMapper.caption "Gebruikte extensie bij aangemaakte bestandsnamen voor tekstvelden">
+<!ENTITY fileExtensionMapper.domain.filter.label "Domeinfilter (reguliere expressie)">
+<!ENTITY fileExtensionMapper.file.extension.label "Bestandsextensie">

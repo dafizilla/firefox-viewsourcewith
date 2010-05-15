@@ -1,0 +1,11 @@
+<!ENTITY title "특별한 인자">
+<!ENTITY description "편집기 실행 시에 이용될 특별한 인자를 이용할 수 있습니다.">
+<!ENTITY parameter "인자">
+<!ENTITY replaced.with "다음으로 바뀜 :">
+<!ENTITY file.names.descr "파일 이름">
+<!ENTITY line.number.descr "행 수">
+<!ENTITY column.number.descr "열 수">
+<!ENTITY meaningful.js "이 인자는 자바스크립트 콘솔에 유용하게 쓰입니다. 만약 그렇지 않다면 1으로 설정하시면 됩니다.">
+<!ENTITY line.column.usage "지정된 편집기를 열 때 행과 열 수를 자동으로 지정되게 하려면, 그 값이 인자에 함께 포함되어야 하며, 쓰고자 하는 편집기가 지원해야 합니다.">
+<!ENTITY see "더 많은 것을 보기 위해서는">
+<!ENTITY more.details "을(를) 참고하세요.">

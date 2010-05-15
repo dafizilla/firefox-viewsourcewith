@@ -9,9 +9,7 @@
 <!ENTITY edit.button.label "แก้ไข">
 <!ENTITY delete.button.label "ลบ">
 <!ENTITY writtenBy.label "พัฒนาโดย">
-
 <!ENTITY viewSource.home.tooltip "ไปยังเว็บ ViewSourceWith">
-
 <!ENTITY save.method.caption "วิธีการบันทึก">
 <!ENTITY save.method.normal.label "ปกติ">
 <!ENTITY save.method.dom.label "DOM document">
@@ -47,3 +45,8 @@
 <!ENTITY jsconsole.label "JavaScript console">
 <!ENTITY repl.jsconsole.viewer.label "ใช้สำหรับเปิดซอร์สโค้ดเข้าไปใน JavaScript console">
 <!ENTITY advanced.allow.edit.text "อนุญาตให้แก้ไขเนื้อหาในกล่องข้อความ">
+<!ENTITY view.toolbarbutton.on.popup.caption "ปุ่มในหน้าต่าง Popup">
+<!ENTITY view.toolbarbutton.on.popup.label "แสดงปุ่มในหน้าต่าง Popup">
+<!ENTITY fileExtensionMapper.caption "นามสกุลที่ใช้ในการสร้างชื่อไฟล์สำหรับกล่องข้อความ">
+<!ENTITY fileExtensionMapper.domain.filter.label "ตัวกรองโดเมน (RegEx)">
+<!ENTITY fileExtensionMapper.file.extension.label "นามสกุลไฟล์">

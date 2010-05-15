@@ -1,0 +1,19 @@
+<!ENTITY dialog.editor.title "편집기 선택">
+<!ENTITY editorPath.label "편집기 경로">
+<!ENTITY description.label "설명">
+<!ENTITY shortcut.caption "단축키">
+<!ENTITY shortcut.default.accel "Ctrl + Shift +">
+<!ENTITY shortcut.remove "제거">
+<!ENTITY shortcut.maybe.invalid "일부 단축키는 작동하지 않을 수도 있습니다.">
+<!ENTITY invalid.path.chars "잘못된 경로입니다. 잘못된 문자를 포함하고 있지는 않은지 확인해 주세요.">
+<!ENTITY picktitle.editor "편집기 선택">
+<!ENTITY parameters.label "인자">
+<!ENTITY token.filenames "파일 이름">
+<!ENTITY token.line.number "행 수">
+<!ENTITY token.column.number "열 수">
+<!ENTITY token.help "도움말...">
+<!ENTITY editPathPortable.label "상대적 경로 (예 : /../editors/vim)">
+<!ENTITY use.portable.label "내 사용자 설정과 연계된 경로 이용 (무설치 프로그램을 위하여)">
+<!ENTITY preview.path.label "경로 미리보기">
+<!ENTITY shortcut.default.caption "기본 편집기를 여는 단축키">
+<!ENTITY shortcut.restore "복원">

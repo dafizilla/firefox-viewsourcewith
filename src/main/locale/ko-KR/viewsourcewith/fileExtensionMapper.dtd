@@ -1,0 +1,3 @@
+<!ENTITY dialog.fileExtensionMapper.title "파일 확장자 구성">
+<!ENTITY domainfilter.caption "도메인 필터 (정규 표현식 이용)">
+<!ENTITY fileExtension.caption "파일 확장자 (필요할 경우 점(.) 도 추가하세요.)">

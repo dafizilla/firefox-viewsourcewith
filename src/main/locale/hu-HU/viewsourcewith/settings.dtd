@@ -9,9 +9,7 @@
 <!ENTITY edit.button.label "Szerkesztés">
 <!ENTITY delete.button.label "Törlés">
 <!ENTITY writtenBy.label "Készítő:">
-
 <!ENTITY viewSource.home.tooltip "Honlap meglátogatása...">
-
 <!ENTITY save.method.caption "Mentés alapértelmezett típusa">
 <!ENTITY save.method.normal.label "Normális">
 <!ENTITY save.method.dom.label "DOM fájl">
@@ -49,3 +47,6 @@
 <!ENTITY advanced.allow.edit.text "Szövegmezők szerkesztésének engedélyezése">
 <!ENTITY view.toolbarbutton.on.popup.caption "Gomb a felbukkanó ablakokban">
 <!ENTITY view.toolbarbutton.on.popup.label "Eszköztár gomb megjelenítése a felbukkanó ablakokban">
+<!ENTITY fileExtensionMapper.caption "Felhasznált kiterjesztés a szövegmezők generált fájlnevében">
+<!ENTITY fileExtensionMapper.domain.filter.label "Tartomány szűrő (reguláris kifejezés)">
+<!ENTITY fileExtensionMapper.file.extension.label "A fájl kiterjesztése">

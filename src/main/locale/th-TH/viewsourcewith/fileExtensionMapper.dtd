@@ -1,0 +1,3 @@
+<!ENTITY dialog.fileExtensionMapper.title "การแปลงนามสกุลไฟล์">
+<!ENTITY domainfilter.caption "ตัวกรองโดเมน (RegEx)">
+<!ENTITY fileExtension.caption "นามสกุลไฟล์">

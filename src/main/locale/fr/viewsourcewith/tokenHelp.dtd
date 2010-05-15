@@ -1,8 +1,8 @@
 <!ENTITY title "Paramètres particuliers">
-<!ENTITY description "Vous pouvez utiliser certains paramètres spéciaux qui seront remplacés au lancement de l&apos;éditeur.">
+<!ENTITY description "Vous pouvez utiliser certains paramètres spéciaux qui seront remplacés au lancement de l'éditeur.">
 <!ENTITY parameter "Paramètre">
-<!ENTITY replaced.with "Remplacés par">
-<!ENTITY file.names.descr "Noms   de fichiers">
+<!ENTITY replaced.with "Remplacé par">
+<!ENTITY file.names.descr "Noms de fichiers">
 <!ENTITY line.number.descr "Numéro de ligne">
 <!ENTITY column.number.descr "Numéro de colonne">
 <!ENTITY meaningful.js "Ce paramètre est significatif dans la console JavaScript, sinon sa valeur est à 1.">

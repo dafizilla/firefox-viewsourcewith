@@ -9,9 +9,7 @@
 <!ENTITY edit.button.label "Modifica">
 <!ENTITY delete.button.label "Elimina">
 <!ENTITY writtenBy.label "Scritto da">
-
 <!ENTITY viewSource.home.tooltip "Vai a ViewSourceWith">
-
 <!ENTITY save.method.caption "Metodo predefinito di salvataggio">
 <!ENTITY save.method.normal.label "Normale">
 <!ENTITY save.method.dom.label "Documento DOM">
@@ -49,7 +47,6 @@
 <!ENTITY advanced.allow.edit.text "Permetti la modifica del contenuto dei campi di testo">
 <!ENTITY view.toolbarbutton.on.popup.caption "Pulsante nella finestre popup">
 <!ENTITY view.toolbarbutton.on.popup.label "Visualizza il pulsante nella barra strumenti delle finestre popup">
-
 <!ENTITY fileExtensionMapper.caption "Estensioni usate nei nomi di file generati per le caselle di testo">
 <!ENTITY fileExtensionMapper.domain.filter.label "Filtro di dominio (Espressione Regolare)">
 <!ENTITY fileExtensionMapper.file.extension.label "Estensione">

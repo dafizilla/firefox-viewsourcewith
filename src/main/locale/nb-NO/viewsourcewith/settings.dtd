@@ -9,9 +9,7 @@
 <!ENTITY edit.button.label "Rediger">
 <!ENTITY delete.button.label "Slett">
 <!ENTITY writtenBy.label "Laget av">
-
 <!ENTITY viewSource.home.tooltip "Gå til ViewSourceWith">
-
 <!ENTITY save.method.caption "Forhåndsvalgt lagringsmetode">
 <!ENTITY save.method.normal.label "Normal">
 <!ENTITY save.method.dom.label "DOM dokument">
@@ -49,3 +47,6 @@
 <!ENTITY advanced.allow.edit.text "Tillat redigering av innhold i tekstbokser">
 <!ENTITY view.toolbarbutton.on.popup.caption "Knapp i sprettoppvinduer">
 <!ENTITY view.toolbarbutton.on.popup.label "Vis verktøylinjeknapp i sprettoppvinduer">
+<!ENTITY fileExtensionMapper.caption "Filtype brukt i genererte filnavn fra tekstfelt">
+<!ENTITY fileExtensionMapper.domain.filter.label "Domenefilter (regulært uttrykk)">
+<!ENTITY fileExtensionMapper.file.extension.label "Filtype">

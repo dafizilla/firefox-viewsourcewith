@@ -9,9 +9,7 @@
 <!ENTITY edit.button.label "Правка">
 <!ENTITY delete.button.label "Удалить">
 <!ENTITY writtenBy.label "Расширение создано">
-
 <!ENTITY viewSource.home.tooltip "Посетить домашнюю страницу ViewSourceWith">
-
 <!ENTITY save.method.caption "Предпочитаемый метод сохранения">
 <!ENTITY save.method.normal.label "Обычный">
 <!ENTITY save.method.dom.label "Документ DOM">
@@ -49,3 +47,6 @@
 <!ENTITY advanced.allow.edit.text "Разрешить редактирование содержимого полей ввода">
 <!ENTITY view.toolbarbutton.on.popup.caption "Кнопка на всплывающих окнах">
 <!ENTITY view.toolbarbutton.on.popup.label "Показывать кнопку на всплывающих окнах">
+<!ENTITY fileExtensionMapper.caption "Использовать расширения в созданных файлах для текстовых полей">
+<!ENTITY fileExtensionMapper.domain.filter.label "Фильтр доменов (регулярные выражения)">
+<!ENTITY fileExtensionMapper.file.extension.label "Расширение файла">

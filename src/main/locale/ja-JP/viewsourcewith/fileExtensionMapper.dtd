@@ -1,0 +1,3 @@
+<!ENTITY dialog.fileExtensionMapper.title "ファイル拡張子マッピング">
+<!ENTITY domainfilter.caption "ドメインフィルター (正規表現)">
+<!ENTITY fileExtension.caption "ファイル拡張子 (ピリオドで追加できます)">

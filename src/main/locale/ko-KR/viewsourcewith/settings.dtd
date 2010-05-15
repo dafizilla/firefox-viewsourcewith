@@ -1,0 +1,52 @@
+<!ENTITY settings.title "ViewSourceWith 설정">
+<!ENTITY destFolder.caption "임시 파일 폴더">
+<!ENTITY editorList.caption "편집기 목록">
+<!ENTITY configPath.label "설정 파일">
+<!ENTITY defaultEditor.tree.label "기본값">
+<!ENTITY description.tree.label "이름">
+<!ENTITY show.tree.label "활성화됨">
+<!ENTITY new.button.label "추가">
+<!ENTITY edit.button.label "편집">
+<!ENTITY delete.button.label "제거">
+<!ENTITY writtenBy.label "제작자 :">
+<!ENTITY viewSource.home.tooltip "ViewSourceWith으로 가기">
+<!ENTITY save.method.caption "이미 지정된 저장 방법">
+<!ENTITY save.method.normal.label "기본">
+<!ENTITY save.method.dom.label "DOM 문서">
+<!ENTITY save.method.advice.label "다른 방법을 이용하려면 필요한 때 Shift 키를 누르세요.">
+<!ENTITY main.label "처음">
+<!ENTITY advanced.label "고급">
+<!ENTITY repl.editor.label "내장된 페이지 소스 보기 기능 대신 이용합니다.">
+<!ENTITY repl.editor.open.focused.label "활성화된 프레임셋을 열기">
+<!ENTITY repl.editor.advice.label "재시작 후에 설정이 적용됩니다.">
+<!ENTITY repl.image.viewer.item "(없음)">
+<!ENTITY repl.image.viewer.label "내장 이미지 뷰어 대신 사용합니다.">
+<!ENTITY useProfilePath.label "무설치 프로그램과 함께 이용 가능한 경로를 이용합니다.">
+<!ENTITY image.onlink.caption "이미지를 가리키는 링크가 있을 경우">
+<!ENTITY image.onlink.image.label "이미지 보기">
+<!ENTITY image.onlink.link.label "링크 보기">
+<!ENTITY temp.tab.label "임시 파일">
+<!ENTITY temp.clearAtExit.label "어플리케이션이 끝날 때 파일 제거하기">
+<!ENTITY temp.cleanNow.label "제거">
+<!ENTITY view.tab.label "보기">
+<!ENTITY view.menu.label "메뉴">
+<!ENTITY view.showIcons.label "메뉴에 아이콘 보이기">
+<!ENTITY urlmapper.tab.label "매핑">
+<!ENTITY urlmapper.caption "서버상의 페이지 매핑 목록">
+<!ENTITY urlmapper.enabled.tree.label "활성화됨">
+<!ENTITY urlmapper.name.tree.label "이름">
+<!ENTITY urlmapper.advice.label "서버상의 페이지 소스 열기">
+<!ENTITY view.showResourcesMenu.label "CSS/JS 메뉴 보이기">
+<!ENTITY view.quickFrameShowMenu.label "'빠른 프레임 액세스' 항목 보이기">
+<!ENTITY picktitle.destfolder "폴더 선택">
+<!ENTITY picktitle.configPath "설정 파일 선택">
+<!ENTITY temp.useOSPath.label "시스템 경로 이용">
+<!ENTITY warning.delete.item "&quot;&#37;1&quot;을(를) 삭제할까요?">
+<!ENTITY jsconsole.label "자바스크립트 콘솔">
+<!ENTITY repl.jsconsole.viewer.label "자바스크립트 콘솔에서 소스 파일을 열기 위하여 이용">
+<!ENTITY advanced.allow.edit.text "텍스트 박스의 내용 편집 허용">
+<!ENTITY view.toolbarbutton.on.popup.caption "팝업 창에 버튼 보이기">
+<!ENTITY view.toolbarbutton.on.popup.label "팝업 창에 툴바 버튼 보이기">
+<!ENTITY fileExtensionMapper.caption "텍스트 영역에 임시로 지정할 새 파일 이름의 규칙">
+<!ENTITY fileExtensionMapper.domain.filter.label "도메인 필터 (정규 표현식)">
+<!ENTITY fileExtensionMapper.file.extension.label "파일 확장자">

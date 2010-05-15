@@ -1,0 +1,3 @@
+<!ENTITY dialog.fileExtensionMapper.title "A fájl kiterjesztésének leképezése">
+<!ENTITY domainfilter.caption "Tartomány szűrő (reguláris kifejezés)">
+<!ENTITY fileExtension.caption "A fájl kiterjesztése (pont hozzáadása, ha szükséges)">

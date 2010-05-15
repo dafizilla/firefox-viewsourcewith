@@ -1,4 +1,4 @@
-<!ENTITY dialog.editor.title "Düzəliş aparma proqramı seçmə">
+<!ENTITY dialog.editor.title "Düzəliş aparma proqramını seçmə">
 <!ENTITY editorPath.label "Yol">
 <!ENTITY description.label "Şərh">
 <!ENTITY shortcut.caption "Qısayollar">
@@ -6,7 +6,7 @@
 <!ENTITY shortcut.remove "Sil">
 <!ENTITY shortcut.maybe.invalid "Bə'zi qısaltmalar işləməyə bilər">
 <!ENTITY invalid.path.chars "Yol xətalıdır, xətalı simvollar yazılmadığına əmin olun">
-<!ENTITY picktitle.editor "Düzəliş aparma proqramı seçin">
+<!ENTITY picktitle.editor "Düzəliş aparma proqramını seçin">
 <!ENTITY parameters.label "Parametrlər">
 <!ENTITY token.filenames "Sənəd ad(lar)ı">
 <!ENTITY token.line.number "Sətir №">
@@ -15,6 +15,5 @@
 <!ENTITY editPathPortable.label "Müvafiq yol (məs /../editors/vim)">
 <!ENTITY use.portable.label "Profil üçün müvafiq daxil edin (səyyar proqramlar üçün)">
 <!ENTITY preview.path.label "İlkin baxış yolu">
-
 <!ENTITY shortcut.default.caption "Düzəliş proqramının ilkin qısayolu">
 <!ENTITY shortcut.restore "Bərpa et">

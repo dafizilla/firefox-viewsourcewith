@@ -9,9 +9,7 @@
 <!ENTITY edit.button.label "Bearbeiten">
 <!ENTITY delete.button.label "Löschen">
 <!ENTITY writtenBy.label "Erstellt von">
-
 <!ENTITY viewSource.home.tooltip "Homepage von ViewSourceWith besuchen">
-
 <!ENTITY save.method.caption "Vordefinierte Speichermethode">
 <!ENTITY save.method.normal.label "Normal">
 <!ENTITY save.method.dom.label "DOM-Dokument">
@@ -49,3 +47,6 @@
 <!ENTITY advanced.allow.edit.text "Bearbeiten des Inhalts von Texteingabefeldern mit VSW ermöglichen">
 <!ENTITY view.toolbarbutton.on.popup.caption "Schaltfläche in Pop-up-Fenstern">
 <!ENTITY view.toolbarbutton.on.popup.label "Symbolleisten-Schaltfläche in Pop-up-Fenstern anzeigen">
+<!ENTITY fileExtensionMapper.caption "Verwendete Endungen in generierten Dateinamen für Textfelder">
+<!ENTITY fileExtensionMapper.domain.filter.label "Domain-Filter (Regulärer Ausdruck)">
+<!ENTITY fileExtensionMapper.file.extension.label "Dateiendung">

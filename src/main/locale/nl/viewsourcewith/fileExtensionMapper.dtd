@@ -1,0 +1,3 @@
+<!ENTITY dialog.fileExtensionMapper.title "Bestandsextensiemapping">
+<!ENTITY domainfilter.caption "Domeinfilter (reguliere expressie)">
+<!ENTITY fileExtension.caption "Bestandsextensie (voeg de punt toe indien nodig)">

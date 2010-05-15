@@ -9,9 +9,7 @@
 <!ENTITY edit.button.label "Editar">
 <!ENTITY delete.button.label "Eliminar">
 <!ENTITY writtenBy.label "Creado por">
-
 <!ENTITY viewSource.home.tooltip "Ver la página oficial">
-
 <!ENTITY save.method.caption "Método por defecto">
 <!ENTITY save.method.normal.label "Normal">
 <!ENTITY save.method.dom.label "Modelo de objetos DOM">
@@ -49,3 +47,6 @@
 <!ENTITY advanced.allow.edit.text "Permitir la edición de contenido en cuadros de texto">
 <!ENTITY view.toolbarbutton.on.popup.caption "Botón en las ventanas emergentes">
 <!ENTITY view.toolbarbutton.on.popup.label "Mostrar un botón en la barra de herramientas de las ventanas emergentes">
+<!ENTITY fileExtensionMapper.caption "Extensión usada en nombres de archivos generados para cuadros de texto">
+<!ENTITY fileExtensionMapper.domain.filter.label "Filtro de dominio (expresión regular)">
+<!ENTITY fileExtensionMapper.file.extension.label "Extensión de archivo">

@@ -9,9 +9,7 @@
 <!ENTITY edit.button.label "編集">
 <!ENTITY delete.button.label "削除">
 <!ENTITY writtenBy.label "作成者:">
-
 <!ENTITY viewSource.home.tooltip "ViewSourceWith のホームページを表示">
-
 <!ENTITY save.method.caption "一時ファイルの既定の保存方法">
 <!ENTITY save.method.normal.label "標準">
 <!ENTITY save.method.dom.label "DOM ドキュメント">
@@ -23,7 +21,7 @@
 <!ENTITY repl.editor.advice.label "設定は再起動後に反映されます">
 <!ENTITY repl.image.viewer.item "(なし)">
 <!ENTITY repl.image.viewer.label "[画像を表示] で以下のアプリケーションを使用">
-<!ENTITY useProfilePath.label "&apos;ポータブル&apos; アプリケーションとパスの互換性を保つ">
+<!ENTITY useProfilePath.label "'ポータブル' アプリケーションとパスの互換性を保つ">
 <!ENTITY image.onlink.caption "画像にリンクが使われている時">
 <!ENTITY image.onlink.image.label "画像を表示">
 <!ENTITY image.onlink.link.label "リンク先を表示">
@@ -49,3 +47,6 @@
 <!ENTITY advanced.allow.edit.text "テキストボックスの内容の編集を許可">
 <!ENTITY view.toolbarbutton.on.popup.caption "ポップアップウィンドウのボタン">
 <!ENTITY view.toolbarbutton.on.popup.label "ポップアップウィンドウにツールバーボタンを表示">
+<!ENTITY fileExtensionMapper.caption "テキストフィールドに拡張子付きのファイル名を使用">
+<!ENTITY fileExtensionMapper.domain.filter.label "ドメインフィルター (正規表現)">
+<!ENTITY fileExtensionMapper.file.extension.label "ファイル拡張子">

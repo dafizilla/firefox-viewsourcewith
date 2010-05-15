@@ -9,9 +9,7 @@
 <!ENTITY edit.button.label "Upravit">
 <!ENTITY delete.button.label "Smazat">
 <!ENTITY writtenBy.label "Written by">
-
 <!ENTITY viewSource.home.tooltip "Otevřít stránku rozšíření ViewSourceWith">
-
 <!ENTITY save.method.caption "Výchozí metoda uložení">
 <!ENTITY save.method.normal.label "Normalní">
 <!ENTITY save.method.dom.label "DOM dokument">
@@ -47,3 +45,8 @@
 <!ENTITY jsconsole.label "Javascriptová konsole">
 <!ENTITY repl.jsconsole.viewer.label "Použít pro otevření zdrojových souborů v Javascriptové konzoli">
 <!ENTITY advanced.allow.edit.text "Povolit modifikaci obsahu textových políček">
+<!ENTITY view.toolbarbutton.on.popup.caption "Tlačítko na vyskakovací okna">
+<!ENTITY view.toolbarbutton.on.popup.label "Zobrazit nástrojové tlačítko na vyskakovací okna">
+<!ENTITY fileExtensionMapper.caption "Použité koncovky v generovaných názvech souborů pro textové položky">
+<!ENTITY fileExtensionMapper.domain.filter.label "Doménový filtr (Regulární výraz)">
+<!ENTITY fileExtensionMapper.file.extension.label "Připona souboru">

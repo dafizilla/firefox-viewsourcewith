@@ -1,0 +1,7 @@
+<!ENTITY cmd.viewsource.label "이 소스를 다음 프로그램으로 보기">
+<!ENTITY cmd.viewsource.frame.label "이 프레임 내부의 소스를 다음 항목으로 보기">
+<!ENTITY cmd.viewsource-viewMenu.label "소스를 다음 프로그램으로 보기">
+<!ENTITY cmd.viewsource-attachMenu.label "다음 프로그램으로 열기">
+<!ENTITY viewsource-viewMenu.accesskey "w">
+<!ENTITY viewsourcewith.commandkey "U">
+<!ENTITY viewsourcewithButton.label "소스">
