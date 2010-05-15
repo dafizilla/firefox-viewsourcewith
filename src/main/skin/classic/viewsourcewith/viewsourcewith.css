@@ -27,24 +27,24 @@
 
 toolbar[iconsize="small"] #viewsourcewith-button {
   list-style-image: url("chrome://viewsourcewith/content/img/ff/tb16.png");
-  -moz-image-region: rect(0px 15px 15px 0px);
+  -moz-image-region: rect(2px 15px 17px 0px);
 }
 
 toolbar[iconsize="small"] #viewsourcewith-button[disabled] {
   opacity: 0.5;
-  -moz-image-region: rect(0px 15px 15px 0px);
+  -moz-image-region: rect(2px 15px 17px 0px);
 }
 
 toolbar[iconsize="small"] #viewsourcewith-button:hover {
-  -moz-image-region: rect(0px 31px 15px 16px);
+  -moz-image-region: rect(2px 31px 17px 16px);
 }
 
 toolbar[iconsize="small"] #viewsourcewith-button[focusedtype="text"] {
-  -moz-image-region: rect(16px 15px 31px 0px);
+  -moz-image-region: rect(22px 15px 37px 0px);
 }
 
 toolbar[iconsize="small"] #viewsourcewith-button:hover[focusedtype="text"] {
-  -moz-image-region: rect(16px 31px 31px 16px);
+  -moz-image-region: rect(22px 31px 37px 16px);
 }
 
 toolbar[iconsize="small"] #viewsourcewith-button[usenvustyle] {

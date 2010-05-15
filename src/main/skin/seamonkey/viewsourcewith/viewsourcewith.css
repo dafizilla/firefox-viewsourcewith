@@ -1,26 +1,48 @@
 #viewsourcewith-button,
 #button-viewsourcewith {
   list-style-image: url("chrome://viewsourcewith/content/img/ff/tb24.png");
-  -moz-image-region: rect(0 41px 38px 0);
+  -moz-image-region: rect(4px 34px 33px 10px);
 }
 
 #viewsourcewith-button[disabled],
-#button-viewsourcewith[disabled]  {
+#button-viewsourcewith[disabled] {
+  -moz-image-region: rect(4px 34px 33px 10px);
   opacity: 0.5;
-  -moz-image-region: rect(0 41px 38px 0);
 }
 
 #viewsourcewith-button:hover,
 #button-viewsourcewith:hover {
-  -moz-image-region: rect(0 83px 38px 42px);
+  -moz-image-region: rect(4px 76px 33px 52px);
 }
 
 #viewsourcewith-button[focusedtype="text"],
 #button-viewsourcewith[focusedtype="text"] {
-  -moz-image-region: rect(39px 41px 77px 0);
+  -moz-image-region: rect(43px 34px 72px 10px);
 }
 
 #viewsourcewith-button:hover[focusedtype="text"],
 #button-viewsourcewith:hover[focusedtype="text"] {
-  -moz-image-region: rect(39px 83px 77px 42px);
+  -moz-image-region: rect(43px 76px 72px 52px);
+}
+
+toolbar[iconsize="small"] #viewsourcewith-button {
+  list-style-image: url("chrome://viewsourcewith/content/img/ff/tb16.png");
+  -moz-image-region: rect(0px 15px 19px 0px);
+}
+
+toolbar[iconsize="small"] #viewsourcewith-button[disabled] {
+  opacity: 0.5;
+  -moz-image-region: rect(0px 15px 19px 0px);
+}
+
+toolbar[iconsize="small"] #viewsourcewith-button:hover {
+  -moz-image-region: rect(0px 31px 19px 16px);
+}
+
+toolbar[iconsize="small"] #viewsourcewith-button[focusedtype="text"] {
+  -moz-image-region: rect(20px 15px 39px 0px);
+}
+
+toolbar[iconsize="small"] #viewsourcewith-button:hover[focusedtype="text"] {
+  -moz-image-region: rect(20px 31px 39px 16px);
 }
