@@ -114,71 +114,65 @@ var gViewSourceWithMessenger = {
 
     openMessagesFromThreadPane : function(editorDataIdx, event) {
         try {
-            var prefs = gViewSourceWithMain.prefs;
-            var linkInfo = gViewSourceWithMain._linkInfo;
+            var focusedWindow = document.commandDispatcher.focusedWindow;
+            var isFocusOnMessageBody = focusedWindow == content;
 
-            var messages;
-            if (typeof gFolderDisplay == "undefined") {
-                // TB 2.x
-                messages = GetSelectedMessages();
-            } else {
-                // TB 3.x
-                messages = gFolderDisplay.selectedMessageUris;
+            if (isFocusOnMessageBody
+                && gViewSourceWithMain.viewDocumentOrURL(focusedWindow.document, editorDataIdx, event)) {
+                return;
             }
-
-            var urls = new Array();
-            var fileNames = new Array();
-            var cleaner = viewSourceWithFactory.getTempCleaner();
-
-            if (linkInfo.isOnLinkOrImage) {
-                var fileName = ViewSourceWithCommon.getDocumentFileName(linkInfo.url);
-                var filePath = ViewSourceWithCommon.initFileToRun(
-                                    unescape(fileName),
-                                    prefs.destFolder,
-                                    prefs.tempMaxFilesSamePrefix,
-                                    true,
-                                    cleaner);
-                urls.push(linkInfo.url);
-                fileNames.push(filePath);
-            } else {
-                // First, get the mail session
-                const mailSessionContractID = "@mozilla.org/messenger/services/session;1";
-                const nsIMsgMailSession = Components.interfaces.nsIMsgMailSession;
-                var mailSession = Components.classes[mailSessionContractID].getService(nsIMsgMailSession);
-
-                var mailCharacterSet = "charset=" + msgWindow.mailCharacterSet;
-
-                var messenger = Components.classes['@mozilla.org/messenger;1'].createInstance();
-                messenger = messenger.QueryInterface(Components.interfaces.nsIMessenger);
-
-                for (var i = 0; i < messages.length; i++) {
-                    // Now, we need to get a URL from a URI
-                    var url = mailSession.ConvertMsgURIToMsgURL(messages[i], msgWindow);
-                    var subject = messenger.messageServiceFromURI(url)
-                                 .messageURIToMsgHdr(messages[i]).mime2DecodedSubject;
-                    // 20-Apr-07 If subject contains Japanese characters many editors
-                    // are unable to open the file so subject is no more added to file name
-                    var fileName = /*subject + */"msg" + i + ".html";
-                    var filePath = ViewSourceWithCommon.initFileToRun(
-                                        unescape(fileName),
-                                        prefs.destFolder,
-                                        prefs.tempMaxFilesSamePrefix,
-                                        true,
-                                        cleaner);
-
-                    urls.push(url);
-                    fileNames.push(filePath);
-                }
-            }
-
-            var saver = new UrlDownloader();
-            saver.callbackObject = { editorData : prefs.editorData[editorDataIdx],
-                                     urlMapperData : prefs.urlMapperData};
-            saver.onFinish = gViewSourceWithMain.onFinishRunEditor;
-            saver.saveURIList(urls, fileNames);
+            // viewSelectedMessages can be called if viewDocumentOrURL returns false
+            // i.e. the user doesn't choose to view the document (eg view the DOM)
+            gViewSourceWithMessenger.viewSelectedMessages(editorDataIdx, event);
         } catch (err) {
             ViewSourceWithCommon.log("gViewSourceWithMessenger.openMessagesFromThreadPane: " + err);
         }
+    },
+
+    viewSelectedMessages: function(editorDataIdx, event) {
+        var prefs = gViewSourceWithMain.prefs;
+        var fileExtensionMapper = prefs.fileExtensionMapper;
+
+        var messages;
+        if (typeof gFolderDisplay == "undefined") {
+            // TB 2.x
+            messages = GetSelectedMessages();
+        } else {
+            // TB 3.x
+            messages = gFolderDisplay.selectedMessageUris;
+        }
+
+        var urls = new Array();
+        var fileNames = new Array();
+        var cleaner = viewSourceWithFactory.getTempCleaner();
+
+        // First, get the mail session
+        const mailSessionContractID = "@mozilla.org/messenger/services/session;1";
+        const nsIMsgMailSession = Components.interfaces.nsIMsgMailSession;
+        var mailSession = Components.classes[mailSessionContractID].getService(nsIMsgMailSession);
+        var mailCharacterSet = "charset=" + msgWindow.mailCharacterSet;
+
+        for (var i = 0; i < messages.length; i++) {
+            // Now, we need to get a URL from a URI
+            var url = mailSession.ConvertMsgURIToMsgURL(messages[i], msgWindow);
+            var fileExtension = cleaner.findExtension(url, fileExtensionMapper, '.html');
+            var fileName = ViewSourceWithCommon.getDocumentFileName(url, fileExtension);
+            var filePath = ViewSourceWithCommon.initFileToRun(
+                                unescape(fileName),
+                                prefs.destFolder,
+                                prefs.tempMaxFilesSamePrefix,
+                                true,
+                                cleaner);
+
+            urls.push(url);
+            fileNames.push(filePath);
+        }
+
+        var saver = new UrlDownloader();
+        saver.callbackObject = { editorData : prefs.editorData[editorDataIdx],
+                                 urlMapperData : prefs.urlMapperData};
+        saver.onFinish = gViewSourceWithMain.onFinishRunEditor;
+        saver.saveURIList(urls, fileNames);
     },
 
     openMessageFromCompose : function(editorDataIdx, event) {
@@ -196,9 +190,12 @@ var gViewSourceWithMessenger = {
         editorInfo.isHtmlEditor = true;
 
         editorInfo.textWindow.focus();
-        gViewSourceWithMain._linkInfo.init(editor.document, gViewSourceWithMain.prefs, editorInfo);
 
-        gViewSourceWithMain.viewPage(gViewSourceWithMain._linkInfo.doc, editorDataIdx, event);
+        var prefs = gViewSourceWithMain.prefs;
+        var editorData = prefs.editorData[editorDataIdx];
+        var linkInfo = new ViewSourceWithLinkInfo();
+        linkInfo.init(editor.document, prefs, editorInfo);
+        ViewSourceWithInputText.viewText(editorData, linkInfo);
     },
 
     viewAttachments : function(editorDataIdx, event) {
