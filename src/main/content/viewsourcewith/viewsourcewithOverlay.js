@@ -18,7 +18,6 @@ var gViewSourceWithMain = {
 
         thiz.addListeners();
         thiz._linkInfo = new ViewSourceWithLinkInfo();
-        thiz._inputText = ViewSourceWithInputText; // alias
 
         var obs = ViewSourceWithCommon.getObserverService();
         obs.addObserver(thiz, "vsw:update-config", false);
@@ -125,68 +124,97 @@ var gViewSourceWithMain = {
 
     },
 
+    /**
+     * View the DOM document source, an URL or edit a text box
+     * @param documentToSave used if the DOM representation must be viewed
+     * @param editorDataIdx the index relative to the editor array
+     * @event the original event received by event handler calling this method
+     * @returns true if view can be handled, false otherwise
+     */
+    viewDocumentOrURL : function(documentToSave, editorDataIdx, event) {
+        var linkInfo = gViewSourceWithMain._linkInfo;
+        var prefs = linkInfo.prefs;
+        var editorData = prefs.editorData[editorDataIdx];
+
+        if (linkInfo.isOnTextInput) {
+            ViewSourceWithInputText.viewText(editorData, linkInfo);
+            return true;
+        }
+        var filePath;
+        var key = ViewSourceWithCommon.isMacOSX ? event.metaKey : event.ctrlKey;
+        var saveDOM = documentToSave && ((prefs.saveMethod == "dom") != (event.shiftKey && !key));
+
+        // Local files can be saved as DOM documents
+        if (!saveDOM && (filePath = ViewSourceWithCommon.getLocalFilePage(linkInfo.url)) != null) {
+            var pageHandler = new VswServerPagesHandler();
+            // view file without save it
+            pageHandler.runEditor([linkInfo.url], [filePath], prefs.urlMapperData, editorData);
+            return true;
+        }
+
+        // save as DOM both local file and remote documents
+        if (saveDOM) {
+            var uniqueFilePath = ViewSourceWithCommon.initFileToRun(
+                    ViewSourceWithCommon.getDocumentFileName(documentToSave),
+                    prefs.destFolder,
+                    prefs.tempMaxFilesSamePrefix,
+                    false,
+                    viewSourceWithFactory.getTempCleaner());
+            var saver = new UrlDownloader();
+            saver.callbackObject = { editorData : editorData,
+                                     urlMapperData : prefs.urlMapperData};
+            saver.onFinish = gViewSourceWithMain.onFinishRunEditor;
+
+            saver.saveDocument(documentToSave, linkInfo.url, uniqueFilePath);
+            return true;
+        }
+
+        if (linkInfo.isOnLinkOrImage || linkInfo.isOnMedia) {
+            var uniqueFilePath = ViewSourceWithCommon.initFileToRun(
+                    ViewSourceWithCommon.getDocumentFileName(linkInfo.url),
+                    prefs.destFolder,
+                    prefs.tempMaxFilesSamePrefix,
+                    false,
+                    viewSourceWithFactory.getTempCleaner());
+            var saver = new UrlDownloader();
+            saver.callbackObject = { editorData : editorData,
+                                     urlMapperData : prefs.urlMapperData};
+            saver.onFinish = gViewSourceWithMain.onFinishRunEditor;
+
+            saver.saveURIList([linkInfo.url], [uniqueFilePath],
+                ViewSourceWithBrowserHelper.getReferrer(document),
+                ViewSourceWithBrowserHelper.getPostData());
+            return true;
+        }
+
+        return false;
+    },
+
     viewPage : function(documentToSave, editorDataIdx, event) {
         try {
-            var urlToSave       = gViewSourceWithMain._linkInfo.url;
-            var filePath;
-            var thiz            = gViewSourceWithMain;
-            var editorData      = thiz.prefs.editorData[editorDataIdx];
-            var saveDOM         = (thiz.prefs.saveMethod == "dom") != (event.shiftKey && !event.ctrlKey);
-
-            if (editorData.path == "") {
+            if (gViewSourceWithMain.viewDocumentOrURL(documentToSave, editorDataIdx, event)) {
                 return;
             }
+            // get page from cache
+            var prefs = gViewSourceWithMain.prefs;
+            var editorData = prefs.editorData[editorDataIdx];
+            var uniqueFilePath = ViewSourceWithCommon.initFileToRun(
+                    ViewSourceWithCommon.getDocumentFileName(documentToSave),
+                    prefs.destFolder,
+                    prefs.tempMaxFilesSamePrefix,
+                    false,
+                    viewSourceWithFactory.getTempCleaner());
+            var saver = new UrlDownloader();
+            saver.callbackObject = { editorData : editorData,
+                                     urlMapperData : prefs.urlMapperData};
+            saver.onFinish = gViewSourceWithMain.onFinishRunEditor;
 
-            if (thiz._linkInfo.isOnTextInput) {
-                thiz._inputText.viewText(editorData, thiz._linkInfo);
-            } else {
-                var pageHandler = new VswServerPagesHandler();
-
-                // Local file can be saved as DOM documents
-                if (!saveDOM && (filePath = ViewSourceWithCommon.getLocalFilePage(urlToSave)) != null) {
-                    // view file without save it
-                    pageHandler.runEditor([urlToSave], [filePath],
-                            thiz.prefs.urlMapperData, editorData);
-                } else {
-                    var fileName;
-                    if (thiz._linkInfo.isOnLinkOrImage
-                        || thiz._linkInfo.isOnMedia) {
-                        urlToSave = thiz._linkInfo.url;
-                        fileName = ViewSourceWithCommon.getDocumentFileName(thiz._linkInfo.url);
-                    } else {
-                        fileName = ViewSourceWithCommon.getDocumentFileName(documentToSave);
-                    }
-
-                    var cleaner = viewSourceWithFactory.getTempCleaner();
-                    var uniqueFilePath = ViewSourceWithCommon.initFileToRun(
-                                        fileName,
-                                        thiz.prefs.destFolder,
-                                        thiz.prefs.tempMaxFilesSamePrefix,
-                                        false,
-                                        cleaner);
-                    var saver = new UrlDownloader();
-                    saver.callbackObject = { editorData : editorData,
-                                             urlMapperData : thiz.prefs.urlMapperData};
-                    saver.onFinish = gViewSourceWithMain.onFinishRunEditor;
-                    if (saveDOM) {
-                        saver.saveDocument(documentToSave, urlToSave, uniqueFilePath);
-                    } else {
-                        if (thiz._linkInfo.isOnLinkOrImage ||
-                            thiz._linkInfo.isOnMedia) {
-                            saver.saveURIList([urlToSave], [uniqueFilePath],
-                                ViewSourceWithBrowserHelper.getReferrer(document),
-                                ViewSourceWithBrowserHelper.getPostData());
-                        } else {
-                            saver.saveURIFromCache(
-                                ViewSourceWithBrowserHelper.getPageDescriptor(documentToSave),
-                                urlToSave,
-                                uniqueFilePath,
-                                ViewSourceWithBrowserHelper.getReferrer(document),
-                                ViewSourceWithBrowserHelper.getPostData());
-                        }
-                    }
-                }
-            }
+            saver.saveURIFromCache(
+                ViewSourceWithBrowserHelper.getPageDescriptor(documentToSave),
+                gViewSourceWithMain._linkInfo.url,
+                uniqueFilePath,
+                ViewSourceWithBrowserHelper.getReferrer(document),
+                ViewSourceWithBrowserHelper.getPostData());
         } catch (err) {
             ViewSourceWithCommon.log("viewPage " + err);
             alert("viewPage: " + err);
@@ -456,7 +484,6 @@ var gViewSourceWithMain = {
         var cleaner = viewSourceWithFactory.getTempCleaner();
         cleaner.enabled = thiz.prefs.tempClearAtExit;
 
-        thiz._inputText.prefs = thiz.prefs;
         thiz._linkInfo.prefs = thiz.prefs;
 
         gViewSourceEditorHooker.hookDefaultViewSource(gViewSourceWithMain.prefs);

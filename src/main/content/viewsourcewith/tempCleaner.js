@@ -53,5 +53,20 @@ ViewSourceWithTempCleaner.prototype = {
                 // ignore error
             }
         }
-    }
+    },
+
+    findExtension : function(url, fileExtensionMapper, defaultExtension) {
+        try {
+            for (var mapper in fileExtensionMapper) {
+                var m = fileExtensionMapper[mapper];
+
+                if (new RegExp(m.domainFilter).test(url)) {
+                    return m.fileExtension;
+                }
+            }
+        } catch (err) {
+            alert("Error while processing mapper. " + err);
+        }
+        return defaultExtension;
+    },
 }

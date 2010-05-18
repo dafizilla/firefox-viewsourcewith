@@ -43,6 +43,7 @@ var ViewSourceWithInputText = {
 
     generateInputTextFile : function(linkInfo, fileName) {
         var target = linkInfo.target;
+        var prefs = linkInfo.prefs;
         var thiz = ViewSourceWithInputText;
 
         var controlName = ViewSourceWithCommon.getPortableFileName(target.name);
@@ -50,28 +51,16 @@ var ViewSourceWithInputText = {
         // replace last extension with target one
         var re = /\.[^\.]*$/;
         var dateStamp = new Date().getTime();
-        var fileExtension = thiz.findExtension(linkInfo, thiz.prefs.fileExtensionMapper);
+
+        var cleaner = viewSourceWithFactory.getTempCleaner();
+
+        var fileExtension = cleaner.findExtension(linkInfo.url,
+                            prefs.fileExtensionMapper,
+                            linkInfo.target.fileExtension);
         var filePath = ViewSourceWithCommon.makeLocalFile(
-                            thiz.prefs.destFolder,
+                            prefs.destFolder,
                             [fileName.replace(re, controlName + dateStamp + fileExtension)]);
         return filePath;
-    },
-
-    findExtension : function(linkInfo, fileExtensionMapper) {
-        var url = linkInfo.url;
-
-        try {
-            for (var mapper in fileExtensionMapper) {
-                var m = fileExtensionMapper[mapper];
-
-                if (new RegExp(m.domainFilter).test(url)) {
-                    return m.fileExtension;
-                }
-            }
-        } catch (err) {
-            alert("Error while processing mapper. " + err);
-        }
-        return linkInfo.target.fileExtension;
     },
 
     fillInputText : function(textTarget) {
