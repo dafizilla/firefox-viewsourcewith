@@ -40,4 +40,8 @@ if (fileName) {
 arFiles.push(data.pageSourcePath);
 arFiles.push(localPath + dirSep + fileName);
 
+// Valid return values
+// empty array - indicates no other files to append
+// not empty array - indicates the files to open
+// null - indicates "treat as not matched"
 return arFiles;

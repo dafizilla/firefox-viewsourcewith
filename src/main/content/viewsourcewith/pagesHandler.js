@@ -71,7 +71,13 @@ VswServerPagesHandler.prototype = {
         for (var i = 0; i < outFiles.length; i++) {
             if (this.matches(urls[i], urlMapperData, line, column, editorData)) {
                 this.data.pageSourcePath = outFiles[i].path;
-                args = args.concat(this.getServerPageFileNames());
+                var serverFiles = this.getServerPageFileNames();
+                // if serverFiles is null then treats it as a non matching pattern
+                if (serverFiles == null) {
+                    args.push(outFiles[i].path);
+                } else {
+                    args = args.concat(serverFiles);
+                }
             } else {
                 args.push(outFiles[i].path);
             }

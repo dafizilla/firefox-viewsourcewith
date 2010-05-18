@@ -46,16 +46,26 @@ var gViewSourceUrlMapper = {
     },
 
     checkDomainFilter : function() {
-        var thiz = gViewSourceUrlMapper;
         var isValid = true;
 
-        if (thiz.oDomainFilter.value == "") {
+        if (this.oDomainFilter.value == "") {
+            isValid = false;
             alert(ViewSourceWithCommon
                         .getLocalizedMessage("urlmapper.err.noDomainFilter"));
-            thiz.oDomainFilter.focus();
-            isValid = false;
+        }
+        if (isValid) {
+            try {
+                // check reg exp syntax
+                new RegExp(this.oDomainFilter.value).test("");
+            } catch (err) {
+                isValid = false;
+                alert(err);
+            }
         }
 
+        if (!isValid) {
+            this.oDomainFilter.focus();
+        }
         return isValid;
     },
 
