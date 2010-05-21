@@ -1,5 +1,5 @@
 <!DOCTYPE extension [
-<!ENTITY extension.version "0.6.1">
+<!ENTITY extension.version "0.7">
 ]>
 
 <extension name="viewsourcewith">
@@ -24,12 +24,10 @@
     <!-- Used by web site update.rdf -->
     <updateLink>http://dafizilla.sourceforge.net/viewsourcewith/viewsourcewith-&extension.version;.xpi</updateLink>
 
-    <!-- used by install.js -->
     <skins>
-        <skin>classic</skin>
-        <skin>modern</skin>
+        <skin name="classic/1.0" value="/skin/seamonkey/viewsourcewith/ application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}"/>
     </skins>
-    
+
     <!-- used by install.js and build process to set the prefs.js.xsl destination file name -->
     <prefs>
         <pref>vsw.js</pref>
@@ -54,22 +52,23 @@
         <locale pos="6" code="ja-JP" />
         <!--<locale pos="7" code="zh-TW" />-->
         <locale pos="8" code="pt-BR" />
-        <locale pos="9" code="de-DE" />
+        <locale pos="9" code="de" />
         <locale pos="10" code="ru-RU" />
-        <locale pos="11" code="nl-NL" />
-        <!--<locale pos="12" code="es-AR" />-->
-        <!--<locale pos="13" code="cs-CZ" />-->
-        <locale pos="14" code="zh-CN" />
-        <locale pos="15" code="tr-TR" />
-        <locale pos="16" code="sk-SK" />
+        <locale pos="11" code="nl" />
+        <locale pos="12" code="es-AR" />
+        <locale pos="13" code="cs-CZ" />
+        <!--<locale pos="14" code="zh-CN" />-->
+        <!--<locale pos="15" code="tr-TR" />-->
+        <!--<locale pos="16" code="sk-SK" />-->
         <locale pos="17" code="az-AZ" />
-        <locale pos="18" code="da-DK" />
+        <!--<locale pos="18" code="da-DK" />-->
         <!--<locale pos="19" code="fa-IR" />-->
         <!--<locale pos="20" code="hr-HR" />-->
-        <locale pos="21" code="af-ZA" />
-        <!--<locale pos="22" code="th-TH" />-->
+        <!--<locale pos="21" code="af-ZA" />-->
+        <locale pos="22" code="th-TH" />
         <locale pos="23" code="hu-HU" />
         <locale pos="24" code="nb-NO" />
+        <locale pos="25" code="ko-KR" />
     </locales>
 
     <styles>
@@ -164,6 +163,7 @@
         <translator>lancaster (Thailand translation)</translator>
         <translator>Mikes Kaszm&#225;n Istv&#225;n (Hungarian translation)</translator>
         <translator>Karol Ptasinski (Norwegian translation)</translator>
+        <translator>BlastSound, maybee, futsudesu (Korean translation)</translator>
     </translators>
 
 </extension>
