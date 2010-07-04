@@ -212,7 +212,7 @@ var gViewSourceSettings = {
             }
         }
 
-        return true;
+        return isOk;
     },
 
     toogleOpenWith : function (event) {
