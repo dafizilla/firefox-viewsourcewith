@@ -1,5 +1,5 @@
 <!DOCTYPE extension [
-<!ENTITY extension.version "0.7.1">
+<!ENTITY extension.version "0.7.2">
 ]>
 
 <extension name="viewsourcewith">
@@ -99,7 +99,7 @@
             <description>Firefox</description>
             <id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</id>
             <minVersion>2.0</minVersion>
-            <maxVersion>4.0b2pre</maxVersion>
+            <maxVersion>4.0</maxVersion>
         </application>
         
         <application>
