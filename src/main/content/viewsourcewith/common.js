@@ -20,6 +20,13 @@ ViewSourceWithCommon.prefBranch = Components
     .getService(Components.interfaces.nsIPrefService)
     .getBranch("extensions.dafizilla.viewsourcewith.");
 
+// Use runw when available (on Gecko 2.x/FF 4.x)
+if (typeof(ViewSourceWithCommon.runwDefined) == "undefined") {
+    ViewSourceWithCommon.runwDefined = ("runw" in
+            Components.classes["@mozilla.org/process/util;1"]
+                .createInstance(Components.interfaces.nsIProcess));
+}
+
 function ViewSourceWithCommon() {
     this.gPathSeparator = top.window.navigator.platform.indexOf("Win") < 0 ? "/" : "\\";
 
@@ -77,13 +84,20 @@ ViewSourceWithCommon.makeLocalFileByUrl = function(url) {
 
 ViewSourceWithCommon.runProgram = function(theFile, cmdArgs) {
     var theProcess = null;
+    // on linux runw() doesn't work correctly so use it only on Windows
+    var useRunw = false;
 
     if (ViewSourceWithCommon.isWindows) {
-        if (!ViewSourceWithCommon.prefBranch.prefHasUserValue("useWinProcess")
-            || ViewSourceWithCommon.prefBranch.getBoolPref("useWinProcess")) {
-            theProcess = Components.classes["@dafizilla.sourceforge.net/winprocess;1"]
-                            .createInstance()
-                            .QueryInterface(Components.interfaces.IWinProcess);
+        if (ViewSourceWithCommon.runwDefined) {
+            useRunw = true;
+        } else {
+            useRunw = false;
+            if (!ViewSourceWithCommon.prefBranch.prefHasUserValue("useWinProcess")
+                || ViewSourceWithCommon.prefBranch.getBoolPref("useWinProcess")) {
+                theProcess = Components.classes["@dafizilla.sourceforge.net/winprocess;1"]
+                                .createInstance()
+                                .QueryInterface(Components.interfaces.IWinProcess);
+            }
         }
     }
     if (!theProcess) {
@@ -95,7 +109,12 @@ ViewSourceWithCommon.runProgram = function(theFile, cmdArgs) {
     var numArgs = cmdArgs.length;
 
     theProcess.init(execFile);
-    theProcess.run(false, cmdArgs, numArgs);
+
+    if (useRunw) {
+        theProcess.runw(false, cmdArgs, numArgs);
+    } else {
+        theProcess.run(false, cmdArgs, numArgs);
+    }
 }
 
 /**
