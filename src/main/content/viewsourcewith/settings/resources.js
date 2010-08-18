@@ -193,6 +193,14 @@ var gVSWResources = {
         if (event.button == 0) {
             document.documentElement.acceptDialog();
         }
+    },
+
+    onCopyUrls : function(event) {
+        this.treeViews[this.oResourceTabBox.selectedIndex].doCommand('cmd_copy');
+    },
+
+    onSelectAll : function(event) {
+        this.treeViews[this.oResourceTabBox.selectedIndex].doCommand('cmd_selectAll');
     }
 }
 
@@ -269,6 +277,15 @@ ResourceTreeView.prototype = {
         if (refresh) {
             this.refresh();
         }
+    },
+
+    copyUrls : function() {
+        var items = this.selectedItems;
+        var urls = [];
+        for (var i in items) {
+            urls.push(items[i].url);
+        }
+        ViewSourceWithCommon.copyToClipboard(urls.join('\n'));
     },
 
     getCellText : function(row, column){
@@ -349,11 +366,19 @@ ResourceTreeView.prototype = {
     getColumnProperties: function(colid,col,props){},
 
     onEvent : function(evt) {},
-    supportsCommand : function(cmd) {return cmd == "cmd_selectAll";},
+    supportsCommand : function(cmd) {
+        return cmd == "cmd_selectAll"
+            || cmd == "cmd_copy";
+    },
     isCommandEnabled : function(cmd) {return true;},
     doCommand : function(cmd) {
-        if (cmd == "cmd_selectAll") {
-            this.selection.selectAll();
+        switch (cmd) {
+            case "cmd_selectAll":
+                this.selection.selectAll();
+                break;
+            case "cmd_copy":
+                this.copyUrls();
+                break;
         }
     }
 };

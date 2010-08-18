@@ -8,3 +8,10 @@
 <!ENTITY button.label.cancel "Close">
 <!ENTITY resourcename.tree.label "Name">
 <!ENTITY resourcepath.tree.label "URL">
+<!ENTITY copy.selected.urls.label "Copy Selected URLs">
+<!ENTITY copy.selected.urls.accesskey "U">
+<!ENTITY select.all.label "Select All">
+<!ENTITY select.all.accesskey "A">
+<!ENTITY copyCmd.key "C">
+<!ENTITY selectAllCmd.key "A">
+
