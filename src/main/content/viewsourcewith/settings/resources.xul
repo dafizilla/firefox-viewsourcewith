@@ -30,7 +30,13 @@
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/pagesHandler.js" />
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/urldownloader.js" />
 
+    <commandset id="treeCommand">
+        <command id="resource_cmd_open" oncommand="gVSWResources.onViewResources(event);"/>
+    </commandset>
+
     <keyset id="treeKeys">
+        <key id="resource_key_open" key="&openCmd.key;" modifiers="accel"
+                command="resource_cmd_open"/>
         <key id="resource_key_copy" key="&copyCmd.key;" modifiers="accel"/>
         <key id="resource_key_selectAll" key="&selectAllCmd.key;" modifiers="accel"/>
     </keyset>
@@ -42,11 +48,13 @@
             </menulist>
     </groupbox>
   <tabbox id="resourceTabBox" flex="1">
-    <tabs>
+    <tabs id="resourcesTabs">
       <tab id="tab-all" label="&all.tab.label;"/>
       <tab id="tab-css" label="&css.tab.label;"/>
       <tab id="tab-js" label="&js.tab.label;"/>
+      <tab id="tab-document-view" label="&document.view.label;"/>
     </tabs>
+
     <tabpanels flex="1">
       <tabpanel orient="vertical" flex="1">
         <tree id="all-resources" flex="1" hidecolumnpicker="true" context="tree-context">
@@ -89,6 +97,17 @@
           <treechildren ondblclick="gVSWResources.onDblClick(event);"/>
         </tree>
       </tabpanel>
+
+      <tabpanel orient="vertical" flex="1">
+        <tree id="document-view" flex="1" hidecolumnpicker="true" primary="true" context="tree-context">
+          <treecols>
+            <treecol id="resource-name" label="&resourcename.tree.label;" flex="1" primary="true" persist="width"/>
+            <splitter class="tree-splitter"/>
+            <treecol id="resource-path" label="&resourcepath.tree.label;" flex="1" persist="width"/>
+          </treecols>
+          <treechildren ondblclick="gVSWResources.onDblClick(event);"/>
+        </tree>
+      </tabpanel>
     </tabpanels>
   </tabbox>
     <hbox>
@@ -98,6 +117,12 @@
     </hbox>
 
     <menupopup id="tree-context">
+        <menuitem id="menu-open-selected-urls"
+                label="&open.selected.urls.label;"
+                accesskey="&open.selected.urls.accesskey;"
+                key="resource_key_open"
+                command="resource_cmd_open"/>
+        <menuseparator />
         <menuitem id="menu-copy-selected-urls"
                 label="&copy.selected.urls.label;"
                 accesskey="&copy.selected.urls.accesskey;"

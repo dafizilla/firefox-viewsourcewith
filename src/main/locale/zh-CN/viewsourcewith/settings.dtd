@@ -9,9 +9,7 @@
 <!ENTITY edit.button.label "编辑">
 <!ENTITY delete.button.label "删除">
 <!ENTITY writtenBy.label "作者:">
-
 <!ENTITY viewSource.home.tooltip "转到ViewSourceWith主页">
-
 <!ENTITY save.method.caption "预定义的保存方式">
 <!ENTITY save.method.normal.label "正常">
 <!ENTITY save.method.dom.label "DOM 文档">
@@ -37,9 +35,9 @@
 <!ENTITY urlmapper.caption "服务器页面映射列表">
 <!ENTITY urlmapper.enabled.tree.label "已启用">
 <!ENTITY urlmapper.name.tree.label "名称">
-<!ENTITY urlmapper.advice.label "打开&apos;服务器端&apos;页面源代码">
+<!ENTITY urlmapper.advice.label "打开'服务器端'页面源代码">
 <!ENTITY view.showResourcesMenu.label "显示 CSS/JS 菜单">
-<!ENTITY view.quickFrameShowMenu.label "显示 &apos;快速访问帧&apos; 菜单">
+<!ENTITY view.quickFrameShowMenu.label "显示 '快速访问帧' 菜单">
 <!ENTITY picktitle.destfolder "选择目录">
 <!ENTITY picktitle.configPath "选择配置文件">
 <!ENTITY temp.useOSPath.label "使用操作系统文件夹">
@@ -49,3 +47,6 @@
 <!ENTITY advanced.allow.edit.text "允许文本框的内容编辑">
 <!ENTITY view.toolbarbutton.on.popup.caption "在弹出窗口中的按钮">
 <!ENTITY view.toolbarbutton.on.popup.label "在弹出窗口中的显示工具栏按钮">
+<!ENTITY fileExtensionMapper.caption "在文本域中，使用生成的文件名作为扩展名">
+<!ENTITY fileExtensionMapper.domain.filter.label "域名过滤（正则表达式）">
+<!ENTITY fileExtensionMapper.file.extension.label "文件后缀">

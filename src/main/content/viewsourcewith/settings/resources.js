@@ -2,31 +2,32 @@
  * Author: Davide Ficano
  * Date  : 14-Mar-06
  */
+const VSW_DOC_TYPE = 2;
+
 var gVSWResources = {
     resExtensions : [],
 
     onLoad : function() {
-        gVSWResources.res = window.arguments[0];
-        gVSWResources.prefs = window.arguments[1];
+        this.res = window.arguments[0];
+        this.prefs = window.arguments[1];
 
-        gVSWResources.treeViews = new Array();
+        this.treeViews = new Array();
 
         this.resExtensions[VSW_STYLE_TYPE] = "css";
         this.resExtensions[VSW_SCRIPT_TYPE] = "js";
 
-        gVSWResources.initControls();
+        this.initControls();
         sizeToContent();
-        if (gVSWResources.res.doc) {
-            document.title += " - " + gVSWResources.res.doc.title;
+        if (this.res.doc) {
+            document.title += " - " + this.res.doc.title;
         }
     },
 
     onAccept : function() {
         var isValid = false;
-        var thiz = gVSWResources;
 
         try {
-            thiz.onViewResources();
+            this.onViewResources();
         } catch (err) {
             alert("gVSWResources.onAccept: " + err);
         }
@@ -35,9 +36,7 @@ var gVSWResources = {
     },
 
     onViewResources : function() {
-        var thiz = gVSWResources;
-
-        var items = thiz.treeViews[thiz.oResourceTabBox.selectedIndex].selectedItems;
+        var items = this.treeViews[this.oResourceTabBox.selectedIndex].selectedItems;
         var urls = new Array();
         var fileNames = new Array();
         var cleaner = viewSourceWithFactory.getTempCleaner();
@@ -54,8 +53,8 @@ var gVSWResources = {
                 // Create a copy on temporary directory
                 filePath = ViewSourceWithCommon.initFileToRun(
                                 ViewSourceWithCommon.getDocumentFileName(resUrl, ext),
-                                thiz.prefs.destFolder,
-                                thiz.prefs.tempMaxFilesSamePrefix,
+                                this.prefs.destFolder,
+                                this.prefs.tempMaxFilesSamePrefix,
                                 true,
                                 cleaner);
             }
@@ -69,113 +68,138 @@ var gVSWResources = {
     },
 
     initControls : function() {
-        var thiz = gVSWResources;
+        this.oResourceTabBox = document.getElementById("resourceTabBox");
+        this.oAllResources = document.getElementById("all-resources");
+        this.oCSSResources = document.getElementById("css-resources");
+        this.oJSResources = document.getElementById("js-resources");
+        this.oEditors = document.getElementById("editors");
+        this.oShowAllFrames = document.getElementById("showAllFrames");
 
-        thiz.oResourceTabBox = document.getElementById("resourceTabBox");
-        thiz.oAllResources = document.getElementById("all-resources");
-        thiz.oCSSResources = document.getElementById("css-resources");
-        thiz.oJSResources = document.getElementById("js-resources");
-        thiz.oEditors = document.getElementById("editors");
-        thiz.oShowAllFrames = document.getElementById("showAllFrames");
-
-        thiz.initResources();
-        thiz.initValues();
+        this.initResources();
+        this.initValues();
     },
 
     initValues : function() {
-        var thiz = gVSWResources;
+        for (var i = 0; i < this.prefs.editorData.length; i++) {
+            var editor = this.prefs.editorData[i];
 
-        for (var i = 0; i < thiz.prefs.editorData.length; i++) {
-            var editor = thiz.prefs.editorData[i];
-
-            thiz.oEditors.appendItem(editor.description, editor.path);
+            this.oEditors.appendItem(editor.description, editor.path);
         }
-        thiz.oEditors.selectedIndex = thiz.prefs.editorDefaultIndex;
+        this.oEditors.selectedIndex = this.prefs.editorDefaultIndex;
 
-        if (!thiz.res.hasStyleSheets()) {
+        if (!this.res.hasStyleSheets()) {
             document.getElementById("tab-all").setAttribute("hidden", "true");
             document.getElementById("tab-css").setAttribute("hidden", "true");
-            thiz.oResourceTabBox.selectedIndex = 2;
+            this.oResourceTabBox.selectedIndex = 2;
         }
-        if (!thiz.res.hasScripts()) {
+        if (!this.res.hasScripts()) {
             document.getElementById("tab-all").setAttribute("hidden", "true");
             document.getElementById("tab-js").setAttribute("hidden", "true");
-            thiz.oResourceTabBox.selectedIndex = 1;
+            this.oResourceTabBox.selectedIndex = 1;
         }
     },
 
     initResources : function() {
-        var thiz = gVSWResources;
+        var currentCss = this.createURIArray(this.res.styleSheets.data, VSW_STYLE_TYPE);
+        var allCss = this.createURIArray(this.res.allStyleSheets.data, VSW_STYLE_TYPE);
 
-        var currentCss = thiz.createURIArray(thiz.res.styleSheets.data, VSW_STYLE_TYPE);
-        var allCss = thiz.createURIArray(thiz.res.allStyleSheets.data, VSW_STYLE_TYPE);
-
-        var currentJs = thiz.createURIArray(thiz.res.scripts.data, VSW_SCRIPT_TYPE);
-        var allJs = thiz.createURIArray(thiz.res.allScripts.data, VSW_SCRIPT_TYPE);
+        var currentJs = this.createURIArray(this.res.scripts.data, VSW_SCRIPT_TYPE);
+        var allJs = this.createURIArray(this.res.allScripts.data, VSW_SCRIPT_TYPE);
 
         var allRes = currentCss.concat(currentJs);
         var allFrameRes = allCss.concat(allJs);
-        thiz.allResourcesTreeView = new ResourceTreeView(allRes, allFrameRes);
-        thiz.cssResourcesTreeView = new ResourceTreeView(currentCss, allCss);
-        thiz.jsResourcesTreeView = new ResourceTreeView(currentJs, allJs);
+        this.allResourcesTreeView = new ResourceTreeView(allRes, allFrameRes);
+        this.cssResourcesTreeView = new ResourceTreeView(currentCss, allCss);
+        this.jsResourcesTreeView = new ResourceTreeView(currentJs, allJs);
+        
+        this.docTreeView = new DocumentTreeView([this.createDocumentViewItems(this.res, 0)],
+                                                document.getElementById('document-view'));
+        this.docTreeView.expandAll();
 
-        thiz.treeViews.push(thiz.allResourcesTreeView);
-        thiz.treeViews.push(thiz.cssResourcesTreeView);
-        thiz.treeViews.push(thiz.jsResourcesTreeView);
+        this.treeViews.push(this.allResourcesTreeView);
+        this.treeViews.push(this.cssResourcesTreeView);
+        this.treeViews.push(this.jsResourcesTreeView);
+        this.treeViews.push(this.docTreeView);
 
-        thiz.oAllResources.view = thiz.allResourcesTreeView;
-        thiz.oCSSResources.view = thiz.cssResourcesTreeView;
-        thiz.oJSResources.view = thiz.jsResourcesTreeView;
+        this.oAllResources.view = this.allResourcesTreeView;
+        this.oCSSResources.view = this.cssResourcesTreeView;
+        this.oJSResources.view = this.jsResourcesTreeView;
 
-        thiz.allResourcesTreeView.sort("name");
-        thiz.cssResourcesTreeView.sort("name");
-        thiz.jsResourcesTreeView.sort("name");
+        this.allResourcesTreeView.sort("name");
+        this.cssResourcesTreeView.sort("name");
+        this.jsResourcesTreeView.sort("name");
 
-        var hasFrames = thiz.res.hasFrameStyleSheets()
-                        || thiz.res.hasFrameScripts();
+        var hasFrames = this.res.hasFrameStyleSheets()
+                        || this.res.hasFrameScripts();
         if (hasFrames) {
-            thiz.oShowAllFrames.addEventListener("CheckboxStateChange",
-                                                 thiz.onShowAllFrame, false);
-            thiz.oShowAllFrames.removeAttribute("hidden");
+            this.oShowAllFrames.addEventListener("CheckboxStateChange",
+                                                 this.onShowAllFrame, false);
+            this.oShowAllFrames.removeAttribute("hidden");
+            document.getElementById('resourcesTabs').addEventListener('select',
+                                this.onTabSelect, false);
         }
     },
 
+    createDocumentViewItems : function(res, level) {
+        var uriInfo = this.createURIInfo(res.doc.defaultView.location.href, VSW_DOC_TYPE);
+        // for the root document and for the frames show the url
+        uriInfo.name = uriInfo.url;
+        uriInfo.children = [];
+        uriInfo.level = level;
+        uriInfo.open = false;
+
+        for (var i in res.styleSheets.data) {
+            var child = this.createURIInfo(i, VSW_STYLE_TYPE);
+            child.level = level + 1;
+            uriInfo.children.push(child);
+        }
+        for (var i in res.scripts.data) {
+            var child = this.createURIInfo(i, VSW_SCRIPT_TYPE);
+            child.level = level + 1;
+            uriInfo.children.push(child);
+        }
+        for (var i in res.resFrames) {
+            uriInfo.children.push(this.createDocumentViewItems(res.resFrames[i], level + 1));
+        }
+        return uriInfo;
+    },
+
     createURIArray : function(map, resType) {
-        var thiz = gVSWResources;
         var arr = new Array();
 
         for (var i in map) {
-            // Ensure local paths are in UTF-8 charset
-            var localUrl = ViewSourceWithCommon.getLocalFilePage(i);
-            var resPath;
-            if (localUrl) {
-                resPath = localUrl.path;
-            } else {
-                resPath = i;
-            }
-
-            arr.push({ name : thiz.getName(i),
-                       displayPath : resPath,   // is used only to display it
-                       url : i,                 // contains the url also file://
-                       resType : resType
-                     });
+            arr.push(this.createURIInfo(i, resType));
         }
 
         return arr;
     },
 
-    getName : function(str) {
-        var lastPos = str.lastIndexOf("/");
+    createURIInfo : function(url, resType) {
+        // Ensure local paths are in UTF-8 charset
+        var localUrl = ViewSourceWithCommon.getLocalFilePage(url);
+        var resPath = localUrl ? localUrl.path : url;
 
-        return str.substr(lastPos + 1, str.length);
+        return { name : this.getName(url),
+                   displayPath : resPath,   // is used only to display it
+                   url : url,                 // contains the url also file://
+                   resType : resType
+                 };
+    },
+
+    getName : function(str) {
+        var uri = Components.classes["@mozilla.org/network/standard-url;1"]
+            .createInstance(Components.interfaces.nsIURL);
+        uri.spec = str;
+        var name = uri.fileName;
+
+        return name ? name : str;
     },
 
     onShowAllFrame : function (event) {
-        var thiz = gVSWResources;
         var showFrameResources = event.target.checked;
 
-        for (var i = 0; i < thiz.treeViews.length; i++) {
-            thiz.treeViews[i].showFrameResources(showFrameResources, true);
+        for (var i = 0; i < gVSWResources.treeViews.length; i++) {
+            gVSWResources.treeViews[i].showFrameResources(showFrameResources, true);
         }
     },
 
@@ -191,7 +215,12 @@ var gVSWResources = {
 
     onDblClick : function(event) {
         if (event.button == 0) {
-            document.documentElement.acceptDialog();
+            var treeView = this.treeViews[this.oResourceTabBox.selectedIndex];
+            var selIdx = treeView.selection.currentIndex;
+            // double click on container doesn't open the resource
+            if (selIdx >= 0 && !treeView.isContainer(selIdx)) {
+                document.documentElement.acceptDialog();
+            }
         }
     },
 
@@ -201,6 +230,14 @@ var gVSWResources = {
 
     onSelectAll : function(event) {
         this.treeViews[this.oResourceTabBox.selectedIndex].doCommand('cmd_selectAll');
+    },
+    
+    onTabSelect : function(event) {
+        if (event.target.selectedItem.id == 'tab-document-view') {
+            document.getElementById('showAllFrames').setAttribute('hidden', 'true');
+        } else {
+            document.getElementById('showAllFrames').removeAttribute('hidden');
+        }
     }
 }
 
@@ -210,7 +247,7 @@ var gVSWResources = {
 function ResourceTreeView(currentItems, frameItems) {
     this.currentItems = currentItems;
     this.frameItems = frameItems;
-    this.items = currentItems;
+    this.visibleItems = currentItems;
 
     this.treebox = null;
     this.lastSortProperty = "";
@@ -234,7 +271,7 @@ ResourceTreeView.prototype = {
             return direction * a[prop].toLowerCase().localeCompare(b[prop].toLowerCase());
         }
 
-        this.items.sort(sortByProperty);
+        this.visibleItems.sort(sortByProperty);
 
         this.refresh();
         this.lastSortDirection = direction;
@@ -244,17 +281,13 @@ ResourceTreeView.prototype = {
     get selectedItems() {
         var ar = [];
 
-        for (var i = 0; i < this.items.length; i++) {
+        for (var i = 0; i < this.visibleItems.length; i++) {
             if (this.selection.isSelected(i)) {
-                ar.push(this.items[i]);
+                ar.push(this.visibleItems[i]);
             }
         }
 
         return ar;
-    },
-
-    removeAllItems : function() {
-        this.selection.clearSelection();
     },
 
     refresh : function() {
@@ -270,9 +303,9 @@ ResourceTreeView.prototype = {
         }
         this.showFrames = showFrames;
 
-        var currRowCount = this.items.length;
-        this.items = showFrames ? this.frameItems : this.currentItems;
-        var addedOrRemovedRows = this.items.length - currRowCount;
+        var currRowCount = this.visibleItems.length;
+        this.visibleItems = showFrames ? this.frameItems : this.currentItems;
+        var addedOrRemovedRows = this.visibleItems.length - currRowCount;
         this.treebox.rowCountChanged(0, addedOrRemovedRows);
         if (refresh) {
             this.refresh();
@@ -285,32 +318,38 @@ ResourceTreeView.prototype = {
         for (var i in items) {
             urls.push(items[i].url);
         }
-        ViewSourceWithCommon.copyToClipboard(urls.join('\n'));
+        if (urls.length) {
+            ViewSourceWithCommon.copyToClipboard(urls.join('\n'));
+        }
     },
 
     getCellText : function(row, column){
         switch (column.id || column) { // column.id is valid on Mozilla column is valid on FF
             case "resource-name":
-                return this.items[row].name;
+                return this.visibleItems[row].name;
             case "resource-path":
-                return this.items[row].displayPath;
+                return this.visibleItems[row].displayPath;
         }
 
         return "";
     },
 
     get rowCount() {
-        return this.items.length;
+        return this.visibleItems.length;
     },
 
     cycleCell: function(row, column) {},
-
     getImageSrc: function (row, column) {
         switch (column.id || column) { // column.id is valid on Mozilla column is valid on FF
             case "resource-name":
-                return this.items[row].resType == VSW_STYLE_TYPE
-                    ? "chrome://viewsourcewith/content/img/res-css.png"
-                    : "chrome://viewsourcewith/content/img/res-js.png";
+                switch (this.visibleItems[row].resType) {
+                    case VSW_STYLE_TYPE:
+                        return "chrome://viewsourcewith/content/img/res-css.png";
+                    case VSW_SCRIPT_TYPE:
+                        return "chrome://viewsourcewith/content/img/res-js.png";;
+                    case VSW_DOC_TYPE:
+                        return "chrome://viewsourcewith/content/img/res-doc.png";
+                }
                 break;
         }
         return null;
@@ -382,3 +421,139 @@ ResourceTreeView.prototype = {
         }
     }
 };
+
+/**
+ * Document hierarchical Tree view
+ */
+function DocumentTreeView(items, treeElement) {
+    this.items = items;
+    this.visibleItems = [];
+
+    this.visibleItems.push(this.items[0]);
+
+    this.treeElement = treeElement;
+
+    this.treebox = null;
+    // Must be set after treebox
+    this.treeElement.view = this;
+}
+
+DocumentTreeView.prototype = new ResourceTreeView();
+DocumentTreeView.prototype.constructor = DocumentTreeView;
+
+(function() {
+    this.expandAll = function() {
+        var traverse = function(items, callback) {
+            for (var i in items) {
+                var el = items[i];
+                callback(el);
+                if (el && el.children) {
+                    if (el.children.length) {
+                        arguments.callee(el.children, callback);
+                    }
+                }
+            }
+        };
+        var arr = [];
+        // make an array from the recursive folder structure
+        // the array elements are ordered as expected by treeview
+        traverse(this.items, function(uriInfo) {
+            uriInfo.open = uriInfo.resType == VSW_DOC_TYPE;
+            arr.push(uriInfo);
+        });
+
+        var count = this.rowCount;
+        this.visibleItems = arr;
+        this.treebox.rowCountChanged(0, arr.length - count);
+        this.refresh();
+    };
+
+    this.getLevel = function(row) {
+        return this.visibleItems[row].level;
+    };
+
+    this.hasNextSibling = function(idx, after) {
+        var thisLevel = this.getLevel(idx);
+
+        for (var t = idx + 1; t < this.visibleItems.length; t++) {
+            var nextLevel = this.getLevel(t);
+            if (nextLevel == thisLevel) {
+                return true;
+            } else if (nextLevel < thisLevel) {
+                return false;
+            }
+        }
+        return false;
+    };
+
+    this.getParentIndex = function(row) {
+        if (!this.isContainer(row)) {
+            for (var i = row - 1; i >= 0 ; i--) {
+                if (this.isContainer(i)) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    };
+
+    this.isContainer = function(row) {
+        return this.visibleItems[row].resType == VSW_DOC_TYPE;
+    };
+
+    this.isContainerEmpty = function(row) {
+        return this.visibleItems[row].children.length == 0;
+    };
+
+    this.isContainerOpen = function(row) {
+        return this.visibleItems[row].open;
+    };
+
+    this.toggleOpenState = function(row) {
+        if (!this.isContainer(row)) {
+            return;
+        }
+
+        var item = this.visibleItems[row];
+        if (item.open) {
+            item.open = false;
+
+            var thisLevel = this.getLevel(row);
+            var deletecount = 0;
+            for (var t = row + 1; t < this.visibleItems.length; t++) {
+                if (this.getLevel(t) > thisLevel) {
+                    deletecount++;
+                }
+                else {
+                    break;
+                }
+            }
+            if (deletecount) {
+                this.visibleItems.splice(row + 1, deletecount);
+                this.treebox.rowCountChanged(row + 1, -deletecount);
+            }
+        } else {
+            item.open = true;
+
+            var toinsert = item.children;
+            for (var i = 0; i < toinsert.length; i++) {
+                toinsert[i].open = false;
+                this.visibleItems.splice(row + i + 1, 0, toinsert[i]);
+            }
+            this.treebox.rowCountChanged(row + 1, toinsert.length);
+        }
+        this.treebox.invalidateRow(row);
+    };
+
+    ///////////
+    // Inherited from ResourceTreeView
+    ///////////
+
+    this.showFrameResources = function(showFrames, refresh) {
+    };
+
+    this.cycleHeader = function(col, elem) {
+    };
+    //this.__defineGetter__("rowCount", function() {});
+    //this.setTree = function(treebox){}
+}).apply(DocumentTreeView.prototype);

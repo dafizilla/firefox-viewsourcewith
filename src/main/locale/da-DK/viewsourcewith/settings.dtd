@@ -9,9 +9,7 @@
 <!ENTITY edit.button.label "Rediger">
 <!ENTITY delete.button.label "Slet">
 <!ENTITY writtenBy.label "Skrevet af">
-
 <!ENTITY viewSource.home.tooltip "Gå til ViewSourceWith">
-
 <!ENTITY save.method.caption "Prædefineret gem-metode">
 <!ENTITY save.method.normal.label "Normal">
 <!ENTITY save.method.dom.label "DOM-dokument">
@@ -49,3 +47,6 @@
 <!ENTITY advanced.allow.edit.text "Tillad indholdsredigering af tekstfelter">
 <!ENTITY view.toolbarbutton.on.popup.caption "Knap på pop-op-vinduer">
 <!ENTITY view.toolbarbutton.on.popup.label "Vis værktøjslinje på pop-op-vinduer">
+<!ENTITY fileExtensionMapper.caption "Brugt filtype i genererede filnavne for tekstfelter">
+<!ENTITY fileExtensionMapper.domain.filter.label "Domænefilter (RegEx regulært udtryk)">
+<!ENTITY fileExtensionMapper.file.extension.label "Filtype">

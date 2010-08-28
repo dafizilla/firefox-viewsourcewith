@@ -12,40 +12,33 @@ function Resources(doc) {
     // hold the elements for the passed doc
     this.styleSheets = new MapData();
     // hold the elements for all frame documents (if any)
+    // duplicated urls are not present (eg two frames importing same css)
     this.allStyleSheets = new MapData();
 
     this.scripts = new MapData();
     this.allScripts = new MapData();
+    this.resFrames = [];
 }
 
 Resources.prototype = {
-    initStyleSheets : function() {
+    init : function() {
         if (!this.doc) {
             return;
         }
         this.getStyleSheets(this.doc, this.styleSheets);
+        this.getScripts(this.doc, this.scripts);
 
-        var frames = window.content.frames;
+        var frames = this.doc.defaultView.frames;
 
         for (var i = 0; i < frames.length; i++) {
             var frameDoc = frames[i].document;
 
             this.getStyleSheets(frameDoc, this.allStyleSheets);
-        }
-    },
-
-    initScripts : function() {
-        if (!this.doc) {
-            return;
-        }
-        this.getScripts(this.doc, this.scripts);
-
-        var frames = window.content.frames;
-
-        for (var i = 0; i < frames.length; i++) {
-            var frameDoc = frames[i].document;
-
             this.getScripts(frameDoc, this.allScripts);
+
+            var resFrame = new Resources(frameDoc);
+            resFrame.init();
+            this.resFrames.push(resFrame);
         }
     },
 

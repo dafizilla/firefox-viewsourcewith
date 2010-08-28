@@ -404,8 +404,7 @@ var gViewSourceWithMain = {
         var res = thiz._resources;
 
         if (thiz.prefs.showResourcesMenu) {
-            res.initStyleSheets();
-            res.initScripts();
+            res.init();
         }
 
         var hasCSSorJS = res.hasStyleSheets() || res.hasScripts();

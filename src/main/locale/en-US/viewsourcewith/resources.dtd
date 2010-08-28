@@ -14,4 +14,8 @@
 <!ENTITY select.all.accesskey "A">
 <!ENTITY copyCmd.key "C">
 <!ENTITY selectAllCmd.key "A">
+<!ENTITY document.view.label "Document View">
+<!ENTITY openCmd.key "L">
+<!ENTITY open.selected.urls.label "Open Selected URLs">
+<!ENTITY open.selected.urls.accesskey "O">
 
