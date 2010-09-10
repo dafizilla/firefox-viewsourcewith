@@ -90,12 +90,10 @@ var gVSWResources = {
         if (!this.res.hasStyleSheets()) {
             document.getElementById("tab-all").setAttribute("hidden", "true");
             document.getElementById("tab-css").setAttribute("hidden", "true");
-            this.oResourceTabBox.selectedIndex = 2;
         }
         if (!this.res.hasScripts()) {
             document.getElementById("tab-all").setAttribute("hidden", "true");
             document.getElementById("tab-js").setAttribute("hidden", "true");
-            this.oResourceTabBox.selectedIndex = 1;
         }
     },
 
@@ -116,10 +114,10 @@ var gVSWResources = {
                                                 document.getElementById('document-view'));
         this.docTreeView.expandAll();
 
+        this.treeViews.push(this.docTreeView);
         this.treeViews.push(this.allResourcesTreeView);
         this.treeViews.push(this.cssResourcesTreeView);
         this.treeViews.push(this.jsResourcesTreeView);
-        this.treeViews.push(this.docTreeView);
 
         this.oAllResources.view = this.allResourcesTreeView;
         this.oCSSResources.view = this.cssResourcesTreeView;
@@ -134,7 +132,6 @@ var gVSWResources = {
         if (hasFrames) {
             this.oShowAllFrames.addEventListener("CheckboxStateChange",
                                                  this.onShowAllFrame, false);
-            this.oShowAllFrames.removeAttribute("hidden");
             document.getElementById('resourcesTabs').addEventListener('select',
                                 this.onTabSelect, false);
         }

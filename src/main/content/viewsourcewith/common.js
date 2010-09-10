@@ -511,34 +511,11 @@ ViewSourceWithCommon.makeUrlFromSpec = function(urlSpec) {
     return uri;
 }
 
-/**
- * Get the document under mouse cursor when context menu is opened
- * @param useFrameDocument if true return the frame document under context menu
- * otherwise the content document
- * @returns the document under mouse cursor
- */
-ViewSourceWithCommon.getDocumentFromContextMenu = function(useFrameDocument) {
-    var doc = window._content.document;
-
-    if (!(typeof gContextMenu == "undefined") && gContextMenu) { // songbird needs typeof usage
-        if (gContextMenu.inFrame) {
-            if (useFrameDocument) {
-                doc = gContextMenu.target.ownerDocument;
-            } else {
-                doc = window._content.document;
-            }
-        } else {
-            doc = gContextMenu.target.ownerDocument;
-        }
-    }
-    return doc;
-}
-
 ViewSourceWithCommon.getFocusedDocument = function() {
     var focusedWindow = document.commandDispatcher.focusedWindow;
     // Don't get url from browser widgets (e.g. google bar, address bar)
     if (focusedWindow == window) {
-        focusedWindow = _content;
+        focusedWindow = content;
     }
 
     return focusedWindow.document;

@@ -35,12 +35,9 @@ var gViewSourceWithMain = {
     initCtxMenu : function(event) {
         var thiz = gViewSourceWithMain;
 
-        var doc = ViewSourceWithCommon.getDocumentFromContextMenu(false);
+        var doc = window.content.document;
         thiz._linkInfo.init(doc, thiz.prefs);
-        // CSS/JS must be taken from focused frame so we need to obtain it
-        // calling getDocumentFromContextMenu with true
-        var frameDoc = ViewSourceWithCommon.getDocumentFromContextMenu(true);
-        thiz._resources = new Resources(frameDoc);
+        thiz._resources = new Resources(doc);
 
         gViewSourceWithMain.insertMenuItems(
                 document.getElementById("viewsourcewithMenuPopup"),
@@ -78,9 +75,15 @@ var gViewSourceWithMain = {
         var thiz = gViewSourceWithMain;
         var doc = gContextMenu.target.ownerDocument;
 
-        gViewSourceWithMain._linkInfo.init(doc, thiz.prefs);
-        thiz._resources = new Resources(doc);
+        // we must always open the frame document but linkInfo.init() can set infos
+        // about elements under context menu (links, images) so it's necessary
+        // to init object by hand
+        thiz._linkInfo.reset();
+        thiz._linkInfo.doc = doc;
+        thiz._linkInfo.url = doc.location.href;
+        thiz._linkInfo.prefs = thiz.prefs;
 
+        thiz._resources = new Resources(doc);
         gViewSourceWithMain.insertMenuItems(
                 document.getElementById("vswMenuPopupQuickFrame"),
                 "viewPageFromCtxMenu", false, true);
@@ -91,12 +94,64 @@ var gViewSourceWithMain = {
     initViewMenu : function(event) {
         var thiz = gViewSourceWithMain;
 
-        var doc = ViewSourceWithCommon.getFocusedDocument();
+        var doc = window.content.document;
         gViewSourceWithMain._linkInfo.init(doc, thiz.prefs);
         thiz._resources = new Resources(doc);
 
         gViewSourceWithMain.insertMenuItems(event.target, "viewPageFromViewMenu",
                                             true, false);
+
+        var frameDoc = ViewSourceWithCommon.getFocusedDocument();
+        if (doc != frameDoc) {
+            var resFrameIndex = -1;
+            for (var i = 0; i < thiz._resources.resFrames.length; i++) {
+                var resFrame = thiz._resources.resFrames[i];
+                if (resFrame.doc == frameDoc) {
+                    resFrameIndex = i;
+                    break;
+                }
+            }
+
+            var focusedFramePopup = document.createElement('menupopup');
+            var menuCommand = 'if (event.target.getAttribute("vswEditorIdx"))'
+                + 'gViewSourceWithMain.viewPageFromViewMenu'
+                + '(event.target.getAttribute("vswEditorIdx")'
+                + ',event'
+                + ',gViewSourceWithMain._resources.resFrames[' + resFrameIndex + '].doc);'
+                + 'event.stopPropagation();'
+            focusedFramePopup.setAttribute('oncommand', menuCommand);
+
+            thiz.insertDefaultMenuItem(focusedFramePopup, false);
+
+            if (resFrameIndex >= 0) { // sanity check
+                var resMenu = thiz.insertResourcesMenu(focusedFramePopup, thiz._resources.resFrames[resFrameIndex]);
+                if (resMenu) {
+                    resMenu.setAttribute("oncommand",
+                    "gViewSourceWithMain.openDlgResource(gViewSourceWithMain._resources.resFrames[" + resFrameIndex + "]);"
+                    + "event.stopPropagation();");
+                }
+            }
+            var editorIndexes = thiz.prefs.visibleEditorIndexes;
+            var resourceElementPosition = null;
+            if (editorIndexes.length) {
+                focusedFramePopup.appendChild(document.createElement('menuseparator'));
+                // no need to check existance, if editorIndexes.length > 0 the menuseparator exists
+                resourceElementPosition = event.target.getElementsByTagName('menuseparator')[0];
+            }
+
+            for (var i = 0, j = editorIndexes.length; i < j; i++) {
+                var editorDataIdx = editorIndexes[i];
+                thiz.insertEditorMenuItem(focusedFramePopup, editorDataIdx, false);
+            }
+            var menu = document.createElement('menu');
+            menu.setAttribute('label', ViewSourceWithCommon.getLocalizedMessage("focused.frame.label"));
+            menu.setAttribute('vswHighlight', gViewSourceWithMain._resources.resFrames[resFrameIndex].doc.body.style.border);
+            menu.setAttribute('onmouseover', 'gViewSourceWithMain._resources.resFrames[' + resFrameIndex + '].doc.body.style.border = "3px solid blue";');
+            menu.setAttribute('onmouseout', 'gViewSourceWithMain._resources.resFrames[' + resFrameIndex + '].doc.body.style.border = this.getAttribute("vswHighlight")');
+            menu.appendChild(focusedFramePopup);
+            event.target.insertBefore(menu, resourceElementPosition);
+        }
+
         return true;
     },
 
@@ -113,13 +168,15 @@ var gViewSourceWithMain = {
         gViewSourceWithMain.viewPage(gViewSourceWithMain._linkInfo.doc, editorDataIdx, event);
     },
 
-    viewPageFromViewMenu : function(editorDataIdx, event) {
+    viewPageFromViewMenu : function(editorDataIdx, event, frameDoc) {
         var showFrameWarning = gViewSourceWithMain.prefs.showFrameWarning;
 
         if (showFrameWarning) {
             gViewSourceWithMain.openDlgWarning();
         }
-
+        if (frameDoc) {
+            gViewSourceWithMain._linkInfo.init(frameDoc, gViewSourceWithMain.prefs);
+        }
         gViewSourceWithMain.viewPage(gViewSourceWithMain._linkInfo.doc, editorDataIdx, event);
 
     },
@@ -261,11 +318,11 @@ var gViewSourceWithMain = {
         }
     },
 
-    openDlgResource : function() {
+    openDlgResource : function(res) {
         window.openDialog("chrome://viewsourcewith/content/settings/resources.xul",
                           "_blank",
                           "chrome,resizable=yes,dependent=yes",
-                          gViewSourceWithMain._resources,
+                          res ? res : gViewSourceWithMain._resources,
                           gViewSourceWithMain.prefs);
     },
 
@@ -282,7 +339,17 @@ var gViewSourceWithMain = {
         try {
             thiz.removeMenuItems(menu);
 
-            thiz.insertDefaultItemMenu(menu, fnViewPage, hasShortCutKey)
+            // little hack to allow existing code to work when fnViewPage is not
+            // defined in main namespace gViewSourceWithMain
+            if (fnViewPage.indexOf(".") < 0) {
+                fnViewPage = "gViewSourceWithMain." + fnViewPage;
+            }
+            var menuCommand = 'if (event.target.getAttribute("vswEditorIdx"))'
+                + fnViewPage + '(event.target.getAttribute("vswEditorIdx"), event);'
+                + 'event.stopPropagation();';
+
+            menu.setAttribute('oncommand', menuCommand);
+            thiz.insertDefaultMenuItem(menu, hasShortCutKey)
 
             var isNativeEditorVisible = thiz.prefs.replaceNativeEditor
                 && !(thiz._linkInfo.isOnLinkOrImage || thiz._linkInfo.isOnTextInput);
@@ -304,7 +371,7 @@ var gViewSourceWithMain = {
             var hasCSSorJS = false;
 
             if (hasDefault) {
-                hasCSSorJS = thiz.insertResourcesMenu(menu);
+                hasCSSorJS = thiz.insertResourcesMenu(menu) != null;
             }
 
             var hasVisibleItems = hasCSSorJS || isNativeEditorVisible || hasDefault;
@@ -316,7 +383,7 @@ var gViewSourceWithMain = {
 
             var editorIndexes = thiz.prefs.visibleEditorIndexes;
             for (var i = 0, j = editorIndexes.length; i < j; i++) {
-                thiz.insertEditorMenuItem(menu, editorIndexes[i], fnViewPage, hasShortCutKey);
+                thiz.insertEditorMenuItem(menu, editorIndexes[i], hasShortCutKey);
             }
 
             if (editorIndexes.length > 0) {
@@ -336,22 +403,17 @@ var gViewSourceWithMain = {
         }
     },
 
-    insertDefaultItemMenu : function(menu, fnViewPage, hasShortCutKey) {
+    insertDefaultMenuItem : function(menu, hasShortCutKey) {
         var thiz = gViewSourceWithMain;
 
         if (thiz.prefs.isDefaultEditorValid()) {
             var item = document.createElement("menuitem");
 
             item.setAttribute("label", thiz.prefs.editorData[thiz.prefs.editorDefaultIndex].description);
-
-            // little hack to allow existing code to work when fnViewPage is not
-            // defined in main namespace gViewSourceWithMain
-            if (fnViewPage.indexOf(".") < 0) {
-                fnViewPage = "gViewSourceWithMain." + fnViewPage;
-            }
-            item.setAttribute("oncommand",
-                                fnViewPage + "(" + thiz.prefs.editorDefaultIndex + ", event);");
-            item.setAttribute("id", "viewsourcewith-viewMenuItemDefault");
+            item.setAttribute("tooltiptext", thiz.prefs.editorData[thiz.prefs.editorDefaultIndex].description);
+            item.setAttribute("id", "viewsourcewith-viewDefaultMenuItem");
+            item.setAttribute("vswEditorIdx", thiz.prefs.editorDefaultIndex);
+            
             // setting key after appendChild doesn't work
             if (hasShortCutKey) {
                 item.setAttribute("key", "key_viewsourcewith");
@@ -359,7 +421,10 @@ var gViewSourceWithMain = {
             }
 
             menu.appendChild(item);
+            
+            return item;
         }
+        return null;
     },
 
     insertSettingsMenuItem : function(menu, hasShortCutKey) {
@@ -367,9 +432,9 @@ var gViewSourceWithMain = {
 
         item.setAttribute("label",
                 ViewSourceWithCommon.getLocalizedMessage("menu.settings.label"));
-        item.setAttribute("oncommand", "gViewSourceWithMain.openDlgSettings();");
+        item.setAttribute("oncommand", "gViewSourceWithMain.openDlgSettings();event.stopPropagation();");
         if (hasShortCutKey) {
-            item.setAttribute("id", "viewsourcewith-viewMenuItemDefault");
+            item.setAttribute("id", "viewsourcewith-viewDefaultMenuItem");
             item.setAttribute("key", "key_viewsourcewith");
         }
         menu.appendChild(item);
@@ -377,7 +442,7 @@ var gViewSourceWithMain = {
         return item;
     },
 
-    insertEditorMenuItem : function(menu, editorDataIdx, fnViewPage, hasShortCutKey) {
+    insertEditorMenuItem : function(menu, editorDataIdx, hasShortCutKey) {
         var item = document.createElement("menuitem");
         var label = gViewSourceWithMain.prefs.editorData[editorDataIdx].description;
 
@@ -387,56 +452,52 @@ var gViewSourceWithMain = {
             item.setAttribute("key", "viewsourcewithEditor" + label);
         }
         item.setAttribute("label", label);
-        // little hack to allow existing code to work when fnViewPage is not
-        // defined in main namespace gViewSourceWithMain
-        if (fnViewPage.indexOf(".") < 0) {
-            fnViewPage = "gViewSourceWithMain." + fnViewPage;
-        }
-        item.setAttribute("oncommand",
-                            fnViewPage + "(" + editorDataIdx + ", event);");
+        item.setAttribute("tooltiptext", label);
+        item.setAttribute("vswEditorIdx", editorDataIdx);
         menu.appendChild(item);
 
         return item;
     },
 
-    insertResourcesMenu : function(menu) {
+    insertResourcesMenu : function(menu, res) {
         var thiz = gViewSourceWithMain;
-        var res = thiz._resources;
+        res = res ? res : thiz._resources;
 
         if (thiz.prefs.showResourcesMenu) {
             res.init();
         }
 
-        var hasCSSorJS = res.hasStyleSheets() || res.hasScripts();
+        var htmlLabel = 'HTML(%1)';
+        var cssLabel = 'CSS(%1)';
+        var jsLabel = 'JS(%1)';
 
-        if (hasCSSorJS) {
-            var styleLabel = "";
-            var scriptLabel = "";
-
-            if (res.hasFrameStyleSheets() || res.hasFrameScripts()) {
-                styleLabel = res.styleSheets.length
-                          + "/"
-                          + res.allStyleSheets.length;
-                scriptLabel = res.scripts.length
-                          + "/"
-                          + res.allScripts.length;
-            } else {
-                styleLabel = res.styleSheets.length;
-                scriptLabel = res.scripts.length;
-            }
-            var label = ViewSourceWithCommon
-                            .getLocalizedMessage("menu.resources.label");
-            label = label.replace("%1", styleLabel).replace("%2", scriptLabel);
-
+        var labelArr = [];
+        var count;
+        if (res.resFrames.length > 0) {
+            // add root document to count
+            labelArr.push(htmlLabel.replace('%1', res.resFrames.length + 1));
+        }
+        count = res.styleSheets.length + res.allStyleSheets.length;
+        if (count > 0) {
+            labelArr.push(cssLabel.replace('%1', count));
+        }
+        count = res.scripts.length + res.allScripts.length;
+        if (count > 0) {
+            labelArr.push(jsLabel.replace('%1', count));
+        }
+        if (labelArr.length) {
+            var label = labelArr.join(',') + '...';
             var item = document.createElement("menuitem");
             item.setAttribute("label", label);
             item.setAttribute("oncommand",
-                "gViewSourceWithMain.openDlgResource()");
+                "gViewSourceWithMain.openDlgResource();event.stopPropagation();");
 
             menu.appendChild(item);
+            
+            return item;
         }
 
-        return hasCSSorJS;
+        return null;
     },
 
     runEditor : function(event, editorIdx, openFocusedWindow, fnViewPage) {
