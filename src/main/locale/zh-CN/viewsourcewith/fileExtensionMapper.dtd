@@ -1,0 +1,3 @@
+<!ENTITY dialog.fileExtensionMapper.title "文件扩展名映射">
+<!ENTITY domainfilter.caption "域名过滤（正则表达式）">
+<!ENTITY fileExtension.caption "文件扩展名（必须添加点）">

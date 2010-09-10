@@ -1,0 +1,3 @@
+<!ENTITY dialog.fileExtensionMapper.title "Filtype-allokering">
+<!ENTITY domainfilter.caption "Domænefilter (RegEx regulært udtryk)">
+<!ENTITY fileExtension.caption "Filtype (tilføj punktum hvis nødvendigt)">
