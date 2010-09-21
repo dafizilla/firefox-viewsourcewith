@@ -103,7 +103,7 @@
         <toolbarbutton id="viewsourcewith-button"
             oncommand="gViewSourceWithMain.runEditor(event, gViewSourceWithMain.prefs.editorDefaultIndex);">
             <menupopup id="viewsourcewith-toolbarMenuPopup"
-                       onpopupshowing="return gViewSourceWithMain.initViewMenu(event);" />
+                       onpopupshowing="if (event.target == this) { gViewSourceWithMain.initViewMenu(event); }" />
         </toolbarbutton>
     </toolbarpalette>
 
@@ -112,7 +112,7 @@
         <toolbarbutton id="viewsourcewith-button" usenvustyle="true"
             oncommand="gViewSourceWithMain.runEditor(event, gViewSourceWithMain.prefs.editorDefaultIndex);">
             <menupopup id="viewsourcewith-toolbarMenuPopup"
-                       onpopupshowing="return gViewSourceWithMain.initViewMenu(event);" />
+                       onpopupshowing="if (event.target == this) { gViewSourceWithMain.initViewMenu(event); }" />
         </toolbarbutton>
     </toolbarpalette>
 </overlay>
