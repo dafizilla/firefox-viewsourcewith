@@ -132,11 +132,13 @@ var gViewSourceWithMain = {
                 }
             }
             var editorIndexes = thiz.prefs.visibleEditorIndexes;
-            var resourceElementPosition = null;
             if (editorIndexes.length) {
                 focusedFramePopup.appendChild(document.createElement('menuseparator'));
-                // no need to check existance, if editorIndexes.length > 0 the menuseparator exists
-                resourceElementPosition = event.target.getElementsByTagName('menuseparator')[0];
+            }
+            var separators = event.target.getElementsByTagName('menuseparator');
+            var resourceElementPosition = null;
+            if (separators.length) {
+                resourceElementPosition = separators[0];
             }
 
             for (var i = 0, j = editorIndexes.length; i < j; i++) {
