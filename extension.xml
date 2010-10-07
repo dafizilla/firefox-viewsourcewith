@@ -1,5 +1,5 @@
 <!DOCTYPE extension [
-<!ENTITY extension.version "0.7.2">
+<!ENTITY extension.version "0.7.3">
 ]>
 
 <extension name="viewsourcewith">
@@ -46,29 +46,29 @@
     <locales>
         <locale pos="1" code="en-US" />
         <locale pos="2" code="it-IT" />
-        <locale pos="3" code="fr" />
-        <locale pos="4" code="es-ES" />
+        <!--<locale pos="3" code="fr" />-->
+        <!--<locale pos="4" code="es-ES" />-->
         <!--<locale pos="5" code="pl-PL" />-->
-        <locale pos="6" code="ja-JP" />
+        <!--<locale pos="6" code="ja-JP" />-->
         <!--<locale pos="7" code="zh-TW" />-->
-        <locale pos="8" code="pt-BR" />
-        <locale pos="9" code="de" />
-        <locale pos="10" code="ru-RU" />
-        <locale pos="11" code="nl" />
-        <locale pos="12" code="es-AR" />
-        <locale pos="13" code="cs-CZ" />
+        <!--<locale pos="8" code="pt-BR" />-->
+        <!--<locale pos="9" code="de" />-->
+        <!--<locale pos="10" code="ru-RU" />-->
+        <!--<locale pos="11" code="nl" />-->
+        <!--<locale pos="12" code="es-AR" />-->
+        <!--<locale pos="13" code="cs-CZ" />-->
         <!--<locale pos="14" code="zh-CN" />-->
         <!--<locale pos="15" code="tr-TR" />-->
         <!--<locale pos="16" code="sk-SK" />-->
-        <locale pos="17" code="az-AZ" />
+        <!--<locale pos="17" code="az-AZ" />-->
         <!--<locale pos="18" code="da-DK" />-->
         <!--<locale pos="19" code="fa-IR" />-->
         <!--<locale pos="20" code="hr-HR" />-->
         <!--<locale pos="21" code="af-ZA" />-->
-        <locale pos="22" code="th-TH" />
-        <locale pos="23" code="hu-HU" />
-        <locale pos="24" code="nb-NO" />
-        <locale pos="25" code="ko-KR" />
+        <!--<locale pos="22" code="th-TH" />-->
+        <!--<locale pos="23" code="hu-HU" />-->
+        <!--<locale pos="24" code="nb-NO" />-->
+        <!--<locale pos="25" code="ko-KR" />-->
     </locales>
 
     <styles>
@@ -99,7 +99,7 @@
             <description>Firefox</description>
             <id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</id>
             <minVersion>2.0</minVersion>
-            <maxVersion>4.0</maxVersion>
+            <maxVersion>4.0b8pre</maxVersion>
         </application>
         
         <application>
