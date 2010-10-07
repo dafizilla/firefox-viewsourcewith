@@ -18,11 +18,12 @@ function Resources(doc) {
     this.scripts = new MapData();
     this.allScripts = new MapData();
     this.resFrames = [];
+    this.alreadyInitialized = false;
 }
 
 Resources.prototype = {
     init : function() {
-        if (!this.doc) {
+        if (!this.doc || this.alreadyInitialized) {
             return;
         }
         this.getStyleSheets(this.doc, this.styleSheets);
@@ -40,6 +41,7 @@ Resources.prototype = {
             resFrame.init();
             this.resFrames.push(resFrame);
         }
+        this.alreadyInitialized = true;
     },
 
     getStyleSheets : function(doc, map) {

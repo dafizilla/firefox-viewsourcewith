@@ -98,61 +98,10 @@ var gViewSourceWithMain = {
         gViewSourceWithMain._linkInfo.init(doc, thiz.prefs);
         thiz._resources = new Resources(doc);
 
-        gViewSourceWithMain.insertMenuItems(event.target, "viewPageFromViewMenu",
-                                            true, false);
-
         var frameDoc = ViewSourceWithCommon.getFocusedDocument();
-        if (doc != frameDoc) {
-            var resFrameIndex = -1;
-            for (var i = 0; i < thiz._resources.resFrames.length; i++) {
-                var resFrame = thiz._resources.resFrames[i];
-                if (resFrame.doc == frameDoc) {
-                    resFrameIndex = i;
-                    break;
-                }
-            }
-
-            var focusedFramePopup = document.createElement('menupopup');
-            var menuCommand = 'if (event.target.getAttribute("vswEditorIdx"))'
-                + 'gViewSourceWithMain.viewPageFromViewMenu'
-                + '(event.target.getAttribute("vswEditorIdx")'
-                + ',event'
-                + ',gViewSourceWithMain._resources.resFrames[' + resFrameIndex + '].doc);'
-                + 'event.stopPropagation();'
-            focusedFramePopup.setAttribute('oncommand', menuCommand);
-
-            thiz.insertDefaultMenuItem(focusedFramePopup, false);
-
-            if (resFrameIndex >= 0) { // sanity check
-                var resMenu = thiz.insertResourcesMenu(focusedFramePopup, thiz._resources.resFrames[resFrameIndex]);
-                if (resMenu) {
-                    resMenu.setAttribute("oncommand",
-                    "gViewSourceWithMain.openDlgResource(gViewSourceWithMain._resources.resFrames[" + resFrameIndex + "]);"
-                    + "event.stopPropagation();");
-                }
-            }
-            var editorIndexes = thiz.prefs.visibleEditorIndexes;
-            if (editorIndexes.length) {
-                focusedFramePopup.appendChild(document.createElement('menuseparator'));
-            }
-            var separators = event.target.getElementsByTagName('menuseparator');
-            var resourceElementPosition = null;
-            if (separators.length) {
-                resourceElementPosition = separators[0];
-            }
-
-            for (var i = 0, j = editorIndexes.length; i < j; i++) {
-                var editorDataIdx = editorIndexes[i];
-                thiz.insertEditorMenuItem(focusedFramePopup, editorDataIdx, false);
-            }
-            var menu = document.createElement('menu');
-            menu.setAttribute('label', ViewSourceWithCommon.getLocalizedMessage("focused.frame.label"));
-            menu.setAttribute('vswHighlight', gViewSourceWithMain._resources.resFrames[resFrameIndex].doc.body.style.border);
-            menu.setAttribute('onmouseover', 'gViewSourceWithMain._resources.resFrames[' + resFrameIndex + '].doc.body.style.border = "3px solid blue";');
-            menu.setAttribute('onmouseout', 'gViewSourceWithMain._resources.resFrames[' + resFrameIndex + '].doc.body.style.border = this.getAttribute("vswHighlight")');
-            menu.appendChild(focusedFramePopup);
-            event.target.insertBefore(menu, resourceElementPosition);
-        }
+        gViewSourceWithMain.insertMenuItems(event.target, "viewPageFromViewMenu",
+                                            true, false,
+                                            doc == frameDoc ? null : frameDoc);
 
         return true;
     },
@@ -328,7 +277,7 @@ var gViewSourceWithMain = {
                           gViewSourceWithMain.prefs);
     },
 
-    insertMenuItems : function(menu, fnViewPage, hasShortCutKey, isFrame) {
+    insertMenuItems : function(menu, fnViewPage, hasShortCutKey, isFrame, frameDoc) {
         var thiz = gViewSourceWithMain;
 
         if (!menu || menu.hidden) {
@@ -376,6 +325,9 @@ var gViewSourceWithMain = {
                 hasCSSorJS = thiz.insertResourcesMenu(menu) != null;
             }
 
+            if (frameDoc) {
+                thiz.insertFrameMenu(menu, frameDoc);
+            }
             var hasVisibleItems = hasCSSorJS || isNativeEditorVisible || hasDefault;
 
             // add separator only if there is at least one editor visible
@@ -500,6 +452,58 @@ var gViewSourceWithMain = {
         }
 
         return null;
+    },
+
+    insertFrameMenu : function(menu, frameDoc) {
+        var thiz = gViewSourceWithMain;
+
+        thiz._resources.init();
+
+        var resFrameIndex = -1;
+        for (var i = 0; i < thiz._resources.resFrames.length; i++) {
+            var resFrame = thiz._resources.resFrames[i];
+            if (resFrame.doc == frameDoc) {
+                resFrameIndex = i;
+                break;
+            }
+        }
+        var focusedFramePopup = document.createElement('menupopup');
+        var menuCommand = 'if (event.target.getAttribute("vswEditorIdx"))'
+            + 'gViewSourceWithMain.viewPageFromViewMenu'
+            + '(event.target.getAttribute("vswEditorIdx")'
+            + ',event'
+            + ',gViewSourceWithMain._resources.resFrames[' + resFrameIndex + '].doc);'
+            + 'event.stopPropagation();'
+        focusedFramePopup.setAttribute('oncommand', menuCommand);
+
+        thiz.insertDefaultMenuItem(focusedFramePopup, false);
+
+        if (resFrameIndex >= 0 && thiz.prefs.showResourcesMenu) {
+            var resMenu = thiz.insertResourcesMenu(focusedFramePopup, gViewSourceWithMain._resources.resFrames[resFrameIndex]);
+            if (resMenu) {
+                resMenu.setAttribute("oncommand",
+                "gViewSourceWithMain.openDlgResource(gViewSourceWithMain._resources.resFrames[" + resFrameIndex + "]);"
+                + "event.stopPropagation();");
+            }
+        }
+        var editorIndexes = thiz.prefs.visibleEditorIndexes;
+        if (editorIndexes.length) {
+            focusedFramePopup.appendChild(document.createElement('menuseparator'));
+        }
+
+        for (var i = 0, j = editorIndexes.length; i < j; i++) {
+            var editorDataIdx = editorIndexes[i];
+            thiz.insertEditorMenuItem(focusedFramePopup, editorDataIdx, false);
+        }
+        var frameMenu = document.createElement('menu');
+        frameMenu.setAttribute('label', ViewSourceWithCommon.getLocalizedMessage("focused.frame.label"));
+        if (resFrameIndex >= 0) {
+            frameMenu.setAttribute('vswHighlight', gViewSourceWithMain._resources.resFrames[resFrameIndex].doc.body.style.border);
+            frameMenu.setAttribute('onmouseover', 'gViewSourceWithMain._resources.resFrames[' + resFrameIndex + '].doc.body.style.border = "3px solid blue";');
+            frameMenu.setAttribute('onmouseout', 'gViewSourceWithMain._resources.resFrames[' + resFrameIndex + '].doc.body.style.border = this.getAttribute("vswHighlight")');
+        }
+        frameMenu.appendChild(focusedFramePopup);
+        menu.appendChild(frameMenu);
     },
 
     runEditor : function(event, editorIdx, openFocusedWindow, fnViewPage) {
