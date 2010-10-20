@@ -8,3 +8,9 @@
 <!ENTITY button.label.cancel "Fechar">
 <!ENTITY resourcename.tree.label "Nome">
 <!ENTITY resourcepath.tree.label "URL">
+<!ENTITY copy.selected.urls.label "Copiar URLs selecionadas">
+<!ENTITY copy.selected.urls.accesskey "U">
+<!ENTITY select.all.label "Selecionar tudo">
+<!ENTITY select.all.accesskey "T">
+<!ENTITY copyCmd.key "C">
+<!ENTITY selectAllCmd.key "T">

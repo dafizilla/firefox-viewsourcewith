@@ -1,0 +1,19 @@
+<!ENTITY dialog.editor.title "Vælg editor">
+<!ENTITY editorPath.label "Editor sti">
+<!ENTITY description.label "Beskrivelse">
+<!ENTITY shortcut.caption "Genvejstast">
+<!ENTITY shortcut.default.accel "Skift + Ctrl +">
+<!ENTITY shortcut.remove "Fjern">
+<!ENTITY shortcut.maybe.invalid "Nogle genveje skulle ikke virke">
+<!ENTITY invalid.path.chars "Ugyldig sti, sikr dig at den ikke indeholder ugyldige tegn">
+<!ENTITY picktitle.editor "Vælg editor">
+<!ENTITY parameters.label "Parametre">
+<!ENTITY token.filenames "Filnavn(e)">
+<!ENTITY token.line.number "Linjenummer">
+<!ENTITY token.column.number "Kolonnenummer">
+<!ENTITY token.help "Hjælp...">
+<!ENTITY editPathPortable.label "Relativ sti (eksempel /../editors/vim)">
+<!ENTITY use.portable.label "Brug sti relativ til profil (til portable programmer)">
+<!ENTITY preview.path.label "Forhåndsvis sti">
+<!ENTITY shortcut.default.caption "Standard editor genvejstast">
+<!ENTITY shortcut.restore "Genetablér">

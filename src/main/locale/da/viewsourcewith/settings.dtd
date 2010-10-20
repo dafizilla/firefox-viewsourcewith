@@ -1,0 +1,52 @@
+<!ENTITY settings.title "ViewSourceWith indstillinger">
+<!ENTITY destFolder.caption "Midlertidige filer-mappe">
+<!ENTITY editorList.caption "Editorliste">
+<!ENTITY configPath.label "Konfigurationsfil">
+<!ENTITY defaultEditor.tree.label "Standard">
+<!ENTITY description.tree.label "Navn">
+<!ENTITY show.tree.label "Slået til">
+<!ENTITY new.button.label "Ny">
+<!ENTITY edit.button.label "Rediger">
+<!ENTITY delete.button.label "Slet">
+<!ENTITY writtenBy.label "Skrevet af">
+<!ENTITY viewSource.home.tooltip "Gå til ViewSourceWith">
+<!ENTITY save.method.caption "Prædefineret gem-metode">
+<!ENTITY save.method.normal.label "Normal">
+<!ENTITY save.method.dom.label "DOM-dokument">
+<!ENTITY save.method.advice.label "Hold SHIFT-tasten nede for at bruge den anden metode">
+<!ENTITY main.label "Hoved">
+<!ENTITY advanced.label "Avanceret">
+<!ENTITY repl.editor.label "Brug i stedet for indbygget meddelelse/side kildekode menupunkt">
+<!ENTITY repl.editor.open.focused.label "Åbn fokuseret vindue i ramme-sæt">
+<!ENTITY repl.editor.advice.label "Indstillinger virker først efter genstart">
+<!ENTITY repl.image.viewer.item "(Ingen)">
+<!ENTITY repl.image.viewer.label "Brug i stedet for indbygget billedfremviser">
+<!ENTITY useProfilePath.label "Brug stier der er kompatible med &apos;portable&apos; programmer">
+<!ENTITY image.onlink.caption "I tilfælde af link med billede">
+<!ENTITY image.onlink.image.label "Vis billede">
+<!ENTITY image.onlink.link.label "Vis link">
+<!ENTITY temp.tab.label "Midlertidige filer">
+<!ENTITY temp.clearAtExit.label "Fjern filer når applikationen lukkes">
+<!ENTITY temp.cleanNow.label "Fjern">
+<!ENTITY view.tab.label "Vis">
+<!ENTITY view.menu.label "Menu">
+<!ENTITY view.showIcons.label "Vis ikoner på menu">
+<!ENTITY urlmapper.tab.label "Mappings">
+<!ENTITY urlmapper.caption "Serversider mapping-liste">
+<!ENTITY urlmapper.enabled.tree.label "Slået til">
+<!ENTITY urlmapper.name.tree.label "Navn">
+<!ENTITY urlmapper.advice.label "Åbn side kildekoder på &apos;serverside&apos;">
+<!ENTITY view.showResourcesMenu.label "Vis CSS/JS-menu">
+<!ENTITY view.quickFrameShowMenu.label "Vis &apos;hurtigadgang rammer&apos;-menu">
+<!ENTITY picktitle.destfolder "Vælg mappe">
+<!ENTITY picktitle.configPath "Vælg konfigurationsfil">
+<!ENTITY temp.useOSPath.label "Brug operativsystemfolder">
+<!ENTITY warning.delete.item "Slet &quot;&#37;1&quot;?">
+<!ENTITY jsconsole.label "Javascript-konsol">
+<!ENTITY repl.jsconsole.viewer.label "Bruges til at åbne kildefiler ind i Javascript-konsollen">
+<!ENTITY advanced.allow.edit.text "Tillad indholdsredigering af tekstfelter">
+<!ENTITY view.toolbarbutton.on.popup.caption "Knap på pop-op-vinduer">
+<!ENTITY view.toolbarbutton.on.popup.label "Vis værktøjslinje på pop-op-vinduer">
+<!ENTITY fileExtensionMapper.caption "Brugt filtype i genererede filnavne for tekstfelter">
+<!ENTITY fileExtensionMapper.domain.filter.label "Domænefilter (RegEx regulært udtryk)">
+<!ENTITY fileExtensionMapper.file.extension.label "Filtype">

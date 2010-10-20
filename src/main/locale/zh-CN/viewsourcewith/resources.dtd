@@ -8,3 +8,9 @@
 <!ENTITY button.label.cancel "关闭">
 <!ENTITY resourcename.tree.label "名称">
 <!ENTITY resourcepath.tree.label "URL">
+<!ENTITY copy.selected.urls.label "复制选中的URL">
+<!ENTITY copy.selected.urls.accesskey "U">
+<!ENTITY select.all.label "全选">
+<!ENTITY select.all.accesskey "A">
+<!ENTITY copyCmd.key "C">
+<!ENTITY selectAllCmd.key "A">

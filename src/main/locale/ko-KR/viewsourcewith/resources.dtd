@@ -8,3 +8,9 @@
 <!ENTITY button.label.cancel "닫기">
 <!ENTITY resourcename.tree.label "이름">
 <!ENTITY resourcepath.tree.label "URL">
+<!ENTITY copy.selected.urls.label "선택된 URL 복사">
+<!ENTITY copy.selected.urls.accesskey "U">
+<!ENTITY select.all.label "모두 선택">
+<!ENTITY select.all.accesskey "A">
+<!ENTITY copyCmd.key "C">
+<!ENTITY selectAllCmd.key "A">

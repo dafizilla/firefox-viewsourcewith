@@ -8,3 +8,9 @@
 <!ENTITY button.label.cancel "Cerrar">
 <!ENTITY resourcename.tree.label "Nombre">
 <!ENTITY resourcepath.tree.label "Dirección">
+<!ENTITY copy.selected.urls.label "Copiar las direcciones seleccionadas">
+<!ENTITY copy.selected.urls.accesskey "i">
+<!ENTITY select.all.label "Seleccionar todo">
+<!ENTITY select.all.accesskey "t">
+<!ENTITY copyCmd.key "C">
+<!ENTITY selectAllCmd.key "A">

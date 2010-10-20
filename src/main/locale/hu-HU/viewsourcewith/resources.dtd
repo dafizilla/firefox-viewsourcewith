@@ -8,3 +8,9 @@
 <!ENTITY button.label.cancel "Bezárás">
 <!ENTITY resourcename.tree.label "Név">
 <!ENTITY resourcepath.tree.label "Webcím">
+<!ENTITY copy.selected.urls.label "Kijelölt webcímek másolása">
+<!ENTITY copy.selected.urls.accesskey "j">
+<!ENTITY select.all.label "Mindent kijelöl">
+<!ENTITY select.all.accesskey "d">
+<!ENTITY copyCmd.key "C">
+<!ENTITY selectAllCmd.key "A">
