@@ -1,0 +1,24 @@
+===
+== Thunderbird 2.0 and 3.0 and SeaMonkey 2.x Mail
+===
+[ ] at installation time
+    [ ] show prompt
+        [ ] select 'yes' install toolbar
+
+[ ] click on toolbar
+    [ ] focus on message list
+        [ ] SHIFT not pressed   => mime file
+        [ ] SHIFT pressed       => mime file
+    [ ] focus on document
+        [ ] SHIFT not pressed   => mime file
+        [ ] SHIFT pressed       => show DOM
+[ ] click on document
+    [ ] SHIFT not pressed       => mime file
+    [ ] SHIFT pressed           => show DOM
+
+[ ] focus on search bar
+    [ ] do nothing
+
+On TB 2.x if toolbar show text the icon is displayed badly
+    [ ] message window
+    [ ] compose window

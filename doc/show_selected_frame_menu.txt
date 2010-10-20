@@ -1,0 +1,16 @@
+Use one editor
+Use more than one editor
+
+
+Res menu enabled    0   1   0   1   0   1   0   1
+Has selected frame  0   0   1   1   0   0   1   1
+Doc has css/js      0   0   0   0   1   1   1   1
+                    x   x   F   x   x   x   F   x          -
+
+
+Res menu enabled    0   1   0   1   0   1   0   1
+Has selected frame  0   0   1   1   0   0   1   1
+Doc has css/js      0   0   0   0   1   1   1   1
+                    x   x   x   x   x   x   x   x
+
+multi editor        x   x   x   x   x   x   x   x
