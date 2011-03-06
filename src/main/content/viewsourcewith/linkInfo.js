@@ -5,6 +5,8 @@
  * Date     : 12-Mar-2007 added support for rich editors (e.g. GMail)
  */
 
+Components.utils.import("resource://vsw/common.jsm");
+
 const IMAGE_PATH_IMG = "chrome://viewsourcewith/content/img/ctx/img16.png";
 const IMAGE_PATH_LNK = "chrome://viewsourcewith/content/img/ctx/lnk16.png";
 const IMAGE_PATH_TXT = "chrome://viewsourcewith/content/img/ctx/txt16.png";

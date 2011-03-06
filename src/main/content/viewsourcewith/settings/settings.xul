@@ -23,7 +23,6 @@
         windowtype="vsw:settings"
         persist="width height screenX screenY">
 
-    <script type="application/x-javascript" src="chrome://viewsourcewith/content/common.js"/>
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/keyData.js" />
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/urlMapperData.js"/>
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/globalObjectFactory.js"/>

@@ -7,6 +7,7 @@
  *                      open because now we use hiddenDOMWindow that is always
  *                      the last destroyed
  */
+Components.utils.import("resource://vsw/common.jsm");
 
 function ViewSourceWithTempCleaner() {
     this._enabled = false;

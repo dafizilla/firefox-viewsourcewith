@@ -13,7 +13,6 @@
         title="&dialog.urlmapper.title;"
         persist="width height screenX screenY">
 
-    <script type="application/x-javascript" src="chrome://viewsourcewith/content/common.js"/>
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/prefs.js"/>
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/urlMapperData.js"/>
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/settings/urlmapper.js"/>

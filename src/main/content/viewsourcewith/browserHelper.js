@@ -4,6 +4,8 @@
  * These routines are stolen from contentAreaUtils.js
  */
 
+Components.utils.import("resource://vsw/common.jsm");
+
 function ViewSourceWithBrowserHelper() {
 }
 

@@ -2,6 +2,8 @@
  * Author: Davide Ficano
  * Date  : 26-Nov-05
  */
+Components.utils.import("resource://vsw/common.jsm");
+
 var gViewSourceUrlMapper = {
     onLoad : function() {
         sizeToContent();

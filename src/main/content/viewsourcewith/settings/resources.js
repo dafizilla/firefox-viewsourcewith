@@ -2,6 +2,8 @@
  * Author: Davide Ficano
  * Date  : 14-Mar-06
  */
+Components.utils.import("resource://vsw/common.jsm");
+
 const VSW_DOC_TYPE = 2;
 
 var gVSWResources = {

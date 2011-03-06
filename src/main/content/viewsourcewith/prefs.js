@@ -12,6 +12,8 @@
  * Date     : 27-Jul-07 Fixed problem with hiddenDOMWindow
  */
 
+Components.utils.import("resource://vsw/common.jsm");
+
 const VSW_PREF_CONFIG_PATH = "configPath";
 const VSW_PREF_USE_PROFILE_PATH = "useProfilePath";
 const VSW_PREF_TOOLBAR_ICON_ADDED = "toolbaricon.added";

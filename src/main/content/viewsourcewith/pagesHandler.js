@@ -2,6 +2,8 @@
  * Author   : Davide Ficano
  */
 
+Components.utils.import("resource://vsw/common.jsm");
+
 function VswServerPagesHandler() {
     this.data = null;
 }

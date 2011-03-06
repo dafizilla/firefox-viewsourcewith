@@ -3,6 +3,7 @@
  * Date     : 29-May-05
  * Date     : 12-Mar-07 added support for rich editors (e.g. GMail)
  */
+Components.utils.import("resource://vsw/common.jsm");
 
 var ViewSourceWithInputText = {
     viewText : function(editorData, linkInfo) {

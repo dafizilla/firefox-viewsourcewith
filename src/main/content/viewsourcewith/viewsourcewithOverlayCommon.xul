@@ -6,7 +6,6 @@
 <overlay id="viewsourcewithOverlayCommon"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-    <script type="application/x-javascript" src="chrome://viewsourcewith/content/common.js" />
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/commonres.js" />
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/keyData.js" />
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/urlMapperData.js"/>

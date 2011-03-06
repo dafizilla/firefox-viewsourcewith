@@ -3,6 +3,7 @@
  * Date     : 27-Jul-07 Allow to access to hiddenDOMWindow using singletons
  * Date     : 04-Apr-08 Added Firefox 3 support using FUEL (hiddenDOMWindow removal)
  */
+Components.utils.import("resource://vsw/common.jsm");
 
 var viewSourceWithFactory = {
     getPrefsInstance: function() {

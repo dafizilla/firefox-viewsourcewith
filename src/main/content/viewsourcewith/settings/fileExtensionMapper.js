@@ -34,6 +34,8 @@
 #
 # ***** END LICENSE BLOCK *****
 */
+Components.utils.import("resource://vsw/common.jsm");
+
 var gViewSourceFileExtensionMapper = {
     onLoad : function() {
         window.sizeToContent();

@@ -3,6 +3,8 @@
  * Date  : 14-Mar-06
  * Date  : 01-Aug-06 added callbackObject
  */
+Components.utils.import("resource://vsw/common.jsm");
+
 function UrlDownloader() {
     this.onFinish = null;
     this.count = 0;

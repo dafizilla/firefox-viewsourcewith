@@ -1,3 +1,5 @@
+Components.utils.import("resource://vsw/common.jsm");
+
 KeyData.localeKeys = Components.classes["@mozilla.org/intl/stringbundle;1"]
     .getService(Components.interfaces.nsIStringBundleService)
     .createBundle("chrome://global/locale/keys.properties");

@@ -34,6 +34,8 @@
 #
 # ***** END LICENSE BLOCK *****
 */
+Components.utils.import("resource://vsw/common.jsm");
+
 var gViewSourceWithMessenger = {
     onLoad : function() {
         var obs = ViewSourceWithCommon.getObserverService();

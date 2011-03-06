@@ -19,7 +19,6 @@
         persist="screenX screenY"
         title="&dialog.editor.title;">
 
-    <script type="application/x-javascript" src="chrome://viewsourcewith/content/common.js"/>
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/keyData.js"/>
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/prefs.js"/>
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/settings/chooseEditor.js"/>

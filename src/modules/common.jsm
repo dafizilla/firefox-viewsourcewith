@@ -9,12 +9,20 @@
 // Under mozilla composer <stringbundleset id="stringbundleset"> isn't available
 // so we use nsIStringBundleService
 
+var EXPORTED_SYMBOLS = ["ViewSourceWithCommon"];
+
 ViewSourceWithCommon.locale = Components.classes["@mozilla.org/intl/stringbundle;1"]
     .getService(Components.interfaces.nsIStringBundleService)
     .createBundle("chrome://viewsourcewith/locale/viewsourcewith.properties");
 
-ViewSourceWithCommon.isMacOSX = top.window.navigator.platform.indexOf("Mac") >= 0;
-ViewSourceWithCommon.isWindows = top.window.navigator.platform.indexOf("Win") >= 0;
+var runtime = Components.classes["@mozilla.org/xre/app-info;1"]
+                    .getService(Components.interfaces.nsIXULRuntime);
+var appInfo = Components.classes["@mozilla.org/xre/app-info;1"]
+           .getService(Components.interfaces.nsIXULAppInfo);
+
+ViewSourceWithCommon.isMacOSX = runtime.OS == "Darwin";
+ViewSourceWithCommon.isWindows = runtime.OS == "WINNT";
+
 ViewSourceWithCommon.prefBranch = Components
     .classes["@mozilla.org/preferences-service;1"]
     .getService(Components.interfaces.nsIPrefService)
@@ -28,8 +36,6 @@ if (typeof(ViewSourceWithCommon.runwDefined) == "undefined") {
 }
 
 function ViewSourceWithCommon() {
-    this.gPathSeparator = top.window.navigator.platform.indexOf("Win") < 0 ? "/" : "\\";
-
     return this;
 }
 
@@ -249,7 +255,7 @@ ViewSourceWithCommon.getPrefDir = function(dir) {
 }
 
 ViewSourceWithCommon.isThunderbird = function() {
-    return top.window.navigator.userAgent.indexOf("Thunderbird") >= 0;
+    return appInfo.ID == "{3550f703-e582-4d05-9a08-453d09bdfdc6}";
 }
 
 ViewSourceWithCommon.loadExternalUrl = function(url) {
@@ -511,11 +517,11 @@ ViewSourceWithCommon.makeUrlFromSpec = function(urlSpec) {
     return uri;
 }
 
-ViewSourceWithCommon.getFocusedDocument = function() {
-    var focusedWindow = document.commandDispatcher.focusedWindow;
+ViewSourceWithCommon.getFocusedDocument = function(doc) {
+    var focusedWindow = doc.commandDispatcher.focusedWindow;
     // Don't get url from browser widgets (e.g. google bar, address bar)
-    if (focusedWindow == window) {
-        focusedWindow = content;
+    if (focusedWindow == doc.defaultView) {
+        focusedWindow = doc.defaultView.content;
     }
 
     return focusedWindow.document;
@@ -590,8 +596,8 @@ ViewSourceWithCommon.getEditorForWindow = function(target) {
     var editor = null;
 
     try {
-        if (target) { //.ownerDocument && target.ownerDocument.defaultView) {
-            var win = target; //.ownerDocument.defaultView;
+        if (target) {
+            var win = target;
             var editingSession = win.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
                             .getInterface(Components.interfaces.nsIWebNavigation)
                             .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
@@ -608,15 +614,15 @@ ViewSourceWithCommon.getEditorForWindow = function(target) {
     return editor;
 }
 
-ViewSourceWithCommon.getToolbar = function() {
-    return document.getElementById('nav-bar') ||
-        document.getElementById('mail-bar3') || // TB3 must be checked before TB2
-        document.getElementById('mail-bar2') || // TB2
-        document.getElementById('mail-bar');
+ViewSourceWithCommon.getToolbar = function(doc) {
+    return doc.getElementById('nav-bar') ||
+        doc.getElementById('mail-bar3') || // TB3 must be checked before TB2
+        doc.getElementById('mail-bar2') || // TB2
+        doc.getElementById('mail-bar');
 }
 
-ViewSourceWithCommon.addToolbarButton = function(buttonId) {
-    var toolbar = ViewSourceWithCommon.getToolbar();
+ViewSourceWithCommon.addToolbarButton = function(doc, buttonId) {
+    var toolbar = ViewSourceWithCommon.getToolbar(doc);
 
     if (toolbar
         && toolbar.currentSet
@@ -634,14 +640,14 @@ ViewSourceWithCommon.addToolbarButton = function(buttonId) {
     }
 }
 
-ViewSourceWithCommon.isToolbarCustomizable = function() {
-    var toolbar = ViewSourceWithCommon.getToolbar();
+ViewSourceWithCommon.isToolbarCustomizable = function(doc) {
+    var toolbar = ViewSourceWithCommon.getToolbar(doc);
 
     return toolbar && toolbar.currentSet;
 }
 
-ViewSourceWithCommon.isToolbarButtonAlreadyPresent = function(buttonId) {
-    var toolbar = ViewSourceWithCommon.getToolbar();
+ViewSourceWithCommon.isToolbarButtonAlreadyPresent = function(doc, buttonId) {
+    var toolbar = ViewSourceWithCommon.getToolbar(doc);
 
     return toolbar && toolbar.currentSet && toolbar.currentSet.indexOf(buttonId) >= 0;
 }

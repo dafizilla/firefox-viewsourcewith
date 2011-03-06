@@ -3,6 +3,8 @@
  * Date  : 22-Nov-04
  * Fix description  : 15-Jan-05
  */
+Components.utils.import("resource://vsw/common.jsm");
+
 var gViewSourceSettings = {
     onLoad : function() {
         gViewSourceSettings.prefs = new ViewSourceWithPrefs();

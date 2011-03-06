@@ -3,6 +3,8 @@
  * Date  : 05-Feb-05
  * Added code taken from KeyConfig
  */
+Components.utils.import("resource://vsw/common.jsm");
+
 var gViewSourceChooseEditor = {
     onLoad : function() {
         this.initControls();

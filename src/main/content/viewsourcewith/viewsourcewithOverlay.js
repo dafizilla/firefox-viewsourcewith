@@ -11,6 +11,9 @@
  * Date     : 15-Dec-2007 Toolbar icon reflects focused element
  */
 
+Components.utils.import("resource://vsw/common.jsm");
+Components.utils.import("resource://vsw/uninstaller.jsm");
+
 var gViewSourceWithMain = {
 
     onLoad : function() {
@@ -21,6 +24,7 @@ var gViewSourceWithMain = {
 
         var obs = ViewSourceWithCommon.getObserverService();
         obs.addObserver(thiz, "vsw:update-config", false);
+        VSWRegisterUninstallerObserver();
         thiz.init();
     },
 
@@ -98,7 +102,7 @@ var gViewSourceWithMain = {
         gViewSourceWithMain._linkInfo.init(doc, thiz.prefs);
         thiz._resources = new Resources(doc);
 
-        var frameDoc = ViewSourceWithCommon.getFocusedDocument();
+        var frameDoc = ViewSourceWithCommon.getFocusedDocument(document);
         gViewSourceWithMain.insertMenuItems(event.target, "viewPageFromViewMenu",
                                             true, false,
                                             doc == frameDoc ? null : frameDoc);
@@ -626,10 +630,10 @@ var gViewSourceWithMain = {
 
         try {
             // return false on SeaMonkey
-            if (!ViewSourceWithCommon.isToolbarCustomizable()) {
+            if (!ViewSourceWithCommon.isToolbarCustomizable(document)) {
                 return;
             }
-            if (ViewSourceWithCommon.isToolbarButtonAlreadyPresent("viewsourcewith-button")) {
+            if (ViewSourceWithCommon.isToolbarButtonAlreadyPresent(document, "viewsourcewith-button")) {
                 thiz.prefs.toolbarIconAdded = true;
             } else {
                 if (!thiz.prefs.isToolbarIconAdded) {
@@ -662,7 +666,7 @@ var gViewSourceWithMain = {
                 checkResult);
 
             if (rv == 0) {
-                ViewSourceWithCommon.addToolbarButton("viewsourcewith-button");
+                ViewSourceWithCommon.addToolbarButton(document, "viewsourcewith-button");
             }
             // Don't ask any more
             gViewSourceWithMain.prefs.toolbarIconAdded = true;
