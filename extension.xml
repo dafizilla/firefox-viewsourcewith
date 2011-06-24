@@ -1,5 +1,5 @@
 <!DOCTYPE extension [
-<!ENTITY extension.version "0.7.4">
+<!ENTITY extension.version "0.8">
 ]>
 
 <extension name="viewsourcewith">
@@ -35,8 +35,8 @@
     
     <!-- used by install.js and build process to set components -->
     <components>
-        <component platform="xpt">winprocess.xpt</component>
-        <component platform="win" platform-path="platform/WINNT_x86-msvc/">winprocess.dll</component>
+        <!--<component platform="xpt">winprocess.xpt</component>-->
+        <!--<component platform="win" platform-path="platform/WINNT_x86-msvc/">winprocess.dll</component>-->
         <!--<component platform="linux" platform-path="platform/Linux_x86-gcc3/">winprocess.i386</component>-->
         <!--<component platform="linux64" platform-path="platform/Linux_x86_64-gcc3/">winprocess.64</component>-->
         <!--<component platform="darwin" platform-path="platform/Darwin_ppc-gcc3/">winprocess.ppc</component>-->
@@ -102,23 +102,25 @@
         <application>
             <description>Firefox</description>
             <id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</id>
-            <minVersion>3.0</minVersion>
-            <maxVersion>5.0a2</maxVersion>
+            <minVersion>4.0</minVersion>
+            <maxVersion>7.*</maxVersion>
         </application>
         
         <application>
             <description>Thunderbird</description>
             <id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</id>
-            <minVersion>3.0</minVersion>
-            <maxVersion>3.3a4pre</maxVersion>
+            <minVersion>5.0</minVersion>
+            <maxVersion>7.*</maxVersion>
         </application>
         
+        <!--
         <application>
             <description>SeaMonkey</description>
             <id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</id>
             <minVersion>2.0</minVersion>
-            <maxVersion>2.1a1pre</maxVersion>
+            <maxVersion>2.4.*</maxVersion>
         </application>
+        -->
     </compatibility>
 
     <contributors>
