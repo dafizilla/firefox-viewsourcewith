@@ -1,0 +1,9 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+.resource-tree::-moz-tree-cell-text(grayedCell) {
+  color: #CCC;
+}
+
+.resource-tree::-moz-tree-cell(grayedCell) {
+  background-color: #777;
+}

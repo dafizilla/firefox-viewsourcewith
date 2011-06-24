@@ -5,6 +5,9 @@
 Components.utils.import("resource://vsw/common.jsm");
 
 const VSW_DOC_TYPE = 2;
+var grayedCellProperties = Components.classes["@mozilla.org/atom-service;1"]
+            .getService(Components.interfaces.nsIAtomService)
+            .getAtom("grayedCell");
 
 var gVSWResources = {
     resExtensions : [],
@@ -45,6 +48,10 @@ var gVSWResources = {
 
         for (var i = 0; i < items.length; i++) {
             var resUrl = items[i].url;
+            
+            if (!items[i].isUrlValid) {
+                continue;
+            }
             urls.push(resUrl);
 
             // local files must be read from their original disk position
@@ -177,15 +184,28 @@ var gVSWResources = {
         // Ensure local paths are in UTF-8 charset
         var localUrl = ViewSourceWithCommon.getLocalFilePage(url);
         var resPath = localUrl ? localUrl.path : url;
+        var name = url;
+        var isUrlValid = true;
 
-        return { name : this.getName(url),
+        try {
+            name = this.getName(url);
+        } catch (e) {
+            resPath = ViewSourceWithCommon.getLocalizedMessage("invalid.url");
+            isUrlValid = false;
+        }
+
+        return { name : name,
                    displayPath : resPath,   // is used only to display it
                    url : url,                 // contains the url also file://
-                   resType : resType
+                   resType : resType,
+                   isUrlValid: isUrlValid
                  };
     },
 
     getName : function(str) {
+        if (str.indexOf('javascript:') == 0) {
+            throw Components.results.NS_ERROR_MALFORMED_URI;
+        }
         var uri = Components.classes["@mozilla.org/network/standard-url;1"]
             .createInstance(Components.interfaces.nsIURL);
         uri.spec = str;
@@ -552,6 +572,19 @@ DocumentTreeView.prototype.constructor = DocumentTreeView;
     };
 
     this.cycleHeader = function(col, elem) {
+    };
+
+    this.getCellProperties = function(row, column, props) {
+        var prop = null;
+        var item = this.visibleItems[row];
+
+        if (!item.isUrlValid) {
+            prop = grayedCellProperties;
+        }
+
+        if (prop) {
+            props.AppendElement(prop);
+        }
     };
     //this.__defineGetter__("rowCount", function() {});
     //this.setTree = function(treebox){}
