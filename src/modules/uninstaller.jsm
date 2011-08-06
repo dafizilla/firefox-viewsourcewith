@@ -27,8 +27,10 @@ function VSWRegisterUninstallerObserver() {
             onUninstalled: function(addon) {
             },
             onOperationCancelled: function(addon) {
-                if (ViewSourceWithCommon.prefBranch.prefHasUserValue("uninstall")) {
-                    ViewSourceWithCommon.prefBranch.clearUserPref("uninstall");
+                if (addon.id == VSW_UUID) {
+                    if (ViewSourceWithCommon.prefBranch.prefHasUserValue("uninstall")) {
+                        ViewSourceWithCommon.prefBranch.clearUserPref("uninstall");
+                    }
                 }
             },
             onPropertyChanged: function(addon, properties) {}
