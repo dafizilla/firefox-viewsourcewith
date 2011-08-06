@@ -1,6 +1,7 @@
 Components.utils.import("resource://vsw/common.jsm");
 
 var EXPORTED_SYMBOLS = ["VSWRegisterUninstallerObserver"];
+var VSW_UUID = '{eecba28f-b68b-4b3a-b501-6ce12e6b8696}';
 
 // https://developer.mozilla.org/en/Code_snippets/Miscellaneous
 // https://developer.mozilla.org/en/XUL_School/Appendix_B%3A_Install_and_Uninstall_Scripts
@@ -19,7 +20,9 @@ function VSWRegisterUninstallerObserver() {
             onInstalling: function(addon, needsRestart) {},
             onInstalled: function(addon) {},
             onUninstalling: function(addon, needsRestart) {
-                ViewSourceWithCommon.prefBranch.setBoolPref("uninstall", true);
+                if (addon.id == VSW_UUID) {
+                    ViewSourceWithCommon.prefBranch.setBoolPref("uninstall", true);
+                }
             },
             onUninstalled: function(addon) {
             },
@@ -31,29 +34,16 @@ function VSWRegisterUninstallerObserver() {
             onPropertyChanged: function(addon, properties) {}
         });
     } catch (ex) {
-        // Firefox 3.6 and before; Mozilla 1.9.2 and before
-        ViewSourceWithCommon.getObserverService()
-            .addObserver({
-                observe : function(subject, topic, data) {
-                    if (data == "item-uninstalled") {
-                        ViewSourceWithCommon.prefBranch.setBoolPref("uninstall", true);
-                    } else if (data == "item-cancel-action") {
-                        if (ViewSourceWithCommon.prefBranch.prefHasUserValue("uninstall")) {
-                            ViewSourceWithCommon.prefBranch.clearUserPref("uninstall");
-                        }
-                    }
-                }
-        }, "em-action-requested", false);
     }
 
     ViewSourceWithCommon.getObserverService()
         .addObserver({
             observe : function(subject, topic, data) {
                 try {
-                if (ViewSourceWithCommon.prefBranch.prefHasUserValue("uninstall")
-                    && ViewSourceWithCommon.prefBranch.getBoolPref("uninstall")) {
-                    ViewSourceWithCommon.prefBranch.deleteBranch("");
-                }
+                    if (ViewSourceWithCommon.prefBranch.prefHasUserValue("uninstall")
+                        && ViewSourceWithCommon.prefBranch.getBoolPref("uninstall")) {
+                        ViewSourceWithCommon.prefBranch.deleteBranch("");
+                    }
                 } catch(e) {
                     dump (e + "\n");
                 }
