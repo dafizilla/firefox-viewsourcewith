@@ -93,7 +93,7 @@
         <overlay description="Error Console" uri="chrome://global/content/console.xul" value="chrome://viewsourcewith/content/viewsourcewithOverlay.xul" />
         <overlay description="Error Console2" uri="chrome://console2/content/console2.xul" value="chrome://viewsourcewith/content/viewsourcewithOverlay.xul" />
 
-        <overlay description="Firebug panel" uri="chrome://firebug/content/browserOverlay.xul" value="chrome://viewsourcewith/content/viewsourcewithOverlayFirebug.xul" />
+        <overlay description="Firebug panel" uri="chrome://firebug/content/firebugOverlay.xul" value="chrome://viewsourcewith/content/viewsourcewithOverlayFirebug.xul" />
 
         <overlay description="SeaMonkey2 - Main window"
                  uri="chrome://navigator/content/navigator.xul"
