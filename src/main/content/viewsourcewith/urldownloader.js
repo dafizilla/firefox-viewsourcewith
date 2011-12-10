@@ -76,8 +76,21 @@ UrlDownloader.prototype = {
             ++this.count;
 
             if (this.count == this.outFiles.length) {
-                this.flushCache();
-                this.onFinish(this.urls, this.outFiles, this.callbackObject);
+                // Under Fx 10 the stream parser is async so the our code is called "too quickly"
+                // see Bug 700034 and 703841
+                var webNavigation = this.webShell.QueryInterface(Components.interfaces.nsIWebNavigation);
+                if (webNavigation.document.readyState == "complete") {
+                    // This branch is probably never taken. Including it for completeness.
+                    this.flushCache();
+                    this.onFinish(this.urls, this.outFiles, this.callbackObject);
+                } else {
+                  var prog = this;
+                  webNavigation.document.addEventListener("DOMContentLoaded",
+                                                          function() {
+                                                            prog.flushCache();
+                                                            prog.onFinish(prog.urls, prog.outFiles, prog.callbackObject);
+                                                          });
+                }
             }
         }
     },
