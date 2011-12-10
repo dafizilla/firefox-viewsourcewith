@@ -149,6 +149,21 @@ var ViewSourceWithInputText = {
             checkResult);
 
         return selection == 0;
+    },
+    
+    listenModification : function(textElement, fullPath) {
+        var target = ViewSourceWithLinkInfo.createInputBoxEditor(textElement);
+        target.listenModification();
+
+        target.filePath = ViewSourceWithCommon.makeLocalFile(fullPath);
+        target.lastModifiedTime = target.filePath.lastModifiedTime;
+        target.setModified(false);
+        if (!target.listenForModification) {
+            target.addEventListener("focus", new FocusHandler(target), true);
+            ViewSourceWithCommon.log('register for modification');
+        } else {
+            ViewSourceWithCommon.log('already registered for modification');
+        }
     }
 }
 

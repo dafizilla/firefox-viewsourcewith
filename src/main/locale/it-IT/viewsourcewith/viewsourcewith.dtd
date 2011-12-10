@@ -5,3 +5,5 @@
 <!ENTITY viewsource-viewMenu.accesskey "g">
 <!ENTITY viewsourcewith.commandkey "U">
 <!ENTITY viewsourcewithButton.label "Sorgente">
+<!ENTITY vsw.open "Apri">
+<!ENTITY vsw.save "Salva">

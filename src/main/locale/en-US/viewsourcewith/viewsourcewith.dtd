@@ -5,3 +5,5 @@
 <!ENTITY viewsource-viewMenu.accesskey "w">
 <!ENTITY viewsourcewith.commandkey "U">
 <!ENTITY viewsourcewithButton.label "Source">
+<!ENTITY vsw.open "Open">
+<!ENTITY vsw.save "Save">

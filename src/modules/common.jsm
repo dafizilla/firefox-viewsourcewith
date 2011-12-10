@@ -664,7 +664,10 @@ ViewSourceWithCommon.getLocalFilePage = function(url) {
 }
 
 ViewSourceWithCommon.isMessenger = function() {
-    return typeof(GetNumSelectedMessages) != "undefined";
+    var appInfo = Components.classes["@mozilla.org/xre/app-info;1"]  
+           .getService(Components.interfaces.nsIXULAppInfo);      
+
+    return appInfo.ID == "{3550f703-e582-4d05-9a08-453d09bdfdc6}";
 }
 
 ViewSourceWithCommon.hasClass = function(el, cls) {
@@ -697,4 +700,39 @@ ViewSourceWithCommon.copyToClipboard = function(str) {
     Components.classes["@mozilla.org/widget/clipboardhelper;1"]
         .getService(Components.interfaces.nsIClipboardHelper)
         .copyString(str);
+}
+
+ViewSourceWithCommon.pickFile = function(title, startPath, win, mode) {
+    const nsIFilePicker = Components.interfaces.nsIFilePicker;
+
+    var fp = Components.classes["@mozilla.org/filepicker;1"]
+                .createInstance(Components.interfaces.nsIFilePicker);
+    fp.init(win, title, mode);
+    
+    try {
+        if (startPath) {
+            var currDir = Components.classes["@mozilla.org/file/local;1"]
+                       .createInstance(Components.interfaces.nsILocalFile);
+            currDir.initWithPath(startPath);
+            if (currDir.isFile()) {
+                currDir = currDir.parent;
+            }
+            if (currDir.isDirectory()) {
+                fp.displayDirectory = currDir;
+            }
+        }
+    } catch (err) {
+        // simply don't set displayDirectory
+    }
+
+    try {
+        var res = fp.show();
+        var isOk = (res == nsIFilePicker.returnOK || res == nsIFilePicker.returnReplace);
+        if (isOk && fp.file) {
+            return fp.file.path;
+        }
+    } catch (err) {
+        alert("onPickFile: " + err);
+    }
+    return null;
 }

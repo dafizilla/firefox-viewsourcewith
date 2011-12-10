@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://viewsourcewith/locale/viewsourcewith.dtd" >
+<?xml-stylesheet href="chrome://viewsourcewith/skin/viewsourcewith.css" type="text/css"?>
+<?xul-overlay href="chrome://viewsourcewith/content/viewsourcewithOverlayCommon.xul"?>
+
+<overlay id="viewsourcewithOverlayFirebug"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+    <script type="application/x-javascript" src="chrome://viewsourcewith/content/firebug.js" />
+
+    <hbox id="fbCommandToolbar">
+        <toolbarbutton id="vswFBOpen" label="&vsw.open;" class="toolbar-text-button" oncommand="Firebug.Vsw.open()" insertafter="fbCommandEditorHistoryButton"/>
+        <toolbarbutton id="vswFBSave" label="&vsw.save;"  class="toolbar-text-button" oncommand="Firebug.Vsw.save()" insertafter="vswFBOpen"/>
+    </hbox>
+</overlay>
