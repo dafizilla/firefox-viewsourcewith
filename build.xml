@@ -66,12 +66,12 @@
     </target>
 
     <target name="apply-replacement" depends="apply-install-js, apply-install-rdf, apply-chrome-manifest, apply-prefs-js, apply-update-rdf, apply-content-rdf, apply-instruct-xml">
-        <copy todir="${tmp.dir}/${extension.name}/install/components" failonerror="false">
-            <fileset dir="${src.dir}/components" />
-        </copy>
-        <copy todir="${tmp.dir}/${extension.name}/install/platform" failonerror="false">
-            <fileset dir="${src.dir}/platform" />
-        </copy>
+        <!--<copy todir="${tmp.dir}/${extension.name}/install/components" failonerror="false">-->
+        <!--    <fileset dir="${src.dir}/components" />-->
+        <!--</copy>-->
+        <!--<copy todir="${tmp.dir}/${extension.name}/install/platform" failonerror="false">-->
+        <!--    <fileset dir="${src.dir}/platform" />-->
+        <!--</copy>-->
         <copy todir="${replacement.output.dir}/defaults" failonerror="false" overwrite="true">
             <fileset dir="${src.dir}/defaults" />
         </copy>
@@ -178,6 +178,7 @@
           <arg value="${extension.version}"/>
           <arg value="${dest.update.rdf.path}"/>
           <arg value="${bin.dist.dir}/${dist.name}.xpi"/>
+          <arg value="${extension.updateLink}"/>
         </exec>
     </target>
 
