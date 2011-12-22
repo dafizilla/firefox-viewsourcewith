@@ -170,8 +170,19 @@
         <zip destfile="${tmp.dir}/${extension.name}/main/${jar.name}" basedir="${tmp.dir}/${extension.name}/jarfiles" compress="false"/>
     </target>
 
-    <target name="sign-update-rdf" description="Sign the update.rdf">
+    <target name="sign-update-rdf" description="Sign the update.rdf using spock">
         <exec executable="${spock.executable}">
+          <arg value="${src.update.rdf.path}"/>
+          <arg value="${mccoy.path}"/>
+          <arg value="${extension.uuid}"/>
+          <arg value="${extension.version}"/>
+          <arg value="${dest.update.rdf.path}"/>
+          <arg value="${bin.dist.dir}/${dist.name}.xpi"/>
+        </exec>
+    </target>
+
+    <target name="sign-update-rdf-no-good" description="Sign the update.rdf">
+        <exec executable="${sign-update.executable}">
           <arg value="${src.update.rdf.path}"/>
           <arg value="${mccoy.path}"/>
           <arg value="${extension.uuid}"/>
