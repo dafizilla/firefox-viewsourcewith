@@ -872,12 +872,14 @@ var gViewSourceWithMain = {
 
     onFinishRunEditor : function(urls, outFiles, callbackObject) {
         var pageHandler = new VswServerPagesHandler();
+        var line = typeof(callbackObject.line) == 'undefined' ? -1 : callbackObject.line;
+        var col = typeof(callbackObject.col) == 'undefined' ? -1 : callbackObject.col;
         pageHandler.runEditor(urls,
                               outFiles,
                               callbackObject.urlMapperData,
                               callbackObject.editorData,
-                              callbackObject.line,
-                              callbackObject.col);
+                              line,
+                              col);
     },
 
     updateFocused : function() {

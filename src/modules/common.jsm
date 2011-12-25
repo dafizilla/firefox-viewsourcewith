@@ -458,8 +458,10 @@ ViewSourceWithCommon.getDocumentFileName = function(doc, suggestedExtension) {
     if (typeof (suggestedExtension) === "undefined"
         || suggestedExtension === null || suggestedExtension === "") {
         try {
+            // passing empty string as content type raises exception
+            var contentType = typeof(doc.contentType) == 'undefined' ? "" : doc.contentType;
             extension = "." + ViewSourceWithCommon.getMIMEService()
-                                    .getPrimaryExtension(doc.contentType, null);
+                                    .getPrimaryExtension(contentType, null);
         } catch (err) {
             if (uri.fileExtension == "") {
                 extension = ".htm";
