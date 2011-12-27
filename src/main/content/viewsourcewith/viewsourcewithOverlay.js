@@ -390,7 +390,10 @@ var gViewSourceWithMain = {
 
         item.setAttribute("label",
                 ViewSourceWithCommon.getLocalizedMessage("menu.settings.label"));
-        item.setAttribute("oncommand", "gViewSourceWithMain.openDlgSettings();event.stopPropagation();");
+        item.addEventListener('command', function(event) {
+            gViewSourceWithMain.openDlgSettings();
+            event.stopPropagation();
+        }, false);
         if (hasShortCutKey) {
             item.setAttribute("id", "viewsourcewith-viewDefaultMenuItem");
             item.setAttribute("key", "key_viewsourcewith");
@@ -447,8 +450,15 @@ var gViewSourceWithMain = {
             var label = labelArr.join(',') + '...';
             var item = document.createElement("menuitem");
             item.setAttribute("label", label);
-            item.setAttribute("oncommand",
-                "gViewSourceWithMain.openDlgResource();event.stopPropagation();");
+            item.addEventListener('command', function(event) {
+                if (this.hasAttribute('vswResFrameIndex')) {
+                    var resFrameIndex = this.getAttribute('vswResFrameIndex');
+                    gViewSourceWithMain.openDlgResource(gViewSourceWithMain._resources.resFrames[resFrameIndex]);
+                } else {
+                    gViewSourceWithMain.openDlgResource();
+                }
+                event.stopPropagation();
+            }, false);
 
             menu.appendChild(item);
             
@@ -472,22 +482,22 @@ var gViewSourceWithMain = {
             }
         }
         var focusedFramePopup = document.createElement('menupopup');
-        var menuCommand = 'if (event.target.getAttribute("vswEditorIdx"))'
-            + 'gViewSourceWithMain.viewPageFromViewMenu'
-            + '(event.target.getAttribute("vswEditorIdx")'
-            + ',event'
-            + ',gViewSourceWithMain._resources.resFrames[' + resFrameIndex + '].doc);'
-            + 'event.stopPropagation();'
-        focusedFramePopup.setAttribute('oncommand', menuCommand);
+        focusedFramePopup.addEventListener('command', function(event) {
+            if (event.target.getAttribute("vswEditorIdx")) {
+                gViewSourceWithMain.viewPageFromViewMenu(event.target.getAttribute("vswEditorIdx"),
+                                                         event,
+                                                         gViewSourceWithMain._resources.resFrames[resFrameIndex].doc);
+            }
+            event.stopPropagation();
+        }, false);
+
 
         thiz.insertDefaultMenuItem(focusedFramePopup, false);
 
         if (resFrameIndex >= 0 && thiz.prefs.showResourcesMenu) {
             var resMenu = thiz.insertResourcesMenu(focusedFramePopup, gViewSourceWithMain._resources.resFrames[resFrameIndex]);
             if (resMenu) {
-                resMenu.setAttribute("oncommand",
-                "gViewSourceWithMain.openDlgResource(gViewSourceWithMain._resources.resFrames[" + resFrameIndex + "]);"
-                + "event.stopPropagation();");
+                resMenu.setAttribute('vswResFrameIndex', resFrameIndex);
             }
         }
         var editorIndexes = thiz.prefs.visibleEditorIndexes;
@@ -503,8 +513,12 @@ var gViewSourceWithMain = {
         frameMenu.setAttribute('label', ViewSourceWithCommon.getLocalizedMessage("focused.frame.label"));
         if (resFrameIndex >= 0) {
             frameMenu.setAttribute('vswHighlight', gViewSourceWithMain._resources.resFrames[resFrameIndex].doc.body.style.border);
-            frameMenu.setAttribute('onmouseover', 'gViewSourceWithMain._resources.resFrames[' + resFrameIndex + '].doc.body.style.border = "3px solid blue";');
-            frameMenu.setAttribute('onmouseout', 'gViewSourceWithMain._resources.resFrames[' + resFrameIndex + '].doc.body.style.border = this.getAttribute("vswHighlight")');
+            frameMenu.addEventListener('mouseover', function(event) {
+                gViewSourceWithMain._resources.resFrames[resFrameIndex].doc.body.style.border = "3px solid blue";
+            }, false);
+            frameMenu.addEventListener('mouseout', function(event) {
+                gViewSourceWithMain._resources.resFrames[resFrameIndex].doc.body.style.border = this.getAttribute("vswHighlight");
+            }, false);
         }
         frameMenu.appendChild(focusedFramePopup);
         menu.appendChild(frameMenu);
@@ -637,7 +651,9 @@ var gViewSourceWithMain = {
                 thiz.prefs.toolbarIconAdded = true;
             } else {
                 if (!thiz.prefs.isToolbarIconAdded) {
-                    window.setTimeout("gViewSourceWithMain.installPrompt()", 100);
+                    window.setTimeout(function() {
+                        gViewSourceWithMain.installPrompt();
+                    }, 100);
                 }
             }
         } catch(ex) {

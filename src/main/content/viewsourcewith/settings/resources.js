@@ -24,7 +24,9 @@ var gVSWResources = {
         this.initControls();
         sizeToContent();
         if (this.res.doc) {
-            document.title += " - " + this.res.doc.title;
+            var dialog = document.getElementById('viewsourcewithResourcesDialog');
+            var title = dialog.getAttribute('title') + " - " + this.res.doc.title;
+            dialog.setAttribute('title', title);
         }
     },
 

@@ -173,12 +173,11 @@ function FocusHandler(textTarget) {
 
 FocusHandler.prototype = {
     handleEvent : function(event) {
-        var f = function(textTarget) {
-               return function() {
+        var textTarget = this._textTarget;
+
+        setTimeout(function() {
                     ViewSourceWithInputText.fillInputText(textTarget);
-               };
-            }
-        setTimeout(f(this._textTarget), 400);
+            }, 400);
     }
 
 }

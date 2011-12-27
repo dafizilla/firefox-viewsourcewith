@@ -117,7 +117,7 @@ var gViewSourceChooseEditor = {
         if (ViewSourceWithCommon.isMacOSX) {
             document.getElementById("macAlert").removeAttribute("hidden");
             this.oEditorAppPath.onfilechoosen =
-                "return gViewSourceChooseEditor.onPickOSXFile(isOk, filePath);";
+                "return gViewSourceChooseEditor.pickOSXFile(isOk, filePath);";
         }
     },
 
@@ -213,7 +213,7 @@ var gViewSourceChooseEditor = {
         window.sizeToContent();
     },
 
-    onPickOSXFile : function(isOk, filePath) {
+    pickOSXFile : function(isOk, filePath) {
         var fillInputBox = isOk;
 
         if (isOk) {
