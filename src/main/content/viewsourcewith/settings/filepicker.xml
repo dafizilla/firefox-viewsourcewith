@@ -60,9 +60,9 @@
       <property name="onfilechoosen" onget="return this.mFileChoosen;">
         <setter><![CDATA[
             this.setAttribute("onfilechoosen", val);
-            this.mFileChoosen = val;
             this.mFileChoosen = val != ""
-                    ? new Function("isOk", "filePath", val) : null;
+                    ? (typeof(val) == 'function' ? val : new Function("isOk", "filePath", val))
+                    : null;
         ]]></setter>
       </property>
 

@@ -116,8 +116,9 @@ var gViewSourceChooseEditor = {
         }
         if (ViewSourceWithCommon.isMacOSX) {
             document.getElementById("macAlert").removeAttribute("hidden");
-            this.oEditorAppPath.onfilechoosen =
-                "return gViewSourceChooseEditor.pickOSXFile(isOk, filePath);";
+            this.oEditorAppPath.onfilechoosen = function(isOk, filePath) {
+                return gViewSourceChooseEditor.pickOSXFile(isOk, filePath);
+            };
         }
     },
 
