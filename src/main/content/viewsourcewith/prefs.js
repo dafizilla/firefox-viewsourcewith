@@ -471,7 +471,11 @@ ViewSourceWithPrefs.prototype = {
             var homeDir = ViewSourceWithCommon.getProfileDir();
             homeDir.append("viewSource.xml");
             this._configPath = homeDir.path;
-            this.savePrefs();
+
+            // do not overwrite existing file
+            if (!homeDir.exists()) {
+                this.savePrefs();
+            }
         }
         return this._configPath;
     },
