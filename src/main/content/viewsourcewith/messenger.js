@@ -91,7 +91,7 @@ var gViewSourceWithMessenger = {
 
     initThreadPaneMenu : function(event, fnViewPage) {
         if (typeof fnViewPage == "undefined" || fnViewPage == null) {
-            fnViewPage = "gViewSourceWithMessenger.openMessagesFromThreadPane";
+            fnViewPage = gViewSourceWithMessenger.openMessagesFromThreadPane;
         }
         this.goUpdateEditorCommands();
         gViewSourceWithMain._resources = new Resources(null);
@@ -102,14 +102,14 @@ var gViewSourceWithMessenger = {
     },
 
     initAttachMenu : function(event) {
-        return this.initThreadPaneMenu(event, "gViewSourceWithMessenger.viewAttachments");
+        return this.initThreadPaneMenu(event, gViewSourceWithMessenger.viewAttachments);
     },
 
     initComposeMenu : function(event) {
         gViewSourceWithMain._resources = new Resources(null);
 
         gViewSourceWithMain.insertMenuItems(event.target,
-                    "gViewSourceWithMessenger.openMessageFromCompose",
+                    gViewSourceWithMessenger.openMessageFromCompose,
                     true, false);
         return true;
     },
@@ -205,19 +205,32 @@ var gViewSourceWithMessenger = {
         var canHandle = attachmentList
                         && attachmentList.selectedItems.length > 0;
 
+        var selectedAttachments;
+        if (canHandle) {
+            selectedAttachments = attachmentList.selectedItems;
+        } else {
+            var attachmentItemContext = document.getElementById("attachmentItemContext");
+            canHandle = attachmentItemContext
+                        && attachmentItemContext.attachments.length > 0;
+            if (canHandle) {
+                selectedAttachments = attachmentItemContext.attachments;
+            }
+        }
+
         if (!canHandle) {
             return false;
         }
 
         var prefs = gViewSourceWithMain.prefs;
-        var selectedAttachments = attachmentList.selectedItems;
         var urls = new Array();
         var fileNames = new Array();
         var cleaner = viewSourceWithFactory.getTempCleaner();
 
         for (var i = 0; i < selectedAttachments.length; i++) {
-            var attach = selectedAttachments[i].attachment;
-            var fileName = attach.displayName;
+            var attach = selectedAttachments[i].attachment || selectedAttachments[i];
+
+            // displayName is no longer available since TB 5.0
+            var fileName = attach.displayName || attach.name;
             var filePath = ViewSourceWithCommon.initFileToRun(
                                 fileName,
                                 prefs.destFolder,

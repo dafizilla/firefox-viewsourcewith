@@ -66,6 +66,17 @@
         </menu>
     </popup>
 
+    <popup id="attachmentItemContext">
+        <menu id="viewsourcewith-attachmentItemMenu"
+              label="&cmd.viewsource-attachMenu.label;"
+              observes="cmd_vswAttachment"
+              accesskey="&viewsource-viewMenu.accesskey;"
+              insertafter="context-openAttachment">
+            <menupopup id="viewsourcewith-attachmentMenuPopup"
+                       onpopupshowing="if (event.target == this) { gViewSourceWithMessenger.initAttachMenu(event); }" />
+        </menu>
+    </popup>
+
     <popup id="msgComposeContext">
         <menu id="viewsourcewith-msgCompose"
               label="&cmd.viewsource-attachMenu.label;"
