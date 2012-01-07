@@ -45,7 +45,7 @@ var gViewSourceWithMain = {
 
         gViewSourceWithMain.insertMenuItems(
                 document.getElementById("viewsourcewithMenuPopup"),
-                "viewPageFromCtxMenu", false, false);
+                thiz.viewPageFromCtxMenu, false, false);
         return true;
     },
 
@@ -70,7 +70,7 @@ var gViewSourceWithMain = {
             frameMenu.firstChild.appendChild(menu);
         }
 
-        gViewSourceWithMain.insertMenuItems(popup, "viewPageFromCtxMenu", false, true);
+        thiz.insertMenuItems(popup, thiz.viewPageFromCtxMenu, false, true);
 
         return true;
     },
@@ -88,9 +88,9 @@ var gViewSourceWithMain = {
         thiz._linkInfo.prefs = thiz.prefs;
 
         thiz._resources = new Resources(doc);
-        gViewSourceWithMain.insertMenuItems(
+        thiz.insertMenuItems(
                 document.getElementById("vswMenuPopupQuickFrame"),
-                "viewPageFromCtxMenu", false, true);
+                thiz.viewPageFromCtxMenu, false, true);
 
         return true;
     },
@@ -103,7 +103,7 @@ var gViewSourceWithMain = {
         thiz._resources = new Resources(doc);
 
         var frameDoc = ViewSourceWithCommon.getFocusedDocument(document);
-        gViewSourceWithMain.insertMenuItems(event.target, "viewPageFromViewMenu",
+        thiz.insertMenuItems(event.target, thiz.viewPageFromViewMenu,
                                             true, false,
                                             doc == frameDoc ? null : frameDoc);
 
@@ -114,7 +114,7 @@ var gViewSourceWithMain = {
         var thiz = gViewSourceWithMain;
 
         thiz._resources = new Resources(null);
-        thiz.insertMenuItems(event.target, "viewPageFromConsoleMenu",
+        thiz.insertMenuItems(event.target, thiz.viewPageFromConsoleMenu,
                              true, false);
         return true;
     },
@@ -294,16 +294,23 @@ var gViewSourceWithMain = {
         try {
             thiz.removeMenuItems(menu);
 
-            // little hack to allow existing code to work when fnViewPage is not
-            // defined in main namespace gViewSourceWithMain
-            if (fnViewPage.indexOf(".") < 0) {
-                fnViewPage = "gViewSourceWithMain." + fnViewPage;
-            }
-            var menuCommand = 'if (event.target.getAttribute("vswEditorIdx"))'
-                + fnViewPage + '(event.target.getAttribute("vswEditorIdx"), event);'
-                + 'event.stopPropagation();';
+            // determine if we must add listener
+            var alreadyInitialized = menu.getUserData('vswFnViewPage') != null;
 
-            menu.setAttribute('oncommand', menuCommand);
+            // set the function always
+            menu.setUserData('vswFnViewPage', fnViewPage, null);
+            if (!alreadyInitialized) {
+                menu.addEventListener('command', function(event) {
+                    var fnViewPage = event.currentTarget.getUserData('vswFnViewPage');
+                    var editorIndex = event.target.getAttribute("vswEditorIdx");
+
+                    if (editorIndex) {
+                        fnViewPage(editorIndex, event);
+                    }
+                    event.stopPropagation();
+                }, false);
+            }
+
             thiz.insertDefaultMenuItem(menu, hasShortCutKey)
 
             var isNativeEditorVisible = thiz.prefs.replaceNativeEditor
