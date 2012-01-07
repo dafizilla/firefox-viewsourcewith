@@ -501,9 +501,16 @@ ViewSourceWithCommon.isTrue = function(v) {
     return false;
 }
 
-ViewSourceWithCommon.readHttpReq = function(urlName) {
-    var httpReq = new XMLHttpRequest();
+ViewSourceWithCommon.readHttpReq = function(urlName, settings) {
+    var httpReq = Components.classes["@mozilla.org/xmlextras/xmlhttprequest;1"]  
+                    .createInstance(Components.interfaces.nsIXMLHttpRequest);
     httpReq.open("GET", urlName, false);
+
+    if (settings) {
+        if (settings.mimeType) {
+            httpReq.overrideMimeType(settings.mimeType);
+        }
+    }
     httpReq.send(null);
 
     return httpReq;

@@ -66,11 +66,9 @@ ViewSourceUrlMapperData.matchFilter = function(urlMapperData, url) {
 }
 
 ViewSourceUrlMapperData.getDefaultJSCode = function() {
-    var httpReq = new XMLHttpRequest();
-    httpReq.open("GET", "chrome://viewsourcewith/content/mapping.templ", false);
-    // Set mimetype to make happy XMLHttpRequest, see bug 384298
-    httpReq.overrideMimeType("text/plain");
-    httpReq.send(null);
+     // Set mimetype to make happy XMLHttpRequest, see bug 384298
+    var httpReq = ViewSourceWithCommon.readHttpReq(
+                "chrome://viewsourcewith/content/mapping.templ", {mimeType:'text/plain'});
 
     return httpReq.responseText;
 }
