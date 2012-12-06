@@ -25,9 +25,10 @@ UrlDownloader.prototype = {
      * @param postData the post data, can be null
      */
     saveURIFromCache : function(pageDescriptor, url, outFile, referrer, postData) {
-        this.useCache = this.loadFromCache(Components.interfaces
-                                .nsIWebPageDescriptor.DISPLAY_AS_SOURCE,
-                                pageDescriptor);
+        // starting from fx 12 cache no longer works, so fuck off
+        this.useCache = false;//this.loadFromCache(Components.interfaces
+                                //.nsIWebPageDescriptor.DISPLAY_AS_SOURCE,
+                                //pageDescriptor);
         if (this.useCache) {
             this.outFiles = [outFile];
             this.urls = [url];

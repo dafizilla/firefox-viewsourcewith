@@ -9,41 +9,6 @@ Components.utils.import("resource://vsw/common.jsm");
 function ViewSourceWithBrowserHelper() {
 }
 
-ViewSourceWithBrowserHelper.isContentFrame = function(aFocusedWindow) {
-    if (!aFocusedWindow)
-        return false;
-
-    var focusedTop = Components.lookupMethod(aFocusedWindow, 'top')
-                        .call(aFocusedWindow);
-    return (focusedTop == window.content);
-}
-
-ViewSourceWithBrowserHelper.getContentFrameURI = function(aFocusedWindow) {
-    var contentFrame = ViewSourceWithBrowserHelper.isContentFrame(aFocusedWindow)
-                        ? aFocusedWindow : window.content;
-    if (contentFrame)
-        return Components.lookupMethod(contentFrame, 'location')
-                    .call(contentFrame).href;
-    else
-        return null;
-}
-
-ViewSourceWithBrowserHelper.getReferrer = function(doc) {
-    if (doc) {
-        var focusedWindow = doc.commandDispatcher.focusedWindow;
-        var sourceURL = ViewSourceWithBrowserHelper.getContentFrameURI(focusedWindow);
-
-        if (sourceURL) {
-            try {
-                return ViewSourceWithCommon.makeURL(sourceURL);
-            }
-            catch (e) {
-            }
-        }
-    }
-    return null;
-}
-
 ViewSourceWithBrowserHelper.getPostData = function() {
     try {
         var sessionHistory = getWebNavigation().sessionHistory;

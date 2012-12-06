@@ -193,9 +193,7 @@ var gViewSourceWithMain = {
                                      urlMapperData : prefs.urlMapperData};
             saver.onFinish = gViewSourceWithMain.onFinishRunEditor;
 
-            saver.saveURIList([linkInfo.url], [uniqueFilePath],
-                ViewSourceWithBrowserHelper.getReferrer(document),
-                ViewSourceWithBrowserHelper.getPostData());
+            saver.saveURIList([linkInfo.url], [uniqueFilePath]);
             return true;
         }
 
@@ -224,9 +222,7 @@ var gViewSourceWithMain = {
             saver.saveURIFromCache(
                 ViewSourceWithBrowserHelper.getPageDescriptor(documentToSave),
                 gViewSourceWithMain._linkInfo.url,
-                uniqueFilePath,
-                ViewSourceWithBrowserHelper.getReferrer(document),
-                ViewSourceWithBrowserHelper.getPostData());
+                uniqueFilePath);
         } catch (err) {
             ViewSourceWithCommon.log("viewPage " + err);
             alert("viewPage: " + err);
