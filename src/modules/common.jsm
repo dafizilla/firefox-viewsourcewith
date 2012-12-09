@@ -556,6 +556,10 @@ ViewSourceWithCommon.initFileToRun = function(fileName,
                         [ViewSourceWithCommon.getPortableFileName(fileName)]);
     var uniqueFilePath = ViewSourceWithCommon
             .generateUniqueFile(filePath, maxPrefix);
+    // create file with correct permissions
+    if (!filePath.exists()) {
+        filePath.create(0x00, 0600);
+    }    
     if (touch) {
         // Touch file on disk to be sure files with same name don't overlap
         try {
