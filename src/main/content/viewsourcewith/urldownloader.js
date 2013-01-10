@@ -119,7 +119,7 @@ UrlDownloader.prototype = {
                                | nsIWBP.PERSIST_FLAGS_FROM_CACHE;
 
         var uri = ViewSourceWithCommon.makeURL(url);
-        persist.saveURI(uri, null, referrer, postData, null, outFile);
+        persist.saveURI(uri, null, referrer, postData, null, outFile, null);
     },
 
     internalSaveDocument : function(documentToSave, outFile) {
