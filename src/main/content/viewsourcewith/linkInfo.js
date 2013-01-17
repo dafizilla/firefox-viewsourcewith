@@ -7,9 +7,9 @@
 
 Components.utils.import("resource://vsw/common.jsm");
 
-const IMAGE_PATH_IMG = "chrome://viewsourcewith/content/img/ctx/img16.png";
-const IMAGE_PATH_LNK = "chrome://viewsourcewith/content/img/ctx/lnk16.png";
-const IMAGE_PATH_TXT = "chrome://viewsourcewith/content/img/ctx/txt16.png";
+const VSW_IMAGE_PATH_IMG = "chrome://viewsourcewith/content/img/ctx/img16.png";
+const VSW_IMAGE_PATH_LNK = "chrome://viewsourcewith/content/img/ctx/lnk16.png";
+const VSW_IMAGE_PATH_TXT = "chrome://viewsourcewith/content/img/ctx/txt16.png";
 
 function ViewSourceWithLinkInfo() {
 }
@@ -57,7 +57,7 @@ ViewSourceWithLinkInfo.prototype = {
         if (!this.contextMenuHandled(prefs)) {
             if (this.doc.contentType &&
                 this.doc.contentType.substring(0, 6) == "image/") {
-                    this.image = IMAGE_PATH_IMG;
+                    this.image = VSW_IMAGE_PATH_IMG;
                     this.extType = ViewSourceWithCommon.getMIMEService()
                                 .getPrimaryExtension(this.doc.contentType, null);
                     this.isOnImage = true;
@@ -89,15 +89,15 @@ ViewSourceWithLinkInfo.prototype = {
                 handled = true;
                 if (this.isOnLink) {
                     if (this.isOnImage && prefs.openImageOnLink) {
-                        this.image = IMAGE_PATH_IMG;
+                        this.image = VSW_IMAGE_PATH_IMG;
                         this.url = gContextMenu.imageURL;
                         this.extType = "jpg"; // fake value
                     } else {
-                        this.image = IMAGE_PATH_LNK;
+                        this.image = VSW_IMAGE_PATH_LNK;
                         this.url = this.getContextMenuLinkURL();
                     }
                 } else {
-                    this.image = IMAGE_PATH_IMG;
+                    this.image = VSW_IMAGE_PATH_IMG;
                     this.extType = "jpg"; // fake value
                     if (this.isOnImage) {
                         this.url = gContextMenu.imageURL;
@@ -124,7 +124,7 @@ ViewSourceWithLinkInfo.prototype = {
 
         if (view) {
             this.isOnTextInput = true;
-            this.image = IMAGE_PATH_TXT;
+            this.image = VSW_IMAGE_PATH_TXT;
 
             if (editorInfo.isHtmlEditor) {
                 this.target = ViewSourceWithLinkInfo.createHTMLEditor(
