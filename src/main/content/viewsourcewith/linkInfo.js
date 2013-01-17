@@ -250,7 +250,7 @@ ViewSourceWithLinkInfo.createHTMLEditor = function(editor, textNode) {
     if ("vswEditor" in textNode) {
         return textNode.vswEditor;
     } else {
-        textNode.vswEditor = new HTMLEditor(editor, textNode);
+        textNode.vswEditor = new ViewSourceWithHTMLEditor(editor, textNode);
         return textNode.vswEditor;
     }
 }
@@ -259,17 +259,17 @@ ViewSourceWithLinkInfo.createInputBoxEditor = function(textNode) {
     if ("vswEditor" in textNode) {
         return textNode.vswEditor;
     } else {
-        textNode.vswEditor = new InputBoxEditor(textNode);
+        textNode.vswEditor = new ViewSourceWithInputBoxEditor(textNode);
         return textNode.vswEditor;
     }
 }
 
-function BaseEditor(editorNode, fileExtension) {
+function ViewSourceWithBaseEditor(editorNode, fileExtension) {
     this._editorNode = editorNode;
     this._fileExtension = fileExtension;
 }
 
-BaseEditor.prototype = {
+ViewSourceWithBaseEditor.prototype = {
     get name() {
         var target = this._editorNode;
         var controlName = "";
@@ -289,10 +289,10 @@ BaseEditor.prototype = {
     }
 }
 
-HTMLEditor.prototype = new BaseEditor();
+ViewSourceWithHTMLEditor.prototype = new ViewSourceWithBaseEditor();
 
-function HTMLEditor(editorNode, window) {
-    BaseEditor.call(this, editorNode, ".html");
+function ViewSourceWithHTMLEditor(editorNode, window) {
+    ViewSourceWithBaseEditor.call(this, editorNode, ".html");
     this._bodyTag = this._editorNode.rootElement;
     this._window = window;
 
@@ -374,15 +374,15 @@ function HTMLEditor(editorNode, window) {
         }
     }
 
-}).apply(HTMLEditor.prototype);
+}).apply(ViewSourceWithHTMLEditor.prototype);
 
 
-function InputBoxEditor(editorNode) {
-    BaseEditor.call(this, editorNode, ".txt");
+function ViewSourceWithInputBoxEditor(editorNode) {
+    ViewSourceWithBaseEditor.call(this, editorNode, ".txt");
     this._isModified = false;
 }
 
-InputBoxEditor.prototype = new BaseEditor();
+ViewSourceWithInputBoxEditor.prototype = new ViewSourceWithBaseEditor();
 
 (function() {
     this.__defineGetter__("document", function() {
@@ -434,5 +434,5 @@ InputBoxEditor.prototype = new BaseEditor();
     this.handleEvent = function(event) {
         this._isModified = true;
     }
-}).apply(InputBoxEditor.prototype);
+}).apply(ViewSourceWithInputBoxEditor.prototype);
 
