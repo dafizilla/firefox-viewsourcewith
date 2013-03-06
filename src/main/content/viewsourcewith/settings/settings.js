@@ -397,8 +397,7 @@ var gViewSourceSettings = {
             event.preventDefault();
             event.stopPropagation();
             var edit = event.currentTarget;
-
-            KeyData.fromEvent(event, thiz.prefs.defaultShortcutKey);
+            ViewSourceWithKeyData.fromEvent(event, thiz.prefs.defaultShortcutKey);
             edit.value = thiz.prefs.defaultShortcutKey.keyToString();
         } catch (err) {
             ViewSourceWithCommon.log(err);

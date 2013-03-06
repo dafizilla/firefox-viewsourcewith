@@ -46,7 +46,7 @@ ViewSourceEditorData.prototype = {
         if (v) {
             if ((v.key && v.key != "") || (v.keyCode && v.keyCode != "")) {
                 if (!this._keyData) {
-                    this._keyData = new KeyData();
+                    this._keyData = new ViewSourceWithKeyData();
                 }
                 this._keyData.copy(v);
             } else {
@@ -538,7 +538,7 @@ ViewSourceWithPrefs.prototype = {
         var keyNode = this.getNodeByParent(doc, "default-editor-key", "key");
 
         if (keyNode) {
-            return KeyData.fromAttributes(keyNode.attributes);
+            return ViewSourceWithKeyData.fromAttributes(keyNode.attributes);
         }
 
         return this.newDefaultEditorKeyData();
@@ -659,7 +659,7 @@ ViewSourceWithPrefs.prototype = {
                 } else if (curr.nodeName == "show-always") {
                     showAlways = curr.firstChild.nodeValue == "true";
                 } else if (curr.nodeName == "key") {
-                    keyData = KeyData.fromAttributes(curr.attributes);
+                    keyData = ViewSourceWithKeyData.fromAttributes(curr.attributes);
                 } else if (curr.nodeName == "cmd-args") {
                     cmdArgs = curr.firstChild.nodeValue;
                 } else if (curr.nodeName == "use-portable") {
@@ -701,7 +701,7 @@ ViewSourceWithPrefs.prototype = {
         str += '    <show-button-on-popup>' + this._showButtonOnPopup + '</show-button-on-popup>\n';
 
         str += '    <default-editor-key>\n';
-        str += '        ' + KeyData.toXml(this._defaultShortcutKey) + '\n';
+        str += '        ' + ViewSourceWithKeyData.toXml(this._defaultShortcutKey) + '\n';
         str += '    </default-editor-key>\n';
 
         str += '    <show-resources-menu>'     + this._showResourcesMenu + '</show-resources-menu>\n';
@@ -733,7 +733,7 @@ ViewSourceWithPrefs.prototype = {
             str += '            <enabled>' + enabled + '</enabled>\n';
             str += '            <full-path><![CDATA[' + curr.path + ']]></full-path>\n';
             if (curr.keyData) {
-                str += '            ' + KeyData.toXml(curr.keyData) + '\n';
+                str += '            ' + ViewSourceWithKeyData.toXml(curr.keyData) + '\n';
             }
             str += '            <cmd-args><![CDATA[' + curr.cmdArgs + ']]></cmd-args>\n';
             str += '            <use-portable>' + curr.usePortable + '</use-portable>\n';
@@ -945,7 +945,7 @@ ViewSourceWithPrefs.prototype = {
     },
 
     newDefaultEditorKeyData : function() {
-        var keyData = new KeyData();
+        var keyData = new ViewSourceWithKeyData();
         keyData.key = "U".charCodeAt(0);
         keyData.accel = true;
         keyData.shift = true;

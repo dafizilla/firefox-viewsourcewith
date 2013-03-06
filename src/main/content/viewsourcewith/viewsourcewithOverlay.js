@@ -581,7 +581,7 @@ var gViewSourceWithMain = {
             return;
         }
 
-        KeyData.setKeyTag(thiz.prefs.defaultShortcutKey,
+        ViewSourceWithKeyData.setKeyTag(thiz.prefs.defaultShortcutKey,
                           document.getElementById("key_viewsourcewith"));
 
         var keyset = document.getElementById("key_viewsourcewith").parentNode;
@@ -600,7 +600,7 @@ var gViewSourceWithMain = {
 
                 var key = document.createElement("key");
                 key.setAttribute("id", keyId);
-                KeyData.setKeyTag(editor.keyData, key);
+                ViewSourceWithKeyData.setKeyTag(editor.keyData, key);
                 key.setAttribute("command", cmdId);
                 keyset.appendChild(key);
 

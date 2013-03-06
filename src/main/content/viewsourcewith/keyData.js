@@ -1,28 +1,28 @@
 Components.utils.import("resource://vsw/common.jsm");
 
-KeyData.localeKeys = Components.classes["@mozilla.org/intl/stringbundle;1"]
+ViewSourceWithKeyData.localeKeys = Components.classes["@mozilla.org/intl/stringbundle;1"]
     .getService(Components.interfaces.nsIStringBundleService)
     .createBundle("chrome://global/locale/keys.properties");
 
-KeyData.VKNames = [];
+ViewSourceWithKeyData.VKNames = [];
 
 for (var property in KeyEvent) {
-    KeyData.VKNames[KeyEvent[property]] = property.replace("DOM_","");
+    ViewSourceWithKeyData.VKNames[KeyEvent[property]] = property.replace("DOM_","");
 }
-KeyData.VKNames[8] = "VK_BACK";
+ViewSourceWithKeyData.VKNames[8] = "VK_BACK";
 
-KeyData.getStringFromVK = function(keyCode) {
+ViewSourceWithKeyData.getStringFromVK = function(keyCode) {
     if (keyCode) {
-        var k = KeyData.VKNames[keyCode];
+        var k = ViewSourceWithKeyData.VKNames[keyCode];
         if (k) {
-            return KeyData.localeKeys.GetStringFromName(k);
+            return ViewSourceWithKeyData.localeKeys.GetStringFromName(k);
         }
     }
     return "";
 }
 
-KeyData.fromAttributes = function(attributes) {
-    var kd = new KeyData();
+ViewSourceWithKeyData.fromAttributes = function(attributes) {
+    var kd = new ViewSourceWithKeyData();
 
     for (var i = 0, j = attributes.length; i < j; i++) {
         var n = attributes.item(i);
@@ -41,12 +41,12 @@ KeyData.fromAttributes = function(attributes) {
     return kd.isValid() ? kd : null;
 }
 
-KeyData.fromEvent = function(event, keyData) {
+ViewSourceWithKeyData.fromEvent = function(event, keyData) {
     if (keyData) {
         keyData.key = null;
         keyData.keyCode = null;
     } else {
-        keyData = new KeyData();
+        keyData = new ViewSourceWithKeyData();
     }
     if (event.charCode) {
         keyData.key = event.charCode;
@@ -56,7 +56,7 @@ KeyData.fromEvent = function(event, keyData) {
     return keyData;
 }
 
-function KeyData() {
+function ViewSourceWithKeyData() {
     this._key = null;
     this._keyAsText = "";
 
@@ -67,7 +67,7 @@ function KeyData() {
     this._shift = null;
 }
 
-KeyData.prototype = {
+ViewSourceWithKeyData.prototype = {
     copy : function(keyData) {
         this._key = keyData._key;
         this._keyAsText = keyData._keyAsText;
@@ -98,7 +98,7 @@ KeyData.prototype = {
 
     set keyCode(v) {
         this._keyCode = v;
-        this._keyCodeAsText = KeyData.getStringFromVK(this._keyCode);
+        this._keyCodeAsText = ViewSourceWithKeyData.getStringFromVK(this._keyCode);
     },
 
     get keyCodeAsText() {
@@ -148,13 +148,13 @@ KeyData.prototype = {
     }
 }
 
-KeyData.toXml = function(keyData) {
+ViewSourceWithKeyData.toXml = function(keyData) {
     var tag = '<key';
 
     if (keyData.key) {
         tag += ' key="' + keyData.keyAsText + '"';
     } else {
-        tag += ' keyCode="' + KeyData.VKNames[keyData.keyCode] + '"';
+        tag += ' keyCode="' + ViewSourceWithKeyData.VKNames[keyData.keyCode] + '"';
     }
     if (keyData.accel) {
         tag += ' accel="' + (keyData.accel ? "Y" : "N") + '"';
@@ -167,14 +167,14 @@ KeyData.toXml = function(keyData) {
     return tag;
 }
 
-KeyData.setKeyTag = function(keyData, keyNode) {
+ViewSourceWithKeyData.setKeyTag = function(keyData, keyNode) {
     if (!keyData || !keyNode) return;
 
     if (keyData.key) {
         keyNode.setAttribute("key", keyData.keyAsText);
         keyNode.removeAttribute("keycode");
     } else {
-        keyNode.setAttribute("keycode", KeyData.VKNames[keyData.keyCode]);
+        keyNode.setAttribute("keycode", ViewSourceWithKeyData.VKNames[keyData.keyCode]);
         keyNode.removeAttribute("key");
     }
     keyNode.setAttribute("modifiers", keyData.modifiers);

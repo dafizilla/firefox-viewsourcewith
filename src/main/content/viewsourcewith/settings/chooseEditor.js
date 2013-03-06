@@ -99,7 +99,7 @@ var gViewSourceChooseEditor = {
             this.oDescription.value = item.description;
             this.oCmdArgs.value = item.cmdArgs;
 
-            this._keyData = new KeyData();
+            this._keyData = new ViewSourceWithKeyData();
             this._keyData.shift = true;
             this._keyData.accel = true;
             if (item.keyData) {
@@ -128,7 +128,7 @@ var gViewSourceChooseEditor = {
             event.stopPropagation();
             var edit = event.currentTarget;
 
-            KeyData.fromEvent(event, this._keyData);
+            ViewSourceWithKeyData.fromEvent(event, this._keyData);
             edit.value = this._keyData.keyToString();
         } catch (err) {
             ViewSourceWithCommon.log(err);
