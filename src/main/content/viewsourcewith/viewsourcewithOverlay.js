@@ -172,7 +172,7 @@ var gViewSourceWithMain = {
                     prefs.tempMaxFilesSamePrefix,
                     false,
                     viewSourceWithFactory.getTempCleaner());
-            var saver = new UrlDownloader();
+            var saver = new ViewSourceWithUrlDownloader();
             saver.callbackObject = { editorData : editorData,
                                      urlMapperData : prefs.urlMapperData};
             saver.onFinish = gViewSourceWithMain.onFinishRunEditor;
@@ -188,7 +188,7 @@ var gViewSourceWithMain = {
                     prefs.tempMaxFilesSamePrefix,
                     false,
                     viewSourceWithFactory.getTempCleaner());
-            var saver = new UrlDownloader();
+            var saver = new ViewSourceWithUrlDownloader();
             saver.callbackObject = { editorData : editorData,
                                      urlMapperData : prefs.urlMapperData};
             saver.onFinish = gViewSourceWithMain.onFinishRunEditor;
@@ -214,7 +214,7 @@ var gViewSourceWithMain = {
                     prefs.tempMaxFilesSamePrefix,
                     false,
                     viewSourceWithFactory.getTempCleaner());
-            var saver = new UrlDownloader();
+            var saver = new ViewSourceWithUrlDownloader();
             saver.callbackObject = { editorData : editorData,
                                      urlMapperData : prefs.urlMapperData};
             saver.onFinish = gViewSourceWithMain.onFinishRunEditor;
@@ -880,7 +880,7 @@ var gViewSourceWithMain = {
         urls.push(url);
         fileNames.push(filePath);
 
-        var saver = new UrlDownloader();
+        var saver = new ViewSourceWithUrlDownloader();
         saver.callbackObject = { editorData : thiz.prefs.editorData[editorDataIdx],
                                  line : selectedItem.getAttribute("line"),
                                  col : selectedItem.getAttribute("col"),

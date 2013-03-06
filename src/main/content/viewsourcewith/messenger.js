@@ -170,7 +170,7 @@ var gViewSourceWithMessenger = {
             fileNames.push(filePath);
         }
 
-        var saver = new UrlDownloader();
+        var saver = new ViewSourceWithUrlDownloader();
         saver.callbackObject = { editorData : prefs.editorData[editorDataIdx],
                                  urlMapperData : prefs.urlMapperData};
         saver.onFinish = gViewSourceWithMain.onFinishRunEditor;
@@ -241,7 +241,7 @@ var gViewSourceWithMessenger = {
             urls.push(attach.url);
         }
 
-        var saver = new UrlDownloader();
+        var saver = new ViewSourceWithUrlDownloader();
         saver.callbackObject = { editorData : prefs.editorData[editorDataIdx],
                                  urlMapperData : prefs.urlMapperData};
         saver.onFinish = gViewSourceWithMain.onFinishRunEditor;

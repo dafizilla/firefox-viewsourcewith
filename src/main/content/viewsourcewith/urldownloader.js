@@ -5,7 +5,7 @@
  */
 Components.utils.import("resource://vsw/common.jsm");
 
-function UrlDownloader() {
+function ViewSourceWithUrlDownloader() {
     this.onFinish = null;
     this.count = 0;
     this.urls = [];
@@ -13,7 +13,7 @@ function UrlDownloader() {
     this.callbackObject = null;
 }
 
-UrlDownloader.prototype = {
+ViewSourceWithUrlDownloader.prototype = {
     /**
      * Save the current document page source attempting to fetch from cache, this
      * should be always possible if pageDescriptor points to the current page.
@@ -40,7 +40,7 @@ UrlDownloader.prototype = {
 
     saveURIList : function(urls, outFiles, referrer, postData) {
         if (!this.onFinish) {
-            throw new Error("UrlDownloader: the onFinish is not valid");
+            throw new Error("ViewSourceWithUrlDownloader: the onFinish is not valid");
         }
         this.urls = urls;
         this.outFiles = outFiles;
@@ -60,7 +60,7 @@ UrlDownloader.prototype = {
 
     saveDocument : function(documentToSave, urlToSave, outFile) {
         if (!this.onFinish) {
-            throw new Error("UrlDownloader: the onFinish is not valid");
+            throw new Error("ViewSourceWithUrlDownloader: the onFinish is not valid");
         }
         this.urls = [urlToSave];
         this.outFiles = [outFile];

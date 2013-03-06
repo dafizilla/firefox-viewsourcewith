@@ -73,7 +73,7 @@ var gVSWResources = {
             fileNames.push(filePath);
         }
 
-        var ud = new UrlDownloader();
+        var ud = new ViewSourceWithUrlDownloader();
         ud.onFinish = this.onOpenResources;
         ud.saveURIList(urls, fileNames);
     },
