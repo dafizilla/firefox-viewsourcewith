@@ -41,7 +41,7 @@ var gViewSourceWithMain = {
 
         var doc = window.content.document;
         thiz._linkInfo.init(doc, thiz.prefs);
-        thiz._resources = new Resources(doc);
+        thiz._resources = new ViewSourceWithResources(doc);
 
         gViewSourceWithMain.insertMenuItems(
                 document.getElementById("viewsourcewithMenuPopup"),
@@ -56,7 +56,7 @@ var gViewSourceWithMain = {
         var doc = gContextMenu.target.ownerDocument;
 
         gViewSourceWithMain._linkInfo.init(doc, thiz.prefs);
-        thiz._resources = new Resources(doc);
+        thiz._resources = new ViewSourceWithResources(doc);
 
         // Create popup if it not already exists
         if (popup == null) {
@@ -87,7 +87,7 @@ var gViewSourceWithMain = {
         thiz._linkInfo.url = doc.location.href;
         thiz._linkInfo.prefs = thiz.prefs;
 
-        thiz._resources = new Resources(doc);
+        thiz._resources = new ViewSourceWithResources(doc);
         thiz.insertMenuItems(
                 document.getElementById("vswMenuPopupQuickFrame"),
                 thiz.viewPageFromCtxMenu, false, true);
@@ -100,7 +100,7 @@ var gViewSourceWithMain = {
 
         var doc = window.content.document;
         gViewSourceWithMain._linkInfo.init(doc, thiz.prefs);
-        thiz._resources = new Resources(doc);
+        thiz._resources = new ViewSourceWithResources(doc);
 
         var frameDoc = ViewSourceWithCommon.getFocusedDocument(document);
         thiz.insertMenuItems(event.target, thiz.viewPageFromViewMenu,
@@ -113,7 +113,7 @@ var gViewSourceWithMain = {
     initCtxConsoleMenu : function(event) {
         var thiz = gViewSourceWithMain;
 
-        thiz._resources = new Resources(null);
+        thiz._resources = new ViewSourceWithResources(null);
         thiz.insertMenuItems(event.target, thiz.viewPageFromConsoleMenu,
                              true, false);
         return true;

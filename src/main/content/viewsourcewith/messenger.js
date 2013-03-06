@@ -94,7 +94,7 @@ var gViewSourceWithMessenger = {
             fnViewPage = gViewSourceWithMessenger.openMessagesFromThreadPane;
         }
         this.goUpdateEditorCommands();
-        gViewSourceWithMain._resources = new Resources(null);
+        gViewSourceWithMain._resources = new ViewSourceWithResources(null);
 
         gViewSourceWithMain.insertMenuItems(event.target, fnViewPage,
                              true, false);
@@ -106,7 +106,7 @@ var gViewSourceWithMessenger = {
     },
 
     initComposeMenu : function(event) {
-        gViewSourceWithMain._resources = new Resources(null);
+        gViewSourceWithMain._resources = new ViewSourceWithResources(null);
 
         gViewSourceWithMain.insertMenuItems(event.target,
                     gViewSourceWithMessenger.openMessageFromCompose,

@@ -1,27 +1,27 @@
 const VSW_STYLE_TYPE = 0;
 const VSW_SCRIPT_TYPE = 1;
 
-function MapData() {
+function ViewSourceWithMapData() {
     this.data = new Array();
     this.length = 0;
 }
 
-function Resources(doc) {
+function ViewSourceWithResources(doc) {
     this.doc = doc;
 
     // hold the elements for the passed doc
-    this.styleSheets = new MapData();
+    this.styleSheets = new ViewSourceWithMapData();
     // hold the elements for all frame documents (if any)
     // duplicated urls are not present (eg two frames importing same css)
-    this.allStyleSheets = new MapData();
+    this.allStyleSheets = new ViewSourceWithMapData();
 
-    this.scripts = new MapData();
-    this.allScripts = new MapData();
+    this.scripts = new ViewSourceWithMapData();
+    this.allScripts = new ViewSourceWithMapData();
     this.resFrames = [];
     this.alreadyInitialized = false;
 }
 
-Resources.prototype = {
+ViewSourceWithResources.prototype = {
     init : function() {
         if (!this.doc || this.alreadyInitialized) {
             return;
@@ -37,7 +37,7 @@ Resources.prototype = {
             this.getStyleSheets(frameDoc, this.allStyleSheets);
             this.getScripts(frameDoc, this.allScripts);
 
-            var resFrame = new Resources(frameDoc);
+            var resFrame = new ViewSourceWithResources(frameDoc);
             resFrame.init();
             this.resFrames.push(resFrame);
         }
