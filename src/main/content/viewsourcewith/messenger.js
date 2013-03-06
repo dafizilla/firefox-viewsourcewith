@@ -86,7 +86,7 @@ var gViewSourceWithMessenger = {
         var isEnabled = GetNumSelectedMessages() > 0;
 
         goSetCommandEnabled("cmd_vswEnabledEditor", isEnabled);
-        goSetCommandEnabled("cmd_runDefaultEditor", isEnabled);
+        goSetCommandEnabled("cmd_vswRunDefaultEditor", isEnabled);
     },
 
     initThreadPaneMenu : function(event, fnViewPage) {

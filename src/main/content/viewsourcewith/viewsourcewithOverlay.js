@@ -585,7 +585,7 @@ var gViewSourceWithMain = {
                           document.getElementById("key_viewsourcewith"));
 
         var keyset = document.getElementById("key_viewsourcewith").parentNode;
-        var cmdset = document.getElementById("cmd_runDefaultEditor").parentNode;
+        var cmdset = document.getElementById("cmd_vswRunDefaultEditor").parentNode;
 
         thiz.removeChildrenByIdPrefix(keyset, "viewsourcewithEditor");
         thiz.removeChildrenByIdPrefix(cmdset, "cmd_viewsourcewithEditor");

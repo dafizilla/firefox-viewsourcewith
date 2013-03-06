@@ -22,7 +22,7 @@
     <script type="application/x-javascript" src="chrome://viewsourcewith/content/messenger.js" />
 
     <commandset id="viewSourceWithCommands">
-        <command id="cmd_runDefaultEditor" oncommand="gViewSourceWithMain.runEditor(event, gViewSourceWithMain.prefs.editorDefaultIndex, gViewSourceWithMain.prefs.openFocusWin);" />
+        <command id="cmd_vswRunDefaultEditor" oncommand="gViewSourceWithMain.runEditor(event, gViewSourceWithMain.prefs.editorDefaultIndex, gViewSourceWithMain.prefs.openFocusWin);" />
         <command id="cmd_vswEnabledEditor" />
         <command id="cmd_vswAttachment" />
 
@@ -33,7 +33,7 @@
     <!-- Common key key_viewsourcewith -->
     <key id="key_viewsourcewith"
          key="&viewsourcewith.commandkey;"
-         command="cmd_runDefaultEditor"
+         command="cmd_vswRunDefaultEditor"
          modifiers="accel,shift"/>
 
     <!-- Common menu vswMenuQuickFrame -->
