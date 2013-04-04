@@ -1,5 +1,5 @@
 <!DOCTYPE extension [
-<!ENTITY extension.version "0.9.3">
+<!ENTITY extension.version "0.9.4">
 ]>
 
 <extension name="viewsourcewith">
@@ -104,15 +104,15 @@
         <application>
             <description>Firefox</description>
             <id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</id>
-            <minVersion>12.0</minVersion>
-            <maxVersion>18.*</maxVersion>
+            <minVersion>15.0</minVersion>
+            <maxVersion>20.*</maxVersion>
         </application>
         
         <application>
             <description>Thunderbird</description>
             <id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</id>
-            <minVersion>12.0</minVersion>
-            <maxVersion>18.*</maxVersion>
+            <minVersion>15.0</minVersion>
+            <maxVersion>20.*</maxVersion>
         </application>
         
         <!--
