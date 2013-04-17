@@ -35,7 +35,7 @@ var ViewSourceWithInputText = {
             target.filePath = filePath;
             target.lastModifiedTime = filePath.lastModifiedTime;
             target.setModified(false);
-            target.addEventListener("focus", new FocusHandler(target), true);
+            target.addEventListener("focus", new ViewSourceWithFocusHandler(target), true);
         } catch (err) {
             alert("Error while saving " + filePath.path + " more details on Error Console");
             ViewSourceWithCommon.log("ViewSourceWithInputText:viewText error : " + err);
@@ -159,7 +159,7 @@ var ViewSourceWithInputText = {
         target.lastModifiedTime = target.filePath.lastModifiedTime;
         target.setModified(false);
         if (!target.listenForModification) {
-            target.addEventListener("focus", new FocusHandler(target), true);
+            target.addEventListener("focus", new ViewSourceWithFocusHandler(target), true);
             ViewSourceWithCommon.log('register for modification');
         } else {
             ViewSourceWithCommon.log('already registered for modification');
@@ -167,11 +167,11 @@ var ViewSourceWithInputText = {
     }
 }
 
-function FocusHandler(textTarget) {
+function ViewSourceWithFocusHandler(textTarget) {
     this._textTarget = textTarget;
 }
 
-FocusHandler.prototype = {
+ViewSourceWithFocusHandler.prototype = {
     handleEvent : function(event) {
         var textTarget = this._textTarget;
 

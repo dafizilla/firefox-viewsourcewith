@@ -11,6 +11,7 @@ function ViewSourceWithUrlDownloader() {
     this.urls = [];
     this.outFiles = [];
     this.callbackObject = null;
+    this.sourceWindow = null;
 }
 
 ViewSourceWithUrlDownloader.prototype = {
@@ -119,7 +120,18 @@ ViewSourceWithUrlDownloader.prototype = {
                                | nsIWBP.PERSIST_FLAGS_FROM_CACHE;
 
         var uri = ViewSourceWithCommon.makeURL(url);
-        persist.saveURI(uri, null, referrer, postData, null, outFile, null);
+        var privacyContext = null;
+        if (this.sourceWindow) {
+            try {
+                privacyContext = this.sourceWindow
+                        .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                        .getInterface(Components.interfaces.nsIWebNavigation)
+                        .QueryInterface(Components.interfaces.nsILoadContext);
+            } catch (err) {
+                ViewSourceWithCommon.log('Unable to obtain a valid privacyContext');
+            }
+        }
+        persist.saveURI(uri, null, referrer, postData, null, outFile, privacyContext);
     },
 
     internalSaveDocument : function(documentToSave, outFile) {

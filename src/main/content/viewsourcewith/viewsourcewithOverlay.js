@@ -189,6 +189,7 @@ var gViewSourceWithMain = {
                     false,
                     viewSourceWithFactory.getTempCleaner());
             var saver = new ViewSourceWithUrlDownloader();
+            saver.sourceWindow = documentToSave.defaultView ? documentToSave.defaultView : null;
             saver.callbackObject = { editorData : editorData,
                                      urlMapperData : prefs.urlMapperData};
             saver.onFinish = gViewSourceWithMain.onFinishRunEditor;
@@ -219,6 +220,7 @@ var gViewSourceWithMain = {
                                      urlMapperData : prefs.urlMapperData};
             saver.onFinish = gViewSourceWithMain.onFinishRunEditor;
 
+            saver.sourceWindow = documentToSave.defaultView ? documentToSave.defaultView : null;
             saver.saveURIFromCache(
                 ViewSourceWithBrowserHelper.getPageDescriptor(documentToSave),
                 gViewSourceWithMain._linkInfo.url,
@@ -886,6 +888,7 @@ var gViewSourceWithMain = {
                                  col : selectedItem.getAttribute("col"),
                                  urlMapperData : thiz.prefs.urlMapperData};
         saver.onFinish = thiz.onFinishRunEditor;
+        saver.sourceWindow = document.defaultView ? document.defaultView : null;
         saver.saveURIList(urls, fileNames);
     },
 

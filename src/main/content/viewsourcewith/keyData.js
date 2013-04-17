@@ -6,10 +6,12 @@ ViewSourceWithKeyData.localeKeys = Components.classes["@mozilla.org/intl/stringb
 
 ViewSourceWithKeyData.VKNames = [];
 
-for (var property in KeyEvent) {
-    ViewSourceWithKeyData.VKNames[KeyEvent[property]] = property.replace("DOM_","");
+ViewSourceWithKeyData.mapKeyEvent = function() {
+    for (var property in KeyEvent) {
+        ViewSourceWithKeyData.VKNames[KeyEvent[property]] = property.replace("DOM_","");
+    }
+    ViewSourceWithKeyData.VKNames[8] = "VK_BACK";
 }
-ViewSourceWithKeyData.VKNames[8] = "VK_BACK";
 
 ViewSourceWithKeyData.getStringFromVK = function(keyCode) {
     if (keyCode) {
@@ -179,3 +181,5 @@ ViewSourceWithKeyData.setKeyTag = function(keyData, keyNode) {
     }
     keyNode.setAttribute("modifiers", keyData.modifiers);
 }
+
+ViewSourceWithKeyData.mapKeyEvent();
