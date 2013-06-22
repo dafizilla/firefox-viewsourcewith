@@ -5,9 +5,6 @@
 Components.utils.import("resource://vsw/common.jsm");
 
 const VSW_DOC_TYPE = 2;
-var grayedCellProperties = Components.classes["@mozilla.org/atom-service;1"]
-            .getService(Components.interfaces.nsIAtomService)
-            .getAtom("grayedCell");
 
 var gVSWResources = {
     resExtensions : [],
@@ -421,9 +418,9 @@ ResourceTreeView.prototype = {
     isSeparator: function(row){ return false; },
     isSorted: function(row){ return false; },
     getLevel: function(row){ return 0; },
-    getRowProperties: function(row,props){},
-    getCellProperties: function(row,col,props){},
-    getColumnProperties: function(colid,col,props){},
+    getRowProperties: function(row){return "";},
+    getCellProperties: function(row,col){return "";},
+    getColumnProperties: function(colid,col){return "";},
 
     onEvent : function(evt) {},
     supportsCommand : function(cmd) {
@@ -576,17 +573,13 @@ DocumentTreeView.prototype.constructor = DocumentTreeView;
     this.cycleHeader = function(col, elem) {
     };
 
-    this.getCellProperties = function(row, column, props) {
-        var prop = null;
+    this.getCellProperties = function(row, column) {
         var item = this.visibleItems[row];
 
         if (!item.isUrlValid) {
-            prop = grayedCellProperties;
+            return "grayedCell";
         }
-
-        if (prop) {
-            props.AppendElement(prop);
-        }
+        return "";
     };
     //this.__defineGetter__("rowCount", function() {});
     //this.setTree = function(treebox){}

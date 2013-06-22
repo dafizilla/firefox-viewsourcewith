@@ -141,7 +141,7 @@ TreeViewFileExtensionMapper.prototype = {
     isSeparator: function(row){ return false; },
     isSorted: function(row){ return false; },
     getLevel: function(row){ return 0; },
-    getRowProperties: function(row,props){},
-    getCellProperties: function(row,col,props){},
-    getColumnProperties: function(colid,col,props){}
+    getRowProperties: function(row){return "";},
+    getCellProperties: function(row,col){return "";},
+    getColumnProperties: function(colid,col){return "";}
 };
