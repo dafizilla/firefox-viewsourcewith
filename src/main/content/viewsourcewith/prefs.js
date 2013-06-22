@@ -571,7 +571,7 @@ ViewSourceWithPrefs.prototype = {
     },
 
     getVersion : function(doc) {
-        return doc.firstChild.attributes.getNamedItem("version").nodeValue;
+        return doc.firstChild.attributes.getNamedItem("version").value;
     },
 
     getTagValue : function(doc, tagName, defValue) {

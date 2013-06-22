@@ -30,13 +30,13 @@ ViewSourceWithKeyData.fromAttributes = function(attributes) {
         var n = attributes.item(i);
 
         if (n.nodeName == "accel") {
-            kd.accel = ViewSourceWithCommon.isTrue(n.nodeValue);
+            kd.accel = ViewSourceWithCommon.isTrue(n.value);
         } else if (n.nodeName == "keyCode") {
-            kd.keyCode = KeyEvent["DOM_" + n.nodeValue];
+            kd.keyCode = KeyEvent["DOM_" + n.value];
         } else if (n.nodeName == "key") {
-            kd.key = n.nodeValue.charCodeAt(0);
+            kd.key = n.value.charCodeAt(0);
         } else if (n.nodeName == "shift") {
-            kd.shift = ViewSourceWithCommon.isTrue(n.nodeValue);
+            kd.shift = ViewSourceWithCommon.isTrue(n.value);
         }
     }
 
