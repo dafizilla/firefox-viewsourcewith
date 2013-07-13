@@ -16,6 +16,7 @@
 <dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
         id="viewsourcewithSettingsDialog"
         minwidth="400"
+        height="200"
         onload="return gViewSourceSettings.onLoad();"
         ondialogaccept="return gViewSourceSettings.onAccept();"
         buttons="accept,cancel"
