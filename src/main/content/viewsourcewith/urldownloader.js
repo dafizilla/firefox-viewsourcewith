@@ -131,7 +131,7 @@ ViewSourceWithUrlDownloader.prototype = {
                 ViewSourceWithCommon.log('Unable to obtain a valid privacyContext');
             }
         }
-        persist.saveURI(uri, null, referrer, postData, null, outFile, privacyContext);
+        persist.saveURI(uri, null, referrer, postData, null, null, outFile, privacyContext);
     },
 
     internalSaveDocument : function(documentToSave, outFile) {
